@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Footprints } from 'lucide-react'
+import { museumMode } from '../app-mode'
 import { useI18n } from '../i18n/I18nProvider'
 import type {
   ViewerController,
@@ -163,9 +164,9 @@ export function ViewerStage({
         reviewCanvas = container.querySelector<ReviewCanvas>('.viewer-canvas')
         if (
           reviewCanvas &&
-          (import.meta.env.MODE === 'review' ||
-            import.meta.env.MODE === 'model-still' ||
-            import.meta.env.MODE === 'e2e')
+          (museumMode === 'review' ||
+            museumMode === 'model-still' ||
+            museumMode === 'e2e')
         ) {
           reviewCanvas.__museumReviewSetAnimationTime = (time) =>
             controller?.setReviewAnimationTime(time) ?? false

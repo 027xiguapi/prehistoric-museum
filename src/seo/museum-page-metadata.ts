@@ -1,0 +1,74 @@
+import type { Metadata } from 'next'
+
+import type { Locale } from '../content/types'
+import { staticAnimalDetailIds } from '../content/static-animal-details'
+import { localePreferenceStorageKey } from '../i18n/locale'
+import {
+  museumCanonicalUrl,
+  museumSocialImageUrl,
+  seoPageCopy,
+} from './metadata'
+
+export function museumPageMetadata(locale: Locale): Metadata {
+  const copy = seoPageCopy[locale]
+  const canonical = museumCanonicalUrl(locale)
+  const socialImage = museumSocialImageUrl(locale)
+  const ogLocale = locale === 'zh-CN' ? 'zh_CN' : 'en_GB'
+  const ogAlternate = locale === 'zh-CN' ? 'en_GB' : 'zh_CN'
+
+  return {
+    title: copy.title,
+    description: copy.description,
+    robots: 'index, follow, max-image-preview:large',
+    alternates: {
+      canonical,
+      languages: {
+        'zh-CN': museumCanonicalUrl('zh-CN'),
+        en: museumCanonicalUrl('en'),
+        'x-default': museumCanonicalUrl('x-default'),
+      },
+    },
+    openGraph: {
+      type: 'website',
+      siteName: copy.brand,
+      locale: ogLocale,
+      alternateLocale: ogAlternate,
+      title: copy.title,
+      description: copy.description,
+      url: canonical,
+      images: [
+        {
+          url: socialImage,
+          type: 'image/png',
+          width: 1200,
+          height: 630,
+          alt: copy.socialImageAlt,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: copy.title,
+      description: copy.description,
+      images: [{ url: socialImage, alt: copy.socialImageAlt }],
+    },
+  }
+}
+
+// Mirrors the former `data-museum-query-redirect` inline script: legacy
+// `?animal=x` museum links normalize to the matching detail URL client-side
+// before the application boots.
+export function museumQueryRedirectSource(detailBase: string): string {
+  const animalIds = JSON.stringify(staticAnimalDetailIds)
+  return `(function(){var p=new URLSearchParams(location.search),a=p.get('animal');if(!a||!${animalIds}.includes(a))return;p.delete('animal');var u=new URL(${JSON.stringify(detailBase)}+encodeURIComponent(a)+'/',location.href);u.search=p.toString();u.hash=location.hash;history.replaceState(history.state,'',u.href);location.reload()})()`
+}
+
+// Root-entry variant: `/?animal=x` resolves the locale the same way the app
+// boots (saved `museum.locale` preference first, then browser languages)
+// before redirecting to `/{locale}/{animal}/`.
+export function museumRootQueryRedirectSource(): string {
+  const animalIds = JSON.stringify(staticAnimalDetailIds)
+  return `(function(){var p=new URLSearchParams(location.search),a=p.get('animal');if(!a||!${animalIds}.includes(a))return;p.delete('animal');var l;try{l=localStorage.getItem(${JSON.stringify(
+    localePreferenceStorageKey,
+  )})}catch(e){}if(l!=='zh-CN'&&l!=='en'){l=(navigator.languages||[navigator.language]).some(function(s){return/^zh\\b|^zh$|[-_]zh/i.test(s)})?'zh-CN':'en'}var u=new URL('./'+l+'/'+encodeURIComponent(a)+'/',location.href);u.search=p.toString();u.hash=location.hash;history.replaceState(history.state,'',u.href);location.reload()})()`
+}

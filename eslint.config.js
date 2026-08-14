@@ -9,10 +9,8 @@ export default tseslint.config(
     ignores: [
       'dist',
       'dist-model-still',
-      'cloudflare-dist',
-      'coverage',
-      'playwright-report',
-      'test-results',
+      '.next',
+      'next-env.d.ts',
       '.handoff',
       '.wayfinder',
       'assets/candidates',
@@ -52,15 +50,20 @@ export default tseslint.config(
     },
     rules: {
       ...reactHooks.configs.flat.recommended.rules,
-      ...reactRefresh.configs.vite.rules,
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
+      ],
       '@typescript-eslint/consistent-type-imports': 'error',
       '@typescript-eslint/no-floating-promises': 'error',
     },
   },
   {
-    files: ['tests/**/*.{ts,tsx}', 'e2e/**/*.ts'],
+    // App Router layouts/pages routinely export metadata and route constants
+    // alongside components; fast-refresh warnings do not apply there.
+    files: ['app/**/*.{ts,tsx}'],
     rules: {
-      '@typescript-eslint/no-non-null-assertion': 'off',
+      'react-refresh/only-export-components': 'off',
     },
   },
 )

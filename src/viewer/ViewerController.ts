@@ -11,6 +11,7 @@ import {
   WebGLRenderer,
 } from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import { museumMode } from '../app-mode'
 import {
   computeCameraFit,
   computeCompositionFieldOfView,
@@ -465,9 +466,9 @@ export class ViewerController {
    */
   setReviewAnimationTime(timeSeconds: number | null): boolean {
     if (
-      import.meta.env.MODE !== 'review' &&
-      import.meta.env.MODE !== 'model-still' &&
-      import.meta.env.MODE !== 'e2e'
+      museumMode !== 'review' &&
+      museumMode !== 'model-still' &&
+      museumMode !== 'e2e'
     ) {
       return false
     }
@@ -726,7 +727,7 @@ export class ViewerController {
   }
 
   private applyPresentationSettings(staged: StagedViewerModel): void {
-    if (import.meta.env.MODE === 'review') {
+    if (museumMode === 'review') {
       this.renderer.domElement.dataset.activeAnimalId = staged.animalId
       this.renderer.domElement.dataset.initialYawDegrees = String(
         staged.descriptor.presentation.initialYawDegrees,
@@ -845,7 +846,7 @@ export class ViewerController {
     this.renderer.setAnimationLoop((time) => {
       const deltaSeconds = Math.min(Math.max((time - this.lastFrameTime) / 1_000, 0), 0.1)
       this.lastFrameTime = time
-      if (import.meta.env.MODE === 'review') {
+      if (museumMode === 'review') {
         const requestedReviewTime = Number(
           this.renderer.domElement.dataset.reviewAnimationTime,
         )
@@ -874,7 +875,7 @@ export class ViewerController {
         }
       }
       this.transition?.outgoing.mixer?.update(deltaSeconds)
-      if (import.meta.env.MODE === 'review') {
+      if (museumMode === 'review') {
         const action = this.current?.action
         this.renderer.domElement.dataset.animationTime = action
           ? action.time.toFixed(4)

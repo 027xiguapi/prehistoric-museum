@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url'
 import {
   createSeoSocialCardManifest,
   renderSocialCardPng,
-} from './multilingual-seo'
+} from './seo-social-card-rendering'
 
 const outputDirectory = fileURLToPath(
   new URL('../public/social/', import.meta.url),

@@ -1,5 +1,7 @@
+import { createReadStream, statSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
+import { Readable } from 'node:stream'
 
 import {
   MODEL_PREVIEW_MANIFEST_FILE,
@@ -443,3 +445,159 @@ const routeFilePairs = Object.entries(reviewAnimalFiles).flatMap(
 export const localReviewAssetFiles: ReadonlyMap<string, string> = new Map(
   routeFilePairs,
 )
+
+function reviewContentType(fileName: string): string {
+  if (fileName.endsWith('.glb')) {
+    return 'model/gltf-binary'
+  }
+  if (fileName.endsWith('.mp3')) {
+    return 'audio/mpeg'
+  }
+  if (fileName.endsWith('.png')) {
+    return 'image/png'
+  }
+  if (fileName.endsWith('.webp')) {
+    return 'image/webp'
+  }
+  if (fileName.endsWith('.json')) {
+    return 'application/json; charset=utf-8'
+  }
+  return 'application/octet-stream'
+}
+
+// Review URLs are stable while their local files can change. `no-cache` keeps
+// the response body reusable after an ETag revalidation; `no-store` would make
+// every revisit transfer the full model again over Tailscale.
+const reviewAssetCacheControl = 'private, no-cache'
+
+function reviewAssetEtag(size: number, mtimeMs: number): string {
+  return `W/"${size.toString(16)}-${Math.trunc(mtimeMs).toString(16)}"`
+}
+
+function requestHasFreshReviewAsset(
+  request: Request,
+  etag: string,
+  modifiedAt: Date,
+): boolean {
+  const ifNoneMatch = request.headers.get('if-none-match')
+  if (ifNoneMatch !== null) {
+    return ifNoneMatch
+      .split(',')
+      .map((candidate) => candidate.trim())
+      .some((value) => value === '*' || value === etag)
+  }
+
+  const ifModifiedSince = request.headers.get('if-modified-since')
+  if (ifModifiedSince === null) {
+    return false
+  }
+  const cachedTime = Date.parse(ifModifiedSince)
+  return (
+    Number.isFinite(cachedTime) &&
+    Math.floor(modifiedAt.getTime() / 1_000) <= Math.floor(cachedTime / 1_000)
+  )
+}
+
+function reviewAssetBody(
+  absolutePath: string,
+  range?: { readonly start: number; readonly end: number },
+): BodyInit {
+  // `Readable.toWeb` returns the Node stream/web flavour; the runtime value
+  // is the global web stream, so re-type it for the DOM lib `Response`.
+  return Readable.toWeb(
+    createReadStream(absolutePath, range),
+  ) as unknown as ReadableStream<Uint8Array>
+}
+
+// Review URL segments arrive already decoded from the catch-all route param,
+// so the lookup key mirrors the historic `pathname` contract of the former
+// custom Node server.
+export function handleLocalReviewAssetRequest(
+  assetPathSegments: readonly string[],
+  request: Request,
+): Response {
+  const headers = new Headers()
+  headers.set('X-Content-Type-Options', 'nosniff')
+  if (request.method !== 'GET' && request.method !== 'HEAD') {
+    headers.set('Cache-Control', 'no-store')
+    headers.set('Allow', 'GET, HEAD')
+    return new Response('Local review assets are read-only.', {
+      status: 405,
+      headers,
+    })
+  }
+  const pathname = `${localReviewAssetPrefix}/${assetPathSegments.join('/')}`
+  const absolutePath = localReviewAssetFiles.get(pathname)
+  if (!absolutePath) {
+    headers.set('Cache-Control', 'no-store')
+    return new Response('Unknown local review asset.', {
+      status: 404,
+      headers,
+    })
+  }
+
+  let size: number
+  let modifiedAt: Date
+  let modifiedAtMs: number
+  try {
+    const fileStat = statSync(absolutePath)
+    if (!fileStat.isFile()) {
+      throw new Error('Not a regular file.')
+    }
+    size = fileStat.size
+    modifiedAt = fileStat.mtime
+    modifiedAtMs = fileStat.mtimeMs
+  } catch {
+    headers.set('Cache-Control', 'no-store')
+    return new Response(
+      'Local review asset is missing. Run npm run validate:review.',
+      { status: 404, headers },
+    )
+  }
+
+  const etag = reviewAssetEtag(size, modifiedAtMs)
+  headers.set('Cache-Control', reviewAssetCacheControl)
+  headers.set('ETag', etag)
+  headers.set('Last-Modified', modifiedAt.toUTCString())
+  headers.set('Accept-Ranges', 'bytes')
+  headers.set('Content-Type', reviewContentType(absolutePath))
+
+  if (requestHasFreshReviewAsset(request, etag, modifiedAt)) {
+    return new Response(null, { status: 304, headers })
+  }
+
+  const range = request.headers.get('range')?.match(/^bytes=(\d+)-(\d*)$/)
+  if (range) {
+    const start = Number(range[1])
+    const requestedEnd = range[2] ? Number(range[2]) : size - 1
+    const end = Math.min(requestedEnd, size - 1)
+    if (
+      !Number.isSafeInteger(start) ||
+      !Number.isSafeInteger(end) ||
+      start < 0 ||
+      start > end ||
+      start >= size
+    ) {
+      headers.set('Content-Range', `bytes */${size}`)
+      return new Response(null, { status: 416, headers })
+    }
+    headers.set('Content-Length', String(end - start + 1))
+    headers.set('Content-Range', `bytes ${start}-${end}/${size}`)
+    if (request.method === 'HEAD') {
+      return new Response(null, { status: 206, headers })
+    }
+    return new Response(reviewAssetBody(absolutePath, { start, end }), {
+      status: 206,
+      headers,
+    })
+  }
+
+  headers.set('Content-Length', String(size))
+  if (request.method === 'HEAD') {
+    return new Response(null, { status: 200, headers })
+  }
+  return new Response(reviewAssetBody(absolutePath), {
+    status: 200,
+    headers,
+  })
+}

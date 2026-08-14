@@ -92,7 +92,7 @@ function localizedCanonical(
     return root.href
   }
   return new URL(
-    animalId ? `${variant}/animals/${animalId}/` : `${variant}/`,
+    animalId ? `${variant}/${animalId}/` : `${variant}/`,
     root,
   ).href
 }
@@ -197,7 +197,7 @@ export function updateLocalizedMetadata({
   const ogLocale = locale === 'zh-CN' ? 'zh_CN' : 'en_GB'
   const alternateLocale = locale === 'zh-CN' ? 'en_GB' : 'zh_CN'
   const socialImage = animalDetail
-    ? new URL(`animals/${animalDetail.id}/social.webp`, root).href
+    ? new URL(`${animalDetail.id}/social.webp`, root).href
     : new URL(`social/museum.${variant}.png`, root).href
   const metadataTitle = animalDetail ? documentTitle : museumTitle
   const imageAlt = animalDetail?.name ?? socialImageAlt

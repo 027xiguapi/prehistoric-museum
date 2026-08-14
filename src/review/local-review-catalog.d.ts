@@ -2,7 +2,14 @@
  * Ambient virtual modules cannot use a normal relative type import without
  * turning this declaration into an invalid module augmentation.
  */
-declare module 'virtual:local-review-catalog' {
+declare module '$museum-review-catalog' {
   const localReviewAnimals: readonly import('./types').DisplayableAnimalPackage[]
   export { localReviewAnimals }
+}
+
+declare module '$museum-review-runtime' {
+  export function reviewModelPreviewUrl(
+    animalId: string,
+    fileName: string,
+  ): string
 }

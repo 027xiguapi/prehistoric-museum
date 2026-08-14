@@ -27,6 +27,7 @@ import {
   useSyncExternalStore,
 } from 'react'
 import { NarrationController, getNarrationControlLabel } from './audio'
+import { museumMode } from './app-mode'
 import {
   animalDetailIdFromPath,
   type AppPageKind,
@@ -58,7 +59,7 @@ import { I18nProvider, useI18n } from './i18n/I18nProvider'
 import { localeFromPath, type Locale } from './i18n/locale'
 import { updateLocalizedMetadata } from './i18n/metadata'
 import { dietLabel, formatSizeFact, messagesFor } from './i18n/messages'
-import { localReviewAnimals } from 'virtual:local-review-catalog'
+import { localReviewAnimals } from './review/active-catalog'
 import {
   MODEL_DATA_REMINDER_STORAGE_KEY,
   NARROW_TOUCH_MEDIA_QUERY,
@@ -158,12 +159,12 @@ function animalDetailHref(
       ? rootFallback
       : localeFromPath(window.location.pathname) === null
   return needsLocaleSegment
-    ? `./${locale}/animals/${animalId}/`
-    : `./animals/${animalId}/`
+    ? `./${locale}/${animalId}/`
+    : `./${animalId}/`
 }
 
-function museumExhibitHref(locale: Locale, animalId: string): string {
-  return `../../../${locale}/?animal=${encodeURIComponent(animalId)}`
+function museumExhibitHref(locale: Locale): string {
+  return `../../${locale}/`
 }
 
 interface WindowWithIdleCallback {
@@ -396,7 +397,7 @@ function toRuntimeAnimal(
   }
 }
 
-const localReviewMode = import.meta.env.MODE === 'review'
+const localReviewMode = museumMode === 'review'
 const initialLoadSnapshot: AnimalLoadSnapshot = {
   readyAnimalId: null,
   requestedAnimalId: defaultPackage.id,
@@ -420,16 +421,14 @@ function readInitialAnimal(
   )
 }
 
-function replaceAnimalUrl(
-  animalId: string,
-  pageKind: AppPageKind,
-): void {
+function replaceAnimalUrl(animalId: string, locale: Locale): void {
   const url = new URL(window.location.href)
-  if (pageKind === 'animal-detail') {
-    url.searchParams.delete('animal')
-  } else {
-    url.searchParams.set('animal', animalId)
-  }
+  // `/{prefix}/{locale}/{animalId}/` — the prefix keeps any configured
+  // basePath intact; a locale-less root path gets the locale inserted.
+  const localized = url.pathname.match(/^(.*\/)(?:zh-CN|en)(?:\/|$)/)
+  const prefix = localized ? localized[1] : url.pathname.replace(/[^/]*$/, '')
+  url.pathname = `${prefix}${locale}/${animalId}/`
+  url.searchParams.delete('animal')
   window.history.replaceState(
     window.history.state,
     '',
@@ -565,7 +564,7 @@ function waitForInitialMinimum(
     '(prefers-reduced-motion: reduce)',
   ).matches
   const minimum =
-    import.meta.env.MODE === 'test'
+    museumMode === 'test'
       ? 0
       : reducedMotion
         ? REDUCED_MOTION_INITIAL_MINIMUM_MS
@@ -651,7 +650,7 @@ function preloadImageAsset(
 }
 
 function readE2EFixturesEnabled(): boolean {
-  if (import.meta.env.MODE !== 'e2e' || typeof window === 'undefined') {
+  if (museumMode !== 'e2e' || typeof window === 'undefined') {
     return false
   }
   return new URLSearchParams(window.location.search).get('fixtures') === '1'
@@ -683,7 +682,7 @@ function MuseumApp({
   )
   const e2eFixtureAnimals = useMemo(
     () =>
-      import.meta.env.MODE === 'e2e'
+      museumMode === 'e2e'
         ? makeE2EFixtures(defaultAnimal, locale)
         : [],
     [defaultAnimal, locale],
@@ -1290,7 +1289,7 @@ function MuseumApp({
           throw new Error(`没有找到动物 ${animalId}。`)
         }
         let ignoreAbort = false
-        if (import.meta.env.MODE === 'e2e') {
+        if (museumMode === 'e2e') {
           const behavior = animal.testBehavior
           const attempt = (attemptsRef.current.get(animalId) ?? 0) + 1
           attemptsRef.current.set(animalId, attempt)
@@ -1372,7 +1371,7 @@ function MuseumApp({
         const cachedBackground =
           preloadedImagesRef.current.get(selectedBackground)
         const backgroundPromise =
-          import.meta.env.MODE === 'test'
+          museumMode === 'test'
             ? Promise.resolve<HTMLImageElement | null>(null)
             : cachedBackground
               ? Promise.resolve(cachedBackground)
@@ -1439,7 +1438,7 @@ function MuseumApp({
           setModelLoadingProgress(null)
         }
         setViewerFailure(null)
-        replaceAnimalUrl(localizedAnimal.id, pageKindRef.current)
+        replaceAnimalUrl(localizedAnimal.id, locale)
         narration.commit({
           animalId: localizedAnimal.id,
           source: localizedAnimal.assets.narration,
@@ -1489,6 +1488,7 @@ function MuseumApp({
   }, [
     clearLargeModelNotice,
     idlePreloadTargets,
+    locale,
     modelCache,
     narration,
     scheduleLargeModelNotice,
@@ -1587,22 +1587,19 @@ function MuseumApp({
     }
   }, [focusMode])
 
-  const leaveAnimalDetailRoute = useCallback(
-    (animalId: string) => {
-      if (pageKindRef.current !== 'animal-detail') {
-        return
-      }
-      pageKindRef.current = 'museum'
-      detailAnimalIdRef.current = null
-      window.history.replaceState(
-        window.history.state,
-        '',
-        museumExhibitHref(locale, animalId),
-      )
-      setPageKind('museum')
-    },
-    [locale],
-  )
+  const leaveAnimalDetailRoute = useCallback(() => {
+    if (pageKindRef.current !== 'animal-detail') {
+      return
+    }
+    pageKindRef.current = 'museum'
+    detailAnimalIdRef.current = null
+    window.history.replaceState(
+      window.history.state,
+      '',
+      museumExhibitHref(locale),
+    )
+    setPageKind('museum')
+  }, [locale])
 
   const requestAnimal = (animalId: string) => {
     const coordinator = coordinatorRef.current
@@ -1621,7 +1618,7 @@ function MuseumApp({
       pageKindRef.current === 'animal-detail' &&
       animalId !== detailAnimalIdRef.current
     ) {
-      leaveAnimalDetailRoute(animalId)
+      leaveAnimalDetailRoute()
     }
     idlePreloadCoordinatorRef.current?.cancelAll()
     clearLargeModelNotice()
@@ -1952,7 +1949,7 @@ function MuseumApp({
                 aria-label={messages.returnToMuseum}
                 className="collection-open-button"
                 data-museum-return=""
-                href={museumExhibitHref(locale, activeAnimal.id)}
+                href={museumExhibitHref(locale)}
                 onClick={(event) => {
                   if (
                     event.button !== 0 ||
@@ -1964,7 +1961,7 @@ function MuseumApp({
                     return
                   }
                   event.preventDefault()
-                  leaveAnimalDetailRoute(activeAnimal.id)
+                  leaveAnimalDetailRoute()
                   setDrawerOpen(false)
                   setAboutOpen(false)
                   setCollectionOpen(true)

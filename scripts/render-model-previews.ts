@@ -1,11 +1,12 @@
 /// <reference lib="dom" />
 
+import { spawn, type ChildProcess } from 'node:child_process'
 import { mkdir, writeFile } from 'node:fs/promises'
+import { createServer as createNetServer } from 'node:net'
 import { resolve } from 'node:path'
 
 import { chromium } from 'playwright'
 import sharp from 'sharp'
-import { createServer, type ViteDevServer } from 'vite'
 
 import {
   MODEL_PREVIEW_CONTRACT_VERSION,
@@ -24,6 +25,10 @@ import {
   resolveRequestedAnimalIds,
   sha256,
 } from './model-preview-assets'
+import {
+  installLocalReviewAssetRoute,
+  removeLocalReviewAssetRoute,
+} from './review-dev-route'
 
 const arguments_ = process.argv.slice(2)
 const target = parseModelPreviewTarget(arguments_)
@@ -32,31 +37,76 @@ const animalIds = await resolveRequestedAnimalIds(
   requestedAnimalIds(arguments_),
 )
 
-let server: ViteDevServer | undefined
+let serverProcess: ChildProcess | undefined
 const browser = await chromium.launch({ headless: true })
 
-try {
-  server = await createServer({
-    configFile: resolve(repositoryRoot, 'vite.config.ts'),
-    mode: target === 'review' ? 'review' : 'model-still',
-    server: {
-      host: '127.0.0.1',
-      port: 0,
-      strictPort: false,
-      watch: {
-        ignored: [
-          '**/images/preview-*.webp',
-          '**/model-preview.manifest.json',
-          '**/assets/review-generated/model-previews/**',
-        ],
-      },
-    },
+async function reserveFreePort(): Promise<number> {
+  return new Promise((resolvePromise, rejectPromise) => {
+    const probe = createNetServer()
+    probe.once('error', rejectPromise)
+    probe.listen(0, '127.0.0.1', () => {
+      const address = probe.address()
+      probe.close(() => {
+        if (typeof address === 'object' && address !== null) {
+          resolvePromise(address.port)
+        } else {
+          rejectPromise(new Error('Could not reserve a free preview port.'))
+        }
+      })
+    })
   })
-  await server.listen()
-  const origin = server.resolvedUrls?.local[0]
-  if (!origin) {
-    throw new Error('Vite did not expose a local model preview URL.')
+}
+
+async function waitForServerReady(origin: string): Promise<void> {
+  const deadline = Date.now() + 120_000
+  for (;;) {
+    try {
+      const response = await fetch(origin, { redirect: 'follow' })
+      await response.body?.cancel()
+      if (response.status > 0) {
+        return
+      }
+    } catch {
+      // Server is not accepting connections yet.
+    }
+    if (Date.now() > deadline) {
+      throw new Error('Museum server did not become ready in time.')
+    }
+    await new Promise((resolveSleep) => setTimeout(resolveSleep, 500))
   }
+}
+
+try {
+  const port = await reserveFreePort()
+  // Review-target renders load candidate media through the review asset
+  // route, which only exists while a review dev server runs.
+  if (target === 'review') {
+    await installLocalReviewAssetRoute()
+  }
+  serverProcess = spawn(
+    process.execPath,
+    [
+      resolve(repositoryRoot, 'node_modules/next/dist/bin/next'),
+      'dev',
+      '--hostname',
+      '127.0.0.1',
+      '--port',
+      String(port),
+    ],
+    {
+      cwd: repositoryRoot,
+      env: {
+        ...process.env,
+        NEXT_PUBLIC_MUSEUM_MODE: target === 'review' ? 'review' : 'model-still',
+        MUSEUM_BASE_PATH: '',
+      },
+      stdio: ['ignore', 'pipe', 'pipe'],
+    },
+  )
+  serverProcess.stdout?.pipe(process.stdout)
+  serverProcess.stderr?.pipe(process.stderr)
+  const origin = `http://127.0.0.1:${port}`
+  await waitForServerReady(origin)
 
   const context = await browser.newContext({
     deviceScaleFactor: 2,
@@ -228,5 +278,8 @@ try {
   await context.close()
 } finally {
   await browser.close()
-  await server?.close()
+  serverProcess?.kill()
+  if (target === 'review') {
+    await removeLocalReviewAssetRoute()
+  }
 }

@@ -5,7 +5,7 @@ import portraitUrl from './backgrounds/portrait.webp'
 import posterUrl from './images/poster.webp'
 import posterPortraitUrl from './images/poster-portrait.webp'
 import thumbnailUrl from './images/thumbnail.webp'
-import modelUrl from './model/model.glb?url'
+import modelUrl from './model/model.glb'
 
 import { createRuntimeAnimal } from '../../create-runtime-animal'
 import { animalDefinition } from './package'

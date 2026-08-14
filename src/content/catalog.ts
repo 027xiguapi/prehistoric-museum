@@ -1,3 +1,5 @@
+import { museumMode } from '../app-mode'
+import { animalModules } from './animal-modules.generated'
 import { mainCollection } from './collections/main'
 import type {
   AnimalCollection,
@@ -80,18 +82,13 @@ export function getCollectionAnimals(
   })
 }
 
-const discoveredModules = import.meta.glob<AnimalModule>(
-  './animals/*/animal.ts',
-  { eager: true },
-)
-
-export const allAnimals = discoverAnimalPackages(discoveredModules, {
-  includeDrafts: import.meta.env.DEV,
+export const allAnimals = discoverAnimalPackages(animalModules, {
+  includeDrafts: museumMode === 'development',
 })
 
 export const publishedAnimals = filterPublishedAnimals(allAnimals)
 export const productionAnimals = filterPublishedAnimals(
-  discoverAnimalPackages(discoveredModules, { includeDrafts: false }),
+  discoverAnimalPackages(animalModules, { includeDrafts: false }),
 )
 export const animalById = createAnimalIndex(allAnimals)
 export const mainAnimals = getCollectionAnimals(

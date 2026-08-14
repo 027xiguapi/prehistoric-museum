@@ -2,6 +2,10 @@ import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 
 import { loadAnimalDefinitions, repositoryRoot } from './content-data'
+import {
+  renderAnimalModulesModule,
+  renderModelPreviewModulesModule,
+} from './content-registry'
 import { renderCreditsModule, renderThirdPartyNotices } from './credits'
 import {
   validateContent,
@@ -15,10 +19,22 @@ const generatedArtifacts = [
   {
     path: 'src/content/credits.generated.ts',
     expected: renderCreditsModule(packages),
+    fixCommand: 'npm run generate:credits',
   },
   {
     path: 'THIRD_PARTY_NOTICES.md',
     expected: renderThirdPartyNotices(packages),
+    fixCommand: 'npm run generate:credits',
+  },
+  {
+    path: 'src/content/animal-modules.generated.ts',
+    expected: await renderAnimalModulesModule(),
+    fixCommand: 'npm run generate:registry',
+  },
+  {
+    path: 'src/viewer/model-preview-modules.generated.ts',
+    expected: await renderModelPreviewModulesModule(),
+    fixCommand: 'npm run generate:registry',
   },
 ]
 
@@ -34,7 +50,7 @@ for (const artifact of generatedArtifacts) {
       severity: 'error',
       code: 'GENERATED_CREDITS_STALE',
       path: artifact.path,
-      message: `${artifact.path} 缺失或已过期；请运行 npm run generate:credits。`,
+      message: `${artifact.path} 缺失或已过期；请运行 ${artifact.fixCommand}。`,
     })
   }
 }
