@@ -24,7 +24,15 @@ function normalizedBasePath(rawBasePath: string | undefined): string {
 // Defaults to the host root; set MUSEUM_BASE_PATH to serve under a prefix
 // (e.g. the e2e build uses /prehistoric-animal-museum).
 const basePath = normalizedBasePath(process.env.MUSEUM_BASE_PATH)
-const allowedDevOrigins = parseAllowedHosts(process.env.MUSEUM_ALLOWED_HOSTS)
+// LAN hosts allowed to load dev resources (phone testing). Extend with
+// MUSEUM_ALLOWED_HOSTS (comma-separated) instead of editing this list.
+const defaultDevOrigins = ['192.168.31.118']
+const allowedDevOrigins = [
+  ...new Set([
+    ...defaultDevOrigins,
+    ...parseAllowedHosts(process.env.MUSEUM_ALLOWED_HOSTS),
+  ]),
+]
 
 const nextConfig: NextConfig = {
   ...(basePath ? { basePath } : {}),

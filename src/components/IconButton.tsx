@@ -1,9 +1,17 @@
-import { forwardRef, useId, type ButtonHTMLAttributes } from 'react'
+import { forwardRef, useId, type ButtonHTMLAttributes, type ComponentType } from 'react'
 import type { LucideIcon } from 'lucide-react'
+
+/** Lucide icon or any glyph component accepting the same size props. */
+export type IconButtonIcon = ComponentType<{
+  'aria-hidden'?: boolean | string
+  className?: string
+  size?: number
+  strokeWidth?: number
+}>
 
 interface IconButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'> {
   hideTooltipOnFocus?: boolean
-  icon: LucideIcon
+  icon: LucideIcon | IconButtonIcon
   label: string
   showLabel?: boolean
 }

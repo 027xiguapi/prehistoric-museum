@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 
 import type { Metadata, Viewport } from 'next'
 import { notFound } from 'next/navigation'
+import Script from 'next/script'
 
 import '@fontsource-variable/fredoka'
 import '@fontsource-variable/noto-sans-sc'
@@ -45,7 +46,15 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Script
+          async
+          crossOrigin="anonymous"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5878114055897626"
+          strategy="afterInteractive"
+        />
+      </body>
     </html>
   )
 }

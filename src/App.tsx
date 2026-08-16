@@ -3,14 +3,12 @@ import {
   ChevronLeft,
   ChevronRight,
   Eye,
-  Info,
   Leaf,
   LayoutGrid,
   Maximize2,
   Minimize2,
   Pause,
   RotateCcw,
-  ScanLine,
   Volume2,
 } from 'lucide-react'
 import {
@@ -37,9 +35,7 @@ import {
   AnimalCollectionSheet,
   type CollectionAnimal,
 } from './components/AnimalCollectionSheet'
-import { AboutDrawer } from './components/AboutDrawer'
 import { ArViewer } from './components/ArViewer'
-import { GitHubStarPrompt } from './components/GitHubStarPrompt'
 import { IconButton } from './components/IconButton'
 import { LanguageMenu } from './components/LanguageMenu'
 import {
@@ -144,6 +140,25 @@ const LARGE_MODEL_NOTICE_DELAY_MS = 600
 const MODEL_PROGRESS_STEP = 5
 const NARRATION_IDLE_PRELOAD_DELAY_MS = 2_000
 const staticAnimalDetailIdSet = new Set<string>(staticAnimalDetailIds)
+
+/** "AR" text glyph used in place of a lucide icon on the AR button. */
+function ArGlyph({
+  size = 25,
+  style,
+}: {
+  size?: number
+  style?: CSSProperties
+}) {
+  return (
+    <span
+      aria-hidden="true"
+      className="ar-glyph"
+      style={{ fontSize: `${Math.round(size * 0.62)}px`, ...style }}
+    >
+      AR
+    </span>
+  )
+}
 
 function animalDetailHref(
   locale: Locale,
@@ -784,7 +799,6 @@ function MuseumApp({
   const viewerRequiresRemountRef = useRef(false)
   const drawerTriggerRef = useRef<HTMLButtonElement>(null)
   const collectionTriggerRef = useRef<HTMLElement>(null)
-  const aboutTriggerRef = useRef<HTMLButtonElement>(null)
   const focusTriggerRef = useRef<HTMLButtonElement>(null)
   const focusExitRef = useRef<HTMLButtonElement>(null)
   const railRef = useRef<HTMLDivElement>(null)
@@ -812,7 +826,6 @@ function MuseumApp({
     useState<ViewerFailureKind | null>(null)
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [collectionOpen, setCollectionOpen] = useState(false)
-  const [aboutOpen, setAboutOpen] = useState(false)
   const [focusMode, setFocusMode] = useState(false)
   const [arMode, setArMode] = useState(false)
   const [modelDataNotice, setModelDataNotice] =
@@ -864,7 +877,7 @@ function MuseumApp({
       setLiveMessage(messages.loading.initialExhibit(requestedAnimal.name))
     })
   }, [animalIndex, initialAnimalId, messages.loading])
-  const overlayOpen = drawerOpen || collectionOpen || aboutOpen || arMode
+  const overlayOpen = drawerOpen || collectionOpen || arMode
   const collectionAnimals = useMemo<CollectionAnimal[]>(
     () =>
       animals.map((animal) => ({
@@ -1570,16 +1583,13 @@ function MuseumApp({
       } else if (drawerOpen) {
         event.preventDefault()
         setDrawerOpen(false)
-      } else if (aboutOpen) {
-        event.preventDefault()
-        setAboutOpen(false)
       }
     }
     document.addEventListener('keydown', handleEscape)
     return () => {
       document.removeEventListener('keydown', handleEscape)
     }
-  }, [aboutOpen, collectionOpen, drawerOpen, exitFocusMode, focusMode])
+  }, [collectionOpen, drawerOpen, exitFocusMode, focusMode])
 
   useEffect(() => {
     if (focusMode) {
@@ -1846,20 +1856,6 @@ function MuseumApp({
                   ) : null}
                 </h1>
               )}
-              <button
-                aria-label={messages.creatorAboutLabel}
-                className="creator-signature-button"
-                onClick={() => {
-                  setDrawerOpen(false)
-                  setCollectionOpen(false)
-                  setAboutOpen(true)
-                }}
-                ref={aboutTriggerRef}
-                type="button"
-              >
-                <Info aria-hidden="true" size={16} strokeWidth={2.1} />
-                <span>{messages.creatorBrand}</span>
-              </button>
             </div>
             <div className="title-lockup" key={`title-${activeAnimal.id}`}>
               <div className="animal-copy">
@@ -1930,14 +1926,13 @@ function MuseumApp({
                 {activeAnimal.narrationScript.join(locale === 'zh-CN' ? '' : ' ')}
               </span>
             </div>
-            <button
-              aria-label={messages.parentInfo}
-              className="parent-info-button"
-              onClick={() => {
-                setCollectionOpen(false)
-                setAboutOpen(false)
-                setDrawerOpen(true)
-              }}
+              <button
+                aria-label={messages.parentInfo}
+                className="parent-info-button"
+                onClick={() => {
+                  setCollectionOpen(false)
+                  setDrawerOpen(true)
+                }}
               ref={drawerTriggerRef}
               type="button"
             >
@@ -1963,7 +1958,6 @@ function MuseumApp({
                   event.preventDefault()
                   leaveAnimalDetailRoute()
                   setDrawerOpen(false)
-                  setAboutOpen(false)
                   setCollectionOpen(true)
                 }}
                 ref={(element) => {
@@ -1979,7 +1973,6 @@ function MuseumApp({
                 className="collection-open-button"
                 onClick={() => {
                   setDrawerOpen(false)
-                  setAboutOpen(false)
                   setCollectionOpen(true)
                 }}
                 ref={(element) => {
@@ -2045,7 +2038,7 @@ function MuseumApp({
             />
             <IconButton
               disabled={!modelReady}
-              icon={ScanLine}
+              icon={ArGlyph}
               label={messages.ar.open}
               onClick={() => setArMode(true)}
             />
@@ -2243,17 +2236,6 @@ function MuseumApp({
         </aside>
       ) : null}
 
-      <GitHubStarPrompt
-        blocked={
-          focusMode ||
-          overlayOpen ||
-          modelDataNotice !== null ||
-          loadSnapshot.phase !== 'idle' ||
-          narrationSnapshot.playback === 'playing'
-        }
-        start={loadSnapshot.readyAnimalId !== null}
-      />
-
       <p aria-atomic="true" aria-live="polite" className="sr-only" role="status">
         {liveMessage}
       </p>
@@ -2264,11 +2246,6 @@ function MuseumApp({
         open={drawerOpen && !focusMode}
         returnFocusTo={drawerTriggerRef}
         showReviewDetails={localReviewMode}
-      />
-      <AboutDrawer
-        onClose={() => setAboutOpen(false)}
-        open={aboutOpen && !focusMode}
-        returnFocusTo={aboutTriggerRef}
       />
       <AnimalCollectionSheet
         animals={collectionAnimals}

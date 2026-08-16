@@ -1,7 +1,7 @@
 import { createPortal } from 'react-dom'
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { ChevronDown, X } from 'lucide-react'
-import { GITHUB_LICENSING_URL, GITHUB_REPOSITORY_URL } from '../github'
+import { GITHUB_LICENSING_URL } from '../github'
 import { useI18n } from '../i18n/I18nProvider'
 import { IconButton } from './IconButton'
 import { LanguageMenu } from './LanguageMenu'
@@ -293,13 +293,6 @@ export function ParentDrawer({
               <div className="source-list">
                 <p>{messages.parent.licensingBody}</p>
                 <div className="source-link-actions">
-                  <a
-                    href={GITHUB_REPOSITORY_URL}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    {messages.parent.repository}
-                  </a>
                   <a
                     href={GITHUB_LICENSING_URL}
                     rel="noreferrer"

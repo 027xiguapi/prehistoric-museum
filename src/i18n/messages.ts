@@ -4,7 +4,6 @@ import type { Locale } from './locale'
 const zhCN = {
   museumName: '史前动物博物馆',
   creatorBrand: 'Leon做了个',
-  creatorAboutLabel: '了解Leon做了个和这座博物馆',
   todayMeet: '今天认识',
   localReview: '本地评审',
   documentTitle: '史前动物博物馆 | 亲子 3D 史前动物展',
@@ -105,25 +104,6 @@ const zhCN = {
     preparing: '准备中',
     downloading: (percent: number) => `下载中 ${percent}%`,
   },
-  about: {
-    eyebrow: 'Leon做了个',
-    title: '关于这座博物馆',
-    close: '关闭关于这座博物馆',
-    heading: '一个程序员爸爸，为女儿做的小博物馆',
-    paragraphs: [
-      '我是 Leon，一个程序员爸爸。女儿三岁时会害怕电视里的恐龙追逐，所以我给她做了这座可以安静观察、想听再听的 3D 史前动物博物馆。',
-      '这里免费访问，不用注册，没有广告，也不做访问统计。一次发现一个有趣的细节，就已经足够。',
-    ],
-    source: '在 GitHub 查看源码',
-    licensing: '查看许可与素材说明',
-  },
-  star: {
-    label: '支持这座博物馆',
-    title: '喜欢这座小博物馆吗？',
-    body: '可以去 GitHub 点一颗 Star，帮助更多家庭看到它。',
-    open: '去 GitHub',
-    dismiss: '暂时不用',
-  },
   parent: {
     eyebrow: '一起了解更多',
     title: '给家长的资料',
@@ -138,14 +118,13 @@ const zhCN = {
     licensing: '开源与许可',
     licensingBody:
       '本项目代码采用 AGPL-3.0；原创科普文案与项目视觉采用 CC BY-NC-SA 4.0 非商业共享；品牌只独立防止冒充官方，第三方素材沿用原许可。',
-    repository: '查看 GitHub 项目',
     fullLicensing: '查看完整许可说明',
     moreHint: '资料还可以继续向上滑动。',
     more: '向上滑动查看更多',
     joinRegions: (regions: readonly string[]) => regions.join('、'),
   },
   ar: {
-    open: '用摄像头看 AR',
+    open: 'AR',
     title: 'AR 增强现实',
     requestingCamera: '正在请求摄像头…',
     cameraDenied: '没有摄像头权限，请在浏览器设置里允许后重试。',
@@ -158,6 +137,8 @@ const zhCN = {
     found: (animal: string) => `${animal} 出现了！`,
     error: 'AR 出了点问题，关闭后再试一次。',
     close: '退出 AR',
+    xrSearching: '把手机对准空地，缓慢移动寻找地面…',
+    xrPlaced: '出现啦！轻点屏幕可再放一次，点右上角退出。',
     printMarker: '打印标记卡片',
     switchAnimal: '换一只动物',
   },
@@ -178,7 +159,6 @@ export type MuseumMessages = WidenMessages<typeof zhCN>
 const en = {
   museumName: 'Prehistoric Animal Museum',
   creatorBrand: 'Leon Made This',
-  creatorAboutLabel: 'About Leon Made This and this museum',
   todayMeet: 'Meet today’s friend',
   localReview: 'Local review',
   documentTitle: 'Prehistoric Animal Museum | A 3D Family Adventure',
@@ -282,25 +262,6 @@ const en = {
     preparing: 'Preparing',
     downloading: (percent) => `Downloading ${percent}%`,
   },
-  about: {
-    eyebrow: 'Leon Made This',
-    title: 'About this museum',
-    close: 'Close About this museum',
-    heading: 'A little museum made by a developer dad for his daughter',
-    paragraphs: [
-      'I’m Leon, a developer and a dad. When my daughter was three, dinosaur chases on television frightened her, so I made a 3D prehistoric animal museum where she could look quietly and listen only when she wanted to.',
-      'The museum is free, with no sign-up, adverts or visitor tracking. Finding one interesting detail at a time is plenty.',
-    ],
-    source: 'View the source on GitHub',
-    licensing: 'Read the licence and asset notes',
-  },
-  star: {
-    label: 'Support this museum',
-    title: 'Enjoying this little museum?',
-    body: 'A Star on GitHub can help more families find it.',
-    open: 'Open GitHub',
-    dismiss: 'Not now',
-  },
   parent: {
     eyebrow: 'Explore together',
     title: 'Guide for grown-ups',
@@ -315,14 +276,13 @@ const en = {
     licensing: 'Open source and licensing',
     licensingBody:
       'The code is licensed under AGPL-3.0. Original science writing and project artwork use CC BY-NC-SA 4.0 for non-commercial sharing. The brand policy prevents impersonation, and third-party assets keep their original licences.',
-    repository: 'View the GitHub project',
     fullLicensing: 'Read the full licensing notes',
     moreHint: 'More information is available below.',
     more: 'Swipe up for more',
     joinRegions: (regions) => regions.join(', '),
   },
   ar: {
-    open: 'See it in AR',
+    open: 'AR',
     title: 'Augmented reality',
     requestingCamera: 'Requesting the camera…',
     cameraDenied:
@@ -337,6 +297,8 @@ const en = {
     found: (animal) => `${animal} appeared!`,
     error: 'Something went wrong with AR. Close and try again.',
     close: 'Exit AR',
+    xrSearching: 'Point the phone at open floor and move it slowly…',
+    xrPlaced: 'It’s here! Tap the screen to place again, or ✕ to exit.',
     printMarker: 'Print the marker card',
     switchAnimal: 'Choose another animal',
   },
