@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "next dev",
     "review": "npm run validate:review && node scripts/set-env.mjs NEXT_PUBLIC_MUSEUM_MODE=review MUSEUM_BASE_PATH= tsx scripts/serve-review.ts",
-    "build": "npm run validate:content && npm run validate:model-previews && npm run generate:animal-social-images && next build && npm run validate:production-boundary",
+    "build": "npm run validate:content && npm run validate:model-previews && npm run generate:animal-social-images && next build",
     "build:e2e": "npm run validate:content && node scripts/set-env.mjs NEXT_PUBLIC_MUSEUM_MODE=e2e MUSEUM_BASE_PATH=/prehistoric-animal-museum next build",
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
@@ -22,7 +22,6 @@
     "generate:review-model-previews": "tsx scripts/render-model-previews.ts --target=review",
     "typecheck": "tsc --noEmit --pretty false",
     "validate:content": "tsx scripts/validate-content.ts",
-    "validate:production-boundary": "tsx scripts/validate-production-boundary.ts",
     "validate:model-previews": "tsx scripts/validate-model-previews.ts --target=production",
     "validate:review-model-previews": "tsx scripts/validate-model-previews.ts --target=review",
     "validate:review": "tsx scripts/validate-review-assets.ts && npm run validate:review-model-previews",

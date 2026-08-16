@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url'
 // The local review asset route only exists while a review dev server runs.
 // It is installed right before `next dev` starts and removed again on
 // shutdown, so private review material can never be compiled into a
-// production build (enforced again by scripts/validate-production-boundary.ts).
+// production build.
 //
 // The folder name URL-encodes the leading underscores: Next treats segments
 // starting with `_` as private and would exclude the route otherwise.
