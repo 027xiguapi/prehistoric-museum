@@ -107,6 +107,8 @@ export class WebXrArSession {
   private destroyed = false
   private started = false
   private lastFrameTime = performance.now()
+  private loopStartTime = 0
+  private lastHitTime: number | null = null
   private descriptorToken = 0
 
   constructor(options: WebXrArSessionOptions) {
@@ -166,6 +168,9 @@ export class WebXrArSession {
       renderer.setClearColor(0x000000, 0)
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
       renderer.xr.enabled = true
+      // Keep Three.js rendering in the same reference space we request
+      // hit-test poses in, so the reticle and placed model line up.
+      renderer.xr.setReferenceSpaceType('local')
       this.renderer = renderer
 
       this.localReferenceSpace =
@@ -177,6 +182,12 @@ export class WebXrArSession {
         space: viewerSpace,
       })
       this.hitTestSource = hitTestSource ?? null
+      if (!this.hitTestSource) {
+        // Feature granted on paper but no source handed out: hit-testing is
+        // not actually usable on this device.
+        this.setState('unsupported')
+        return false
+      }
 
       this.setState('scanning')
       this.startLoop()
@@ -281,6 +292,8 @@ export class WebXrArSession {
     if (!renderer) {
       return
     }
+    this.loopStartTime = performance.now()
+    this.lastHitTime = null
     const loop = (time: number, frame?: XRFrame): void => {
       if (this.destroyed) {
         return
@@ -290,14 +303,30 @@ export class WebXrArSession {
         0.1,
       )
       this.lastFrameTime = time
-      if (frame && this.hitTestSource && this.localReferenceSpace) {
+      if (frame && this.hitTestSource) {
+        // Prefer Three.js' live reference space so hit poses and rendering
+        // share one coordinate system.
+        const referenceSpace =
+          renderer.xr.getReferenceSpace() ?? this.localReferenceSpace
         const results = frame.getHitTestResults(this.hitTestSource)
-        const pose = results[0]?.getPose(this.localReferenceSpace)
+        const pose = referenceSpace
+          ? results[0]?.getPose(referenceSpace)
+          : undefined
         if (pose) {
+          this.lastHitTime = time
           this.reticle.visible = true
           this.reticle.matrix.fromArray(pose.transform.matrix)
         } else {
           this.reticle.visible = false
+          // Hit-testing needs the phone to move and see a trackable surface;
+          // nudge the user after a while instead of spinning on "searching".
+          if (
+            this.state === 'scanning' &&
+            this.lastHitTime === null &&
+            time - this.loopStartTime > 10_000
+          ) {
+            this.setState('lost')
+          }
         }
       }
       if (this.staged?.mixer && this.placementAnchor.visible) {

@@ -12,7 +12,7 @@
     "review": "npm run validate:review && node scripts/set-env.mjs NEXT_PUBLIC_MUSEUM_MODE=review MUSEUM_BASE_PATH= tsx scripts/serve-review.ts",
     "build": "npm run validate:content && npm run validate:model-previews && npm run generate:animal-social-images && next build",
     "build:e2e": "npm run validate:content && node scripts/set-env.mjs NEXT_PUBLIC_MUSEUM_MODE=e2e MUSEUM_BASE_PATH=/prehistoric-animal-museum next build",
-    "start": "next start",
+    "start": "next start -p 3001",
     "lint": "eslint . --max-warnings=0",
     "optimize:models": "node scripts/optimize-runtime-models.mjs",
     "generate:model-previews": "tsx scripts/render-model-previews.ts --target=production",
@@ -42,6 +42,7 @@
   "devDependencies": {
     "@eslint/js": "10.0.1",
     "@gltf-transform/cli": "4.4.2",
+    "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "26.1.1",
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
@@ -52,6 +53,7 @@
     "globals": "17.8.0",
     "playwright": "1.62.0",
     "sharp": "0.34.5",
+    "tailwindcss": "^4.3.3",
     "tsx": "4.23.1",
     "typescript": "6.0.3",
     "typescript-eslint": "8.65.0"

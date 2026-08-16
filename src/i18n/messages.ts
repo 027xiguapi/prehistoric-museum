@@ -53,6 +53,12 @@ const zhCN = {
     bathed: (animal: string) => `${animal}洗得干干净净，泡泡亮晶晶！`,
     played: (animal: string) => `和${animal}一起玩球，它开心地把球踢了回来！`,
   },
+  notFound: {
+    code: '404',
+    title: '页面没有找到',
+    body: '这条参观路线暂时走不通，也许展品还在布置中。',
+    return: '返回博物馆',
+  },
   loading: {
     preparingExhibit: '正在准备新的动物展台。',
     retryingExhibit: '正在重新准备展台。',
@@ -147,6 +153,7 @@ const zhCN = {
     error: 'AR 出了点问题，关闭后再试一次。',
     close: '退出 AR',
     xrSearching: '把手机对准空地，缓慢移动寻找地面…',
+    xrLost: '还没找到地面：缓慢移动手机，对准有花纹的地面，光线亮一点试试。',
     xrPlaced: '出现啦！轻点屏幕可再放一次，点右上角退出。',
     printMarker: '打印标记卡片',
     switchAnimal: '换一只动物',
@@ -218,6 +225,12 @@ const en = {
     fedLeaves: (animal) => `${animal} happily munches the leaves!`,
     bathed: (animal) => `${animal} is sparkling clean — shiny bubbles!`,
     played: (animal) => `You play ball with ${animal} — kicked right back!`,
+  },
+  notFound: {
+    code: '404',
+    title: 'Page not found',
+    body: 'The trail ends here — this exhibit may still be under construction.',
+    return: 'Return to the museum',
   },
   loading: {
     preparingExhibit: 'Preparing a new animal exhibit.',
@@ -316,6 +329,8 @@ const en = {
     error: 'Something went wrong with AR. Close and try again.',
     close: 'Exit AR',
     xrSearching: 'Point the phone at open floor and move it slowly…',
+    xrLost:
+      'Still finding the floor: keep moving slowly, aim at textured ground in good light.',
     xrPlaced: 'It’s here! Tap the screen to place again, or ✕ to exit.',
     printMarker: 'Print the marker card',
     switchAnimal: 'Choose another animal',

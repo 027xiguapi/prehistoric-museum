@@ -1,3 +1,5 @@
+@import 'tailwindcss';
+
 :root {
   --ink: #20352f;
   --ink-muted: #5c6e68;
@@ -1309,12 +1311,12 @@ a:focus-visible {
   }
 }
 
-/* Vertical care dock pinned to the left edge of the stage. */
+/* Vertical care dock pinned to the right edge of the stage. */
 .care-dock {
   position: absolute;
   z-index: 6;
   top: 50%;
-  left: max(10px, env(safe-area-inset-left));
+  right: max(10px, env(safe-area-inset-right));
   display: grid;
   transform: translateY(-50%);
 }
@@ -4453,8 +4455,7 @@ a:focus-visible {
   .museum-experience[data-review-mode] .animal-eyebrow {
     top: -56px;
   }
-
-
+}
 
 /* Locale-specific typography and language control */
 html[data-locale="en"] {

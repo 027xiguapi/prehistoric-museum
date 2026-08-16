@@ -167,7 +167,9 @@ export function ArViewer({
           <p className="ar-hud__message">{messages.ar.trackingHint}</p>
         ) : null}
         {state === 'lost' ? (
-          <p className="ar-hud__message">{messages.ar.lost}</p>
+          <p className="ar-hud__message">
+            {usingMarker ? messages.ar.lost : messages.ar.xrLost}
+          </p>
         ) : null}
         {showCameraPrompt ? (
           <p className="ar-hud__message">{messages.ar.requestingCamera}</p>
