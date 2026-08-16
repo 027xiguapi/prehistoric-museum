@@ -1196,6 +1196,164 @@ a:focus-visible {
   opacity: 1;
 }
 
+/* Feed / bath particle burst over the model stage. */
+.care-fx {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.care-fx__bit {
+  position: absolute;
+  top: -8%;
+  left: var(--care-left);
+  display: block;
+  width: var(--care-size);
+  height: var(--care-size);
+  animation-name: care-fall;
+  animation-timing-function: ease-in;
+  animation-fill-mode: both;
+}
+
+.care-fx__bit--bubble {
+  top: 72%;
+  border: 2px solid rgb(255 255 255 / 85%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 32% 30%,
+    rgb(255 255 255 / 95%),
+    rgb(173 216 230 / 55%) 55%,
+    rgb(120 180 205 / 30%)
+  );
+  box-shadow: 0 2px 8px rgb(90 150 180 / 25%);
+  animation-name: care-rise;
+  animation-timing-function: ease-out;
+}
+
+.care-fx__bit--leaf {
+  border-radius: 0 100% 0 100%;
+  background: linear-gradient(135deg, #7cb46b, #3f7d46);
+  box-shadow: inset -2px -2px 0 rgb(30 90 40 / 25%);
+}
+
+.care-fx__bit--meat {
+  border-radius: 62% 62% 55% 55% / 70% 70% 45% 45%;
+  background: linear-gradient(145deg, #d98a6a, #a35a3f);
+  box-shadow: inset -3px -3px 0 rgb(90 35 20 / 30%);
+}
+
+.care-fx__bit--meat::after {
+  content: "";
+  display: block;
+  width: 34%;
+  height: 34%;
+  margin: 12% 0 0 55%;
+  border-radius: 50%;
+  background: #f4e7d3;
+}
+
+/* Ball game: one beach-style ball that drops, bounces twice, then rolls away. */
+.care-fx__bit--ball {
+  top: -10%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 28%, rgb(255 255 255 / 85%), transparent 42%),
+    repeating-linear-gradient(
+      -32deg,
+      #e8735a 0 32%,
+      #fffdf7 32% 48%,
+      #5d9bbd 48% 80%,
+      #fffdf7 80% 96%
+    );
+  box-shadow: 0 6px 14px rgb(40 70 60 / 28%);
+  animation-name: care-ball;
+  animation-duration: 2.4s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+@keyframes care-ball {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(0.7);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  /* Drop (ease-in feel via tight spacing near the end of the fall). */
+  34% {
+    transform: translate(1vw, 66vh) rotate(120deg) scale(1.02);
+  }
+  38% {
+    transform: translate(2vw, 74vh) rotate(140deg) scaleY(0.82) scaleX(1.12);
+  }
+  48% {
+    transform: translate(4vw, 46vh) rotate(200deg) scale(1);
+  }
+  58% {
+    transform: translate(6vw, 74vh) rotate(260deg) scaleY(0.86) scaleX(1.1);
+  }
+  66% {
+    transform: translate(8vw, 62vh) rotate(300deg) scale(1);
+  }
+  72% {
+    transform: translate(9vw, 74vh) rotate(330deg) scale(1);
+    opacity: 1;
+  }
+  /* "Kicked" — rolls away to the right. */
+  100% {
+    transform: translate(26vw, 70vh) rotate(850deg) scale(0.9);
+    opacity: 0;
+  }
+}
+
+/* Vertical care dock pinned to the left edge of the stage. */
+.care-dock {
+  position: absolute;
+  z-index: 6;
+  top: 50%;
+  left: max(10px, env(safe-area-inset-left));
+  display: grid;
+  transform: translateY(-50%);
+}
+
+.care-dock .icon-button {
+  box-shadow: 0 8px 20px rgb(37 56 32 / 16%);
+}
+
+@keyframes care-fall {
+  from {
+    transform: translateY(0) rotate(0deg) scale(0.7);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(78vh) rotate(var(--care-spin)) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes care-rise {
+  from {
+    transform: translateY(0) scale(0.4);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.95;
+  }
+  to {
+    transform: translateY(-62vh) scale(1.25);
+    opacity: 0;
+  }
+}
+
 .viewer-canvas {
   display: block;
   width: 100%;

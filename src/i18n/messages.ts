@@ -44,6 +44,15 @@ const zhCN = {
   focusReturnHint: '轻点画面即可返回',
   exitFocus: '退出模型专注模式',
   focusExited: '已经回到完整的博物馆界面。',
+  care: {
+    feed: '喂食物',
+    bathe: '洗澡',
+    play: '打球',
+    fedMeat: (animal: string) => `${animal}大口大口吃起肉来，吃得好香！`,
+    fedLeaves: (animal: string) => `${animal}唰唰地吃起了树叶！`,
+    bathed: (animal: string) => `${animal}洗得干干净净，泡泡亮晶晶！`,
+    played: (animal: string) => `和${animal}一起玩球，它开心地把球踢了回来！`,
+  },
   loading: {
     preparingExhibit: '正在准备新的动物展台。',
     retryingExhibit: '正在重新准备展台。',
@@ -201,6 +210,15 @@ const en = {
   focusReturnHint: 'Tap the scene to return',
   exitFocus: 'Exit model focus mode',
   focusExited: 'The complete museum view is back.',
+  care: {
+    feed: 'Feed',
+    bathe: 'Bath time',
+    play: 'Play ball',
+    fedMeat: (animal) => `${animal} tucks into the meat — yum!`,
+    fedLeaves: (animal) => `${animal} happily munches the leaves!`,
+    bathed: (animal) => `${animal} is sparkling clean — shiny bubbles!`,
+    played: (animal) => `You play ball with ${animal} — kicked right back!`,
+  },
   loading: {
     preparingExhibit: 'Preparing a new animal exhibit.',
     retryingExhibit: 'Preparing the exhibit again.',

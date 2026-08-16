@@ -5,10 +5,13 @@ import {
   Eye,
   Leaf,
   LayoutGrid,
+  Beef,
   Maximize2,
   Minimize2,
   Pause,
   RotateCcw,
+  ShowerHead,
+  Volleyball,
   Volume2,
 } from 'lucide-react'
 import {
@@ -38,6 +41,7 @@ import {
 import { ArViewer } from './components/ArViewer'
 import { IconButton } from './components/IconButton'
 import { LanguageMenu } from './components/LanguageMenu'
+import { StagePlayEffect, type CarePlayKind } from './components/StagePlayEffect'
 import {
   ParentDrawer,
   type ParentFacts,
@@ -50,7 +54,7 @@ import { mainAnimals } from './content/catalog'
 import { animalSeoDescription } from './content/animal-seo'
 import { credits } from './content/credits.generated'
 import { staticAnimalDetailIds } from './content/static-animal-details'
-import type { PublishedAnimalPackage } from './content/types'
+import type { Diet, PublishedAnimalPackage } from './content/types'
 import { I18nProvider, useI18n } from './i18n/I18nProvider'
 import { localeFromPath, type Locale } from './i18n/locale'
 import { updateLocalizedMetadata } from './i18n/metadata'
@@ -90,6 +94,7 @@ interface RuntimeAnimal {
   readonly classification: string
   readonly accent: string
   readonly accentSoft: string
+  readonly dietCode: Diet
   readonly narrationScript: readonly [string, string]
   readonly facts: ParentFacts
   readonly review: NonNullable<ParentFacts['review']> | null
@@ -296,6 +301,19 @@ if (!defaultPackage) {
   throw new Error('主展览集合中没有可展示的动物。')
 }
 
+/** Food kind offered by the feed button for a given diet. */
+function feedKindFor(diet: Diet): CarePlayKind {
+  switch (diet) {
+    case 'carnivore':
+      return 'meat'
+    case 'herbivore':
+      return 'leaf'
+    default:
+      // Omnivores (and unknown diets) happily take either.
+      return Math.random() < 0.5 ? 'meat' : 'leaf'
+  }
+}
+
 function narrationUrlFor(
   animal: DisplayableAnimalPackage,
   locale: Locale,
@@ -378,6 +396,7 @@ function toRuntimeAnimal(
     classification: content.classificationLabel,
     accent: accent.strong,
     accentSoft: accent.soft,
+    dietCode: content.facts.diet,
     narrationScript: content.narration.sentences,
     review,
     facts: {
@@ -820,6 +839,8 @@ function MuseumApp({
     requestedAnimalId: initialAnimal.id,
   }))
   const [modelReady, setModelReady] = useState(false)
+  const [carePlay, setCarePlay] = useState<CarePlayKind | null>(null)
+  const careCelebrateTimer = useRef<number | null>(null)
   const [modelLoadingProgress, setModelLoadingProgress] =
     useState<ModelLoadingProgress | null>(null)
   const [viewerFailure, setViewerFailure] =
@@ -1715,6 +1736,33 @@ function MuseumApp({
     setLiveMessage(messages.focusEntered)
   }
 
+  /** Runs a feed/bath interaction: particle burst, live message, happy hop. */
+  const playCare = (kind: CarePlayKind) => {
+    if (!modelReady) {
+      return
+    }
+    setCarePlay(kind)
+    const name = activeAnimal.name
+    setLiveMessage(
+      kind === 'bath'
+        ? messages.care.bathed(name)
+        : kind === 'meat'
+          ? messages.care.fedMeat(name)
+          : kind === 'leaf'
+            ? messages.care.fedLeaves(name)
+            : messages.care.played(name),
+    )
+    if (careCelebrateTimer.current !== null) {
+      window.clearTimeout(careCelebrateTimer.current)
+    }
+    // Celebrate when the effect "reaches" the animal: food lands, bubbles
+    // pop, the ball gets kicked back.
+    careCelebrateTimer.current = window.setTimeout(() => {
+      careCelebrateTimer.current = null
+      viewerControllerRef.current?.celebrate()
+    }, kind === 'bath' ? 1_100 : kind === 'ball' ? 1_700 : 800)
+  }
+
   const handleFocusPointerDown = (
     event: ReactPointerEvent<HTMLElement>,
   ) => {
@@ -2017,6 +2065,31 @@ function MuseumApp({
           posterUrl={activeAnimal.assets.poster}
           posterPortraitUrl={activeAnimal.assets.posterPortrait}
         />
+        {carePlay ? (
+          <StagePlayEffect kind={carePlay} onDone={() => setCarePlay(null)} />
+        ) : null}
+        {!focusMode ? (
+          <div aria-hidden={overlayOpen} className="care-dock" inert={overlayOpen}>
+            <IconButton
+              disabled={!modelReady}
+              icon={activeAnimal.dietCode === 'herbivore' ? Leaf : Beef}
+              label={messages.care.feed}
+              onClick={() => playCare(feedKindFor(activeAnimal.dietCode))}
+            />
+            <IconButton
+              disabled={!modelReady}
+              icon={ShowerHead}
+              label={messages.care.bathe}
+              onClick={() => playCare('bath')}
+            />
+            <IconButton
+              disabled={!modelReady}
+              icon={Volleyball}
+              label={messages.care.play}
+              onClick={() => playCare('ball')}
+            />
+          </div>
+        ) : null}
         {!focusMode ? (
           <div aria-hidden={overlayOpen} className="stage-actions" inert={overlayOpen}>
             <LanguageMenu />

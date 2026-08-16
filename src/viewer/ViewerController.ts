@@ -28,6 +28,7 @@ import {
 import type { ViewerModelDescriptor } from './viewer-model-descriptor'
 import {
   buildStagedModel,
+  computeModelBounds,
   type ModelLoadProgress,
   type StagedViewerModel,
   type ViewerFailure,
@@ -271,6 +272,8 @@ export class ViewerController {
   private initialPoseHoldUntil = 0
   private reviewAnimationTime: number | null = null
   private lastFrameTime = performance.now()
+  private celebrationStart: number | null = null
+  private celebrationHopHeight = 0.1
   private transition: ModelTransition | null = null
   private compositionFitFrame: number | null = null
   private firstFrameConfirmationFrame: number | null = null
@@ -452,10 +455,66 @@ export class ViewerController {
     if (!current) {
       return
     }
+    this.clearCelebration()
     resetStagedModelPose(current)
     this.fitCurrentModel()
     this.resumeRotationAt = this.reducedMotion ? Number.POSITIVE_INFINITY : 0
     this.updateAutoRotation(performance.now())
+  }
+
+  /**
+   * Plays a short squash-and-stretch hop on the current model — the "happy"
+   * reaction used by the feed and bath interactions. Safe to call repeatedly;
+   * each call restarts the hop.
+   */
+  celebrate(): void {
+    const current = this.current
+    if (!current || this.reducedMotion) {
+      return
+    }
+    if (this.celebrationStart === null) {
+      const height = Math.max(
+        computeModelBounds(current.modelRoot, false)
+          .getSize(new Vector3())
+          .y,
+        0.001,
+      )
+      this.celebrationHopHeight = height * 0.09
+    }
+    this.celebrationStart = performance.now()
+  }
+
+  private clearCelebration(): void {
+    if (this.celebrationStart === null || !this.current) {
+      this.celebrationStart = null
+      return
+    }
+    this.current.modelRoot.position.y = 0
+    this.current.modelRoot.scale.setScalar(1)
+    this.celebrationStart = null
+  }
+
+  /** Applies the celebration hop for the current frame, if active. */
+  private updateCelebration(time: number): void {
+    if (this.celebrationStart === null) {
+      return
+    }
+    const current = this.current
+    if (!current) {
+      this.celebrationStart = null
+      return
+    }
+    const CELEBRATION_DURATION_MS = 900
+    const progress =
+      (time - this.celebrationStart) / CELEBRATION_DURATION_MS
+    if (progress >= 1) {
+      this.clearCelebration()
+      return
+    }
+    const hop = Math.sin(Math.PI * progress)
+    current.modelRoot.position.y = hop * this.celebrationHopHeight
+    // Squash on take-off/landing, stretch mid-air.
+    current.modelRoot.scale.setScalar(1 + 0.05 * Math.sin(2 * Math.PI * progress))
   }
 
   /**
@@ -915,6 +974,7 @@ export class ViewerController {
           morphTargetWeights.join(';')
       }
       this.updateTransition(time)
+      this.updateCelebration(time)
       this.controls.update()
       this.updateCameraLighting()
       this.renderer.render(this.scene, this.camera)
