@@ -209,6 +209,19 @@ export function resetStagedModelPose(
   staged.modelRoot.updateMatrixWorld(true)
 }
 
+/** Timed model reaction played by the care interactions. */
+type ReactionKind = 'celebrate' | 'walk-and-eat' | 'shake'
+
+interface Reaction {
+  kind: ReactionKind
+  start: number
+  /** Pose captured when the reaction began; restored afterwards. */
+  readonly basePosition: Vector3
+  readonly baseYaw: number
+  readonly modelHeight: number
+  readonly walkFromX: number
+}
+
 export class ViewerUnavailableError extends Error {
   constructor(message: string, options?: ErrorOptions) {
     super(message, options)
@@ -272,8 +285,7 @@ export class ViewerController {
   private initialPoseHoldUntil = 0
   private reviewAnimationTime: number | null = null
   private lastFrameTime = performance.now()
-  private celebrationStart: number | null = null
-  private celebrationHopHeight = 0.1
+  private reaction: Reaction | null = null
   private transition: ModelTransition | null = null
   private compositionFitFrame: number | null = null
   private firstFrameConfirmationFrame: number | null = null
@@ -455,7 +467,7 @@ export class ViewerController {
     if (!current) {
       return
     }
-    this.clearCelebration()
+    this.clearReaction()
     resetStagedModelPose(current)
     this.fitCurrentModel()
     this.resumeRotationAt = this.reducedMotion ? Number.POSITIVE_INFINITY : 0
@@ -464,57 +476,130 @@ export class ViewerController {
 
   /**
    * Plays a short squash-and-stretch hop on the current model — the "happy"
-   * reaction used by the feed and bath interactions. Safe to call repeatedly;
+   * reaction used by the bath and ball interactions. Safe to call repeatedly;
    * each call restarts the hop.
    */
   celebrate(): void {
+    this.beginReaction('celebrate')
+  }
+
+  /**
+   * Feed reaction: the model walks in from the side, eats (squash pulses),
+   * then walks back out. Timed so food particles land while it arrives.
+   */
+  walkAndEat(): void {
+    this.beginReaction('walk-and-eat')
+  }
+
+  /**
+   * Rejection reaction: the model shakes left-right as if refusing food.
+   */
+  shakeHead(): void {
+    this.beginReaction('shake')
+  }
+
+  private beginReaction(kind: ReactionKind): void {
     const current = this.current
     if (!current || this.reducedMotion) {
       return
     }
-    if (this.celebrationStart === null) {
-      const height = Math.max(
-        computeModelBounds(current.modelRoot, false)
-          .getSize(new Vector3())
-          .y,
-        0.001,
+    if (!this.reaction) {
+      const size = computeModelBounds(current.modelRoot, false).getSize(
+        new Vector3(),
       )
-      this.celebrationHopHeight = height * 0.09
-    }
-    this.celebrationStart = performance.now()
-  }
-
-  private clearCelebration(): void {
-    if (this.celebrationStart === null || !this.current) {
-      this.celebrationStart = null
+      this.reaction = {
+        kind,
+        start: performance.now(),
+        basePosition: current.modelRoot.position.clone(),
+        baseYaw: current.modelRoot.rotation.y,
+        modelHeight: Math.max(size.y, 0.001),
+        walkFromX: -Math.max(size.x, 0.001) * 0.8,
+      }
       return
     }
-    this.current.modelRoot.position.y = 0
-    this.current.modelRoot.scale.setScalar(1)
-    this.celebrationStart = null
+    // Reuse the captured pose; only the kind and clock restart.
+    this.reaction.kind = kind
+    this.reaction.start = performance.now()
   }
 
-  /** Applies the celebration hop for the current frame, if active. */
-  private updateCelebration(time: number): void {
-    if (this.celebrationStart === null) {
+  private clearReaction(): void {
+    const reaction = this.reaction
+    const current = this.current
+    this.reaction = null
+    if (!reaction || !current) {
+      return
+    }
+    current.modelRoot.position.copy(reaction.basePosition)
+    current.modelRoot.rotation.y = reaction.baseYaw
+    current.modelRoot.scale.setScalar(1)
+  }
+
+  /** Applies the active reaction for the current frame, if any. */
+  private updateReaction(time: number): void {
+    const reaction = this.reaction
+    if (!reaction) {
       return
     }
     const current = this.current
     if (!current) {
-      this.celebrationStart = null
+      this.reaction = null
       return
     }
-    const CELEBRATION_DURATION_MS = 900
-    const progress =
-      (time - this.celebrationStart) / CELEBRATION_DURATION_MS
+    const root = current.modelRoot
+    const durations: Record<ReactionKind, number> = {
+      celebrate: 900,
+      'walk-and-eat': 3_200,
+      shake: 1_000,
+    }
+    const progress = (time - reaction.start) / durations[reaction.kind]
     if (progress >= 1) {
-      this.clearCelebration()
+      this.clearReaction()
       return
     }
-    const hop = Math.sin(Math.PI * progress)
-    current.modelRoot.position.y = hop * this.celebrationHopHeight
-    // Squash on take-off/landing, stretch mid-air.
-    current.modelRoot.scale.setScalar(1 + 0.05 * Math.sin(2 * Math.PI * progress))
+    if (reaction.kind === 'celebrate') {
+      const hop = Math.sin(Math.PI * progress)
+      root.position.y = reaction.basePosition.y + hop * reaction.modelHeight * 0.09
+      root.scale.setScalar(1 + 0.05 * Math.sin(2 * Math.PI * progress))
+      return
+    }
+    if (reaction.kind === 'shake') {
+      const decay = 1 - progress
+      root.rotation.y =
+        reaction.baseYaw + Math.sin(progress * 4 * Math.PI) * 0.22 * decay
+      return
+    }
+    // walk-and-eat: in → eat → out.
+    const WALK_IN_END = 0.34
+    const EAT_END = 0.55
+    if (progress < WALK_IN_END) {
+      const t = progress / WALK_IN_END
+      const eased = t * t * (3 - 2 * t)
+      root.position.x =
+        reaction.walkFromX + (reaction.basePosition.x - reaction.walkFromX) * eased
+      // Brisk bobbing stride.
+      root.position.y =
+        reaction.basePosition.y +
+        Math.abs(Math.sin(t * Math.PI * 4)) * reaction.modelHeight * 0.04
+      // Lean into the walking direction.
+      root.rotation.z = -0.08 * (1 - eased)
+    } else if (progress < EAT_END) {
+      const t = (progress - WALK_IN_END) / (EAT_END - WALK_IN_END)
+      root.position.x = reaction.basePosition.x
+      root.position.y = reaction.basePosition.y
+      root.rotation.z = 0
+      // Happy eating squash pulses.
+      root.scale.setScalar(1 + 0.05 * Math.sin(t * Math.PI * 3))
+    } else {
+      const t = (progress - EAT_END) / (1 - EAT_END)
+      const eased = t * t * (3 - 2 * t)
+      root.position.x =
+        reaction.basePosition.x +
+        (reaction.walkFromX - reaction.basePosition.x) * eased
+      root.position.y =
+        reaction.basePosition.y +
+        Math.abs(Math.sin(t * Math.PI * 4)) * reaction.modelHeight * 0.04
+      root.rotation.z = 0.08 * eased
+    }
   }
 
   /**
@@ -974,7 +1059,7 @@ export class ViewerController {
           morphTargetWeights.join(';')
       }
       this.updateTransition(time)
-      this.updateCelebration(time)
+      this.updateReaction(time)
       this.controls.update()
       this.updateCameraLighting()
       this.renderer.render(this.scene, this.camera)

@@ -5,13 +5,10 @@ import {
   Eye,
   Leaf,
   LayoutGrid,
-  Beef,
   Maximize2,
   Minimize2,
   Pause,
   RotateCcw,
-  ShowerHead,
-  Volleyball,
   Volume2,
 } from 'lucide-react'
 import {
@@ -41,7 +38,9 @@ import {
 import { ArViewer } from './components/ArViewer'
 import { IconButton } from './components/IconButton'
 import { LanguageMenu } from './components/LanguageMenu'
+import { CareDock } from './components/CareDock'
 import { StagePlayEffect, type CarePlayKind } from './components/StagePlayEffect'
+import { StoryPanelToggle } from './components/StoryPanelToggle'
 import {
   ParentDrawer,
   type ParentFacts,
@@ -299,19 +298,6 @@ const defaultPackage = publishedMainAnimals[0]
 
 if (!defaultPackage) {
   throw new Error('主展览集合中没有可展示的动物。')
-}
-
-/** Food kind offered by the feed button for a given diet. */
-function feedKindFor(diet: Diet): CarePlayKind {
-  switch (diet) {
-    case 'carnivore':
-      return 'meat'
-    case 'herbivore':
-      return 'leaf'
-    default:
-      // Omnivores (and unknown diets) happily take either.
-      return Math.random() < 0.5 ? 'meat' : 'leaf'
-  }
 }
 
 function narrationUrlFor(
@@ -839,6 +825,7 @@ function MuseumApp({
     requestedAnimalId: initialAnimal.id,
   }))
   const [modelReady, setModelReady] = useState(false)
+  const [storyCollapsed, setStoryCollapsed] = useState(false)
   const [carePlay, setCarePlay] = useState<CarePlayKind | null>(null)
   const careCelebrateTimer = useRef<number | null>(null)
   const [modelLoadingProgress, setModelLoadingProgress] =
@@ -1736,7 +1723,7 @@ function MuseumApp({
     setLiveMessage(messages.focusEntered)
   }
 
-  /** Runs a feed/bath interaction: particle burst, live message, happy hop. */
+  /** Runs a bath/ball interaction: particle burst, live message, happy hop. */
   const playCare = (kind: CarePlayKind) => {
     if (!modelReady) {
       return
@@ -1760,7 +1747,37 @@ function MuseumApp({
     careCelebrateTimer.current = window.setTimeout(() => {
       careCelebrateTimer.current = null
       viewerControllerRef.current?.celebrate()
-    }, kind === 'bath' ? 1_100 : kind === 'ball' ? 1_700 : 800)
+    }, kind === 'bath' ? 1_100 : 1_700)
+  }
+
+  /**
+   * Feed mini-game resolution: a correct bowl makes the animal walk over and
+   * eat; a wrong one gets a head shake and nothing to eat.
+   */
+  const handleFeedPick = (kind: 'meat' | 'leaf') => {
+    if (!modelReady) {
+      return
+    }
+    const diet = activeAnimal.dietCode
+    const correct =
+      diet === 'herbivore'
+        ? kind === 'leaf'
+        : diet === 'carnivore'
+          ? kind === 'meat'
+          : true // omnivores and unknown diets take either bowl
+    const name = activeAnimal.name
+    if (!correct) {
+      setLiveMessage(messages.care.refused(name))
+      viewerControllerRef.current?.shakeHead()
+      return
+    }
+    setCarePlay(kind)
+    setLiveMessage(
+      kind === 'meat' ? messages.care.fedMeat(name) : messages.care.fedLeaves(name),
+    )
+    // Food rains down while the animal walks in; its eating phase is part of
+    // the walk animation.
+    viewerControllerRef.current?.walkAndEat()
   }
 
   const handleFocusPointerDown = (
@@ -1880,9 +1897,29 @@ function MuseumApp({
         kind={activeAnimal.atmosphere}
       />
       {!focusMode ? (
+        storyCollapsed ? (
+          <StoryPanelToggle
+            collapsed
+            onCollapse={() => setStoryCollapsed(true)}
+            onExpand={() => {
+              setStoryCollapsed(false)
+              setLiveMessage(messages.storyExpand)
+            }}
+            overlayOpen={overlayOpen}
+          />
+        ) : (
         <section aria-hidden={overlayOpen} className="story-panel" inert={overlayOpen}>
           <div className="story-card">
-            <div className="museum-header">
+            <div className="museum-header relative">
+              <StoryPanelToggle
+                collapsed={false}
+                onCollapse={() => {
+                  setStoryCollapsed(true)
+                  setLiveMessage(messages.storyCollapse)
+                }}
+                onExpand={() => setStoryCollapsed(false)}
+                overlayOpen={overlayOpen}
+              />
               {pageKind === 'animal-detail' ? (
                 <div className="museum-kicker">
                   <span className="museum-mark" aria-hidden="true">
@@ -2034,6 +2071,7 @@ function MuseumApp({
             )}
           </div>
         </section>
+        )
       ) : null}
 
       <section
@@ -2069,26 +2107,13 @@ function MuseumApp({
           <StagePlayEffect kind={carePlay} onDone={() => setCarePlay(null)} />
         ) : null}
         {!focusMode ? (
-          <div aria-hidden={overlayOpen} className="care-dock" inert={overlayOpen}>
-            <IconButton
-              disabled={!modelReady}
-              icon={activeAnimal.dietCode === 'herbivore' ? Leaf : Beef}
-              label={messages.care.feed}
-              onClick={() => playCare(feedKindFor(activeAnimal.dietCode))}
-            />
-            <IconButton
-              disabled={!modelReady}
-              icon={ShowerHead}
-              label={messages.care.bathe}
-              onClick={() => playCare('bath')}
-            />
-            <IconButton
-              disabled={!modelReady}
-              icon={Volleyball}
-              label={messages.care.play}
-              onClick={() => playCare('ball')}
-            />
-          </div>
+          <CareDock
+            dietCode={activeAnimal.dietCode}
+            disabled={!modelReady}
+            onFeedPick={handleFeedPick}
+            onPlay={playCare}
+            overlayOpen={overlayOpen}
+          />
         ) : null}
         {!focusMode ? (
           <div aria-hidden={overlayOpen} className="stage-actions" inert={overlayOpen}>

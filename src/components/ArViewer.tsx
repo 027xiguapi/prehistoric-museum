@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { X } from 'lucide-react'
 import { useI18n } from '../i18n/I18nProvider'
-import type { ArSession, ArState } from '../ar/ArSession'
+import type { ArState } from '../ar/CameraArSession'
 import { isWebXrArAvailable } from '../ar/WebXrArSession'
 import type { ModelCache } from '../viewer/model-cache'
 import type { ViewerModelDescriptor } from '../viewer/viewer-model-descriptor'
@@ -13,6 +13,13 @@ interface ArViewerProps {
   readonly onClose: () => void
 }
 
+/** Structural surface shared by both session implementations. */
+interface ArSessionLike {
+  readonly start: () => Promise<boolean | void>
+  readonly setDescriptor: (descriptor: ViewerModelDescriptor) => Promise<void>
+  readonly dispose: () => void
+}
+
 export function ArViewer({
   descriptor,
   animalName,
@@ -22,18 +29,16 @@ export function ArViewer({
   const { messages } = useI18n()
   const rootRef = useRef<HTMLDivElement>(null)
   const stageRef = useRef<HTMLDivElement>(null)
-  const sessionRef = useRef<ArSession | WebXrSessionLike | null>(null)
+  const sessionRef = useRef<ArSessionLike | null>(null)
   // Keep the latest descriptor reachable from the async session bootstrap.
   const descriptorRef = useRef(descriptor)
   const [state, setState] = useState<ArState>('requesting-camera')
-  const [mode, setMode] = useState<'xr' | 'marker'>(() =>
-    isWebXrArAvailable() ? 'xr' : 'marker',
+  // WebXR (Android Chrome) when available; every other browser — including
+  // iOS Safari — composites the animal over the plain camera feed.
+  const [mode, setMode] = useState<'xr' | 'camera'>(() =>
+    isWebXrArAvailable() ? 'xr' : 'camera',
   )
 
-  // Boot the AR session once. The session implementations (and Three.js AR
-  // renderer) are pulled in via dynamic import so they stay in separate chunks
-  // until AR opens. WebXR (Android Chrome) gives markerless placement; other
-  // devices fall back to the marker-based AR.js session.
   useEffect(() => {
     const stage = stageRef.current
     const root = rootRef.current
@@ -41,24 +46,29 @@ export function ArViewer({
       return
     }
     let disposed = false
-    const bootMarkerSession = () => {
+    const bootCameraSession = () => {
       if (disposed) {
         return
       }
-      setMode('marker')
-      void import('../ar/ArSession').then(({ ArSession: ArSessionClass }) => {
-        if (disposed) {
-          return
-        }
-        const session = new ArSessionClass({
-          container: stage,
-          modelCache,
-          onStateChange: (next) => setState(next),
-        })
-        sessionRef.current = session
-        void session.start()
-        void session.setDescriptor(descriptorRef.current)
-      })
+      setMode('camera')
+      void import('../ar/CameraArSession').then(
+        ({ CameraArSession: CameraArSessionClass }) => {
+          if (disposed) {
+            return
+          }
+          const session = new CameraArSessionClass({
+            container: stage,
+            modelCache,
+            onStateChange: (next) => setState(next),
+          })
+          sessionRef.current = session
+          void session.start()
+          void session.setDescriptor(descriptorRef.current)
+        },
+        () => {
+          setState('error')
+        },
+      )
     }
     if (isWebXrArAvailable()) {
       void import('../ar/WebXrArSession').then(
@@ -75,20 +85,21 @@ export function ArViewer({
           sessionRef.current = session
           void session.start().then((started) => {
             if (!started && !disposed) {
-              // No immersive-ar here (e.g. iOS Safari): use the marker card.
+              // No immersive-ar here (e.g. iOS Safari): composite over the
+              // plain camera feed instead — no marker card needed.
               session.dispose()
               sessionRef.current = null
-              bootMarkerSession()
+              bootCameraSession()
             }
           })
           void session.setDescriptor(descriptorRef.current)
         },
         () => {
-          bootMarkerSession()
+          bootCameraSession()
         },
       )
     } else {
-      bootMarkerSession()
+      bootCameraSession()
     }
     return () => {
       disposed = true
@@ -122,7 +133,6 @@ export function ArViewer({
   const showCameraPrompt = state === 'requesting-camera'
   const showFailure =
     state === 'unsupported' || state === 'camera-denied' || state === 'error'
-  const usingMarker = mode !== 'xr'
 
   return (
     <div
@@ -134,7 +144,19 @@ export function ArViewer({
       ref={rootRef}
       role="dialog"
     >
-      <div aria-hidden="true" className="ar-stage" ref={stageRef} />
+      <div
+        aria-hidden="true"
+        className="ar-stage"
+        onClick={() => {
+          if (mode === 'camera') {
+            const session = sessionRef.current as
+              | { recenter?: () => void }
+              | null
+            session?.recenter?.()
+          }
+        }}
+        ref={stageRef}
+      />
       <button
         aria-label={messages.ar.close}
         className="ar-close friendly-button friendly-button--small"
@@ -146,30 +168,14 @@ export function ArViewer({
       <div aria-live="polite" className="ar-hud" role="status">
         {state === 'scanning' ? (
           <div className="ar-hud__message">
-            {usingMarker ? (
-              <img
-                alt=""
-                className="ar-marker-hint"
-                decoding="async"
-                loading="lazy"
-                src="./ar/marker.png"
-              />
-            ) : null}
-            <p>
-              {usingMarker ? messages.ar.pointAtMarker : messages.ar.xrSearching}
-            </p>
+            <p>{messages.ar.xrSearching}</p>
           </div>
         ) : null}
-        {state === 'tracking' && !usingMarker ? (
+        {state === 'tracking' && mode === 'xr' ? (
           <p className="ar-hud__message">{messages.ar.xrPlaced}</p>
         ) : null}
-        {state === 'tracking' && usingMarker ? (
-          <p className="ar-hud__message">{messages.ar.trackingHint}</p>
-        ) : null}
-        {state === 'lost' ? (
-          <p className="ar-hud__message">
-            {usingMarker ? messages.ar.lost : messages.ar.xrLost}
-          </p>
+        {state === 'tracking' && mode === 'camera' ? (
+          <p className="ar-hud__message">{messages.ar.cameraMode}</p>
         ) : null}
         {showCameraPrompt ? (
           <p className="ar-hud__message">{messages.ar.requestingCamera}</p>
@@ -183,26 +189,9 @@ export function ArViewer({
                   ? messages.ar.error
                   : messages.ar.unsupported}
             </p>
-            {state === 'unsupported' && usingMarker ? (
-              <a
-                className="friendly-button friendly-button--small"
-                href="./ar/marker.png"
-                rel="noreferrer"
-                target="_blank"
-              >
-                {messages.ar.printMarker}
-              </a>
-            ) : null}
           </div>
         ) : null}
       </div>
     </div>
   )
-}
-
-/** Structural surface shared by both session implementations. */
-interface WebXrSessionLike {
-  readonly start: () => Promise<boolean>
-  readonly setDescriptor: (descriptor: ViewerModelDescriptor) => Promise<void>
-  readonly dispose: () => void
 }

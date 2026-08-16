@@ -3,10 +3,9 @@ import {
   DirectionalLight,
   Group,
   HemisphereLight,
-  Mesh,
-  MeshBasicMaterial,
+  Matrix4,
   PerspectiveCamera,
-  RingGeometry,
+  Quaternion,
   Scene,
   SRGBColorSpace,
   Vector3,
@@ -21,7 +20,7 @@ import {
 import { disposeObject3D } from '../viewer/dispose'
 import type { ModelCache } from '../viewer/model-cache'
 import type { ViewerModelDescriptor } from '../viewer/viewer-model-descriptor'
-import type { ArState } from './ArSession'
+import type { ArState } from './CameraArSession'
 
 export interface WebXrArSessionOptions {
   readonly overlayRoot: HTMLElement
@@ -40,12 +39,18 @@ export interface WebXrArSessionOptions {
  * to a child-friendly "standing next to you" size instead of true life size.
  */
 const PLACEMENT_TARGET_HEIGHT_METERS = 1.4
-const RETICLE_INNER_RADIUS = 0.05
-const RETICLE_OUTER_RADIUS = 0.07
+/** How far in front of the user the animal is placed on tap, in metres. */
+const PLACEMENT_DISTANCE_METERS = 2.4
+/**
+ * Height of the animal's feet below the tracked head pose. The `local`
+ * reference space starts at head height, so ~1.2 m down approximates standing
+ * on the floor without any ground detection.
+ */
+const PLACEMENT_FLOOR_DROP_METERS = 1.2
 
 /**
  * Whether this browser exposes the WebXR device API at all. A cheap
- * synchronous check used to pick between the WebXR and marker-based UI;
+ * synchronous check used to pick between the WebXR and camera-composite UI;
  * `immersive-ar` support is verified asynchronously when the session starts.
  */
 export function isWebXrArAvailable(): boolean {
@@ -65,12 +70,13 @@ export async function isWebXrArSupported(): Promise<boolean> {
 
 /**
  * Markerless AR session on top of WebXR `immersive-ar` (Android Chrome +
- * ARCore). Hit-testing finds the floor, a reticle previews the drop point, and
- * a screen tap (`select`) anchors the animal there. The DOM overlay keeps our
- * own HUD and close button visible while the session runs.
+ * ARCore). No ground detection: a screen tap (`select`) places the animal at
+ * a fixed distance in front of the user, which works in every environment.
+ * The DOM overlay keeps our own HUD and close button visible while the
+ * session runs.
  *
  * iOS Safari does not implement `immersive-ar`; the caller falls back to the
- * marker-based `ArSession` there.
+ * camera-composite `CameraArSession` there.
  */
 export class WebXrArSession {
   private readonly overlayRoot: HTMLElement
@@ -84,31 +90,23 @@ export class WebXrArSession {
 
   private readonly scene = new Scene()
   private readonly camera = new PerspectiveCamera()
-  /** Anchor that receives the reticle pose on `select`; holds the model. */
+  /** Holds the model where the user tapped; repositioned on every `select`. */
   private readonly placementAnchor = new Group()
   private readonly modelScaleGroup = new Group()
-  private readonly reticle = new Mesh(
-    new RingGeometry(RETICLE_INNER_RADIUS, RETICLE_OUTER_RADIUS, 32),
-    new MeshBasicMaterial({
-      color: '#2f6b57',
-      transparent: true,
-      opacity: 0.9,
-      side: 2,
-    }),
-  )
   private staged: StagedViewerModel | null = null
 
   private renderer: WebGLRenderer | null = null
   private session: XRSession | null = null
-  private hitTestSource: XRHitTestSource | null = null
+  private viewerSpace: XRReferenceSpace | null = null
   private localReferenceSpace: XRReferenceSpace | null = null
+  /** Latest tracked viewer (head) pose, in the render reference space. */
+  private readonly viewerPoseMatrix = new Matrix4()
+  private hasViewerPose = false
 
   private state: ArState = 'requesting-camera'
   private destroyed = false
   private started = false
   private lastFrameTime = performance.now()
-  private loopStartTime = 0
-  private lastHitTime: number | null = null
   private descriptorToken = 0
 
   constructor(options: WebXrArSessionOptions) {
@@ -119,10 +117,6 @@ export class WebXrArSession {
     this.onProgress = options.onProgress
     this.onEnded = options.onEnded
 
-    // Lay the ring flat on the detected surface, facing up.
-    this.reticle.geometry.rotateX(-Math.PI / 2)
-    this.reticle.matrixAutoUpdate = false
-    this.reticle.visible = false
     this.modelScaleGroup.add(new HemisphereLight('#ffffff', '#444444', 1.4))
     const keyLight = new DirectionalLight('#ffffff', 1.2)
     keyLight.position.set(0.4, 1, 0.6)
@@ -131,7 +125,6 @@ export class WebXrArSession {
     this.placementAnchor.add(this.modelScaleGroup)
     this.placementAnchor.visible = false
     this.scene.add(this.placementAnchor)
-    this.scene.add(this.reticle)
   }
 
   async start(): Promise<boolean> {
@@ -149,7 +142,10 @@ export class WebXrArSession {
     try {
       this.setState('requesting-camera')
       const session = await navigator.xr.requestSession('immersive-ar', {
-        requiredFeatures: ['hit-test'],
+        // No hit-test requirement: the animal is placed at a fixed distance
+        // in front of the camera on tap, which works on every device and in
+        // every environment (dark rooms, plain floors).
+        requiredFeatures: [],
         optionalFeatures: ['dom-overlay', 'local-floor'],
         domOverlay: { root: this.overlayRoot },
       })
@@ -168,26 +164,15 @@ export class WebXrArSession {
       renderer.setClearColor(0x000000, 0)
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
       renderer.xr.enabled = true
-      // Keep Three.js rendering in the same reference space we request
-      // hit-test poses in, so the reticle and placed model line up.
       renderer.xr.setReferenceSpaceType('local')
       this.renderer = renderer
 
       this.localReferenceSpace =
         (await session.requestReferenceSpace('local')) ?? null
       await renderer.xr.setSession(session)
-
-      const viewerSpace = await session.requestReferenceSpace('viewer')
-      const hitTestSource = await session.requestHitTestSource?.({
-        space: viewerSpace,
-      })
-      this.hitTestSource = hitTestSource ?? null
-      if (!this.hitTestSource) {
-        // Feature granted on paper but no source handed out: hit-testing is
-        // not actually usable on this device.
-        this.setState('unsupported')
-        return false
-      }
+      // Tracked viewer pose (updated each frame) used to compute the tap
+      // placement point in front of the user.
+      this.viewerSpace = await session.requestReferenceSpace('viewer')
 
       this.setState('scanning')
       this.startLoop()
@@ -201,7 +186,7 @@ export class WebXrArSession {
 
   /**
    * Build (or swap) the staged model for the given descriptor, reusing the
-   * shared `ModelCache` exactly like the marker-based session does.
+   * shared `ModelCache` exactly like the camera session does.
    */
   async setDescriptor(descriptor: ViewerModelDescriptor): Promise<void> {
     const token = ++this.descriptorToken
@@ -239,8 +224,7 @@ export class WebXrArSession {
       renderer.forceContextLoss()
       this.renderer = null
     }
-    this.hitTestSource?.cancel()
-    this.hitTestSource = null
+    this.viewerSpace = null
     this.localReferenceSpace = null
     const session = this.session
     this.session = null
@@ -255,8 +239,6 @@ export class WebXrArSession {
       disposeObject3D(this.staged.group)
       this.staged = null
     }
-    this.reticle.geometry.dispose()
-    this.reticle.material.dispose()
   }
 
   private handleSessionEnd = (): void => {
@@ -265,17 +247,33 @@ export class WebXrArSession {
     }
   }
 
+  /** Places (or re-places) the animal in front of the user on tap. */
   private handleSelect = (): void => {
-    if (this.destroyed || !this.reticle.visible) {
+    if (this.destroyed || !this.hasViewerPose) {
       return
     }
-    this.placementAnchor.matrix.copy(this.reticle.matrix)
-    this.placementAnchor.matrix.decompose(
-      this.placementAnchor.position,
-      this.placementAnchor.quaternion,
-      this.placementAnchor.scale,
+    const anchor = this.placementAnchor
+    // Camera position + forward direction from the tracked viewer pose.
+    const position = new Vector3()
+    const quaternion = new Quaternion()
+    const scale = new Vector3(1, 1, 1)
+    this.viewerPoseMatrix.decompose(position, quaternion, scale)
+    const forward = new Vector3(0, 0, -1).applyQuaternion(quaternion)
+    forward.y = 0
+    if (forward.lengthSq() < 1e-6) {
+      forward.set(0, 0, -1)
+    }
+    forward.normalize()
+    anchor.position.copy(position).addScaledVector(
+      forward,
+      PLACEMENT_DISTANCE_METERS,
     )
-    this.placementAnchor.visible = true
+    anchor.position.y = position.y - PLACEMENT_FLOOR_DROP_METERS
+    // Stand the animal upright and have it face the user.
+    anchor.quaternion.identity()
+    anchor.lookAt(position.x, anchor.position.y, position.z)
+    anchor.scale.setScalar(1)
+    anchor.visible = true
     this.setState('tracking')
   }
 
@@ -292,8 +290,6 @@ export class WebXrArSession {
     if (!renderer) {
       return
     }
-    this.loopStartTime = performance.now()
-    this.lastHitTime = null
     const loop = (time: number, frame?: XRFrame): void => {
       if (this.destroyed) {
         return
@@ -303,30 +299,17 @@ export class WebXrArSession {
         0.1,
       )
       this.lastFrameTime = time
-      if (frame && this.hitTestSource) {
-        // Prefer Three.js' live reference space so hit poses and rendering
-        // share one coordinate system.
+      if (frame && this.viewerSpace) {
+        // Prefer Three.js' live reference space so the tracked pose and
+        // rendering share one coordinate system.
         const referenceSpace =
           renderer.xr.getReferenceSpace() ?? this.localReferenceSpace
-        const results = frame.getHitTestResults(this.hitTestSource)
         const pose = referenceSpace
-          ? results[0]?.getPose(referenceSpace)
+          ? frame.getPose(this.viewerSpace, referenceSpace)
           : undefined
         if (pose) {
-          this.lastHitTime = time
-          this.reticle.visible = true
-          this.reticle.matrix.fromArray(pose.transform.matrix)
-        } else {
-          this.reticle.visible = false
-          // Hit-testing needs the phone to move and see a trackable surface;
-          // nudge the user after a while instead of spinning on "searching".
-          if (
-            this.state === 'scanning' &&
-            this.lastHitTime === null &&
-            time - this.loopStartTime > 10_000
-          ) {
-            this.setState('lost')
-          }
+          this.viewerPoseMatrix.fromArray(pose.transform.matrix)
+          this.hasViewerPose = true
         }
       }
       if (this.staged?.mixer && this.placementAnchor.visible) {

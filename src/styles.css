@@ -1311,19 +1311,6 @@ a:focus-visible {
   }
 }
 
-/* Vertical care dock pinned to the right edge of the stage. */
-.care-dock {
-  position: absolute;
-  z-index: 6;
-  top: 50%;
-  right: max(10px, env(safe-area-inset-right));
-  display: grid;
-  transform: translateY(-50%);
-}
-
-.care-dock .icon-button {
-  box-shadow: 0 8px 20px rgb(37 56 32 / 16%);
-}
 
 @keyframes care-fall {
   from {
@@ -3321,7 +3308,6 @@ a:focus-visible {
   gap: 10px;
 }
 
-
 .museum-mark {
   width: 26px;
   height: 26px;
@@ -3401,6 +3387,10 @@ a:focus-visible {
   transform: translateY(1px) scale(0.98);
 }
 
+.stage-actions > .language-menu {
+  margin-inline-end: 6px;
+}
+
 .stage-actions {
   gap: 0;
   padding: 3px;
@@ -3410,10 +3400,6 @@ a:focus-visible {
   box-shadow: 0 9px 26px rgb(36 55 33 / 12%);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-}
-
-.stage-actions > .language-menu {
-  margin-inline-end: 6px;
 }
 
 .stage-actions .icon-button {
@@ -4447,7 +4433,6 @@ a:focus-visible {
     white-space: nowrap;
   }
 
-
   .title-lockup {
     margin-top: 5px;
   }
@@ -4503,125 +4488,6 @@ html[data-locale="en"] .collection-card__copy strong {
   white-space: nowrap;
 }
 
-.language-menu {
-  position: relative;
-}
-
-.language-menu__trigger {
-  display: inline-flex;
-  width: 52px;
-  min-width: 52px;
-  height: 52px;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-  padding: 0;
-  border: 1px solid rgb(255 255 255 / 65%);
-  border-radius: 18px;
-  color: #214a33;
-  background: rgb(255 253 247 / 90%);
-  box-shadow:
-    0 8px 22px rgb(37 56 32 / 14%),
-    inset 0 1px rgb(255 255 255 / 78%);
-  cursor: pointer;
-  font-size: 0.72rem;
-  font-weight: 850;
-  backdrop-filter: blur(12px);
-}
-
-.language-menu__trigger:hover,
-.language-menu__trigger[aria-expanded="true"] {
-  background: rgb(255 255 255 / 96%);
-}
-
-.language-menu__popover {
-  position: absolute;
-  z-index: 60;
-  top: calc(100% + 9px);
-  right: 0;
-  display: grid;
-  width: max-content;
-  min-width: 190px;
-  gap: 3px;
-  padding: 7px;
-  border: 1px solid rgb(48 77 62 / 13%);
-  border-radius: 16px;
-  background: rgb(255 253 247 / 97%);
-  box-shadow: 0 18px 45px rgb(28 46 37 / 22%);
-  backdrop-filter: blur(16px);
-}
-
-.language-menu__choice {
-  display: grid;
-  min-height: 48px;
-  grid-template-columns: 18px minmax(0, 1fr) 18px;
-  gap: 10px;
-  align-items: center;
-  padding: 0 13px;
-  border: 0;
-  border-radius: 11px;
-  background: transparent;
-  cursor: pointer;
-  font-weight: 760;
-  text-align: left;
-}
-
-.language-menu__choice [lang="zh-CN"] {
-  font-family:
-    "Noto Sans SC Variable", "Noto Sans SC", "PingFang SC",
-    "Microsoft YaHei", system-ui, sans-serif;
-}
-
-.language-menu__choice [lang="en"] {
-  font-family:
-    "Nunito Variable", "Avenir Next", Avenir, system-ui, sans-serif;
-}
-
-.language-menu__choice:hover,
-.language-menu__choice:focus-visible {
-  background: color-mix(in srgb, var(--animal-accent-soft) 38%, white);
-}
-
-.language-menu__radio {
-  position: relative;
-  display: block;
-  width: 16px;
-  height: 16px;
-  border: 2px solid rgb(44 75 60 / 45%);
-  border-radius: 50%;
-  background: #fffdf7;
-}
-
-.language-menu__selected-mark {
-  display: grid;
-  color: var(--leaf);
-  opacity: 0;
-  place-items: center;
-}
-
-.language-menu__choice[aria-checked="true"] {
-  color: #173b2b;
-  background: #e3eee5;
-  box-shadow: inset 3px 0 0 var(--leaf);
-  font-weight: 850;
-}
-
-.language-menu__choice[aria-checked="true"] .language-menu__radio {
-  border-color: var(--leaf);
-}
-
-.language-menu__choice[aria-checked="true"] .language-menu__radio::after {
-  position: absolute;
-  inset: 3px;
-  border-radius: 50%;
-  background: var(--leaf);
-  content: "";
-}
-
-.language-menu__choice[aria-checked="true"] .language-menu__selected-mark {
-  opacity: 1;
-}
-
 @media (max-width: 1023px) and (orientation: portrait) {
   .museum-experience[data-locale="en"] .animal-copy {
     display: block;
@@ -4666,12 +4532,6 @@ html[data-locale="en"] .collection-card__copy strong {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .language-menu__trigger {
-    width: 48px;
-    min-width: 48px;
-    height: 48px;
-    border-radius: 14px;
-  }
 }
 
 @media (max-height: 560px) and (orientation: landscape) {
@@ -4694,17 +4554,6 @@ html[data-locale="en"] .collection-card__copy strong {
     line-height: 1.2;
   }
 
-  .language-menu__trigger {
-    width: 48px;
-    min-width: 48px;
-    height: 48px;
-    border-radius: 13px;
-  }
-
-  .language-menu__popover {
-    top: 0;
-    right: calc(100% + 7px);
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
