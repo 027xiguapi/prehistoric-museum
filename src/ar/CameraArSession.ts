@@ -43,6 +43,11 @@ export interface CameraArSessionOptions {
 /** Distance between the viewer and the animal, in metres. */
 const MODEL_DISTANCE = 3.2
 const CAMERA_FIELD_OF_VIEW_DEGREES = 62
+/** Default rendered height of the animal, in metres. */
+const MODEL_TARGET_HEIGHT = 1.0
+/** Pinch-zoom range, as a multiplier of the default size. */
+const MIN_ZOOM = 0.4
+const MAX_ZOOM = 2.6
 
 /** Convert alpha/beta/gamma (degrees) into a usable camera orientation. */
 function orientationToQuaternion(
@@ -112,6 +117,11 @@ export class CameraArSession {
   private screenAngle = 0
   /** Yaw offset so a tap re-centres the animal in front of the user. */
   private recenterYaw = 0
+  /** Pinch-zoom state. */
+  private zoomFactor = 1
+  private baseModelScale = 1
+  private pinchStartDistance = 0
+  private pinchStartZoom = 1
 
   constructor(options: CameraArSessionOptions) {
     this.container = options.container
@@ -212,9 +222,10 @@ export class CameraArSession {
     // Child-sized at conversational distance: ~1.2 m tall, standing at eye
     // level so it looks present in the room.
     const height = Math.max(staged.bounds.getSize(new Vector3()).y, 0.001)
-    const scale = 1.2 / height
-    this.modelScaleGroup.scale.setScalar(scale)
-    this.modelAnchor.position.y = 1.2 / 2
+    const scale = MODEL_TARGET_HEIGHT / height
+    this.baseModelScale = scale
+    this.modelScaleGroup.scale.setScalar(scale * this.zoomFactor)
+    this.modelAnchor.position.y = MODEL_TARGET_HEIGHT / 2 * this.zoomFactor
     this.modelScaleGroup.add(staged.group)
   }
 
@@ -243,6 +254,7 @@ export class CameraArSession {
       this.staged = null
     }
     if (this.renderer) {
+      this.detachZoomListeners(this.renderer.domElement)
       this.renderer.dispose()
       this.renderer.forceContextLoss()
       this.renderer.domElement.remove()
@@ -284,6 +296,7 @@ export class CameraArSession {
     renderer.domElement.setAttribute('aria-hidden', 'true')
     this.renderer = renderer
     this.container.append(renderer.domElement)
+    this.attachZoomListeners(renderer.domElement)
     this.resize()
     this.resizeObserver = new ResizeObserver(() => this.resize())
     this.resizeObserver.observe(this.container)
@@ -298,6 +311,80 @@ export class CameraArSession {
     this.renderer.setSize(width, height, false)
     this.camera.aspect = width / height
     this.camera.updateProjectionMatrix()
+  }
+
+  private applyZoom(): void {
+    this.modelScaleGroup.scale.setScalar(this.baseModelScale * this.zoomFactor)
+    this.modelAnchor.position.y = (MODEL_TARGET_HEIGHT / 2) * this.zoomFactor
+  }
+
+  private handleTouchStart = (event: TouchEvent) => {
+    if (event.touches.length === 2) {
+      this.pinchStartDistance = this.touchDistance(event)
+      this.pinchStartZoom = this.zoomFactor
+    }
+  }
+
+  private handleTouchMove = (event: TouchEvent) => {
+    if (event.touches.length !== 2 || this.pinchStartDistance <= 0) {
+      return
+    }
+    event.preventDefault()
+    const ratio = this.touchDistance(event) / this.pinchStartDistance
+    this.zoomFactor = Math.min(
+      Math.max(this.pinchStartZoom * ratio, MIN_ZOOM),
+      MAX_ZOOM,
+    )
+    this.applyZoom()
+  }
+
+  private handleTouchEnd = (event: TouchEvent) => {
+    if (event.touches.length < 2) {
+      this.pinchStartDistance = 0
+    }
+  }
+
+  private handleWheel = (event: WheelEvent) => {
+    event.preventDefault()
+    this.zoomFactor = Math.min(
+      Math.max(this.zoomFactor * Math.exp(-event.deltaY * 0.0012), MIN_ZOOM),
+      MAX_ZOOM,
+    )
+    this.applyZoom()
+  }
+
+  private touchDistance(event: TouchEvent): number {
+    const [first, second] = [event.touches[0], event.touches[1]]
+    if (!first || !second) {
+      return 0
+    }
+    return Math.hypot(
+      first.clientX - second.clientX,
+      first.clientY - second.clientY,
+    )
+  }
+
+  private attachZoomListeners(element: HTMLElement): void {
+    element.addEventListener('touchstart', this.handleTouchStart, {
+      passive: true,
+    })
+    element.addEventListener('touchmove', this.handleTouchMove, {
+      passive: false,
+    })
+    element.addEventListener('touchend', this.handleTouchEnd, {
+      passive: true,
+    })
+    element.addEventListener('wheel', this.handleWheel, { passive: false })
+  }
+
+  private detachZoomListeners(element: HTMLElement | null): void {
+    if (!element) {
+      return
+    }
+    element.removeEventListener('touchstart', this.handleTouchStart)
+    element.removeEventListener('touchmove', this.handleTouchMove)
+    element.removeEventListener('touchend', this.handleTouchEnd)
+    element.removeEventListener('wheel', this.handleWheel)
   }
 
   private handleDeviceOrientation = (event: DeviceOrientationEvent) => {

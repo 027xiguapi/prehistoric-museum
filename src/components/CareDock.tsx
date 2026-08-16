@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Beef, Leaf, ShowerHead, Volleyball, X, type LucideIcon } from 'lucide-react'
+import { Beef, Footprints, Leaf, MoveHorizontal, ShowerHead, Volleyball, X, type LucideIcon } from 'lucide-react'
 import { useI18n } from '../i18n/I18nProvider'
 import type { Diet } from '../content/types'
 import type { CarePlayKind } from './StagePlayEffect'
@@ -78,6 +78,10 @@ interface CareDockProps {
   readonly onPlay: (kind: CarePlayKind) => void
   /** Bowl picked in the feed mini-game; the parent decides correctness. */
   readonly onFeedPick: (kind: 'meat' | 'leaf') => void
+  /** Standalone walk animation. */
+  readonly onWalk: () => void
+  /** Standalone head-shake animation. */
+  readonly onShake: () => void
 }
 
 /**
@@ -91,6 +95,8 @@ export function CareDock({
   overlayOpen,
   onPlay,
   onFeedPick,
+  onWalk,
+  onShake,
 }: CareDockProps) {
   const { messages } = useI18n()
   const [pickerOpen, setPickerOpen] = useState(false)
@@ -122,6 +128,18 @@ export function CareDock({
           icon={ShowerHead}
           label={messages.care.bathe}
           onClick={() => onPlay('bath')}
+        />
+        <CareDockButton
+          disabled={disabled}
+          icon={Footprints}
+          label={messages.care.walk}
+          onClick={onWalk}
+        />
+        <CareDockButton
+          disabled={disabled}
+          icon={MoveHorizontal}
+          label={messages.care.shake}
+          onClick={onShake}
         />
         <CareDockButton
           disabled={disabled}

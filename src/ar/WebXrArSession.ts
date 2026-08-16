@@ -38,7 +38,7 @@ export interface WebXrArSessionOptions {
  * models are authored at wildly different native scales, so we normalise them
  * to a child-friendly "standing next to you" size instead of true life size.
  */
-const PLACEMENT_TARGET_HEIGHT_METERS = 1.4
+const PLACEMENT_TARGET_HEIGHT_METERS = 1.15
 /** How far in front of the user the animal is placed on tap, in metres. */
 const PLACEMENT_DISTANCE_METERS = 2.4
 /**
@@ -247,11 +247,16 @@ export class WebXrArSession {
     }
   }
 
-  /** Places (or re-places) the animal in front of the user on tap. */
+  /** Places (or re-places) the animal in front of the user. */
   private handleSelect = (): void => {
     if (this.destroyed || !this.hasViewerPose) {
       return
     }
+    this.placeInFront()
+  }
+
+  /** Anchors the animal a fixed distance ahead of the current view. */
+  private placeInFront(): void {
     const anchor = this.placementAnchor
     // Camera position + forward direction from the tracked viewer pose.
     const position = new Vector3()
@@ -309,7 +314,12 @@ export class WebXrArSession {
           : undefined
         if (pose) {
           this.viewerPoseMatrix.fromArray(pose.transform.matrix)
-          this.hasViewerPose = true
+          if (!this.hasViewerPose) {
+            // Appear immediately — no waiting for a tap. Tapping later
+            // re-places the animal in front of wherever the user looks.
+            this.hasViewerPose = true
+            this.placeInFront()
+          }
         }
       }
       if (this.staged?.mixer && this.placementAnchor.visible) {

@@ -33,6 +33,14 @@ import {
   type StagedViewerModel,
   type ViewerFailure,
 } from './build-staged-model'
+import {
+  collectReactionBones,
+  resetBone,
+  resetLegChain,
+  strideLeg,
+  swingBone,
+  type ReactionBones,
+} from './reaction-bones'
 
 export type { ViewerModelDescriptor } from './viewer-model-descriptor'
 export {
@@ -210,7 +218,7 @@ export function resetStagedModelPose(
 }
 
 /** Timed model reaction played by the care interactions. */
-type ReactionKind = 'celebrate' | 'walk-and-eat' | 'shake'
+type ReactionKind = 'celebrate' | 'walk-and-eat' | 'walk' | 'shake'
 
 interface Reaction {
   kind: ReactionKind
@@ -220,6 +228,8 @@ interface Reaction {
   readonly baseYaw: number
   readonly modelHeight: number
   readonly walkFromX: number
+  /** Rig bones for gait/neck motion; null entries fall back to body motion. */
+  readonly bones: ReactionBones
 }
 
 export class ViewerUnavailableError extends Error {
@@ -498,6 +508,11 @@ export class ViewerController {
     this.beginReaction('shake')
   }
 
+  /** Standalone walk: strolls in, pauses, strolls back out. */
+  walk(): void {
+    this.beginReaction('walk')
+  }
+
   private beginReaction(kind: ReactionKind): void {
     const current = this.current
     if (!current || this.reducedMotion) {
@@ -514,6 +529,7 @@ export class ViewerController {
         baseYaw: current.modelRoot.rotation.y,
         modelHeight: Math.max(size.y, 0.001),
         walkFromX: -Math.max(size.x, 0.001) * 0.8,
+        bones: collectReactionBones(current.modelRoot),
       }
       return
     }
@@ -531,7 +547,22 @@ export class ViewerController {
     }
     current.modelRoot.position.copy(reaction.basePosition)
     current.modelRoot.rotation.y = reaction.baseYaw
+    current.modelRoot.rotation.z = 0
     current.modelRoot.scale.setScalar(1)
+    for (const bone of reaction.bones.neck) {
+      resetBone(bone)
+    }
+    for (const bone of reaction.bones.tail) {
+      resetBone(bone)
+    }
+    if (reaction.bones.frontLegs) {
+      resetLegChain(reaction.bones.frontLegs[0])
+      resetLegChain(reaction.bones.frontLegs[1])
+    }
+    if (reaction.bones.backLegs) {
+      resetLegChain(reaction.bones.backLegs[0])
+      resetLegChain(reaction.bones.backLegs[1])
+    }
   }
 
   /** Applies the active reaction for the current frame, if any. */
@@ -549,6 +580,7 @@ export class ViewerController {
     const durations: Record<ReactionKind, number> = {
       celebrate: 900,
       'walk-and-eat': 3_200,
+      walk: 2_800,
       shake: 1_000,
     }
     const progress = (time - reaction.start) / durations[reaction.kind]
@@ -564,8 +596,60 @@ export class ViewerController {
     }
     if (reaction.kind === 'shake') {
       const decay = 1 - progress
-      root.rotation.y =
-        reaction.baseYaw + Math.sin(progress * 4 * Math.PI) * 0.22 * decay
+      const wave = Math.sin(progress * 4 * Math.PI) * decay
+      // Head shake via the neck chain when the rig provides one; a small
+      // body yaw keeps the intent readable either way.
+      if (reaction.bones.neck.length > 0) {
+        reaction.bones.neck.forEach((bone, index) => {
+          // Dampen down the chain so the head moves the most.
+          swingBone(bone, wave * 0.16 * (1 - index * 0.12), 'y')
+        })
+        root.rotation.y = reaction.baseYaw + wave * 0.06
+      } else {
+        root.rotation.y = reaction.baseYaw + wave * 0.22
+      }
+      return
+    }
+    // Standalone walk: in → pause → out.
+    if (reaction.kind === 'walk') {
+      const WALK_IN_END = 0.42
+      const STAND_END = 0.56
+      const walkStep = (from: number, to: number) => {
+        const t = (progress - from) / (to - from)
+        const eased = t * t * (3 - 2 * t)
+        return { t, eased }
+      }
+      if (progress < WALK_IN_END) {
+        const { t, eased } = walkStep(0, WALK_IN_END)
+        root.position.x =
+          reaction.walkFromX +
+          (reaction.basePosition.x - reaction.walkFromX) * eased
+        root.position.y =
+          reaction.basePosition.y +
+          Math.abs(Math.sin(t * Math.PI * 4)) * reaction.modelHeight * 0.04
+        root.rotation.z = -0.08 * (1 - eased)
+        this.applyWalkGait(reaction, t)
+      } else if (progress < STAND_END) {
+        const t = (progress - WALK_IN_END) / (STAND_END - WALK_IN_END)
+        root.position.x = reaction.basePosition.x
+        root.position.y = reaction.basePosition.y
+        root.rotation.z = 0
+        // Pause: contented tail wag.
+        const wag = Math.sin(t * Math.PI * 2) * 0.08
+        reaction.bones.tail.forEach((bone, index) => {
+          swingBone(bone, wag * (1 - index * 0.25), 'z')
+        })
+      } else {
+        const { t, eased } = walkStep(STAND_END, 1)
+        root.position.x =
+          reaction.basePosition.x +
+          (reaction.walkFromX - reaction.basePosition.x) * eased
+        root.position.y =
+          reaction.basePosition.y +
+          Math.abs(Math.sin(t * Math.PI * 4)) * reaction.modelHeight * 0.04
+        root.rotation.z = 0.08 * eased
+        this.applyWalkGait(reaction, t)
+      }
       return
     }
     // walk-and-eat: in → eat → out.
@@ -582,13 +666,15 @@ export class ViewerController {
         Math.abs(Math.sin(t * Math.PI * 4)) * reaction.modelHeight * 0.04
       // Lean into the walking direction.
       root.rotation.z = -0.08 * (1 - eased)
+      this.applyWalkGait(reaction, t)
     } else if (progress < EAT_END) {
       const t = (progress - WALK_IN_END) / (EAT_END - WALK_IN_END)
       root.position.x = reaction.basePosition.x
       root.position.y = reaction.basePosition.y
       root.rotation.z = 0
-      // Happy eating squash pulses.
+      // Happy eating: squash pulses plus a nibbling head bob.
       root.scale.setScalar(1 + 0.05 * Math.sin(t * Math.PI * 3))
+      this.applyEatNibble(reaction, t)
     } else {
       const t = (progress - EAT_END) / (1 - EAT_END)
       const eased = t * t * (3 - 2 * t)
@@ -599,6 +685,69 @@ export class ViewerController {
         reaction.basePosition.y +
         Math.abs(Math.sin(t * Math.PI * 4)) * reaction.modelHeight * 0.04
       root.rotation.z = 0.08 * eased
+      this.applyWalkGait(reaction, t)
+    }
+  }
+
+  /** Stride tuning; amplitudes in radians. */
+  private static readonly FRONT_STRIDE = {
+    upperAmplitude: 0.36,
+    lowerAmplitude: 0.62,
+    // Hold the elbow fold through most of the swing phase.
+    flexCurve: 0.72,
+    footCompensation: 0.55,
+  } as const
+
+  private static readonly BACK_STRIDE = {
+    upperAmplitude: 0.4,
+    lowerAmplitude: 0.7,
+    flexCurve: 0.72,
+    footCompensation: 0.5,
+  } as const
+
+  /**
+   * Diagonal-pair walk gait: front-left strides with hind-right (and vice
+   * versa), the four legs offset by half a cycle. Each leg runs a complete
+   * stride — swing phase with a forward hip pitch, a folded knee and a
+   * foot that clears the ground, followed by a planted stance where the leg
+   * straightens fully — while the body bob and tail sway run on top.
+   * `phase` runs 0→1 across the walk.
+   */
+  private applyWalkGait(reaction: Reaction, phase: number): void {
+    const { frontLegs, backLegs, tail } = reaction.bones
+    const cycle = phase * Math.PI * 4
+    // Diagonal pairs oppose by half a cycle.
+    if (frontLegs) {
+      strideLeg(frontLegs[0], cycle, 0, ViewerController.FRONT_STRIDE)
+      strideLeg(frontLegs[1], cycle, Math.PI, ViewerController.FRONT_STRIDE)
+    }
+    if (backLegs) {
+      strideLeg(backLegs[0], cycle, Math.PI, ViewerController.BACK_STRIDE)
+      strideLeg(backLegs[1], cycle, 0, ViewerController.BACK_STRIDE)
+    }
+    if (tail.length > 0) {
+      const sway = Math.sin(cycle * 0.5) * 0.1
+      tail.forEach((bone, index) => {
+        swingBone(bone, sway * (1 - index * 0.25), 'z')
+      })
+    }
+  }
+
+  /** Head-down nibbling motion for the eating phase. */
+  private applyEatNibble(reaction: Reaction, phase: number): void {
+    const { neck, tail } = reaction.bones
+    if (neck.length > 0) {
+      const nibble = Math.sin(phase * Math.PI * 6) * 0.09
+      neck.forEach((bone, index) => {
+        swingBone(bone, nibble * (1 - index * 0.15), 'x')
+      })
+    }
+    if (tail.length > 0) {
+      // Contented slow tail wag while eating.
+      const wag = Math.sin(phase * Math.PI * 2) * 0.08
+      tail.forEach((bone, index) => {
+        swingBone(bone, wag * (1 - index * 0.25), 'z')
+      })
     }
   }
 

@@ -1750,6 +1750,24 @@ function MuseumApp({
     }, kind === 'bath' ? 1_100 : 1_700)
   }
 
+  /** Standalone walk reaction from the dock. */
+  const handleCareWalk = () => {
+    if (!modelReady) {
+      return
+    }
+    setLiveMessage(messages.care.walked(activeAnimal.name))
+    viewerControllerRef.current?.walk()
+  }
+
+  /** Standalone head-shake reaction from the dock. */
+  const handleCareShake = () => {
+    if (!modelReady) {
+      return
+    }
+    setLiveMessage(messages.care.shook(activeAnimal.name))
+    viewerControllerRef.current?.shakeHead()
+  }
+
   /**
    * Feed mini-game resolution: a correct bowl makes the animal walk over and
    * eat; a wrong one gets a head shake and nothing to eat.
@@ -2112,6 +2130,8 @@ function MuseumApp({
             disabled={!modelReady}
             onFeedPick={handleFeedPick}
             onPlay={playCare}
+            onShake={handleCareShake}
+            onWalk={handleCareWalk}
             overlayOpen={overlayOpen}
           />
         ) : null}
