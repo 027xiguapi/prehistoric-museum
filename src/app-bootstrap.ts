@@ -1,7 +1,7 @@
 import { animalIdPattern } from './content/types'
 import type { Locale, LocalePreference } from './i18n/locale'
 
-export type AppPageKind = 'museum' | 'animal-detail'
+export type AppPageKind = 'zone-select' | 'museum' | 'animal-detail'
 
 export interface InitialAppState {
   readonly animalId: string

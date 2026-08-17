@@ -4,6 +4,11 @@ import { join } from 'node:path'
 
 import { mainCollection } from '../src/content/collections/main'
 import {
+  insectAnimalIds,
+  zoneCategoryDefinitions,
+  type ZoneCategoryId,
+} from '../src/content/collections/zone-definitions'
+import {
   ANIMAL_PACKAGE_HARD_CEILING_BYTES,
   ANIMAL_PACKAGE_TARGET_BYTES,
   MODEL_GLB_HARD_CEILING_BYTES,
@@ -1443,5 +1448,67 @@ export async function validateContent(
   return [
     ...packageIssues.flat(),
     ...validateCollection(collection, definitions),
+    ...validateZoneCategories(definitions),
   ]
+}
+
+/**
+ * Keeps the homepage zone selection honest: every zone must stay non-empty and
+ * every published animal must belong to at least one zone, otherwise the
+ * animal becomes unreachable from the homepage.
+ */
+function validateZoneCategories(
+  definitions: readonly AnimalPackageDefinition[],
+): ValidationIssue[] {
+  const issues: ValidationIssue[] = []
+  const zoneAnimalCounts = new Map<ZoneCategoryId, number>(
+    zoneCategoryDefinitions.map((definition) => [definition.id, 0]),
+  )
+
+  for (const definition of definitions) {
+    const zoneIds = zoneCategoryDefinitions
+      .filter((zone) =>
+        zone.matches({
+          atmosphere: definition.atmosphere,
+          id: definition.id,
+          kind: definition.kind,
+        }),
+      )
+      .map((zone) => zone.id)
+    for (const zoneId of zoneIds) {
+      zoneAnimalCounts.set(zoneId, (zoneAnimalCounts.get(zoneId) ?? 0) + 1)
+    }
+    if (definition.status === 'published' && zoneIds.length === 0) {
+      issues.push({
+        severity: 'error',
+        code: 'ZONE_MEMBERSHIP_MISSING',
+        animalId: definition.id,
+        message:
+          '已发布动物不属于任何首页分类；请在 zone-definitions.ts 中补充匹配规则。',
+      })
+    }
+  }
+
+  const knownAnimalIds = new Set(definitions.map(({ id }) => id))
+  for (const insectId of insectAnimalIds) {
+    if (!knownAnimalIds.has(insectId)) {
+      issues.push({
+        severity: 'error',
+        code: 'ZONE_INSECT_UNKNOWN_ANIMAL',
+        message: `昆虫分类引用了目录中不存在的动物 “${insectId}”。`,
+      })
+    }
+  }
+
+  for (const [zoneId, count] of zoneAnimalCounts) {
+    if (count === 0) {
+      issues.push({
+        severity: 'error',
+        code: 'ZONE_EMPTY',
+        message: `首页分类 “${zoneId}” 没有任何动物，请在添加动物时维护分类规则。`,
+      })
+    }
+  }
+
+  return issues
 }

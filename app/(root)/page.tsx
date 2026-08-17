@@ -21,7 +21,7 @@ export default function MuseumEntryPage() {
   const initialState: InitialAppState = {
     animalId: defaultAnimalId,
     locale: 'zh-CN',
-    pageKind: 'museum',
+    pageKind: 'zone-select',
     preference: 'zh-CN',
     rootFallback: true,
   }

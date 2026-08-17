@@ -5,6 +5,7 @@ import {
   Eye,
   Leaf,
   LayoutGrid,
+  Map as MapIcon,
   Maximize2,
   Minimize2,
   Pause,
@@ -49,7 +50,15 @@ import {
 import { ResponsiveAnimalTitle } from './components/ResponsiveAnimalTitle'
 import { SceneAtmosphere } from './components/SceneAtmosphere'
 import { ViewerStage } from './components/ViewerStage'
+import { ZoneSelect, type ZoneCardData } from './components/ZoneSelect'
 import { mainAnimals } from './content/catalog'
+import {
+  parseZoneCategoryId,
+  zoneCategories,
+  zoneCategoryById,
+  zoneIdsForAnimal,
+  type ZoneCategoryId,
+} from './content/collections/categories'
 import { animalSeoDescription } from './content/animal-seo'
 import { credits } from './content/credits.generated'
 import { staticAnimalDetailIds } from './content/static-animal-details'
@@ -184,6 +193,21 @@ function animalDetailHref(
 
 function museumExhibitHref(locale: Locale): string {
   return `../../${locale}/`
+}
+
+/**
+ * `/{prefix}/{locale}/` — the prefix keeps any configured basePath intact.
+ * Unlike `museumExhibitHref` this works from any museum URL shape (the
+ * animal-id path included), mirroring the prefix logic of `replaceAnimalUrl`.
+ */
+function zoneEntryHref(locale: Locale): string {
+  const localized = window.location.pathname.match(
+    /^(.*\/)(?:zh-CN|en)(?:\/|$)/,
+  )
+  const prefix = localized
+    ? localized[1]
+    : window.location.pathname.replace(/[^/]*$/, '')
+  return `${prefix}${locale}/`
 }
 
 interface WindowWithIdleCallback {
@@ -718,6 +742,15 @@ function MuseumApp({
     () => new Map(animals.map((animal) => [animal.id, animal])),
     [animals],
   )
+  const zoneCards = useMemo<ZoneCardData[]>(
+    () =>
+      zoneCategories.map((zone) => ({
+        count: zone.animalIds.length,
+        id: zone.id,
+        thumbnail: animalIndex.get(zone.defaultAnimalId)?.assets.thumbnail ?? null,
+      })),
+    [animalIndex],
+  )
   const inferredDetailAnimalId = useMemo(
     () =>
       typeof window === 'undefined'
@@ -814,6 +847,7 @@ function MuseumApp({
   const [pageKind, setPageKind] = useState<AppPageKind>(
     resolvedInitialPageKind,
   )
+  const [activeZoneId, setActiveZoneId] = useState<ZoneCategoryId | null>(null)
   useLayoutEffect(() => {
     pageKindRef.current = pageKind
   }, [pageKind])
@@ -842,6 +876,7 @@ function MuseumApp({
     messages.loading.initialExhibit(initialAnimal.name),
   )
   const initialQueryAppliedRef = useRef(false)
+  const initialZoneQueryAppliedRef = useRef(false)
 
   const narration = useMemo(() => new NarrationController(), [])
   const narrationSnapshot = useSyncExternalStore(
@@ -886,6 +921,19 @@ function MuseumApp({
     })
   }, [animalIndex, initialAnimalId, messages.loading])
   const overlayOpen = drawerOpen || collectionOpen || arMode
+  // Review packages and e2e fixtures live outside the curated zones, so the
+  // zone filter only applies to the production catalog.
+  const zoneAppliesToNavigation = !localReviewMode && !e2eFixturesEnabled
+  const navigationAnimals = useMemo(() => {
+    if (!zoneAppliesToNavigation || !activeZoneId) {
+      return animals
+    }
+    const zoneAnimalIds = new Set(
+      zoneCategoryById.get(activeZoneId)?.animalIds ?? [],
+    )
+    const filtered = animals.filter((animal) => zoneAnimalIds.has(animal.id))
+    return filtered.length > 0 ? filtered : animals
+  }, [activeZoneId, animals, zoneAppliesToNavigation])
   const collectionAnimals = useMemo<CollectionAnimal[]>(
     () =>
       animals.map((animal) => ({
@@ -1619,6 +1667,108 @@ function MuseumApp({
     setPageKind('museum')
   }, [locale])
 
+  const enterZone = useCallback((zoneId: ZoneCategoryId) => {
+    const zone = zoneCategoryById.get(zoneId)
+    if (!zone) {
+      return
+    }
+    const target = animalIndexRef.current.get(zone.defaultAnimalId)
+    if (!target) {
+      return
+    }
+    // Entering always happens from the zone-select view, where the viewer and
+    // its coordinator are not mounted yet, so the next coordinator effect run
+    // starts the initial presentation for the zone's default animal.
+    idlePreloadCoordinatorRef.current?.cancelAll()
+    clearLargeModelNotice()
+    narration.pause()
+    setModelLoadingProgress(null)
+    setModelReady(false)
+    setViewerFailure(null)
+    setOutgoingAnimal(null)
+    setBackgroundTransitionReady(false)
+    initialPresentationPendingRef.current = true
+    activeAnimalRef.current = target
+    visibleBackgroundRef.current = target
+    setActiveZoneId(zoneId)
+    setActiveAnimalId(target.id)
+    setLoadSnapshot({
+      ...initialLoadSnapshot,
+      requestedAnimalId: target.id,
+    })
+    setLiveMessage(messagesRef.current.loading.initialExhibit(target.name))
+    const url = new URL(window.location.href)
+    url.searchParams.set('category', zoneId)
+    window.history.replaceState(
+      window.history.state,
+      '',
+      `${url.pathname}${url.search}${url.hash}`,
+    )
+    detailAnimalIdRef.current = null
+    pageKindRef.current = 'museum'
+    setPageKind('museum')
+  }, [clearLargeModelNotice, narration])
+
+  const returnToZoneSelect = useCallback(() => {
+    idlePreloadCoordinatorRef.current?.cancelAll()
+    clearLargeModelNotice()
+    narration.pause()
+    setModelLoadingProgress(null)
+    setModelReady(false)
+    setOutgoingAnimal(null)
+    setBackgroundTransitionReady(false)
+    setActiveZoneId(null)
+    detailAnimalIdRef.current = null
+    // Only reachable on the museum page kind, where the URL may still carry
+    // the animal path written by `replaceAnimalUrl`; resolve the locale entry.
+    window.history.replaceState(
+      window.history.state,
+      '',
+      zoneEntryHref(locale),
+    )
+    pageKindRef.current = 'zone-select'
+    setPageKind('zone-select')
+    setLiveMessage(messagesRef.current.zoneSelect.title)
+  }, [clearLargeModelNotice, locale, narration])
+
+  /** Keeps the rail in sync when a collection pick jumps across zones. */
+  const switchZoneForAnimal = (animalId: string) => {
+    if (!zoneAppliesToNavigation) {
+      return
+    }
+    const zoneIds = zoneIdsForAnimal(animalId)
+    setActiveZoneId(zoneIds[0] ?? null)
+  }
+
+  // Shareable `?category=<id>` museum links skip the selection page. Runs
+  // after hydration (microtask, like the deep-link selection below) so the
+  // server prerender of the zone grid stays byte-for-byte stable.
+  useEffect(() => {
+    if (
+      pageKindRef.current !== 'zone-select' ||
+      initialZoneQueryAppliedRef.current
+    ) {
+      return
+    }
+    queueMicrotask(() => {
+      if (initialZoneQueryAppliedRef.current) {
+        return
+      }
+      initialZoneQueryAppliedRef.current = true
+      if (e2eFixturesEnabled) {
+        pageKindRef.current = 'museum'
+        setPageKind('museum')
+        return
+      }
+      const requestedZoneId = parseZoneCategoryId(
+        new URLSearchParams(window.location.search).get('category'),
+      )
+      if (requestedZoneId) {
+        enterZone(requestedZoneId)
+      }
+    })
+  }, [enterZone, e2eFixturesEnabled])
+
   const requestAnimal = (animalId: string) => {
     const coordinator = coordinatorRef.current
     if (!coordinator) {
@@ -1674,11 +1824,13 @@ function MuseumApp({
       snapshot?.readyAnimalId ??
       activeAnimalRef.current.id
     const anchorIndex = Math.max(
-      animals.findIndex((animal) => animal.id === anchorAnimalId),
+      navigationAnimals.findIndex((animal) => animal.id === anchorAnimalId),
       0,
     )
     const target =
-      animals[(anchorIndex + offset + animals.length) % animals.length]
+      navigationAnimals[
+        (anchorIndex + offset + navigationAnimals.length) % navigationAnimals.length
+      ]
     if (target) {
       requestAnimal(target.id)
     }
@@ -1893,6 +2045,15 @@ function MuseumApp({
       id="museum-experience"
       style={interfaceStyle}
     >
+      {pageKind === 'zone-select' ? (
+        <>
+          <ZoneSelect onEnterZone={enterZone} zones={zoneCards} />
+          <div className="zone-select-actions">
+            <LanguageMenu />
+          </div>
+        </>
+      ) : (
+      <>
       {hasOutgoingBackground ? (
         <SceneBackground
           animal={outgoingAnimal}
@@ -2087,6 +2248,17 @@ function MuseumApp({
                 <span>{messages.collectionShort}</span>
               </button>
             )}
+            {pageKind === 'museum' ? (
+              <button
+                aria-label={messages.zoneSelect.backToZones}
+                className="zone-return-button"
+                onClick={returnToZoneSelect}
+                type="button"
+              >
+                <MapIcon aria-hidden="true" size={21} strokeWidth={2.1} />
+                <span>{messages.zoneSelect.backToZonesShort}</span>
+              </button>
+            ) : null}
           </div>
         </section>
         )
@@ -2190,9 +2362,9 @@ function MuseumApp({
               : messages.navigationLabel
           }
           className={`animal-navigation ${
-            animals.length === 1 ? 'animal-navigation--single' : ''
+            navigationAnimals.length === 1 ? 'animal-navigation--single' : ''
           }`}
-          data-animal-count={animals.length}
+          data-animal-count={navigationAnimals.length}
           inert={overlayOpen}
         >
           <IconButton
@@ -2202,7 +2374,7 @@ function MuseumApp({
             onClick={() => requestAdjacentAnimal(-1)}
           />
           <div className="animal-rail" ref={railRef} role="list">
-            {animals.map((animal) => {
+            {navigationAnimals.map((animal) => {
               const loading =
                 loadSnapshot.phase === 'loading' &&
                 loadSnapshot.requestedAnimalId === animal.id
@@ -2354,10 +2526,6 @@ function MuseumApp({
         </aside>
       ) : null}
 
-      <p aria-atomic="true" aria-live="polite" className="sr-only" role="status">
-        {liveMessage}
-      </p>
-
       <ParentDrawer
         facts={activeAnimal.facts}
         onClose={() => setDrawerOpen(false)}
@@ -2378,6 +2546,7 @@ function MuseumApp({
         onClose={() => setCollectionOpen(false)}
         onSelect={(animalId) => {
           setCollectionOpen(false)
+          switchZoneForAnimal(animalId)
           if (animalId !== (loadSnapshot.readyAnimalId ?? activeAnimal.id)) {
             requestAnimal(animalId)
           }
@@ -2393,6 +2562,11 @@ function MuseumApp({
           onClose={() => setArMode(false)}
         />
       ) : null}
+      </>
+      )}
+      <p aria-atomic="true" aria-live="polite" className="sr-only" role="status">
+        {pageKind === 'zone-select' ? '' : liveMessage}
+      </p>
     </main>
   )
 }

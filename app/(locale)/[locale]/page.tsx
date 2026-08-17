@@ -53,7 +53,7 @@ export default async function MuseumLocalePage({
   const initialState: InitialAppState = {
     animalId: defaultAnimalId,
     locale,
-    pageKind: 'museum',
+    pageKind: 'zone-select',
     preference: locale,
   }
 

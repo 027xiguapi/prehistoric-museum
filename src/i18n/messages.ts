@@ -120,6 +120,40 @@ const zhCN = {
     fallbackTitle: '今天先看看它的静态模型吧',
     retry: '重新加载模型',
   },
+  zoneSelect: {
+    title: '今天想去看谁？',
+    subtitle: '选一个展区，里面的动物朋友都在等你。',
+    enter: (zone: string) => `进入${zone}展区`,
+    friends: (count: number) => `${count} 位朋友`,
+    backToZones: '返回展区选择',
+    backToZonesShort: '展区',
+  },
+  zones: {
+    dinosaur: {
+      name: '恐龙',
+      tagline: '大地的王者，还有会飞的翼龙伙伴',
+    },
+    plains: {
+      name: '草原',
+      tagline: '宽阔的草地上住着成群的大家伙',
+    },
+    forest: {
+      name: '森林',
+      tagline: '茂密的树林里藏着大家伙的脚印',
+    },
+    ice: {
+      name: '冰川',
+      tagline: '冰冰凉凉的冰雪世界',
+    },
+    ocean: {
+      name: '海洋',
+      tagline: '潜进大海，和巨兽一起游泳',
+    },
+    insect: {
+      name: '昆虫',
+      tagline: '小小身体藏着大大的秘密',
+    },
+  },
   collection: {
     friends: (count: number) => `${count} 位史前朋友`,
     title: '全馆图鉴',
@@ -302,6 +336,40 @@ const en = {
     gestureHint: 'Drag to turn · scroll or pinch to zoom',
     fallbackTitle: 'Let’s look at its still model for now',
     retry: 'Reload the model',
+  },
+  zoneSelect: {
+    title: 'Who shall we visit today?',
+    subtitle: 'Pick a zone — the animal friends are waiting for you.',
+    enter: (zone) => `Enter the ${zone} zone`,
+    friends: (count) => `${count} friends`,
+    backToZones: 'Back to zone selection',
+    backToZonesShort: 'Zones',
+  },
+  zones: {
+    dinosaur: {
+      name: 'Dinosaurs',
+      tagline: 'Giants of the land, plus flying pterosaur pals',
+    },
+    plains: {
+      name: 'Grassland',
+      tagline: 'Big herds roaming the wide open plains',
+    },
+    forest: {
+      name: 'Forest',
+      tagline: 'Deep woods hiding giant footprints',
+    },
+    ice: {
+      name: 'Ice Age',
+      tagline: 'A cool, frosty world of snow',
+    },
+    ocean: {
+      name: 'Ocean',
+      tagline: 'Dive in and swim with sea giants',
+    },
+    insect: {
+      name: 'Insects',
+      tagline: 'Tiny bodies with big secrets',
+    },
   },
   collection: {
     friends: (count) => `${count} prehistoric friends`,

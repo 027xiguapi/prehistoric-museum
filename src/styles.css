@@ -4702,3 +4702,359 @@ html[data-locale="en"] .collection-card__copy strong {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
   image-rendering: pixelated;
 }
+
+/* ---- Zone selection (zoo-map homepage) ---- */
+
+.zone-select {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  gap: clamp(10px, 2vh, 22px);
+  padding:
+    clamp(16px, 4vh, 46px)
+    clamp(16px, 5vw, 72px)
+    clamp(18px, 4.5vh, 50px);
+  overflow-y: auto;
+  background:
+    radial-gradient(
+      circle at 12% 18%,
+      rgb(244 184 95 / 30%),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 88% 12%,
+      rgb(125 183 218 / 32%),
+      transparent 36%
+    ),
+    radial-gradient(
+      circle at 82% 88%,
+      rgb(133 190 138 / 30%),
+      transparent 38%
+    ),
+    linear-gradient(160deg, #f8f1df 0%, #eef3dc 55%, #e2ecda 100%);
+}
+
+.zone-select__header {
+  display: flex;
+  max-width: 720px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.zone-select__subtitle {
+  margin: 0;
+  color: var(--ink-muted);
+  font-weight: 640;
+}
+
+.zone-select__title {
+  margin: 2px 0 0;
+  color: var(--ink);
+  font-size: clamp(1.4rem, 3.2vw, 2.2rem);
+  font-weight: 880;
+  letter-spacing: 0.01em;
+}
+
+/* The map canvas: regions are absolutely placed pieces of terrain. */
+.zone-map {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  max-width: 1180px;
+  min-height: clamp(380px, 58vh, 620px);
+  margin-inline: auto;
+  border: 2px dashed rgb(53 104 89 / 22%);
+  border-radius: clamp(26px, 3vw, 40px);
+  background:
+    radial-gradient(
+      ellipse at 70% 30%,
+      rgb(255 253 247 / 60%),
+      transparent 55%
+    ),
+    linear-gradient(170deg, #f3ecd8 0%, #e9efd6 100%);
+  box-shadow:
+    inset 0 0 0 8px rgb(255 255 255 / 34%),
+    0 22px 60px rgb(36 51 31 / 12%);
+  overflow: hidden;
+}
+
+.zone-map__compass {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  z-index: 1;
+  display: inline-flex;
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgb(53 104 89 / 40%);
+  border-radius: 50%;
+  color: #315a4c;
+  background: rgb(255 253 247 / 70%);
+  font-weight: 880;
+}
+
+.zone-region {
+  position: absolute;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: clamp(10px, 1.4vw, 18px);
+  overflow: hidden;
+  border: 2px solid rgb(255 255 255 / 60%);
+  box-shadow:
+    0 14px 34px rgb(36 51 31 / 18%),
+    inset 0 1px rgb(255 255 255 / 55%);
+  cursor: pointer;
+  text-align: left;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    filter 160ms ease;
+}
+
+.zone-region:hover {
+  transform: translateY(-4px) scale(1.015);
+  filter: saturate(1.12);
+  box-shadow:
+    0 22px 48px rgb(36 51 31 / 26%),
+    inset 0 1px rgb(255 255 255 / 55%);
+  z-index: 2;
+}
+
+.zone-region:active:not(:disabled) {
+  transform: translateY(1px) scale(0.99);
+}
+
+.zone-region__backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.34;
+}
+
+.zone-region__icon {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: auto;
+  border-radius: 16px;
+  color: #fffdf7;
+  background: rgb(32 53 47 / 28%);
+  box-shadow: inset 0 1px rgb(255 255 255 / 42%);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.zone-region__copy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.zone-region__copy > strong {
+  color: #fffdf7;
+  font-size: clamp(1.05rem, 1.9vw, 1.45rem);
+  font-weight: 880;
+  text-shadow: 0 2px 12px rgb(20 34 28 / 55%);
+}
+
+.zone-region__tagline {
+  color: rgb(255 253 247 / 92%);
+  font-size: clamp(0.74rem, 1.1vw, 0.84rem);
+  font-weight: 640;
+  text-shadow: 0 1px 8px rgb(20 34 28 / 50%);
+}
+
+.zone-region__count {
+  width: fit-content;
+  margin-top: 4px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  color: #33473f;
+  background: rgb(255 253 247 / 88%);
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+/* Map terrain placement + colouring: ice up north, forest in the middle,
+   grassland down south, sea along the west edge, the dinosaur valley east,
+   and the insect corner north-east. */
+.zone-region[data-zone-id="ice"] {
+  top: 3%;
+  left: 30%;
+  width: 38%;
+  height: 21%;
+  border-radius: 48% 52% 55% 45% / 62% 58% 42% 48%;
+  background:
+    radial-gradient(circle at 30% 30%, rgb(255 255 255 / 55%), transparent 46%),
+    linear-gradient(155deg, #b7dbe8 0%, #6fa6c1 100%);
+}
+
+.zone-region[data-zone-id="insect"] {
+  top: 3%;
+  left: 72%;
+  width: 25%;
+  height: 21%;
+  border-radius: 55% 45% 48% 52% / 50% 60% 45% 50%;
+  background:
+    radial-gradient(circle at 65% 35%, rgb(255 255 255 / 40%), transparent 48%),
+    linear-gradient(155deg, #d4b45c 0%, #a5812f 100%);
+}
+
+.zone-region[data-zone-id="forest"] {
+  top: 27%;
+  left: 30%;
+  width: 30%;
+  height: 41%;
+  border-radius: 52% 48% 45% 55% / 46% 54% 48% 52%;
+  background:
+    radial-gradient(circle at 40% 25%, rgb(255 255 255 / 18%), transparent 44%),
+    linear-gradient(155deg, #4e7a5c 0%, #2c5a42 100%);
+}
+
+.zone-region[data-zone-id="dinosaur"] {
+  top: 27%;
+  left: 63%;
+  width: 34%;
+  height: 41%;
+  border-radius: 46% 54% 52% 48% / 54% 46% 55% 45%;
+  background:
+    radial-gradient(circle at 55% 30%, rgb(255 255 255 / 22%), transparent 46%),
+    linear-gradient(155deg, #bb8a35 0%, #8a5a24 100%);
+}
+
+.zone-region[data-zone-id="ocean"] {
+  top: 20%;
+  left: 3%;
+  width: 24%;
+  height: 76%;
+  border-radius: 52% 48% 46% 54% / 42% 46% 52% 48%;
+  background:
+    radial-gradient(circle at 40% 20%, rgb(255 255 255 / 24%), transparent 44%),
+    linear-gradient(200deg, #59a0cd 0%, #2d5f96 100%);
+}
+
+.zone-region[data-zone-id="plains"] {
+  top: 71%;
+  left: 30%;
+  width: 67%;
+  height: 26%;
+  border-radius: 50% 46% 52% 48% / 56% 52% 46% 54%;
+  background:
+    radial-gradient(circle at 35% 30%, rgb(255 255 255 / 26%), transparent 46%),
+    linear-gradient(155deg, #8cab63 0%, #557f3c 100%);
+}
+
+.zone-select-actions {
+  position: absolute;
+  top: max(14px, env(safe-area-inset-top));
+  right: max(16px, env(safe-area-inset-right));
+  z-index: 30;
+}
+
+.zone-return-button {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 12px;
+  border: 1px solid rgb(52 82 64 / 16%);
+  border-radius: 15px;
+  color: #31523b;
+  background: rgb(255 255 255 / 55%);
+  box-shadow: inset 0 1px rgb(255 255 255 / 68%);
+  cursor: pointer;
+  font-weight: 780;
+  white-space: nowrap;
+  transition:
+    transform 150ms ease,
+    border-color 150ms ease,
+    background-color 150ms ease;
+}
+
+.zone-return-button:hover {
+  border-color: color-mix(in srgb, var(--animal-accent) 42%, transparent);
+  background: rgb(255 255 255 / 80%);
+  box-shadow: none;
+  transform: translateY(-1px);
+}
+
+.zone-return-button:active:not(:disabled) {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Narrow portrait: the map becomes a vertical trail (ice, forest, dinosaurs,
+   grassland, sea, insects) with the same terrain styling. */
+@media (max-width: 767px), (max-height: 560px) {
+  .zone-map {
+    display: flex;
+    min-height: 0;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .zone-map__compass {
+    display: none;
+  }
+
+  .zone-region {
+    position: static;
+    width: 100%;
+    height: auto;
+    min-height: 96px;
+    border-radius: 24px;
+  }
+
+  .zone-region__icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 14px;
+  }
+
+  .zone-region__tagline {
+    display: none;
+  }
+
+  .zone-region[data-zone-id="ice"] {
+    order: 1;
+  }
+
+  .zone-region[data-zone-id="forest"] {
+    order: 2;
+  }
+
+  .zone-region[data-zone-id="dinosaur"] {
+    order: 3;
+  }
+
+  .zone-region[data-zone-id="plains"] {
+    order: 4;
+  }
+
+  .zone-region[data-zone-id="ocean"] {
+    order: 5;
+  }
+
+  .zone-region[data-zone-id="insect"] {
+    order: 6;
+  }
+}
