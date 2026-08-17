@@ -2,15 +2,15 @@ import type { AnimalSizeFact, Diet } from '../content/types'
 import type { Locale } from './locale'
 
 const zhCN = {
-  museumName: '史前动物博物馆',
+  museumName: '动物园科普网站',
   creatorBrand: 'Leon做了个',
   todayMeet: '今天认识',
   localReview: '本地评审',
-  documentTitle: '史前动物博物馆 | 亲子 3D 史前动物展',
+  documentTitle: '动物园科普网站 | 亲子 3D 史前动物展',
   seo: {
     description: (count: number) =>
-      `和孩子一起走进 3D 史前动物博物馆，观察 ${count} 位来自陆地、天空与水中的史前朋友。`,
-    socialImageAlt: '史前动物博物馆亲子 3D 展馆',
+      `和孩子一起走进 3D 动物园科普网站，观察 ${count} 位来自陆地、天空与水中的史前朋友。`,
+    socialImageAlt: '动物园科普网站亲子 3D 展馆',
   },
   stageLabel: (animal: string) => `${animal}模型展台`,
   navigationLabel: '动物选择',
@@ -124,6 +124,7 @@ const zhCN = {
     title: '今天想去看谁？',
     subtitle: '选一个展区，里面的动物朋友都在等你。',
     enter: (zone: string) => `进入${zone}展区`,
+    enterShort: '进入',
     friends: (count: number) => `${count} 位朋友`,
     backToZones: '返回展区选择',
     backToZonesShort: '展区',
@@ -216,16 +217,16 @@ type WidenMessages<Value> = Value extends string
 export type MuseumMessages = WidenMessages<typeof zhCN>
 
 const en = {
-  museumName: 'Prehistoric Animal Museum',
+  museumName: 'Zoo Animal Science Website',
   creatorBrand: 'Leon Made This',
   todayMeet: 'Meet today’s friend',
   localReview: 'Local review',
-  documentTitle: 'Prehistoric Animal Museum | A 3D Family Adventure',
+  documentTitle: 'Zoo Animal Science Website | A 3D Family Adventure',
   seo: {
     description: (count) =>
       `Explore ${count} prehistoric animals from land, sky and sea in a gentle 3D museum made for young children and their grown-ups.`,
     socialImageAlt:
-      'Prehistoric Animal Museum, a 3D family adventure by Leon Made This',
+      'Zoo Animal Science Website, a 3D family adventure by Leon Made This',
   },
   stageLabel: (animal) => `${animal} 3D exhibit`,
   navigationLabel: 'Choose an animal',
@@ -341,6 +342,7 @@ const en = {
     title: 'Who shall we visit today?',
     subtitle: 'Pick a zone — the animal friends are waiting for you.',
     enter: (zone) => `Enter the ${zone} zone`,
+    enterShort: 'Enter',
     friends: (count) => `${count} friends`,
     backToZones: 'Back to zone selection',
     backToZonesShort: 'Zones',
