@@ -1,18 +1,18 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import { museumMode } from '../../../../src/app-mode'
-import type { InitialAppState } from '../../../../src/app-bootstrap'
-import { getAnimalById } from '../../../../src/content/catalog'
-import { staticAnimalDetailIds } from '../../../../src/content/static-animal-details'
-import type { PublishedAnimalPackage } from '../../../../src/content/types'
-import { isLocale, type Locale } from '../../../../src/i18n/locale'
-import { MuseumClient } from '../../../../src/MuseumClient'
+import { museumMode } from '../../../src/app-mode'
+import type { InitialAppState } from '../../../src/app-bootstrap'
+import { getAnimalById } from '../../../src/content/catalog'
+import { staticAnimalDetailIds } from '../../../src/content/static-animal-details'
+import type { PublishedAnimalPackage } from '../../../src/content/types'
+import { isLocale, type Locale } from '../../../src/i18n/locale'
+import { MuseumClient } from '../../../src/MuseumClient'
 import {
   animalCanonicalUrl,
   animalDetailSeo,
   type AnimalDetailSeo,
-} from '../../../../src/seo/metadata'
+} from '../../../src/seo/metadata'
 
 export function generateStaticParams() {
   return staticAnimalDetailIds.flatMap((animalId) => [

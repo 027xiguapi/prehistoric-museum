@@ -1,15 +1,15 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import { museumMode } from '../../../src/app-mode'
-import type { InitialAppState } from '../../../src/app-bootstrap'
-import { mainAnimals } from '../../../src/content/catalog'
-import { isLocale } from '../../../src/i18n/locale'
-import { MuseumClient } from '../../../src/MuseumClient'
+import { museumMode } from '../../src/app-mode'
+import type { InitialAppState } from '../../src/app-bootstrap'
+import { mainAnimals } from '../../src/content/catalog'
+import { isLocale } from '../../src/i18n/locale'
+import { MuseumClient } from '../../src/MuseumClient'
 import {
   museumPageMetadata,
   museumQueryRedirectSource,
-} from '../../../src/seo/museum-page-metadata'
+} from '../../src/seo/museum-page-metadata'
 
 export function generateStaticParams() {
   return [{ locale: 'zh-CN' }, { locale: 'en' }]

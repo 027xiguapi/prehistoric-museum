@@ -1,7 +1,6 @@
 import { createPortal } from 'react-dom'
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { ChevronDown, X } from 'lucide-react'
-import { GITHUB_LICENSING_URL } from '../github'
 import { useI18n } from '../i18n/I18nProvider'
 import { IconButton } from './IconButton'
 import { LanguageMenu } from './LanguageMenu'
@@ -55,10 +54,6 @@ const focusableSelector = [
   'textarea:not([disabled])',
   '[tabindex]:not([tabindex="-1"])',
 ].join(',')
-
-function displaySourceTitle(title: string): string {
-  return title.replace(/[—–]/g, '-')
-}
 
 export function ParentDrawer({
   facts,
@@ -251,58 +246,6 @@ export function ParentDrawer({
               <h3>{messages.parent.narration}</h3>
               <p>{facts.narrationScript.join(locale === 'zh-CN' ? '' : ' ')}</p>
             </div>
-            <details className="source-disclosure">
-              <summary>{messages.parent.sources}</summary>
-              <div className="source-list">
-                <ul>
-                  {facts.sources.map((source) => (
-                    <li key={source.url}>
-                      <a href={source.url} rel="noreferrer" target="_blank">
-                        {displaySourceTitle(source.title)}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </details>
-            <details className="source-disclosure">
-              <summary>{messages.parent.credits}</summary>
-              <div className="source-list">
-                <ul>
-                  {facts.assetCredits.map((credit) => (
-                    <li key={`${credit.sourceTitle}:${credit.licenseUrl}`}>
-                      {credit.sourceUrl ? (
-                        <a href={credit.sourceUrl} rel="noreferrer" target="_blank">
-                          {displaySourceTitle(credit.sourceTitle)}
-                        </a>
-                      ) : (
-                        displaySourceTitle(credit.sourceTitle)
-                      )}
-                      {locale === 'zh-CN' ? '：' : ': '}
-                      {credit.attribution}{' '}
-                      <a href={credit.licenseUrl} rel="noreferrer" target="_blank">
-                        {credit.licenseName}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </details>
-            <details className="source-disclosure">
-              <summary>{messages.parent.licensing}</summary>
-              <div className="source-list">
-                <p>{messages.parent.licensingBody}</p>
-                <div className="source-link-actions">
-                  <a
-                    href={GITHUB_LICENSING_URL}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    {messages.parent.fullLicensing}
-                  </a>
-                </div>
-              </div>
-            </details>
           </div>
         </div>
         <p className="sr-only" id={scrollHintId}>

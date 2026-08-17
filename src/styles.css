@@ -4858,6 +4858,9 @@ html[data-locale="en"] .collection-card__copy strong {
 .zone-region {
   --zone-accent: var(--leaf);
   --sign-tilt: -1.2deg;
+  --sign-top: 10%;
+  --sign-left: 8%;
+  --tagline-inset: 12%;
   position: absolute;
   display: flex;
   min-width: 0;
@@ -4865,7 +4868,6 @@ html[data-locale="en"] .collection-card__copy strong {
   align-items: flex-start;
   gap: 6px;
   padding: clamp(10px, 1.3vw, 16px);
-  overflow: hidden;
   border: 2px solid rgb(255 255 255 / 65%);
   box-shadow:
     0 14px 34px rgb(36 51 31 / 18%),
@@ -4892,12 +4894,15 @@ html[data-locale="en"] .collection-card__copy strong {
 }
 
 /* Animal photo peeking from the region's bottom-right corner, masked so
-   the sign and tagline always sit on clean terrain. */
+   the sign and tagline always sit on clean terrain. The region itself
+   keeps overflow visible (the sign plaque may stick out past the curved
+   edge), so the photo re-clips itself with an inherited border-radius. */
 .zone-region__backdrop {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  border-radius: inherit;
   object-fit: cover;
   opacity: 0.55;
   -webkit-mask-image: radial-gradient(
@@ -4932,12 +4937,15 @@ html[data-locale="en"] .collection-card__copy strong {
   height: 100%;
 }
 
-/* Park-sign plaque carrying the zone name and headcount. */
+/* Park-sign plaque carrying the zone name and headcount, planted at a
+   per-region spot that clears the terrain blob's curved edges. */
 .zone-region__sign {
-  position: relative;
+  position: absolute;
+  top: var(--sign-top);
+  left: var(--sign-left);
   z-index: 1;
   display: inline-flex;
-  max-width: 100%;
+  max-width: 86%;
   align-items: center;
   gap: 7px;
   padding: 6px 10px 6px 7px;
@@ -4989,7 +4997,8 @@ html[data-locale="en"] .collection-card__copy strong {
 .zone-region__tagline {
   position: relative;
   z-index: 1;
-  margin-top: auto;
+  max-width: 74%;
+  margin: auto 2% 3% var(--tagline-inset);
   color: rgb(255 253 247 / 95%);
   font-size: clamp(0.72rem, 1.05vw, 0.82rem);
   font-weight: 700;

@@ -1,13 +1,14 @@
 import type { ReactNode } from 'react'
 
 import type { Metadata, Viewport } from 'next'
-import Script from 'next/script'
+import { notFound } from 'next/navigation'
 
 import '@fontsource-variable/fredoka'
 import '@fontsource-variable/noto-sans-sc'
 import '@fontsource-variable/nunito'
 import '@fontsource/zcool-kuaile'
 import '../../src/styles.css'
+import { isLocale } from '../../src/i18n/locale'
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -22,23 +23,36 @@ export const metadata: Metadata = {
   },
 }
 
-// The locale-neutral entry always boots as the Chinese museum (the former
-// static index.html behaved the same way); client navigation may normalize
-// the URL to `/{locale}/` afterwards.
-export default function MuseumEntryLayout({
-  children,
-}: {
+export function generateStaticParams() {
+  return [{ locale: 'zh-CN' }, { locale: 'en' }]
+}
+
+export const dynamicParams = false
+
+interface LocaleLayoutParams {
   readonly children: ReactNode
-}) {
+  readonly params: Promise<{ readonly locale: string }>
+}
+
+export default async function LocaleLayout({
+  children,
+  params,
+}: LocaleLayoutParams) {
+  const { locale } = await params
+  if (!isLocale(locale)) {
+    notFound()
+  }
+
   return (
-    <html lang="zh-CN">
+    <html lang={locale}>
       <body>
         {children}
-        <Script
+        {/* Raw <script> instead of next/script: AdSense logs a console
+            warning about the data-nscript attribute the framework adds. */}
+        <script
           async
           crossOrigin="anonymous"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5878114055897626"
-          strategy="afterInteractive"
         />
       </body>
     </html>
