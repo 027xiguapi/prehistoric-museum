@@ -37,3 +37,6 @@ tools/
 .env
 .env.*
 !.env.example
+
+.idea
+.vscode
