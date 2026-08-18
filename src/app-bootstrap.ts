@@ -13,7 +13,7 @@ export interface InitialAppState {
 
 export function animalDetailIdFromPath(pathname: string): string | null {
   const match = pathname.match(
-    /(?:^|\/)(?:zh-CN|en)\/([a-z0-9]+(?:-[a-z0-9]+)*)(?:\/|$)/,
+    /(?:^|\/)(?:zh-CN|en)\/animal\/([a-z0-9]+(?:-[a-z0-9]+)*)(?:\/|$)/,
   )
   return match?.[1] && animalIdPattern.test(match[1]) ? match[1] : null
 }

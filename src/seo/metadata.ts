@@ -1,9 +1,4 @@
 // Shared multilingual SEO copy and metadata builders.
-//
-// Ported from the former static-site `scripts/multilingual-seo.ts` generator.
-// Canonical URLs intentionally always point at the production origin and the
-// `/museum/` path, regardless of the current build's basePath, so e2e and
-// local builds keep identical SEO output.
 
 import { animalSeoDescription } from '../content/animal-seo'
 import { mainAnimals } from '../content/catalog'
@@ -12,9 +7,7 @@ import type { Habitat, Locale } from '../content/types'
 
 export type SeoPageLocale = 'x-default' | Locale
 
-export const seoSiteOrigin = 'https://leon-made-this.work'
-export const seoMuseumPath = '/museum/'
-export const seoNotFoundReturnPath = '/prehistoric-animal-museum/'
+export const seoSiteOrigin = 'http://museum.routerpark.com/'
 
 export interface SeoCatalogueEntry {
   readonly id: string
@@ -147,22 +140,22 @@ export const seoPageCopy = {
 
 export function museumCanonicalUrl(locale: SeoPageLocale): string {
   const suffix = locale === 'x-default' ? '' : `${locale}/`
-  return `${seoSiteOrigin}${seoMuseumPath}${suffix}`
+  return `${seoSiteOrigin}${suffix}`
 }
 
 export function animalCanonicalUrl(
   locale: Locale,
   animalId: string,
 ): string {
-  return `${seoSiteOrigin}${seoMuseumPath}${locale}/${animalId}/`
+  return `${seoSiteOrigin}${locale}/animal/${animalId}/`
 }
 
 export function museumSocialImageUrl(locale: SeoPageLocale): string {
-  return `${seoSiteOrigin}${seoMuseumPath}${seoPageCopy[locale].socialImageFileName}`
+  return `${seoSiteOrigin}${seoPageCopy[locale].socialImageFileName}`
 }
 
 export function animalSocialImageUrl(animalId: string): string {
-  return `${seoSiteOrigin}${seoMuseumPath}${animalId}/social.webp`
+  return `${seoSiteOrigin}${animalId}/social.webp`
 }
 
 export const seoSitemapUrls: readonly string[] = [

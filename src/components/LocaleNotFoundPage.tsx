@@ -1,14 +1,12 @@
 'use client'
 
 import { useSyncExternalStore } from 'react'
-import { seoNotFoundCopy } from '../../src/seo/metadata'
-import { messagesFor } from '../../src/i18n/messages'
-import { localeFromPath, type Locale } from '../../src/i18n/locale'
-import '../../src/styles.css'
+import { seoNotFoundCopy } from '../seo/metadata'
+import { messagesFor } from '../i18n/messages'
+import { localeFromPath, type Locale } from '../i18n/locale'
+import '../styles.css'
 
 function subscribeToNothing(onChange: () => void): () => void {
-  // The locale never changes after load; subscribing is a formality required
-  // by the client-snapshot pattern below.
   void onChange
   return () => {}
 }

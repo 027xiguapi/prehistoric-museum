@@ -467,11 +467,11 @@ function readInitialAnimal(
 
 function replaceAnimalUrl(animalId: string, locale: Locale): void {
   const url = new URL(window.location.href)
-  // `/{prefix}/{locale}/{animalId}/` — the prefix keeps any configured
+  // `/{prefix}/{locale}/animal/{animalId}/` — the prefix keeps any configured
   // basePath intact; a locale-less root path gets the locale inserted.
   const localized = url.pathname.match(/^(.*\/)(?:zh-CN|en)(?:\/|$)/)
   const prefix = localized ? localized[1] : url.pathname.replace(/[^/]*$/, '')
-  url.pathname = `${prefix}${locale}/${animalId}/`
+  url.pathname = `${prefix}${locale}/animal/${animalId}/`
   url.searchParams.delete('animal')
   window.history.replaceState(
     window.history.state,
@@ -1667,48 +1667,6 @@ function MuseumApp({
     setPageKind('museum')
   }, [locale])
 
-  const enterZone = useCallback((zoneId: ZoneCategoryId) => {
-    const zone = zoneCategoryById.get(zoneId)
-    if (!zone) {
-      return
-    }
-    const target = animalIndexRef.current.get(zone.defaultAnimalId)
-    if (!target) {
-      return
-    }
-    // Entering always happens from the zone-select view, where the viewer and
-    // its coordinator are not mounted yet, so the next coordinator effect run
-    // starts the initial presentation for the zone's default animal.
-    idlePreloadCoordinatorRef.current?.cancelAll()
-    clearLargeModelNotice()
-    narration.pause()
-    setModelLoadingProgress(null)
-    setModelReady(false)
-    setViewerFailure(null)
-    setOutgoingAnimal(null)
-    setBackgroundTransitionReady(false)
-    initialPresentationPendingRef.current = true
-    activeAnimalRef.current = target
-    visibleBackgroundRef.current = target
-    setActiveZoneId(zoneId)
-    setActiveAnimalId(target.id)
-    setLoadSnapshot({
-      ...initialLoadSnapshot,
-      requestedAnimalId: target.id,
-    })
-    setLiveMessage(messagesRef.current.loading.initialExhibit(target.name))
-    const url = new URL(window.location.href)
-    url.searchParams.set('category', zoneId)
-    window.history.replaceState(
-      window.history.state,
-      '',
-      `${url.pathname}${url.search}${url.hash}`,
-    )
-    detailAnimalIdRef.current = null
-    pageKindRef.current = 'museum'
-    setPageKind('museum')
-  }, [clearLargeModelNotice, narration])
-
   const returnToZoneSelect = useCallback(() => {
     idlePreloadCoordinatorRef.current?.cancelAll()
     clearLargeModelNotice()
@@ -1764,10 +1722,12 @@ function MuseumApp({
         new URLSearchParams(window.location.search).get('category'),
       )
       if (requestedZoneId) {
-        enterZone(requestedZoneId)
+        window.location.assign(
+          `/${locale}/category?category=${requestedZoneId}`,
+        )
       }
     })
-  }, [enterZone, e2eFixturesEnabled])
+  }, [locale, e2eFixturesEnabled])
 
   const requestAnimal = (animalId: string) => {
     const coordinator = coordinatorRef.current
@@ -2047,7 +2007,7 @@ function MuseumApp({
     >
       {pageKind === 'zone-select' ? (
         <>
-          <ZoneSelect onEnterZone={enterZone} zones={zoneCards} />
+          <ZoneSelect zones={zoneCards} />
           <div className="zone-select-actions">
             <LanguageMenu />
           </div>

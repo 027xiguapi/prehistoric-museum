@@ -61,7 +61,8 @@ export default tseslint.config(
   {
     // App Router layouts/pages routinely export metadata and route constants
     // alongside components; fast-refresh warnings do not apply there.
-    files: ['app/**/*.{ts,tsx}'],
+    // CategoryPageView is a server-only component doing the same.
+    files: ['app/**/*.{ts,tsx}', 'src/components/CategoryPageView.tsx'],
     rules: {
       'react-refresh/only-export-components': 'off',
     },

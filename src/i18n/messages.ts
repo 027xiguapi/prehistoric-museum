@@ -159,6 +159,7 @@ const zhCN = {
     friends: (count: number) => `${count} 位史前朋友`,
     title: '全馆图鉴',
     intro: '选一位朋友，马上前往它的 3D 展台。',
+    back: '回到博物馆',
     close: '关闭全馆图鉴',
     cardLabel: (animal: string, current: boolean) =>
       `${current ? '当前展台，' : ''}前往${animal}展台`,
@@ -166,6 +167,18 @@ const zhCN = {
     opening: '正在打开',
     preparing: '准备中',
     downloading: (percent: number) => `下载中 ${percent}%`,
+  },
+  modern: {
+    title: '现代动物朋友',
+    intro: '它们还没有 3D 展台，先看看图片认识一下吧。',
+    categories: {
+      grassland: '草原',
+      ocean: '海洋',
+      sky: '天空',
+      forest: '森林',
+    },
+    soon: '图片展示',
+    locked: '暂时没有 3D 展台',
   },
   parent: {
     eyebrow: '一起了解更多',
@@ -377,6 +390,7 @@ const en = {
     friends: (count) => `${count} prehistoric friends`,
     title: 'Museum guide',
     intro: 'Choose a friend and go straight to its 3D exhibit.',
+    back: 'Back to the museum',
     close: 'Close the museum guide',
     cardLabel: (animal, current) =>
       `${current ? 'Current exhibit, ' : ''}go to the ${animal} exhibit`,
@@ -384,6 +398,18 @@ const en = {
     opening: 'Opening',
     preparing: 'Preparing',
     downloading: (percent) => `Downloading ${percent}%`,
+  },
+  modern: {
+    title: 'Modern animal friends',
+    intro: 'No 3D exhibits yet — enjoy their photos for now.',
+    categories: {
+      grassland: 'Grassland',
+      ocean: 'Ocean',
+      sky: 'Sky',
+      forest: 'Forest',
+    },
+    soon: 'Photo only',
+    locked: 'No 3D exhibit yet',
   },
   parent: {
     eyebrow: 'Explore together',
