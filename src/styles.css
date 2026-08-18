@@ -53,6 +53,12 @@ body {
   overflow: hidden;
 }
 
+/* Document-style pages (e.g. the category browser) render more content than
+   the viewport and must scroll; the 3D museum shell keeps overflow hidden. */
+body:has(.category-page) {
+  overflow-y: auto;
+}
+
 button,
 input,
 textarea,

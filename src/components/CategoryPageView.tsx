@@ -2,10 +2,12 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Footprints, Lock } from 'lucide-react'
 
-import { mainAnimals } from '../content/catalog'
+import { mainAnimals, allAnimals } from '../content/catalog'
+import { draftAnimalsByZone } from '../content/collections/draft-zones'
 import { zoneCategories } from '../content/collections/categories'
 import type { ZoneCategoryId } from '../content/collections/categories'
 import {
+  modernAnimals,
   modernAnimalsByCategory,
   modernAnimalName,
 } from '../content/modern-animals'
@@ -27,6 +29,20 @@ export const categoryPageZoneIds = [
 ] as const
 
 export type CategoryPageZoneId = (typeof categoryPageZoneIds)[number]
+
+// Draft 3D animals appear as unlocked exhibit cards. Animals that already
+// exist as a modern placeholder card (e.g. tiger, owl) are unlocked in place
+// instead, so they are not listed twice.
+const modernAnimalIds = new Set(modernAnimals.map((animal) => animal.id))
+
+const draftAnimals = [...draftAnimalsByZone.values()]
+  .flat()
+  .filter((animal) => !modernAnimalIds.has(animal.id))
+
+/** Modern placeholder card becomes an unlocked link when a 3D exhibit exists. */
+function modern3dAnimal(id: string) {
+  return allAnimals.find((animal) => animal.id === id)
+}
 
 export function isCategoryPageZoneId(
   value: string,
@@ -59,7 +75,10 @@ export function CategoryPageView({ locale, zone }: CategoryPageViewProps) {
 
   const messages = messagesFor(locale)
   const zones = zone === null ? [...categoryPageZoneIds] : [zone]
-  const animalCount = mainAnimals.length + modernAnimalsByCategory('sky').length
+  const animalCount =
+    mainAnimals.length +
+    draftAnimals.length +
+    modernAnimalsByCategory('sky').length
 
   return (
     <main className="category-page">
@@ -90,7 +109,10 @@ export function CategoryPageView({ locale, zone }: CategoryPageViewProps) {
         const modern = modernCategory
           ? modernAnimalsByCategory(modernCategory)
           : []
-        if (prehistoric.length === 0 && modern.length === 0) {
+        const drafts = (draftAnimalsByZone.get(zoneId) ?? []).filter(
+          (animal) => !modernAnimalIds.has(animal.id),
+        )
+        if (prehistoric.length === 0 && modern.length === 0 && drafts.length === 0) {
           return null
         }
         return (
@@ -142,7 +164,80 @@ export function CategoryPageView({ locale, zone }: CategoryPageViewProps) {
                   </div>
                 )
               })}
-              {modern.map((animal) => (
+              {drafts.map((animal, index) => {
+                const content = animal.content[locale] ?? animal.content['zh-CN']
+                if (!content) {
+                  return null
+                }
+                return (
+                  <div key={animal.id} role="listitem">
+                    <Link
+                      aria-label={messages.collection.cardLabel(
+                        content.name,
+                        false,
+                      )}
+                      className="category-card"
+                      href={`/${locale}/animal/${animal.id}`}
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="category-card__number"
+                      >
+                        {String(prehistoric.length + index + 1).padStart(2, '0')}
+                      </span>
+                      <span className="category-card__image">
+                        <img
+                          alt=""
+                          decoding="async"
+                          loading="lazy"
+                          src={animal.assets.thumbnail ?? animal.assets.poster}
+                        />
+                      </span>
+                      <span className="category-card__copy">
+                        <strong>{content.name}</strong>
+                        <small>{content.classificationLabel}</small>
+                      </span>
+                    </Link>
+                  </div>
+                )
+              })}
+              {modern.map((animal) => {
+                const unlocked = modern3dAnimal(animal.id)
+                if (unlocked) {
+                  const content =
+                    unlocked.content[locale] ?? unlocked.content['zh-CN']
+                  if (content) {
+                    return (
+                      <div key={animal.id} role="listitem">
+                        <Link
+                          aria-label={messages.collection.cardLabel(
+                            content.name,
+                            false,
+                          )}
+                          className="category-card"
+                          href={`/${locale}/animal/${animal.id}`}
+                        >
+                          <span
+                            aria-hidden="true"
+                            className="category-card__image"
+                          >
+                            <img
+                              alt=""
+                              decoding="async"
+                              loading="lazy"
+                              src={unlocked.assets.thumbnail}
+                            />
+                          </span>
+                          <span className="category-card__copy">
+                            <strong>{content.name}</strong>
+                            <small>{content.classificationLabel}</small>
+                          </span>
+                        </Link>
+                      </div>
+                    )
+                  }
+                }
+                return (
                 <div
                   className="category-card category-card--static"
                   key={animal.id}
@@ -168,7 +263,8 @@ export function CategoryPageView({ locale, zone }: CategoryPageViewProps) {
                     <small>{messages.modern.soon}</small>
                   </span>
                 </div>
-              ))}
+                )
+              })}
             </div>
           </section>
         )

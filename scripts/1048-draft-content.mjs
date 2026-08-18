@@ -1,5 +1,5 @@
-// Per-animal draft content for the 1048 batch (part 1: 13 animals). Consumed
-// by scripts/generate-1048-draft-packages.mjs. Facts follow family-friendly
+// Per-animal draft content for the 1048 batch. Consumed by
+// scripts/generate-1048-draft-packages.mjs. Facts follow family-friendly
 // popular-scence ranges; every uncertainty is echoed in editorial notes.
 export const CONTENT_A = [
   {
@@ -533,6 +533,7 @@ export const CONTENT_A = [
     enRegions: ['Worldwide (except Antarctica)'],
     groupRangeZh:
       '猫头鹰家族种类很多，小的只有麻雀的两倍大，最大的雕鸮接近 70 厘米高。',
+    groupRange: { minMeters: 0.15, maxMeters: 0.7 },
     groupRangeEn:
       'Owls come in many sizes — some barely bigger than a sparrow, while big eagle-owls stand almost 70 centimetres tall.',
     diet: 'carnivore',
@@ -586,6 +587,7 @@ export const CONTENT_A = [
     enRegions: ['Oceans worldwide'],
     groupRangeZh:
       '章鱼种类很多，小型种腕展只有十几厘米，最大的太平洋巨型章鱼腕展可达 3 米以上。',
+    groupRange: { minMeters: 0.12, maxMeters: 3.0 },
     groupRangeEn:
       'Octopus species vary hugely — small species span just a dozen centimetres, while the giant Pacific octopus can stretch its arms over 3 metres.',
     diet: 'carnivore',

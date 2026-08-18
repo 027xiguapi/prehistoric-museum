@@ -52,6 +52,7 @@ import { SceneAtmosphere } from './components/SceneAtmosphere'
 import { ViewerStage } from './components/ViewerStage'
 import { ZoneSelect, type ZoneCardData } from './components/ZoneSelect'
 import { allAnimals, mainAnimals } from './content/catalog'
+import { draftAnimalsByZone } from './content/collections/draft-zones'
 import {
   parseZoneCategoryId,
   zoneCategories,
@@ -774,7 +775,10 @@ function MuseumApp({
   const zoneCards = useMemo<ZoneCardData[]>(
     () =>
       zoneCategories.map((zone) => ({
-        count: zone.animalIds.length,
+        // Draft pilots (dev/review builds only) unlock extra animals per zone.
+        count:
+          zone.animalIds.length +
+          (draftAnimalsByZone.get(zone.id)?.length ?? 0),
         id: zone.id,
         thumbnail: animalIndex.get(zone.defaultAnimalId)?.assets.thumbnail ?? null,
       })),
