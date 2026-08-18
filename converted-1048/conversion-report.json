@@ -1,157 +1,31 @@
 [
   {
-    "folder": "剑齿虎glb",
-    "slug": "saber-toothed-tiger",
+    "folder": "大象",
+    "slug": "elephant",
     "status": "ok",
-    "sourceMB": "19.0",
-    "outputMB": "11.1"
+    "sourceMB": "15.6",
+    "outputMB": "9.6"
   },
   {
-    "folder": "小熊猫glb",
-    "slug": "red-panda",
+    "folder": "羊驼",
+    "slug": "alpaca",
     "status": "ok",
-    "sourceMB": "7.3",
-    "outputMB": "4.5"
+    "sourceMB": "7.7",
+    "outputMB": "4.1"
   },
   {
-    "folder": "小猫glb",
-    "slug": "kitten",
+    "folder": "蜗牛",
+    "slug": "snail",
     "status": "ok",
-    "sourceMB": "6.8",
-    "outputMB": "3.8"
+    "sourceMB": "18.4",
+    "outputMB": "10.6"
   },
   {
-    "folder": "意大利敖犬glb格式",
-    "slug": "cane-corso",
-    "status": "ok",
-    "sourceMB": "8.0",
-    "outputMB": "3.0"
-  },
-  {
-    "folder": "挪威森林猫glb",
-    "slug": "norwegian-forest-cat",
-    "status": "ok",
-    "sourceMB": "9.5",
-    "outputMB": "6.7"
-  },
-  {
-    "folder": "斗牛glb",
-    "slug": "bull",
-    "status": "ok",
-    "sourceMB": "2.3",
-    "outputMB": "1.5"
-  },
-  {
-    "folder": "波斯猫glb",
-    "slug": "persian-cat",
-    "status": "ok",
-    "sourceMB": "9.2",
-    "outputMB": "6.3"
-  },
-  {
-    "folder": "海盗牧羊犬glb",
-    "slug": "pirate-shepherd-dog",
-    "status": "ok",
-    "sourceMB": "8.1",
-    "outputMB": "5.1"
-  },
-  {
-    "folder": "熊gltf格式",
-    "slug": "bear",
-    "status": "ok",
-    "sourceMB": "0.3",
-    "outputMB": "6.0"
-  },
-  {
-    "folder": "狐狸",
-    "slug": "fennec-fox",
-    "status": "ok",
-    "sourceMB": "9.0",
-    "outputMB": "6.2"
-  },
-  {
-    "folder": "猫头鹰gltf",
-    "slug": "owl",
-    "status": "ok",
-    "sourceMB": "0.0",
-    "outputMB": "1.2"
-  },
-  {
-    "folder": "章鱼glb",
-    "slug": "octopus",
-    "status": "ok",
-    "sourceMB": "21.2",
-    "outputMB": "12.3"
-  },
-  {
-    "folder": "绵羊gltf",
-    "slug": "sheep",
-    "status": "ok",
-    "sourceMB": "0.1",
-    "outputMB": "3.8"
-  },
-  {
-    "folder": "美山锹虫glb",
-    "slug": "stag-beetle",
+    "folder": "青蛙",
+    "slug": "frog",
     "status": "ok",
     "sourceMB": "3.0",
     "outputMB": "1.8"
-  },
-  {
-    "folder": "老虎glb格式",
-    "slug": "tiger",
-    "status": "ok",
-    "sourceMB": "9.2",
-    "outputMB": "3.8"
-  },
-  {
-    "folder": "老鼠gltf",
-    "slug": "mouse",
-    "status": "ok",
-    "sourceMB": "0.1",
-    "outputMB": "5.5"
-  },
-  {
-    "folder": "蜈蚣gltf格式",
-    "slug": "centipede",
-    "status": "ok",
-    "sourceMB": "0.3",
-    "outputMB": "5.1"
-  },
-  {
-    "folder": "螃蟹glb",
-    "slug": "crab",
-    "status": "ok",
-    "sourceMB": "3.6",
-    "outputMB": "2.2"
-  },
-  {
-    "folder": "郊狼glb",
-    "slug": "coyote",
-    "status": "ok",
-    "sourceMB": "8.0",
-    "outputMB": "5.6"
-  },
-  {
-    "folder": "阿拉伯豹glb",
-    "slug": "arabian-leopard",
-    "status": "ok",
-    "sourceMB": "9.5",
-    "outputMB": "6.6"
-  },
-  {
-    "folder": "陆龟gltf格式",
-    "slug": "tortoise",
-    "status": "ok",
-    "sourceMB": "0.2",
-    "outputMB": "35.2"
-  },
-  {
-    "folder": "鲑鱼gltf",
-    "slug": "salmon",
-    "status": "ok",
-    "sourceMB": "0.1",
-    "outputMB": "2.6"
   },
   {
     "folder": "鲨鱼glb格式",
@@ -159,33 +33,5 @@
     "status": "ok",
     "sourceMB": "16.3",
     "outputMB": "7.1"
-  },
-  {
-    "folder": "鸭子glb格式",
-    "slug": "duck",
-    "status": "ok",
-    "sourceMB": "12.0",
-    "outputMB": "6.3"
-  },
-  {
-    "folder": "鸽子gltf格式",
-    "slug": "pigeon",
-    "status": "ok",
-    "sourceMB": "0.2",
-    "outputMB": "1.5"
-  },
-  {
-    "folder": "麻雀gltf",
-    "slug": "sparrow",
-    "status": "ok",
-    "sourceMB": "0.2",
-    "outputMB": "1.8"
-  },
-  {
-    "folder": "黄牛gltf",
-    "slug": "ox",
-    "status": "ok",
-    "sourceMB": "0.7",
-    "outputMB": "6.3"
   }
 ]

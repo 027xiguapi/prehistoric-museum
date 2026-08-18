@@ -10,6 +10,7 @@ import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { CONTENT_A } from './1048-draft-content.mjs'
 import { CONTENT_B } from './1048-draft-content-b.mjs'
+import { CONTENT_C } from './1048-draft-content-c.mjs'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const report = JSON.parse(
@@ -340,7 +341,7 @@ export const animal: DraftAnimalPackage & LegacyLocalReviewAnimalPackage = {
 `
 }
 
-const animals = [...CONTENT_A, ...CONTENT_B]
+const animals = [...CONTENT_A, ...CONTENT_B, ...CONTENT_C]
 let written = 0
 for (const animal of animals) {
   const entry = reportBySlug.get(animal.slug)

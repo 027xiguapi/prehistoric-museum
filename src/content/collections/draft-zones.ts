@@ -22,8 +22,12 @@ const draftZoneByAtmosphere: Readonly<Record<string, DraftZoneId>> = {
   air: 'sky',
 }
 
-/** Draft insects join the insect zone regardless of scene atmosphere. */
-const draftInsectAnimalIds: ReadonlySet<string> = new Set(['stag-beetle'])
+/** Draft insects and other bug-like critters join the insect zone. */
+const draftInsectAnimalIds: ReadonlySet<string> = new Set([
+  'stag-beetle',
+  'hercules-beetle',
+  'scorpion',
+])
 
 export function draftZoneForAnimal(animal: {
   readonly id: string

@@ -54,6 +54,30 @@ const slugByFolder = {
   '鸽子gltf格式': 'pigeon',
   '麻雀gltf': 'sparrow',
   '黄牛gltf': 'ox',
+  // Blend-source batch (exported to source/exported.glb by export-1048-blends.mjs).
+  '乌鸦': 'crow',
+  '兔子': 'rabbit',
+  '哈巴狗': 'pug',
+  '大象': 'elephant',
+  '山羊': 'goat',
+  '斑马': 'zebra',
+  '斯芬克斯猫': 'sphynx-cat',
+  '浣熊': 'raccoon',
+  '海龟': 'sea-turtle',
+  '犀牛甲虫': 'hercules-beetle',
+  '狮子': 'lion',
+  '笑翠鸟': 'kookaburra',
+  '羊驼': 'alpaca',
+  '蜗牛': 'snail',
+  '蝎子': 'scorpion',
+  '蟒蛇': 'python',
+  '袋鼠': 'kangaroo',
+  '雪纳瑞犬': 'schnauzer',
+  '青蛙': 'frog',
+  '马': 'horse',
+  '鳄鱼': 'alligator',
+  '鸸鹋': 'emu',
+  '鹿': 'deer',
 }
 
 function findModelFile(entries, dir) {
@@ -145,8 +169,14 @@ const folders = (await readdir(sourceRoot, { withFileTypes: true }))
   .map((entry) => entry.name)
   .filter((name) => name in slugByFolder)
 
+const onlyFlag = process.argv.find((argument) => argument.startsWith('--only='))
+const onlySlugs = onlyFlag ? new Set(onlyFlag.slice(7).split(',')) : null
+const selectedFolders = onlySlugs
+  ? folders.filter((name) => onlySlugs.has(slugByFolder[name]))
+  : folders
+
 const report = []
-for (const folder of folders) {
+for (const folder of selectedFolders) {
   const slug = slugByFolder[folder]
   const dir = join(sourceRoot, folder)
   // The model sits in `source/`, or directly in the folder (scene.gltf drops).

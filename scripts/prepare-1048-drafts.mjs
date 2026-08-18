@@ -69,6 +69,31 @@ const SPECIES = [
   { slug: 'pigeon', sourceFolder: '鸽子gltf格式', sourceFile: 'scene.gltf', expectedLongestMeters: 0.75, yawDegrees: 0 },
   { slug: 'sparrow', sourceFolder: '麻雀gltf', sourceFile: 'scene.gltf', expectedLongestMeters: 0.24, yawDegrees: 0 },
   { slug: 'ox', sourceFolder: '黄牛gltf', sourceFile: 'scene.gltf', expectedLongestMeters: 2.5, yawDegrees: 0 },
+  // Blend-source batch. Yaw stays 0 in pass 1; orientation contact sheets
+  // will decide any per-species baked yaw in a pass-2 rerun.
+  { slug: 'crow', sourceFolder: '乌鸦', sourceFile: 'source/exported.glb', expectedLongestMeters: 0.5, yawDegrees: 0 },
+  { slug: 'rabbit', sourceFolder: '兔子', sourceFile: 'source/exported.glb', expectedLongestMeters: 0.45, yawDegrees: 0 },
+  { slug: 'pug', sourceFolder: '哈巴狗', sourceFile: 'source/exported.glb', expectedLongestMeters: 0.55, yawDegrees: 0 },
+  { slug: 'elephant', sourceFolder: '大象', sourceFile: 'source/exported.glb', expectedLongestMeters: 6.5, yawDegrees: 0 },
+  { slug: 'goat', sourceFolder: '山羊', sourceFile: 'source/exported.glb', expectedLongestMeters: 1.2, yawDegrees: 0 },
+  { slug: 'zebra', sourceFolder: '斑马', sourceFile: 'source/exported.glb', expectedLongestMeters: 2.5, yawDegrees: 0 },
+  { slug: 'sphynx-cat', sourceFolder: '斯芬克斯猫', sourceFile: 'source/exported.glb', expectedLongestMeters: 0.6, yawDegrees: 0 },
+  { slug: 'raccoon', sourceFolder: '浣熊', sourceFile: 'source/exported.glb', expectedLongestMeters: 0.75, yawDegrees: 0 },
+  { slug: 'sea-turtle', sourceFolder: '海龟', sourceFile: 'source/exported.glb', expectedLongestMeters: 1.0, yawDegrees: 0 },
+  { slug: 'hercules-beetle', sourceFolder: '犀牛甲虫', sourceFile: 'source/exported.glb', expectedLongestMeters: 0.17, yawDegrees: 0 },
+  { slug: 'lion', sourceFolder: '狮子', sourceFile: 'source/exported.glb', expectedLongestMeters: 2.5, yawDegrees: 0 },
+  { slug: 'kookaburra', sourceFolder: '笑翠鸟', sourceFile: 'source/exported.glb', expectedLongestMeters: 0.45, yawDegrees: 0 },
+  { slug: 'alpaca', sourceFolder: '羊驼', sourceFile: 'source/exported.glb', expectedLongestMeters: 1.6, yawDegrees: 0 },
+  { slug: 'snail', sourceFolder: '蜗牛', sourceFile: 'source/exported.glb', expectedLongestMeters: 0.08, yawDegrees: 0 },
+  { slug: 'scorpion', sourceFolder: '蝎子', sourceFile: 'source/exported.glb', expectedLongestMeters: 0.12, yawDegrees: 0 },
+  { slug: 'python', sourceFolder: '蟒蛇', sourceFile: 'source/exported.glb', expectedLongestMeters: 3.0, yawDegrees: 0 },
+  { slug: 'kangaroo', sourceFolder: '袋鼠', sourceFile: 'source/exported.glb', expectedLongestMeters: 1.7, yawDegrees: 0 },
+  { slug: 'schnauzer', sourceFolder: '雪纳瑞犬', sourceFile: 'source/exported.glb', expectedLongestMeters: 0.95, yawDegrees: 0 },
+  { slug: 'frog', sourceFolder: '青蛙', sourceFile: 'source/exported.glb', expectedLongestMeters: 0.1, yawDegrees: 0 },
+  { slug: 'horse', sourceFolder: '马', sourceFile: 'source/exported.glb', expectedLongestMeters: 2.4, yawDegrees: 0 },
+  { slug: 'alligator', sourceFolder: '鳄鱼', sourceFile: 'source/exported.glb', expectedLongestMeters: 3.5, yawDegrees: 0 },
+  { slug: 'emu', sourceFolder: '鸸鹋', sourceFile: 'source/exported.glb', expectedLongestMeters: 1.7, yawDegrees: 0 },
+  { slug: 'deer', sourceFolder: '鹿', sourceFile: 'source/exported.glb', expectedLongestMeters: 1.9, yawDegrees: 0 },
 ]
 
 const onlyFlag = process.argv.find((argument) => argument.startsWith('--only='))

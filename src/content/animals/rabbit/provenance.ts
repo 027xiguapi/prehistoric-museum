@@ -1,0 +1,45 @@
+import type { AssetProvenance } from '../../types'
+
+// Pilot intake from the owner-supplied “1048动物” drop. The drop did not
+// include a licence statement, so the model is marked NOT redistributable
+// and stays draft until the source licence is confirmed or replaced.
+const modelLicense = {
+  spdx: 'CC-BY-NC-SA-4.0',
+  name: 'Temporary pilot marking — source licence not yet confirmed',
+  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
+} as const
+
+export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
+  {
+    assetPath: 'model/model.glb',
+    kind: 'model',
+    source: {
+      type: 'third-party',
+      title: "Rabbit (owner-supplied “1048动物” drop, 兔子)",
+      author: 'Unknown — pending owner attribution',
+      url: 'https://example.invalid/pending-rabbit-source-attribution',
+      accessedOn: '2026-08-18',
+      sha256: 'fdcd0b71e64f55e4c59abb2ae9475d3ae1584c66d198f8aaac51a5ae9dcfc0ae',
+      bytes: 8816556,
+    },
+    license: modelLicense,
+    runtime: {
+      sha256: 'cfe79ef034ddad1b4375bb36611784551e173f2d3b9a63b8ca95a63ac9083e8e',
+      bytes: 6803144,
+    },
+    modifications: [
+      'Compressed geometry and animation with Meshopt (high level) and museum quantization presets via the 1048 batch conversion pipeline.',
+      'Re-encoded embedded textures and applied edge/quality-capped texture squeezing where the source exceeded the runtime budget.',
+      'Replaced the source node transform so the model is unit-scale in metres, centred on the origin, and grounded at y = 0 (scale ×0.86; height ≈ 0.45 m, length ≈ 0.35 m).',
+      'Kept the idle animation clip “All Animations_Armature” (10.5s, 105 channels).',
+    ],
+    attribution: "Rabbit 3D model from the owner-supplied 1048动物 drop; licence pending confirmation.",
+    redistributionAllowed: false,
+    evidencePaths: [
+      "1048动物/兔子/source/exported.glb",
+      'converted-1048/rabbit/model-normalized.glb',
+      'scripts/convert-1048-models.mjs',
+      'scripts/generate-1048-draft-packages.mjs',
+    ],
+  },
+]

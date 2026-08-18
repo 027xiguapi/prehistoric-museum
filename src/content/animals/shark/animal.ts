@@ -24,7 +24,7 @@ export const animal: DraftAnimalPackage & LegacyLocalReviewAnimalPackage = {
   },
   assets: {
     model: modelUrl,
-    modelBytes: 7576748,
+    modelBytes: 7576444,
     poster: imageUrl(posterUrl),
     posterPortrait: imageUrl(posterPortraitUrl),
     thumbnail: imageUrl(thumbnailUrl),

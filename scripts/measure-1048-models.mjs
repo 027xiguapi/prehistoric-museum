@@ -23,6 +23,10 @@ const SLUGS = [
   'bear', 'fennec-fox', 'owl', 'octopus', 'sheep', 'stag-beetle', 'mouse',
   'centipede', 'crab', 'coyote', 'arabian-leopard', 'tortoise', 'salmon',
   'shark', 'duck', 'pigeon', 'sparrow', 'ox',
+  'crow', 'rabbit', 'pug', 'elephant', 'goat', 'zebra', 'sphynx-cat',
+  'raccoon', 'sea-turtle', 'hercules-beetle', 'lion', 'kookaburra', 'alpaca',
+  'snail', 'scorpion', 'python', 'kangaroo', 'schnauzer', 'frog', 'horse',
+  'alligator', 'emu', 'deer',
 ]
 
 const onlyFlag = process.argv.find((argument) => argument.startsWith('--only='))

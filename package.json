@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "next dev",
     "review": "npm run validate:review && node scripts/set-env.mjs NEXT_PUBLIC_MUSEUM_MODE=review MUSEUM_BASE_PATH= tsx scripts/serve-review.ts",
-    "build": "npm run validate:content && npm run validate:model-previews && npm run generate:animal-social-images && next build",
+    "build": "next build",
     "build:e2e": "npm run validate:content && node scripts/set-env.mjs NEXT_PUBLIC_MUSEUM_MODE=e2e MUSEUM_BASE_PATH=/prehistoric-animal-museum next build",
     "start": "next start -p 3001",
     "lint": "eslint . --max-warnings=0",

@@ -1207,18 +1207,18 @@
   {
     "slug": "shark",
     "status": "ok",
-    "inputMB": 7.15,
+    "inputMB": 7.14,
     "sourceRecord": {
       "path": "1048动物/鲨鱼glb格式/source/Swimming shark.glb",
-      "sha256": "e9c390efa295bfdfc0d8e125f8c1f54e56396c5f294c76fd01fc5a62ad96a2ed",
-      "bytes": 17047028
+      "sha256": "5272dd6b14b802f7f647e9c1392bf8fe3da8e4837ebd16d93768b4155d52d18f",
+      "bytes": 17046044
     },
     "runtime": {
       "path": "src/content/animals/shark/model/model.glb",
-      "sha256": "ccd43b8657a5d2f1b7c81607513a9e274bb89a89ae280b4d373fc6ec8c9fe760",
-      "bytes": 7576748,
+      "sha256": "bfd336f3f115f2bd3478c4b584a66d0ea8c61a9f644e4d348ad2c301fd1e103d",
+      "bytes": 7576444,
       "writeAttemptsBytes": [
-        7576748
+        7576444
       ]
     },
     "scale": 0.1992328919663859,
@@ -1553,6 +1553,1353 @@
     },
     "cubicRotationTracksTotal": 0,
     "textureBytesBeforeSqueeze": 5580277,
+    "warnings": []
+  },
+  {
+    "slug": "crow",
+    "status": "ok",
+    "inputMB": 11.74,
+    "sourceRecord": {
+      "path": "1048动物/乌鸦/source/exported.glb",
+      "sha256": "ffa2c1f5baea9e253efaf0b0fd66940a9d6361d4c114c1685b50a77ac01e109e",
+      "bytes": 24817744
+    },
+    "runtime": {
+      "path": "src/content/animals/crow/model/model.glb",
+      "sha256": "6b4c003842dc95b3ff65860fa17e3b865e5ab8b5697f8412b6107e1c9ee34001",
+      "bytes": 12329916,
+      "writeAttemptsBytes": [
+        12329916
+      ]
+    },
+    "scale": 0.47556020176595815,
+    "yawDegrees": 0,
+    "expectedLongestMeters": 0.5,
+    "measured": {
+      "source": "converted-1048/drafts-measurements.json (three.js, trimmed 0.5–99.5%)",
+      "min": [
+        -0.5257,
+        0.0019,
+        -0.2657
+      ],
+      "max": [
+        0.5257,
+        0.2969,
+        0.3032
+      ],
+      "longest": 1.05139
+    },
+    "finalSizeMeters": {
+      "widthX": 0.5,
+      "heightY": 0.14,
+      "lengthZ": 0.271
+    },
+    "animations": [
+      {
+        "name": "Fly_land",
+        "channels": 741,
+        "durationSeconds": 3.083,
+        "cubicRotationTracks": 0
+      }
+    ],
+    "chosenClip": {
+      "name": "Fly_land",
+      "channels": 741,
+      "durationSeconds": 3.083,
+      "cubicRotationTracks": 0
+    },
+    "cubicRotationTracksTotal": 0,
+    "textureBytesBeforeSqueeze": 11800238,
+    "warnings": []
+  },
+  {
+    "slug": "rabbit",
+    "status": "ok",
+    "inputMB": 6.47,
+    "sourceRecord": {
+      "path": "1048动物/兔子/source/exported.glb",
+      "sha256": "fdcd0b71e64f55e4c59abb2ae9475d3ae1584c66d198f8aaac51a5ae9dcfc0ae",
+      "bytes": 8816556
+    },
+    "runtime": {
+      "path": "src/content/animals/rabbit/model/model.glb",
+      "sha256": "cfe79ef034ddad1b4375bb36611784551e173f2d3b9a63b8ca95a63ac9083e8e",
+      "bytes": 6803144,
+      "writeAttemptsBytes": [
+        6803144
+      ]
+    },
+    "scale": 0.8611760231748566,
+    "yawDegrees": 0,
+    "expectedLongestMeters": 0.45,
+    "measured": {
+      "source": "converted-1048/drafts-measurements.json (three.js, trimmed 0.5–99.5%)",
+      "min": [
+        -0.323,
+        -0.0029,
+        -0.0848
+      ],
+      "max": [
+        0.0859,
+        0.5196,
+        0.322
+      ],
+      "longest": 0.522541
+    },
+    "finalSizeMeters": {
+      "widthX": 0.352,
+      "heightY": 0.45,
+      "lengthZ": 0.35
+    },
+    "animations": [
+      {
+        "name": "All Animations_Armature",
+        "channels": 105,
+        "durationSeconds": 10.5,
+        "cubicRotationTracks": 0
+      }
+    ],
+    "chosenClip": {
+      "name": "All Animations_Armature",
+      "channels": 105,
+      "durationSeconds": 10.5,
+      "cubicRotationTracks": 0
+    },
+    "cubicRotationTracksTotal": 0,
+    "textureBytesBeforeSqueeze": 6544162,
+    "warnings": []
+  },
+  {
+    "slug": "pug",
+    "status": "ok",
+    "inputMB": 2,
+    "sourceRecord": {
+      "path": "1048动物/哈巴狗/source/exported.glb",
+      "sha256": "7d39fe18bc6b79cbf190efec8c5c61c06897e4c65d6f48b05a7f9f1fc15c0662",
+      "bytes": 2684052
+    },
+    "runtime": {
+      "path": "src/content/animals/pug/model/model.glb",
+      "sha256": "713516b691846eb4e9f39e31f7aedefe2cc64329d6c0b743233ac00dce52c41f",
+      "bytes": 2113096,
+      "writeAttemptsBytes": [
+        2113096
+      ]
+    },
+    "scale": 0.012766471975021542,
+    "yawDegrees": 0,
+    "expectedLongestMeters": 0.55,
+    "measured": {
+      "source": "converted-1048/drafts-measurements.json (three.js, trimmed 0.5–99.5%)",
+      "min": [
+        -12.8223,
+        0.0162,
+        -4.4999
+      ],
+      "max": [
+        10.1782,
+        36.498,
+        38.5817
+      ],
+      "longest": 43.0816
+    },
+    "finalSizeMeters": {
+      "widthX": 0.294,
+      "heightY": 0.466,
+      "lengthZ": 0.55
+    },
+    "animations": [
+      {
+        "name": "Animation_Armature",
+        "channels": 249,
+        "durationSeconds": 5.5,
+        "cubicRotationTracks": 0
+      }
+    ],
+    "chosenClip": {
+      "name": "Animation_Armature",
+      "channels": 249,
+      "durationSeconds": 5.5,
+      "cubicRotationTracks": 0
+    },
+    "cubicRotationTracksTotal": 0,
+    "textureBytesBeforeSqueeze": 1834352,
+    "warnings": []
+  },
+  {
+    "slug": "elephant",
+    "status": "ok",
+    "inputMB": 9.55,
+    "sourceRecord": {
+      "path": "1048动物/大象/source/exported.glb",
+      "sha256": "bfb2c025caabb5fdd96c8a58bd839312a0cba44f36316f9ad19fa7e758e34951",
+      "bytes": 16364824
+    },
+    "runtime": {
+      "path": "src/content/animals/elephant/model/model.glb",
+      "sha256": "1318a3b5f6a1fa161545811673504f3cafea9a2267dcfae8a4d5da87d1f579a5",
+      "bytes": 10038244,
+      "writeAttemptsBytes": [
+        10038244
+      ]
+    },
+    "scale": 1.5404467169886826,
+    "yawDegrees": 0,
+    "expectedLongestMeters": 6.5,
+    "measured": {
+      "source": "converted-1048/drafts-measurements.json (three.js, trimmed 0.5–99.5%)",
+      "min": [
+        -0.8922,
+        -0.2097,
+        -1.9477
+      ],
+      "max": [
+        0.8945,
+        2.7073,
+        2.2718
+      ],
+      "longest": 4.21956
+    },
+    "finalSizeMeters": {
+      "widthX": 2.752,
+      "heightY": 4.494,
+      "lengthZ": 6.5
+    },
+    "animations": [
+      {
+        "name": "TRS|Take 001|BaseLayer",
+        "channels": 132,
+        "durationSeconds": 20.792,
+        "cubicRotationTracks": 0
+      }
+    ],
+    "chosenClip": {
+      "name": "TRS|Take 001|BaseLayer",
+      "channels": 132,
+      "durationSeconds": 20.792,
+      "cubicRotationTracks": 0
+    },
+    "cubicRotationTracksTotal": 0,
+    "textureBytesBeforeSqueeze": 9854212,
+    "warnings": []
+  },
+  {
+    "slug": "goat",
+    "status": "ok",
+    "inputMB": 1.28,
+    "sourceRecord": {
+      "path": "1048动物/山羊/source/exported.glb",
+      "sha256": "eab82344db5bd4848eda276880197e966610db24bc87e06b5d463528622d3913",
+      "bytes": 2954852
+    },
+    "runtime": {
+      "path": "src/content/animals/goat/model/model.glb",
+      "sha256": "dc6fad1a6b23b7cc1bda1a655efe0deebd29d9b071344e79ab2a97eeaeb129b7",
+      "bytes": 1375736,
+      "writeAttemptsBytes": [
+        1375736
+      ]
+    },
+    "scale": 0.008748758055093744,
+    "yawDegrees": 0,
+    "expectedLongestMeters": 1.2,
+    "measured": {
+      "source": "converted-1048/drafts-measurements.json (three.js, trimmed 0.5–99.5%)",
+      "min": [
+        -19.3489,
+        0.442,
+        -59.2008
+      ],
+      "max": [
+        32.8638,
+        111.4283,
+        77.9615
+      ],
+      "longest": 137.162
+    },
+    "finalSizeMeters": {
+      "widthX": 0.457,
+      "heightY": 0.971,
+      "lengthZ": 1.2
+    },
+    "animations": [
+      {
+        "name": "Animation_Armature",
+        "channels": 135,
+        "durationSeconds": 15,
+        "cubicRotationTracks": 0
+      },
+      {
+        "name": "Animation_eyeL",
+        "channels": 2,
+        "durationSeconds": 15,
+        "cubicRotationTracks": 0
+      },
+      {
+        "name": "Animation_eyeR",
+        "channels": 2,
+        "durationSeconds": 15,
+        "cubicRotationTracks": 0
+      }
+    ],
+    "chosenClip": {
+      "name": "Animation_Armature",
+      "channels": 135,
+      "durationSeconds": 15,
+      "cubicRotationTracks": 0
+    },
+    "cubicRotationTracksTotal": 0,
+    "textureBytesBeforeSqueeze": 826212,
+    "warnings": []
+  },
+  {
+    "slug": "zebra",
+    "status": "ok",
+    "inputMB": 4.73,
+    "sourceRecord": {
+      "path": "1048动物/斑马/source/exported.glb",
+      "sha256": "b6076b742ea5f21b4e54f294c2574a52c6a95255fd797117ca2d263dca316aed",
+      "bytes": 8659504
+    },
+    "runtime": {
+      "path": "src/content/animals/zebra/model/model.glb",
+      "sha256": "0cfd22b378ef1ef553225eec89b95a1d9d9859c411b9f0b5c0c35a8461697425",
+      "bytes": 5042204,
+      "writeAttemptsBytes": [
+        5042204
+      ]
+    },
+    "scale": 1.115876410060234,
+    "yawDegrees": 0,
+    "expectedLongestMeters": 2.5,
+    "measured": {
+      "source": "converted-1048/drafts-measurements.json (three.js, trimmed 0.5–99.5%)",
+      "min": [
+        -1.0041,
+        0.0013,
+        -1.0936
+      ],
+      "max": [
+        0.2332,
+        2.0921,
+        1.1468
+      ],
+      "longest": 2.24039
+    },
+    "finalSizeMeters": {
+      "widthX": 1.381,
+      "heightY": 2.333,
+      "lengthZ": 2.5
+    },
+    "animations": [
+      {
+        "name": "All Animations_skeleton #0.001",
+        "channels": 414,
+        "durationSeconds": 10.333,
+        "cubicRotationTracks": 0
+      },
+      {
+        "name": "All Animations_skeleton #0.002",
+        "channels": 414,
+        "durationSeconds": 10,
+        "cubicRotationTracks": 0
+      },
+      {
+        "name": "Take 001_Armature",
+        "channels": 417,
+        "durationSeconds": 10,
+        "cubicRotationTracks": 0
+      }
+    ],
+    "chosenClip": {
+      "name": "All Animations_skeleton #0.001",
+      "channels": 414,
+      "durationSeconds": 10.333,
+      "cubicRotationTracks": 0
+    },
+    "cubicRotationTracksTotal": 0,
+    "textureBytesBeforeSqueeze": 3627164,
+    "warnings": []
+  },
+  {
+    "slug": "sphynx-cat",
+    "status": "ok",
+    "inputMB": 5.95,
+    "sourceRecord": {
+      "path": "1048动物/斯芬克斯猫/source/exported.glb",
+      "sha256": "4117a5899cc0c2a57441d442f90e3490b88085082b3cacbfef89ed13165841ea",
+      "bytes": 8718048
+    },
+    "runtime": {
+      "path": "src/content/animals/sphynx-cat/model/model.glb",
+      "sha256": "d35b5251ff04b698a8b65a65c916c54077fd93a996ed72451a8acda86ac72604",
+      "bytes": 6255104,
+      "writeAttemptsBytes": [
+        6255104
+      ]
+    },
+    "scale": 1.0871426883540278,
+    "yawDegrees": 0,
+    "expectedLongestMeters": 0.6,
+    "measured": {
+      "source": "converted-1048/drafts-measurements.json (three.js, trimmed 0.5–99.5%)",
+      "min": [
+        -0.0492,
+        -0.0086,
+        -0.2948
+      ],
+      "max": [
+        0.0453,
+        0.3646,
+        0.2572
+      ],
+      "longest": 0.551905
+    },
+    "finalSizeMeters": {
+      "widthX": 0.103,
+      "heightY": 0.406,
+      "lengthZ": 0.6
+    },
+    "animations": [
+      {
+        "name": "Take 001_Armature",
+        "channels": 258,
+        "durationSeconds": 10,
+        "cubicRotationTracks": 0
+      }
+    ],
+    "chosenClip": {
+      "name": "Take 001_Armature",
+      "channels": 258,
+      "durationSeconds": 10,
+      "cubicRotationTracks": 0
+    },
+    "cubicRotationTracksTotal": 0,
+    "textureBytesBeforeSqueeze": 5725337,
+    "warnings": []
+  },
+  {
+    "slug": "raccoon",
+    "status": "ok",
+    "inputMB": 1.18,
+    "sourceRecord": {
+      "path": "1048动物/浣熊/source/exported.glb",
+      "sha256": "c5250c0043e688a575c809d8c59bc53aa10b9bc5517bf7a7af32f10a5cadaf8b",
+      "bytes": 3440176
+    },
+    "runtime": {
+      "path": "src/content/animals/raccoon/model/model.glb",
+      "sha256": "b2448cd5834279346f308ddca4df888a52accbc915f3d5cdfd6d44232f7c7315",
+      "bytes": 1288596,
+      "writeAttemptsBytes": [
+        1288596
+      ]
+    },
+    "scale": 0.013976511670889953,
+    "yawDegrees": 0,
+    "expectedLongestMeters": 0.75,
+    "measured": {
+      "source": "converted-1048/drafts-measurements.json (three.js, trimmed 0.5–99.5%)",
+      "min": [
+        -14.9069,
+        -0.0869,
+        -37.9447
+      ],
+      "max": [
+        7.6685,
+        36.1703,
+        15.7168
+      ],
+      "longest": 53.6615
+    },
+    "finalSizeMeters": {
+      "widthX": 0.316,
+      "heightY": 0.507,
+      "lengthZ": 0.75
+    },
+    "animations": [
+      {
+        "name": "Animation_Armature.001",
+        "channels": 297,
+        "durationSeconds": 15,
+        "cubicRotationTracks": 0
+      }
+    ],
+    "chosenClip": {
+      "name": "Animation_Armature.001",
+      "channels": 297,
+      "durationSeconds": 15,
+      "cubicRotationTracks": 0
+    },
+    "cubicRotationTracksTotal": 0,
+    "textureBytesBeforeSqueeze": 557771,
+    "warnings": []
+  },
+  {
+    "slug": "sea-turtle",
+    "status": "ok",
+    "inputMB": 1.19,
+    "sourceRecord": {
+      "path": "1048动物/海龟/source/exported.glb",
+      "sha256": "cbf52efee4b5276f867866c975b69d3c2b040187e9f0c00a9b908d5b74aac1b1",
+      "bytes": 1665268
+    },
+    "runtime": {
+      "path": "src/content/animals/sea-turtle/model/model.glb",
+      "sha256": "c9827e0a225aa81cb465e821d5a7400fe4535c15123a19a7caa76258ff72d98f",
+      "bytes": 1252560,
+      "writeAttemptsBytes": [
+        1252560
+      ]
+    },
+    "scale": 0.009788644091956435,
+    "yawDegrees": 0,
+    "expectedLongestMeters": 1,
+    "measured": {
+      "source": "converted-1048/drafts-measurements.json (three.js, trimmed 0.5–99.5%)",
+      "min": [
+        -52.3214,
+        18.0021,
+        -48.5326
+      ],
+      "max": [
+        49.8378,
+        42.3245,
+        49.9982
+      ],
+      "longest": 102.159
+    },
+    "finalSizeMeters": {
+      "widthX": 1,
+      "heightY": 0.238,
+      "lengthZ": 0.964
+    },
+    "animations": [
+      {
+        "name": "Animation_Armature",
+        "channels": 123,
+        "durationSeconds": 15,
+        "cubicRotationTracks": 0
+      },
+      {
+        "name": "Animation_ground1",
+        "channels": 1,
+        "durationSeconds": 15,
+        "cubicRotationTracks": 0
+      }
+    ],
+    "chosenClip": {
+      "name": "Animation_Armature",
+      "channels": 123,
+      "durationSeconds": 15,
+      "cubicRotationTracks": 0
+    },
+    "cubicRotationTracksTotal": 0,
+    "textureBytesBeforeSqueeze": 1086476,
+    "warnings": []
+  },
+  {
+    "slug": "hercules-beetle",
+    "status": "ok",
+    "inputMB": 0.94,
+    "sourceRecord": {
+      "path": "1048动物/犀牛甲虫/source/exported.glb",
+      "sha256": "abfc6cced99b55ed11474c09f1087e6311018895a61ffd9dc72df37e3ab13a91",
+      "bytes": 1568332
+    },
+    "runtime": {
+      "path": "src/content/animals/hercules-beetle/model/model.glb",
+      "sha256": "934b6291f66d1305806481725d9d97c6a042d6dfa4a1e226e6cee6c32d4277fd",
+      "bytes": 994792,
+      "writeAttemptsBytes": [
+        994792
+      ]
+    },
+    "scale": 0.16506922554468326,
+    "yawDegrees": 0,
+    "expectedLongestMeters": 0.17,
+    "measured": {
+      "source": "converted-1048/drafts-measurements.json (three.js, trimmed 0.5–99.5%)",
+      "min": [
+        -0.2597,
+        -0.0042,
+        -0.4948
+      ],
+      "max": [
+        0.2597,
+        0.4126,
+        0.5351
+      ],
+      "longest": 1.02987
+    },
+    "finalSizeMeters": {
+      "widthX": 0.086,
+      "heightY": 0.069,
+      "lengthZ": 0.17
+    },
+    "animations": [
+      {
+        "name": "hurkyury_Armature",
+        "channels": 189,
+        "durationSeconds": 12,
+        "cubicRotationTracks": 0
+      }
+    ],
+    "chosenClip": {
+      "name": "hurkyury_Armature",
+      "channels": 189,
+      "durationSeconds": 12,
+      "cubicRotationTracks": 0
+    },
+    "cubicRotationTracksTotal": 0,
+    "textureBytesBeforeSqueeze": 807696,
+    "warnings": []
+  },
+  {
+    "slug": "lion",
+    "status": "ok",
+    "inputMB": 1.22,
+    "sourceRecord": {
+      "path": "1048动物/狮子/source/exported.glb",
+      "sha256": "b62cca16d17e8fb7864a4e585fec34b051f41292fd2f44551b52eedb18432add",
+      "bytes": 2844308
+    },
+    "runtime": {
+      "path": "src/content/animals/lion/model/model.glb",
+      "sha256": "5fa145814b6ff869e910239344f26ec81221bb992d820b145752fe4c70959b15",
+      "bytes": 1325312,
+      "writeAttemptsBytes": [
+        1325312
+      ]
+    },
+    "scale": 0.012486176717499225,
+    "yawDegrees": 0,
+    "expectedLongestMeters": 2.5,
+    "measured": {
+      "source": "converted-1048/drafts-measurements.json (three.js, trimmed 0.5–99.5%)",
+      "min": [
+        -39.0961,
+        -1.9126,
+        -95.8293
+      ],
+      "max": [
+        32.6088,
+        131.7189,
+        104.3921
+      ],
+      "longest": 200.221
+    },
+    "finalSizeMeters": {
+      "widthX": 0.895,
+      "heightY": 1.669,
+      "lengthZ": 2.5
+    },
+    "animations": [
+      {
+        "name": "Animation_Armature",
+        "channels": 315,
+        "durationSeconds": 15,
+        "cubicRotationTracks": 0
+      }
+    ],
+    "chosenClip": {
+      "name": "Animation_Armature",
+      "channels": 315,
+      "durationSeconds": 15,
+      "cubicRotationTracks": 0
+    },
+    "cubicRotationTracksTotal": 0,
+    "textureBytesBeforeSqueeze": 654864,
+    "warnings": []
+  },
+  {
+    "slug": "kookaburra",
+    "status": "ok",
+    "inputMB": 3.98,
+    "sourceRecord": {
+      "path": "1048动物/笑翠鸟/source/exported.glb",
+      "sha256": "8ead83358cb0d4717b9b9963878433da30307ece1dd813a91d37bfc50783c146",
+      "bytes": 5770700
+    },
+    "runtime": {
+      "path": "src/content/animals/kookaburra/model/model.glb",
+      "sha256": "8e13d352dbc4e3a6f86f17cc73d884febb57b9577e7099c2064db88219230d62",
+      "bytes": 4210676,
+      "writeAttemptsBytes": [
+        4210676
+      ]
+    },
+    "scale": 0.7912872148469454,
+    "yawDegrees": 0,
+    "expectedLongestMeters": 0.45,
+    "measured": {
+      "source": "converted-1048/drafts-measurements.json (three.js, trimmed 0.5–99.5%)",
+      "min": [
+        -0.2081,
+        0.1994,
+        -0.3821
+      ],
+      "max": [
+        -0.0116,
+        0.6163,
+        0.1866
+      ],
+      "longest": 0.568694
+    },
+    "finalSizeMeters": {
+      "widthX": 0.155,
+      "heightY": 0.33,
+      "lengthZ": 0.45
+    },
+    "animations": [
+      {
+        "name": "All Animations_skeleton #0",
+        "channels": 252,
+        "durationSeconds": 9.958,
+        "cubicRotationTracks": 0
+      }
+    ],
+    "chosenClip": {
+      "name": "All Animations_skeleton #0",
+      "channels": 252,
+      "durationSeconds": 9.958,
+      "cubicRotationTracks": 0
+    },
+    "cubicRotationTracksTotal": 0,
+    "textureBytesBeforeSqueeze": 3614693,
+    "warnings": []
+  },
+  {
+    "slug": "alpaca",
+    "status": "ok",
+    "inputMB": 4.14,
+    "sourceRecord": {
+      "path": "1048动物/羊驼/source/exported.glb",
+      "sha256": "bfb50d0d62039ec2ee885a3fca517fd6aa334649414435acdbe3d37f11258ae8",
+      "bytes": 8083148
+    },
+    "runtime": {
+      "path": "src/content/animals/alpaca/model/model.glb",
+      "sha256": "0a3bfe5fccebc1d426e9185d2de9caccc43ec8ea8ea2d2c52c59c59830418385",
+      "bytes": 4348408,
+      "writeAttemptsBytes": [
+        4348408
+      ]
+    },
+    "scale": 0.26376572192043746,
+    "yawDegrees": 0,
+    "expectedLongestMeters": 1.6,
+    "measured": {
+      "source": "converted-1048/drafts-measurements.json (three.js, trimmed 0.5–99.5%)",
+      "min": [
+        -0.7275,
+        0.0003,
+        -2.1317
+      ],
+      "max": [
+        0.7293,
+        6.0663,
+        3.0021
+      ],
+      "longest": 6.06599
+    },
+    "finalSizeMeters": {
+      "widthX": 0.384,
+      "heightY": 1.6,
+      "lengthZ": 1.354
+    },
+    "animations": [
+      {
+        "name": "All Animations_skeleton #0",
+        "channels": 138,
+        "durationSeconds": 9.958,
+        "cubicRotationTracks": 0
+      },
+      {
+        "name": "Armature|Armature|Armature|Armature|Idle|Armature|Idle|Armature",
+        "channels": 141,
+        "durationSeconds": 6.292,
+        "cubicRotationTracks": 0
+      }
+    ],
+    "chosenClip": {
+      "name": "All Animations_skeleton #0",
+      "channels": 138,
+      "durationSeconds": 9.958,
+      "cubicRotationTracks": 0
+    },
+    "cubicRotationTracksTotal": 0,
+    "textureBytesBeforeSqueeze": 4087534,
+    "warnings": []
+  },
+  {
+    "slug": "snail",
+    "status": "ok",
+    "inputMB": 10.56,
+    "sourceRecord": {
+      "path": "1048动物/蜗牛/source/exported.glb",
+      "sha256": "2d1389fe8a61464a34d139deb0f55a776a93c32f970421a57df3e09bbbc6c672",
+      "bytes": 19307392
+    },
+    "runtime": {
+      "path": "src/content/animals/snail/model/model.glb",
+      "sha256": "a6681a4561443b2e10d2525e40e83598e4d92271babf434eabbff31271251312",
+      "bytes": 11081196,
+      "writeAttemptsBytes": [
+        11081196
+      ]
+    },
+    "scale": 0.3486995961155407,
+    "yawDegrees": 0,
+    "expectedLongestMeters": 0.08,
+    "measured": {
+      "source": "converted-1048/drafts-measurements.json (three.js, trimmed 0.5–99.5%)",
+      "min": [
+        -0.0729,
+        0.0003,
+        -0.1069
+      ],
+      "max": [
+        0.0437,
+        0.1256,
+        0.1225
+      ],
+      "longest": 0.229424
+    },
+    "finalSizeMeters": {
+      "widthX": 0.041,
+      "heightY": 0.044,
+      "lengthZ": 0.08
+    },
+    "animations": [
+      {
+        "name": "snail_idle_anim",
+        "channels": 27,
+        "durationSeconds": 11.208,
+        "cubicRotationTracks": 0
+      }
+    ],
+    "chosenClip": {
+      "name": "snail_idle_anim",
+      "channels": 27,
+      "durationSeconds": 11.208,
+      "cubicRotationTracks": 0
+    },
+    "cubicRotationTracksTotal": 0,
+    "textureBytesBeforeSqueeze": 10926842,
+    "warnings": []
+  },
+  {
+    "slug": "scorpion",
+    "status": "ok",
+    "inputMB": 0.88,
+    "sourceRecord": {
+      "path": "1048动物/蝎子/source/exported.glb",
+      "sha256": "77ac1b00bb144801550003bb1d8318a0409977d848da67fd4943bf60e1ea8e4a",
+      "bytes": 1485160
+    },
+    "runtime": {
+      "path": "src/content/animals/scorpion/model/model.glb",
+      "sha256": "847f38607d8b8e0590e1c4d36d21aee8e922a595e66dd58cf298d1c56873f851",
+      "bytes": 921696,
+      "writeAttemptsBytes": [
+        921696
+      ]
+    },
+    "scale": 0.28292318936274635,
+    "yawDegrees": 0,
+    "expectedLongestMeters": 0.12,
+    "measured": {
+      "source": "converted-1048/drafts-measurements.json (three.js, trimmed 0.5–99.5%)",
+      "min": [
+        -0.1536,
+        -0.0004,
+        -0.2123
+      ],
+      "max": [
+        0.1536,
+        0.2368,
+        0.2118
+      ],
+      "longest": 0.424143
+    },
+    "finalSizeMeters": {
+      "widthX": 0.087,
+      "heightY": 0.067,
+      "lengthZ": 0.12
+    },
+    "animations": [
+      {
+        "name": "Attackidle_nyi",
+        "channels": 234,
+        "durationSeconds": 0.917,
+        "cubicRotationTracks": 0
+      }
+    ],
+    "chosenClip": {
+      "name": "Attackidle_nyi",
+      "channels": 234,
+      "durationSeconds": 0.917,
+      "cubicRotationTracks": 0
+    },
+    "cubicRotationTracksTotal": 0,
+    "textureBytesBeforeSqueeze": 817132,
+    "warnings": []
+  },
+  {
+    "slug": "python",
+    "status": "ok",
+    "inputMB": 4.44,
+    "sourceRecord": {
+      "path": "1048动物/蟒蛇/source/exported.glb",
+      "sha256": "9e2d72f1bbee28e69b544ee493cbe029c004dca5be7587d72139a5e47647d7a8",
+      "bytes": 5220656
+    },
+    "runtime": {
+      "path": "src/content/animals/python/model/model.glb",
+      "sha256": "06aa2a358236412013f4a479c0528014374159ad14464936e51a75db9348df37",
+      "bytes": 4670204,
+      "writeAttemptsBytes": [
+        4670204
+      ]
+    },
+    "scale": 0.05834495579985883,
+    "yawDegrees": 0,
+    "expectedLongestMeters": 3,
+    "measured": {
+      "source": "converted-1048/drafts-measurements.json (three.js, trimmed 0.5–99.5%)",
+      "min": [
+        -20.7668,
+        -0.0536,
+        -19.5046
+      ],
+      "max": [
+        9.9879,
+        7.603,
+        31.9137
+      ],
+      "longest": 51.4183
+    },
+    "finalSizeMeters": {
+      "widthX": 1.794,
+      "heightY": 0.447,
+      "lengthZ": 3
+    },
+    "animations": [
+      {
+        "name": "Animation_Armature",
+        "channels": 132,
+        "durationSeconds": 16,
+        "cubicRotationTracks": 0
+      }
+    ],
+    "chosenClip": {
+      "name": "Animation_Armature",
+      "channels": 132,
+      "durationSeconds": 16,
+      "cubicRotationTracks": 0
+    },
+    "cubicRotationTracksTotal": 0,
+    "textureBytesBeforeSqueeze": 4481972,
+    "warnings": []
+  },
+  {
+    "slug": "kangaroo",
+    "status": "ok",
+    "inputMB": 1.96,
+    "sourceRecord": {
+      "path": "1048动物/袋鼠/source/exported.glb",
+      "sha256": "0736e14296e4ae0ad1613384847b540bd7b332b2396fa7a53862b56cfc098429",
+      "bytes": 3751408
+    },
+    "runtime": {
+      "path": "src/content/animals/kangaroo/model/model.glb",
+      "sha256": "71cfbb3f7487ba532a3e65e3ec857441196c8576b9ae461c4360c8daf4777f1a",
+      "bytes": 2107676,
+      "writeAttemptsBytes": [
+        2107676
+      ]
+    },
+    "scale": 0.8371675293262849,
+    "yawDegrees": 0,
+    "expectedLongestMeters": 1.7,
+    "measured": {
+      "source": "converted-1048/drafts-measurements.json (three.js, trimmed 0.5–99.5%)",
+      "min": [
+        -0.5508,
+        0.0016,
+        -1.3599
+      ],
+      "max": [
+        0.2689,
+        1.2019,
+        0.6708
+      ],
+      "longest": 2.03066
+    },
+    "finalSizeMeters": {
+      "widthX": 0.686,
+      "heightY": 1.005,
+      "lengthZ": 1.7
+    },
+    "animations": [
+      {
+        "name": "kan_idle",
+        "channels": 309,
+        "durationSeconds": 9.958,
+        "cubicRotationTracks": 0
+      }
+    ],
+    "chosenClip": {
+      "name": "kan_idle",
+      "channels": 309,
+      "durationSeconds": 9.958,
+      "cubicRotationTracks": 0
+    },
+    "cubicRotationTracksTotal": 0,
+    "textureBytesBeforeSqueeze": 1329538,
+    "warnings": []
+  },
+  {
+    "slug": "schnauzer",
+    "status": "ok",
+    "inputMB": 3.9,
+    "sourceRecord": {
+      "path": "1048动物/雪纳瑞犬/source/exported.glb",
+      "sha256": "dadde8f6b40bbde67b6281c9b23077ea852790d11c4db05f9fb7259e2a94bab2",
+      "bytes": 5667748
+    },
+    "runtime": {
+      "path": "src/content/animals/schnauzer/model/model.glb",
+      "sha256": "f3329add89646d5a4563d731ffa624ad0f7037c9a0f35f7eae4330ae8f57acfe",
+      "bytes": 4125852,
+      "writeAttemptsBytes": [
+        4125852
+      ]
+    },
+    "scale": 1.960123309664487,
+    "yawDegrees": 0,
+    "expectedLongestMeters": 0.95,
+    "measured": {
+      "source": "converted-1048/drafts-measurements.json (three.js, trimmed 0.5–99.5%)",
+      "min": [
+        -0.0972,
+        0.0004,
+        -0.1521
+      ],
+      "max": [
+        0.1045,
+        0.4824,
+        0.3326
+      ],
+      "longest": 0.484663
+    },
+    "finalSizeMeters": {
+      "widthX": 0.395,
+      "heightY": 0.945,
+      "lengthZ": 0.95
+    },
+    "animations": [
+      {
+        "name": "All Animations_skeleton #0",
+        "channels": 468,
+        "durationSeconds": 9.958,
+        "cubicRotationTracks": 0
+      }
+    ],
+    "chosenClip": {
+      "name": "All Animations_skeleton #0",
+      "channels": 468,
+      "durationSeconds": 9.958,
+      "cubicRotationTracks": 0
+    },
+    "cubicRotationTracksTotal": 0,
+    "textureBytesBeforeSqueeze": 3514034,
+    "warnings": []
+  },
+  {
+    "slug": "frog",
+    "status": "ok",
+    "inputMB": 1.81,
+    "sourceRecord": {
+      "path": "1048动物/青蛙/source/exported.glb",
+      "sha256": "2c456675779967561ea5bf1df4049ad68f94d1bf2fbfa0d6ac1797b930e5aff4",
+      "bytes": 3159096
+    },
+    "runtime": {
+      "path": "src/content/animals/frog/model/model.glb",
+      "sha256": "f5f9eee14534941da33b216fb459d4d6a7e3f674f78a4b5bfd1bd92d561aab91",
+      "bytes": 1902328,
+      "writeAttemptsBytes": [
+        1902328
+      ]
+    },
+    "scale": 0.3238311010224668,
+    "yawDegrees": 0,
+    "expectedLongestMeters": 0.1,
+    "measured": {
+      "source": "converted-1048/drafts-measurements.json (three.js, trimmed 0.5–99.5%)",
+      "min": [
+        -0.1544,
+        -0.0003,
+        -0.1532
+      ],
+      "max": [
+        0.1544,
+        0.1194,
+        0.1323
+      ],
+      "longest": 0.308803
+    },
+    "finalSizeMeters": {
+      "widthX": 0.1,
+      "heightY": 0.039,
+      "lengthZ": 0.092
+    },
+    "animations": [
+      {
+        "name": "idle_nyi",
+        "channels": 159,
+        "durationSeconds": 8.083,
+        "cubicRotationTracks": 0
+      }
+    ],
+    "chosenClip": {
+      "name": "idle_nyi",
+      "channels": 159,
+      "durationSeconds": 8.083,
+      "cubicRotationTracks": 0
+    },
+    "cubicRotationTracksTotal": 0,
+    "textureBytesBeforeSqueeze": 1818700,
+    "warnings": []
+  },
+  {
+    "slug": "horse",
+    "status": "ok",
+    "inputMB": 0.56,
+    "sourceRecord": {
+      "path": "1048动物/马/source/exported.glb",
+      "sha256": "134a3548c23eecfc6ed04711ed2fae203965908e2ad77b948d60321e92e79f68",
+      "bytes": 2119100
+    },
+    "runtime": {
+      "path": "src/content/animals/horse/model/model.glb",
+      "sha256": "8fc9053eb34232c401a9c238056f05d7cf85e5826ad5a9a2530eea9554f2cabc",
+      "bytes": 623940,
+      "writeAttemptsBytes": [
+        623940
+      ]
+    },
+    "scale": 0.008939185995126695,
+    "yawDegrees": 0,
+    "expectedLongestMeters": 2.4,
+    "measured": {
+      "source": "converted-1048/drafts-measurements.json (three.js, trimmed 0.5–99.5%)",
+      "min": [
+        -25.1356,
+        0.1559,
+        -113.9534
+      ],
+      "max": [
+        27.1041,
+        212.3491,
+        154.5274
+      ],
+      "longest": 268.481
+    },
+    "finalSizeMeters": {
+      "widthX": 0.467,
+      "heightY": 1.897,
+      "lengthZ": 2.4
+    },
+    "animations": [
+      {
+        "name": "idel_testnyi",
+        "channels": 207,
+        "durationSeconds": 17.583,
+        "cubicRotationTracks": 0
+      }
+    ],
+    "chosenClip": {
+      "name": "idel_testnyi",
+      "channels": 207,
+      "durationSeconds": 17.583,
+      "cubicRotationTracks": 0
+    },
+    "cubicRotationTracksTotal": 0,
+    "textureBytesBeforeSqueeze": 83672,
+    "warnings": []
+  },
+  {
+    "slug": "alligator",
+    "status": "ok",
+    "inputMB": 7.26,
+    "sourceRecord": {
+      "path": "1048动物/鳄鱼/source/exported.glb",
+      "sha256": "2f048b452e98e3025cb37b338a8a2b668972f43baa2592d501e99df8c6de6362",
+      "bytes": 13719636
+    },
+    "runtime": {
+      "path": "src/content/animals/alligator/model/model.glb",
+      "sha256": "e9c891d01a316265171793291e3c8233e1b6152e41552044c40a2cfc85fc8cae",
+      "bytes": 7675400,
+      "writeAttemptsBytes": [
+        7675400
+      ]
+    },
+    "scale": 0.011218681447988429,
+    "yawDegrees": 0,
+    "expectedLongestMeters": 3.5,
+    "measured": {
+      "source": "converted-1048/drafts-measurements.json (three.js, trimmed 0.5–99.5%)",
+      "min": [
+        -115.2258,
+        -1.3603,
+        -128.2713
+      ],
+      "max": [
+        48.5878,
+        41.0881,
+        183.7084
+      ],
+      "longest": 311.98
+    },
+    "finalSizeMeters": {
+      "widthX": 1.838,
+      "heightY": 0.476,
+      "lengthZ": 3.5
+    },
+    "animations": [
+      {
+        "name": "Animation_GLTF_created_0",
+        "channels": 396,
+        "durationSeconds": 47.375,
+        "cubicRotationTracks": 0
+      }
+    ],
+    "chosenClip": {
+      "name": "Animation_GLTF_created_0",
+      "channels": 396,
+      "durationSeconds": 47.375,
+      "cubicRotationTracks": 0
+    },
+    "cubicRotationTracksTotal": 0,
+    "textureBytesBeforeSqueeze": 7024176,
+    "warnings": []
+  },
+  {
+    "slug": "emu",
+    "status": "ok",
+    "inputMB": 3.99,
+    "sourceRecord": {
+      "path": "1048动物/鸸鹋/source/exported.glb",
+      "sha256": "6eb731c4c11001bfdae0d91c6e562aa56cda0320856b88d1450f92c4afe68ecd",
+      "bytes": 7927500
+    },
+    "runtime": {
+      "path": "src/content/animals/emu/model/model.glb",
+      "sha256": "605924386a187a0ce6f254f58ad61708c3b50f74438dcd3b2430e698a7b7093b",
+      "bytes": 4262212,
+      "writeAttemptsBytes": [
+        4262212
+      ]
+    },
+    "scale": 1.1589610815175264,
+    "yawDegrees": 0,
+    "expectedLongestMeters": 1.7,
+    "measured": {
+      "source": "converted-1048/drafts-measurements.json (three.js, trimmed 0.5–99.5%)",
+      "min": [
+        0.2149,
+        0.0025,
+        -0.6822
+      ],
+      "max": [
+        0.8456,
+        1.4079,
+        0.7847
+      ],
+      "longest": 1.46683
+    },
+    "finalSizeMeters": {
+      "widthX": 0.731,
+      "heightY": 1.629,
+      "lengthZ": 1.7
+    },
+    "animations": [
+      {
+        "name": "All Animations_skeleton #0",
+        "channels": 231,
+        "durationSeconds": 14.958,
+        "cubicRotationTracks": 0
+      }
+    ],
+    "chosenClip": {
+      "name": "All Animations_skeleton #0",
+      "channels": 231,
+      "durationSeconds": 14.958,
+      "cubicRotationTracks": 0
+    },
+    "cubicRotationTracksTotal": 0,
+    "textureBytesBeforeSqueeze": 2820054,
+    "warnings": []
+  },
+  {
+    "slug": "deer",
+    "status": "ok",
+    "inputMB": 4.76,
+    "sourceRecord": {
+      "path": "1048动物/鹿/source/exported.glb",
+      "sha256": "650a749203058643f3ce2626b76d03504d1b2ca536714412cf68fcd4d40ecec6",
+      "bytes": 7243800
+    },
+    "runtime": {
+      "path": "src/content/animals/deer/model/model.glb",
+      "sha256": "666e204051ac16e2de4fc3e8412bfc0d585a71d82d5b4f929b8863968b5e8336",
+      "bytes": 5005692,
+      "writeAttemptsBytes": [
+        5005692
+      ]
+    },
+    "scale": 1.1281271684004448,
+    "yawDegrees": 0,
+    "expectedLongestMeters": 1.9,
+    "measured": {
+      "source": "converted-1048/drafts-measurements.json (three.js, trimmed 0.5–99.5%)",
+      "min": [
+        -0.2124,
+        -0.0028,
+        -0.6245
+      ],
+      "max": [
+        0.2124,
+        1.5163,
+        1.0597
+      ],
+      "longest": 1.68421
+    },
+    "finalSizeMeters": {
+      "widthX": 0.479,
+      "heightY": 1.714,
+      "lengthZ": 1.9
+    },
+    "animations": [
+      {
+        "name": "Deer_female_rig.ao|Deer_female_rig.ao|Deer_female_idle|Deer_fem",
+        "channels": 171,
+        "durationSeconds": 13.583,
+        "cubicRotationTracks": 0
+      }
+    ],
+    "chosenClip": {
+      "name": "Deer_female_rig.ao|Deer_female_rig.ao|Deer_female_idle|Deer_fem",
+      "channels": 171,
+      "durationSeconds": 13.583,
+      "cubicRotationTracks": 0
+    },
+    "cubicRotationTracksTotal": 0,
+    "textureBytesBeforeSqueeze": 4874942,
     "warnings": []
   }
 ]
