@@ -51,7 +51,7 @@ import { ResponsiveAnimalTitle } from './components/ResponsiveAnimalTitle'
 import { SceneAtmosphere } from './components/SceneAtmosphere'
 import { ViewerStage } from './components/ViewerStage'
 import { ZoneSelect, type ZoneCardData } from './components/ZoneSelect'
-import { mainAnimals } from './content/catalog'
+import { allAnimals, mainAnimals } from './content/catalog'
 import {
   parseZoneCategoryId,
   zoneCategories,
@@ -62,7 +62,12 @@ import {
 import { animalSeoDescription } from './content/animal-seo'
 import { credits } from './content/credits.generated'
 import { staticAnimalDetailIds } from './content/static-animal-details'
-import type { Diet, PublishedAnimalPackage } from './content/types'
+import type {
+  AnimalPackage,
+  Diet,
+  DraftAnimalPackage,
+  PublishedAnimalPackage,
+} from './content/types'
 import { I18nProvider, useI18n } from './i18n/I18nProvider'
 import { localeFromPath, type Locale } from './i18n/locale'
 import { updateLocalizedMetadata } from './i18n/metadata'
@@ -74,7 +79,10 @@ import {
   formatModelSize,
   isLargeModel,
 } from './model-policy'
-import type { DisplayableAnimalPackage } from './review/types'
+import type {
+  DisplayableAnimalPackage,
+  LegacyLocalReviewAnimalPackage,
+} from './review/types'
 import {
   AnimalLoadCoordinator,
   IdlePreloadCoordinator,
@@ -323,6 +331,23 @@ const defaultPackage = publishedMainAnimals[0]
 if (!defaultPackage) {
   throw new Error('主展览集合中没有可展示的动物。')
 }
+
+// Draft pilots preview on the dev server only, so a package is displayable
+// when it carries the review-style metadata and at least zh-CN content.
+// Production builds discover no drafts, so this list collapses to published.
+function isPreviewableDraftAnimal(
+  animal: AnimalPackage,
+): animal is DraftAnimalPackage & LegacyLocalReviewAnimalPackage {
+  if (animal.status !== 'draft' || animal.content['zh-CN'] === undefined) {
+    return false
+  }
+  return (animal as LegacyLocalReviewAnimalPackage).review !== undefined
+}
+
+const devPreviewAnimalPackages = museumMode === 'development' ? [
+  ...publishedMainAnimals,
+  ...allAnimals.filter(isPreviewableDraftAnimal),
+] : publishedMainAnimals
 
 function narrationUrlFor(
   animal: DisplayableAnimalPackage,
@@ -721,7 +746,11 @@ function MuseumApp({
     () =>
       localReviewMode
         ? localReviewAnimals.map((animal) => toRuntimeAnimal(animal, locale))
-        : productionAnimals,
+        : museumMode === 'development'
+          ? devPreviewAnimalPackages.map((animal) =>
+              toRuntimeAnimal(animal, locale),
+            )
+          : productionAnimals,
     [locale, productionAnimals],
   )
   const e2eFixtureAnimals = useMemo(

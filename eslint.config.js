@@ -14,6 +14,8 @@ export default tseslint.config(
       '.handoff',
       '.wayfinder',
       'assets/candidates',
+      '1048动物',
+      'converted-1048',
       'docs/handoff',
       'docs/research',
       'docs/specification',

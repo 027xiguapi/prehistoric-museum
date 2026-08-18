@@ -7,7 +7,7 @@ import type {
 
 type ImageAsset = string | StaticImageData
 
-function imageUrl(asset: ImageAsset): string {
+export function imageUrl(asset: ImageAsset): string {
   return typeof asset === 'string' ? asset : asset.src
 }
 

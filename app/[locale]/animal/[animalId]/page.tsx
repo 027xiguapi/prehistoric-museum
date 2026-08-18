@@ -5,7 +5,10 @@ import { museumMode } from '../../../../src/app-mode'
 import type { InitialAppState } from '../../../../src/app-bootstrap'
 import { getAnimalById } from '../../../../src/content/catalog'
 import { staticAnimalDetailIds } from '../../../../src/content/static-animal-details'
-import type { PublishedAnimalPackage } from '../../../../src/content/types'
+import type {
+  AnimalContent,
+  AnimalPackage,
+} from '../../../../src/content/types'
 import { isLocale, type Locale } from '../../../../src/i18n/locale'
 import { MuseumClient } from '../../../../src/MuseumClient'
 import {
@@ -30,25 +33,45 @@ interface AnimalDetailPageProps {
   >
 }
 
-function resolveAnimalDetail(params: {
-  readonly locale: string
-  readonly animalId: string
-}): { locale: Locale; animal: PublishedAnimalPackage; seo: AnimalDetailSeo } | null {
+interface ResolvedAnimalDetail {
+  readonly locale: Locale
+  readonly animal: AnimalPackage
+  readonly content: AnimalContent
+  readonly isDraft: boolean
+  readonly seo: AnimalDetailSeo
+}
+
+function resolveAnimalDetail(
+  params: {
+    readonly locale: string
+    readonly animalId: string
+  },
+): ResolvedAnimalDetail | null {
   if (!isLocale(params.locale)) {
     return null
   }
   const animal = getAnimalById(params.animalId)
-  if (
-    !animal ||
-    animal.status !== 'published' ||
-    !staticAnimalDetailIds.includes(params.animalId)
-  ) {
+  if (!animal || !staticAnimalDetailIds.includes(params.animalId)) {
     return null
   }
-  const content = animal.content[params.locale]
+  // Draft pilots (e.g. the tiger) get dev-server-only detail pages; every
+  // other build keeps them out of the catalog and this route entirely.
+  if (animal.status !== 'published' && museumMode !== 'development') {
+    return null
+  }
+  // Drafts may still be migrating a locale, mirroring the client-side
+  // fallback to the zh-CN package content.
+  const content =
+    animal.content[params.locale] ??
+    (animal.status === 'draft' ? animal.content['zh-CN'] : undefined)
+  if (!content) {
+    return null
+  }
   return {
     locale: params.locale,
     animal,
+    content,
+    isDraft: animal.status === 'draft',
     seo: animalDetailSeo(params.locale, {
       id: animal.id,
       content: {
@@ -66,13 +89,14 @@ export async function generateMetadata({
   if (!resolved) {
     return {}
   }
-  const { seo, locale, animal } = resolved
-  const name = animal.content[locale].name
+  const { seo, animal, content, isDraft } = resolved
+  const name = content.name
 
   return {
     title: seo.title,
     description: seo.description,
-    robots: 'index, follow, max-image-preview:large',
+    // Draft pilots are dev-only previews and must never be indexed.
+    robots: isDraft ? 'noindex, follow' : 'index, follow, max-image-preview:large',
     alternates: {
       canonical: seo.canonical,
       languages: {

@@ -15,6 +15,7 @@ import * as pteranodon from './animals/pteranodon/animal'
 import * as rhamphorhynchus from './animals/rhamphorhynchus/animal'
 import * as sauropelta from './animals/sauropelta/animal'
 import * as stegosaurus from './animals/stegosaurus/animal'
+import * as tiger from './animals/tiger/animal'
 import * as triceratops from './animals/triceratops/animal'
 import * as tupandactylus from './animals/tupandactylus/animal'
 import * as tyrannosaurusRex from './animals/tyrannosaurus-rex/animal'
@@ -35,6 +36,7 @@ export const animalModules: Readonly<Record<string, AnimalModule>> = {
   './animals/rhamphorhynchus/animal.ts': rhamphorhynchus,
   './animals/sauropelta/animal.ts': sauropelta,
   './animals/stegosaurus/animal.ts': stegosaurus,
+  './animals/tiger/animal.ts': tiger,
   './animals/triceratops/animal.ts': triceratops,
   './animals/tupandactylus/animal.ts': tupandactylus,
   './animals/tyrannosaurus-rex/animal.ts': tyrannosaurusRex,
