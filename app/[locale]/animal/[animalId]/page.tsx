@@ -54,11 +54,7 @@ function resolveAnimalDetail(
   if (!animal || !staticAnimalDetailIds.includes(params.animalId)) {
     return null
   }
-  // Draft pilots (e.g. the tiger) get dev-server-only detail pages; every
-  // other build keeps them out of the catalog and this route entirely.
-  if (animal.status !== 'published' && museumMode !== 'development') {
-    return null
-  }
+
   // Drafts may still be migrating a locale, mirroring the client-side
   // fallback to the zh-CN package content.
   const content =

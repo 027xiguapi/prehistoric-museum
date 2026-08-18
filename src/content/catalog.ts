@@ -1,4 +1,3 @@
-import { museumMode } from '../app-mode'
 import { animalModules } from './animal-modules.generated'
 import { mainCollection } from './collections/main'
 import type {
@@ -83,7 +82,8 @@ export function getCollectionAnimals(
 }
 
 export const allAnimals = discoverAnimalPackages(animalModules, {
-  includeDrafts: museumMode === 'development',
+  // Draft (unpromoted) animals are included by owner decision.
+  includeDrafts: true,
 })
 
 export const publishedAnimals = filterPublishedAnimals(allAnimals)

@@ -345,10 +345,11 @@ function isPreviewableDraftAnimal(
   return (animal as LegacyLocalReviewAnimalPackage).review !== undefined
 }
 
-const devPreviewAnimalPackages = museumMode === 'development' ? [
+// Draft (unpromoted) animals are included in every build by owner decision.
+const previewableAnimalPackages = [
   ...publishedMainAnimals,
   ...allAnimals.filter(isPreviewableDraftAnimal),
-] : publishedMainAnimals
+]
 
 function narrationUrlFor(
   animal: DisplayableAnimalPackage,
@@ -747,12 +748,10 @@ function MuseumApp({
     () =>
       localReviewMode
         ? localReviewAnimals.map((animal) => toRuntimeAnimal(animal, locale))
-        : museumMode === 'development'
-          ? devPreviewAnimalPackages.map((animal) =>
-              toRuntimeAnimal(animal, locale),
-            )
-          : productionAnimals,
-    [locale, productionAnimals],
+        : previewableAnimalPackages.map((animal) =>
+            toRuntimeAnimal(animal, locale),
+          ),
+    [locale],
   )
   const e2eFixtureAnimals = useMemo(
     () =>
