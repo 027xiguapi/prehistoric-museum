@@ -1,0 +1,682 @@
+{
+  "alligator": {
+    "zh-CN": [
+      "这是短吻鳄，像活化石一样的古老爬行动物。",
+      "它闭嘴时看不到牙齿，这和尖嘴鳄鱼不一样。"
+    ],
+    "en": [
+      "This is the alligator, a living-fossil reptile from a very ancient line.",
+      "Its teeth hide when its mouth shuts — unlike its pointy-snouted cousins."
+    ]
+  },
+  "alpaca": {
+    "zh-CN": [
+      "这是羊驼，安第斯山区的毛茸茸家畜。",
+      "它的毛又软又暖，剪下来能织成漂亮的毛衣。"
+    ],
+    "en": [
+      "This is the alpaca, the fluffy farm animal of the Andes.",
+      "Its soft warm fleece is sheared and spun into beautiful knitwear."
+    ]
+  },
+  "apatosaurus": {
+    "zh-CN": [
+      "这是迷惑龙，它是生活在晚侏罗世的大型植食性恐龙。",
+      "看看它长长的脖子、长长的尾巴和像柱子一样的四条腿。"
+    ],
+    "en": [
+      "This is Apatosaurus, a giant plant-eating dinosaur from the Late Jurassic.",
+      "Look at its long neck, long tail and four sturdy, pillar-like legs."
+    ]
+  },
+  "arabian-leopard": {
+    "zh-CN": [
+      "这是阿拉伯豹，世界上最稀有的豹之一。",
+      "它身上的玫瑰花结斑点能藏进岩石的影子里。"
+    ],
+    "en": [
+      "This is the Arabian leopard, one of the rarest leopards on Earth.",
+      "Its rosette spots let it melt into the shadows of the rocks."
+    ]
+  },
+  "bear": {
+    "zh-CN": [
+      "这是棕熊，陆地上最大的捕食者之一。",
+      "它有厚厚的毛和有力的爪子，冬天会钻进洞里冬眠。"
+    ],
+    "en": [
+      "This is the brown bear, one of the biggest land predators on Earth.",
+      "With thick fur and strong claws, it curls up in a den and sleeps through winter."
+    ]
+  },
+  "bull": {
+    "zh-CN": [
+      "这是一头公牛，牛群里的大家伙。",
+      "它有弯弯的角和发达的肌肉，主要吃草，一天要花很多时间进食。"
+    ],
+    "en": [
+      "This is a bull, the big fellow of the cattle herd.",
+      "With curved horns and powerful muscles, it eats grass and spends much of the day feeding."
+    ]
+  },
+  "cane-corso": {
+    "zh-CN": [
+      "这是卡斯罗犬，来自意大利的大个子守卫犬。",
+      "它有结实的身体和聪明的眼神，很久以前还陪罗马人一起工作。"
+    ],
+    "en": [
+      "This is the Cane Corso, a big guard dog from Italy.",
+      "It has a sturdy body and clever eyes, and long ago it even worked alongside the Romans."
+    ]
+  },
+  "centipede": {
+    "zh-CN": [
+      "这是蜈蚣，一种有很多很多条腿的小猎人。",
+      "它每一节身体都长着一对腿，走路时腿像波浪一样依次摆动。"
+    ],
+    "en": [
+      "This is the centipede, a little hunter with very many legs.",
+      "Each body segment carries one pair of legs, and they ripple in waves as it walks."
+    ]
+  },
+  "coyote": {
+    "zh-CN": [
+      "这是郊狼，北美洲荒野里最机灵的猎手之一。",
+      "它比狼小一些，却更能适应城市和乡村的变化。"
+    ],
+    "en": [
+      "This is the coyote, one of the cleverest hunters of North American wilds.",
+      "It is smaller than a wolf, yet adapts to cities and countryside even better."
+    ]
+  },
+  "crab": {
+    "zh-CN": [
+      "这是螃蟹，穿着硬硬“盔甲”的甲壳动物。",
+      "它走路横着走，两只大钳子用来找吃的和保卫自己。"
+    ],
+    "en": [
+      "This is a crab, a crustacean in a suit of armour.",
+      "It walks sideways, and its two big pincers are used for feeding and defence."
+    ]
+  },
+  "crow": {
+    "zh-CN": [
+      "这是乌鸦，鸟类里出了名的“智多星”。",
+      "它会用小树枝做工具取虫子，还记得住人的脸。"
+    ],
+    "en": [
+      "This is the crow, the famous genius of the bird world.",
+      "It can fashion tools from twigs to fetch insects — and it remembers human faces."
+    ]
+  },
+  "deer": {
+    "zh-CN": [
+      "这是鹿，头顶长“树枝”的优雅动物。",
+      "鹿角每年都会掉一次，再重新长出来。"
+    ],
+    "en": [
+      "This is the deer, the graceful animal that wears branches on its head.",
+      "Its antlers fall off every year and grow all over again."
+    ]
+  },
+  "dilophosaurus": {
+    "zh-CN": [
+      "这是双冠龙，一种生活在早侏罗世北美洲的肉食性恐龙。",
+      "看看它头顶并排的两片冠，再找找弯曲的尖牙和有力的后腿。"
+    ],
+    "en": [
+      "This is Dilophosaurus, a meat-eating dinosaur that lived in North America during the Early Jurassic.",
+      "Can you spot the two thin crests side by side on its head? Now look for curved teeth and powerful hind legs."
+    ]
+  },
+  "duck": {
+    "zh-CN": [
+      "这是鸭子，最喜欢在水里玩的水鸟。",
+      "它用扁扁的嘴过滤水里的食物，尾巴一翘一翘地游泳。"
+    ],
+    "en": [
+      "This is the duck, a waterbird that loves to play on ponds.",
+      "It strains food from the water with its flat bill, bobbing its tail as it paddles."
+    ]
+  },
+  "elephant": {
+    "zh-CN": [
+      "这是大象，陆地上最大的动物。",
+      "它的长鼻子能卷起整棵树枝，也会轻轻地捡起一颗花生。"
+    ],
+    "en": [
+      "This is the elephant, the largest animal on land.",
+      "Its trunk can rip a whole branch — or gently pick up a single peanut."
+    ]
+  },
+  "emu": {
+    "zh-CN": [
+      "这是鸸鹋，澳大利亚不会飞的大鸟。",
+      "它虽然不会飞，跑起来却比人快得多。"
+    ],
+    "en": [
+      "This is the emu, Australia’s giant flightless bird.",
+      "It cannot fly, but it outruns any human."
+    ]
+  },
+  "fennec-fox": {
+    "zh-CN": [
+      "这是耳廓狐，撒哈拉沙漠里最小的狐狸。",
+      "它的大耳朵像小雷达，厚厚的毛脚掌踩在热沙上也不怕烫。"
+    ],
+    "en": [
+      "This is the fennec fox, the smallest fox of the Sahara Desert.",
+      "Its giant ears work like little radars, and thick furry paws let it walk on burning sand."
+    ]
+  },
+  "frog": {
+    "zh-CN": [
+      "这是青蛙，水陆两栖的跳跃能手。",
+      "它小时候是蝌蚪，用鳃呼吸，长大后用肺和皮肤呼吸。"
+    ],
+    "en": [
+      "This is the frog, the jumping champion that lives in water and on land.",
+      "It starts as a gill-breathing tadpole, then grows lungs and breathes through skin too."
+    ]
+  },
+  "gigantoraptor": {
+    "zh-CN": [
+      "这是巨盗龙，它是生活在晚白垩世的大型窃蛋龙类恐龙。",
+      "看看它长长的脖子、修长的腿和像鸟一样的身体轮廓。"
+    ],
+    "en": [
+      "This is Gigantoraptor, a huge, bird-like dinosaur from the Late Cretaceous.",
+      "Look at its long neck, slender legs and bird-like body shape."
+    ]
+  },
+  "goat": {
+    "zh-CN": [
+      "这是山羊，最能爬高的家畜。",
+      "它的瞳孔是横着的长方形，看得特别宽。"
+    ],
+    "en": [
+      "This is the goat, the best climber among farm animals.",
+      "Its wide rectangular pupils give it an amazing field of view."
+    ]
+  },
+  "hercules-beetle": {
+    "zh-CN": [
+      "这是犀牛甲虫，世界上最大的甲虫之一。",
+      "雄虫头上的长角用来和对手比力气。"
+    ],
+    "en": [
+      "This is the Hercules beetle, one of the biggest beetles on Earth.",
+      "The male’s long horn is used to wrestle rivals."
+    ]
+  },
+  "horse": {
+    "zh-CN": [
+      "这是马，人类最老的四轮朋友。",
+      "它站着也能睡觉，跑起来又快又稳。"
+    ],
+    "en": [
+      "This is the horse, humankind’s oldest engine on four legs.",
+      "It can sleep standing up, and it runs fast and steady."
+    ]
+  },
+  "ichthyosaur": {
+    "zh-CN": [
+      "这是鱼龙类，它们是生活在古代海洋里的爬行动物。",
+      "看看它流线形的身体和四只鳍，像不像一艘会游泳的小船？"
+    ],
+    "en": [
+      "This is an ichthyosaur. Ichthyosaurs were reptiles that lived in ancient seas.",
+      "Look at its streamlined body and four flippers. Does it look like a little boat made for swimming?"
+    ]
+  },
+  "kangaroo": {
+    "zh-CN": [
+      "这是袋鼠，澳大利亚的跳跃高手。",
+      "袋鼠妈妈肚子上的口袋里，装着小袋鼠宝宝。"
+    ],
+    "en": [
+      "This is the kangaroo, the jumping champion of Australia.",
+      "Baby kangaroos ride inside a pouch on their mother’s tummy."
+    ]
+  },
+  "kitten": {
+    "zh-CN": [
+      "这是一只小猫，家猫的宝宝，从小就想当厉害的猎手。",
+      "它的眼睛又大又亮，耳朵会转向声音的方向。"
+    ],
+    "en": [
+      "This is a kitten — a baby domestic cat, already practising to be a great little hunter.",
+      "Its eyes are big and bright, and its ears turn toward every sound."
+    ]
+  },
+  "kookaburra": {
+    "zh-CN": [
+      "这是笑翠鸟，澳大利亚森林里的“大笑鸟”。",
+      "它叫起来像人在哈哈大笑，其实是在宣布领地。"
+    ],
+    "en": [
+      "This is the kookaburra, the “laughing bird” of Australian forests.",
+      "Its call sounds like big human laughter — really it is announcing territory."
+    ]
+  },
+  "lion": {
+    "zh-CN": [
+      "这是狮子，草原上唯一群居的大猫。",
+      "雄狮脖子上长着蓬松的鬃毛，吼声几公里外都能听到。"
+    ],
+    "en": [
+      "This is the lion, the only big cat that lives in groups.",
+      "The male wears a shaggy mane, and his roar carries for kilometres."
+    ]
+  },
+  "maiasaura": {
+    "zh-CN": [
+      "这是慈母龙，一种生活在晚白垩世北美洲的植食性鸭嘴龙类恐龙。",
+      "看看它宽阔的嘴和结实的后腿，你能想象它在巢区附近慢慢走动吗？"
+    ],
+    "en": [
+      "This is Maiasaura, a plant-eating, duck-billed dinosaur from Late Cretaceous North America.",
+      "Look at its broad beak and strong hind legs. Can you imagine it walking slowly near a nesting ground?"
+    ]
+  },
+  "mammoth": {
+    "zh-CN": [
+      "这是身披长毛的猛犸象，它是冰河时期生活在北方开阔地的史前象类。",
+      "看看它厚厚的长毛、小耳朵和向前弯曲的长牙。"
+    ],
+    "en": [
+      "This shaggy animal is a woolly mammoth, a prehistoric relative of elephants that lived on the open lands of the cold north.",
+      "Look at its thick, shaggy coat, small ears and long tusks that curve forwards."
+    ]
+  },
+  "megalodon": {
+    "zh-CN": [
+      "这是巨齿鲨，一种曾经游遍温暖海洋的巨型史前鲨鱼。",
+      "看看它流线形的身体和一排排牙齿，尾巴轻轻摆动时像不像一艘巨大的潜艇？"
+    ],
+    "en": [
+      "This is Megalodon, a giant prehistoric shark that once swam through warm seas around the world.",
+      "Look at its streamlined body and rows of teeth. As its tail swishes, does it look like a giant submarine?"
+    ]
+  },
+  "meganeura": {
+    "zh-CN": [
+      "这是巨脉蜻蜓，它生活在约三亿年前的晚石炭世，是现代蜻蜓的远亲。",
+      "看看它四片布满翅脉的翅膀、六条腿和一双大大的复眼。"
+    ],
+    "en": [
+      "This is Meganeura. It lived about 300 million years ago and was a distant relative of today's dragonflies.",
+      "Look at its four vein-covered wings, six legs and two enormous compound eyes."
+    ]
+  },
+  "mosasaurus": {
+    "zh-CN": [
+      "这是沧龙，一种生活在晚白垩世海洋里的大型有鳞类爬行动物，它并不是恐龙。",
+      "看看它的鳍状肢和有力的尾部，你能想象它怎样在海水中向前游吗？"
+    ],
+    "en": [
+      "This is Mosasaurus, a huge sea reptile that lived during the Late Cretaceous. It was not a dinosaur.",
+      "Look at its flippers and powerful tail. Can you imagine its tail pushing it forwards while the flippers steer?"
+    ]
+  },
+  "mouse": {
+    "zh-CN": [
+      "这是小家鼠，世界上陪伴人类最久的小动物之一。",
+      "它的门牙一辈子都在长，所以要不停地啃东西来磨牙。"
+    ],
+    "en": [
+      "This is the house mouse, one of the small animals that has lived alongside humans the longest.",
+      "Its front teeth grow all its life, so it gnaws constantly to keep them worn down."
+    ]
+  },
+  "norwegian-forest-cat": {
+    "zh-CN": [
+      "这是挪威森林猫，披着厚厚“外套”的北欧大猫。",
+      "它耳朵里和脚趾间都长着毛，踩在雪地上也不怕冷。"
+    ],
+    "en": [
+      "This is the Norwegian Forest Cat, a big Nordic cat wearing a thick coat.",
+      "It grows fur inside its ears and between its toes, so snowy ground does not bother it."
+    ]
+  },
+  "octopus": {
+    "zh-CN": [
+      "这是章鱼，海洋里的“八爪魔法师”。",
+      "它会变色、会喷墨汁，还是无脊椎动物里的解题高手。"
+    ],
+    "en": [
+      "This is the octopus, the eight-armed magician of the sea.",
+      "It can change colour, squirt ink, and solve puzzles better than any other animal without a backbone."
+    ]
+  },
+  "owl": {
+    "zh-CN": [
+      "这是猫头鹰，夜晚出动的安静猎手。",
+      "它的脸像小雷达，能听清雪地下老鼠的动静。"
+    ],
+    "en": [
+      "This is an owl, the quiet hunter of the night.",
+      "Its dish-shaped face works like a radar dish, catching the tiniest rustle of a mouse."
+    ]
+  },
+  "ox": {
+    "zh-CN": [
+      "这是黄牛，人类耕种田地最老的好帮手。",
+      "它头上有一对弯弯的角，力气大到能拉动犁。"
+    ],
+    "en": [
+      "This is the ox, humanity’s oldest partner in the field.",
+      "It wears a pair of curved horns and is strong enough to pull a plough."
+    ]
+  },
+  "pachycephalosaurus": {
+    "zh-CN": [
+      "这是肿头龙，它是一种生活在晚白垩世的植食性恐龙。",
+      "看看它圆圆的头顶和周围的小骨突，像不像戴着一顶小圆帽？"
+    ],
+    "en": [
+      "This is Pachycephalosaurus, a plant-eating dinosaur from the Late Cretaceous.",
+      "Look at its round, bony dome and the little bumps around it. Does it look like a small, round hat?"
+    ]
+  },
+  "persian-cat": {
+    "zh-CN": [
+      "这是波斯猫，猫中有名的“长毛贵族”。",
+      "它的毛又长又软，需要每天梳理，性格也安安静静。"
+    ],
+    "en": [
+      "This is the Persian cat, the famous “long-haired aristocrat” of cats.",
+      "Its fur is long and silky and needs daily brushing, and its personality is calm and quiet."
+    ]
+  },
+  "pigeon": {
+    "zh-CN": [
+      "这是鸽子，最熟悉人类的城市鸟。",
+      "它脖子上的羽毛在阳光下会闪出彩虹一样的光。"
+    ],
+    "en": [
+      "This is the pigeon, the city bird that knows humans best.",
+      "Its neck feathers flash rainbow colours in the sunlight."
+    ]
+  },
+  "pirate-shepherd-dog": {
+    "zh-CN": [
+      "这是一只德国牧羊犬，只是戴了一顶海盗帽子道具。",
+      "它是聪明又勇敢的工作犬，经常帮助警察和救援队。"
+    ],
+    "en": [
+      "This is a German shepherd — it just happens to wear a pirate-hat prop.",
+      "It is a clever, brave working dog that often helps police and rescue teams."
+    ]
+  },
+  "plesiosaurus": {
+    "zh-CN": [
+      "这是蛇颈龙类，它们不是恐龙，而是和恐龙生活在同一时代的海生爬行动物。",
+      "看看它的长颈和四只鳍，四只鳍会像水下的翅膀一样一起划水。"
+    ],
+    "en": [
+      "This is a plesiosaur. Plesiosaurs were sea reptiles that lived alongside dinosaurs, but they were not dinosaurs.",
+      "Look at its long neck and four flippers. All four could work together like wings under the water."
+    ]
+  },
+  "pteranodon": {
+    "zh-CN": [
+      "这是无齿翼龙，它是生活在晚白垩世、会飞的爬行动物。",
+      "看看它长长的无齿嘴巴、头后的冠和展开的大翅膀。"
+    ],
+    "en": [
+      "This is Pteranodon, a flying reptile that lived during the Late Cretaceous.",
+      "Look at its long toothless beak, the crest behind its head and its broad, outstretched wings."
+    ]
+  },
+  "pug": {
+    "zh-CN": [
+      "这是哈巴狗，一种脸扁扁的小型犬。",
+      "它卷卷的尾巴像一个小圈，开心的时候会摇个不停。"
+    ],
+    "en": [
+      "This is the pug, a small dog with a wonderfully flat face.",
+      "Its tail curls in a little spiral and wiggles like mad when it is happy."
+    ]
+  },
+  "python": {
+    "zh-CN": [
+      "这是蟒蛇，会“抱”住猎物的大蛇。",
+      "它的下巴能张开得特别大，吞下比头还粗的食物。"
+    ],
+    "en": [
+      "This is the python, the big snake that hugs its prey.",
+      "Its jaws swing open amazingly wide to swallow meals bigger than its head."
+    ]
+  },
+  "rabbit": {
+    "zh-CN": [
+      "这是兔子，长耳朵的跳跃高手。",
+      "它的耳朵又长又会转，还能帮身体散热。"
+    ],
+    "en": [
+      "This is the rabbit, a champion jumper with long ears.",
+      "Its ears turn in every direction and also help it stay cool."
+    ]
+  },
+  "raccoon": {
+    "zh-CN": [
+      "这是浣熊，戴着“眼罩”的机灵鬼。",
+      "它的前爪特别灵活，能拧开瓶盖、摸出水里的食物。"
+    ],
+    "en": [
+      "This is the raccoon, the clever creature in an eye mask.",
+      "Its front paws are so nimble it can unscrew lids and feel for food underwater."
+    ]
+  },
+  "red-panda": {
+    "zh-CN": [
+      "这是小熊猫，住在亚洲高山竹林里的小小攀爬高手。",
+      "它有着红棕色的毛和一条带环纹的大尾巴，最爱吃竹子。"
+    ],
+    "en": [
+      "This is the red panda, a tiny climbing champion in the mountain bamboo forests of Asia.",
+      "It wears reddish fur and a big ringed tail, and bamboo is its favourite food."
+    ]
+  },
+  "rhamphorhynchus": {
+    "zh-CN": [
+      "这是喙嘴翼龙，它是生活在晚侏罗世、会飞的爬行动物，不是恐龙。",
+      "看看它长长的尾巴、尾巴末端的小帆和展开的皮膜翅膀。"
+    ],
+    "en": [
+      "This is Rhamphorhynchus, a flying reptile from the Late Jurassic. It was not a dinosaur.",
+      "Look at its long tail, the little sail at its tip and its outstretched wings made from skin membranes."
+    ]
+  },
+  "saber-toothed-tiger": {
+    "zh-CN": [
+      "这是剑齿虎，一种生活在冰河时代的史前大猫。",
+      "它嘴里有两根像弯刀一样的大长牙，是它最有名的标志。"
+    ],
+    "en": [
+      "This is the saber-toothed cat, a prehistoric big cat from the Ice Age.",
+      "Its two long, curved teeth — its sabers — are its most famous feature."
+    ]
+  },
+  "salmon": {
+    "zh-CN": [
+      "这是鲑鱼，一位了不起的旅行家。",
+      "它在河里出生，游到大海长大，再游回出生的河流产卵。"
+    ],
+    "en": [
+      "This is the salmon, a remarkable traveller.",
+      "It is born in rivers, grows up at sea, then swims back to its home river to spawn."
+    ]
+  },
+  "sauropelta": {
+    "zh-CN": [
+      "这是胄甲龙，一种生活在早白垩世北美洲的植食性甲龙类恐龙。",
+      "看看它背上的骨质护甲和肩部的大刺，像不像穿着一件结实的防护外套？"
+    ],
+    "en": [
+      "This is Sauropelta, a plant-eating armoured dinosaur from Early Cretaceous North America.",
+      "Look at the bony armour on its back and the big spikes by its shoulders. Does it look as though it is wearing a strong protective coat?"
+    ]
+  },
+  "schnauzer": {
+    "zh-CN": [
+      "这是雪纳瑞犬，长着胡子眉毛的小狗。",
+      "它胡子上容易沾水和食物，饭后要擦“胡子”。"
+    ],
+    "en": [
+      "This is the schnauzer, the little dog with a beard and eyebrows.",
+      "Its beard collects water and crumbs, so it gets a wipe after meals."
+    ]
+  },
+  "scorpion": {
+    "zh-CN": [
+      "这是蝎子，夜晚出来的蛛形纲小猎手。",
+      "它在紫外灯下会发出蓝绿色的荧光。"
+    ],
+    "en": [
+      "This is the scorpion, the little night hunter of the arachnids.",
+      "Under ultraviolet light its armour glows blue-green."
+    ]
+  },
+  "sea-turtle": {
+    "zh-CN": [
+      "这是海龟，海洋里的远航旅行家。",
+      "它的四肢变成了船桨的样子，游泳特别稳。"
+    ],
+    "en": [
+      "This is the sea turtle, the long-distance sailor of the oceans.",
+      "Its legs have turned into paddles, making it a strong swimmer."
+    ]
+  },
+  "shark": {
+    "zh-CN": [
+      "这是鲨鱼，海洋里最古老的猎手之一。",
+      "它的骨骼是软骨，身上还覆盖着小小的“皮肤牙齿”。"
+    ],
+    "en": [
+      "This is the shark, one of the ocean’s oldest hunters.",
+      "Its skeleton is made of cartilage, and its skin is covered in tiny “skin teeth”."
+    ]
+  },
+  "sheep": {
+    "zh-CN": [
+      "这是绵羊，人类最早驯养的动物之一。",
+      "它的羊毛一年年生长，春天剪下来能纺成暖暖的毛线。"
+    ],
+    "en": [
+      "This is the sheep, one of the first animals humans ever tamed.",
+      "Its wool grows all year, and each spring the fleece is sheared and spun into warm yarn."
+    ]
+  },
+  "snail": {
+    "zh-CN": [
+      "这是蜗牛，背着房子慢慢走的小动物。",
+      "它爬过的地方会留下一条亮亮的痕迹。"
+    ],
+    "en": [
+      "This is the snail, the little animal that carries its house along.",
+      "It leaves a shiny trail wherever it slides."
+    ]
+  },
+  "sparrow": {
+    "zh-CN": [
+      "这是麻雀，我们身边最常见的小鸟。",
+      "它胖乎乎的，喜欢成群在灌木和屋檐间蹦来蹦去。"
+    ],
+    "en": [
+      "This is the sparrow, the little bird we see every day.",
+      "Round and plump, it hops about in flocks among bushes and eaves."
+    ]
+  },
+  "sphynx-cat": {
+    "zh-CN": [
+      "这是斯芬克斯猫，一种几乎没有毛的猫。",
+      "它的皮肤皱皱的，摸起来又暖又软。"
+    ],
+    "en": [
+      "This is the Sphynx cat, a cat with almost no fur.",
+      "Its wrinkly skin is warm and soft to the touch."
+    ]
+  },
+  "stag-beetle": {
+    "zh-CN": [
+      "这是锹甲，一种长着大颚的甲虫。",
+      "雄锹甲的大颚像鹿角，主要用来和对手比摔跤。"
+    ],
+    "en": [
+      "This is the stag beetle, a beetle with giant jaws.",
+      "The male’s jaws look like deer antlers and are used mainly to wrestle rivals."
+    ]
+  },
+  "stegosaurus": {
+    "zh-CN": [
+      "这是剑龙，它是一种生活在晚侏罗世的食草恐龙。",
+      "看看它背上的两排骨板，像不像一列起伏的小山？"
+    ],
+    "en": [
+      "This is Stegosaurus, a plant-eating dinosaur from the Late Jurassic.",
+      "Look at the two rows of plates along its back. Do they look like a line of little hills?"
+    ]
+  },
+  "tiger": {
+    "zh-CN": [
+      "这是老虎，世界上最大的猫科动物，它住在森林里。",
+      "看看它身上橙色的毛和黑色的条纹，每只老虎的花纹都是独一无二的。"
+    ],
+    "en": [
+      "This is a tiger, the biggest cat in the world, and it lives in the forest.",
+      "Look at its orange fur and black stripes — every tiger wears a pattern all its own."
+    ]
+  },
+  "tortoise": {
+    "zh-CN": [
+      "这是陆龟，背着“房子”慢慢走路的爬行动物。",
+      "它的壳和骨头长在一起，一辈子都背着走。"
+    ],
+    "en": [
+      "This is a tortoise, a reptile that slowly walks with a house on its back.",
+      "Its shell is fused to its skeleton, and it carries that house for life."
+    ]
+  },
+  "triceratops": {
+    "zh-CN": [
+      "这是三角龙，它是生活在晚白垩世的植食性恐龙。",
+      "看看它眼睛上方的两只长角、鼻尖的小角和宽宽的颈盾。"
+    ],
+    "en": [
+      "This is Triceratops, a plant-eating dinosaur from the Late Cretaceous.",
+      "Look at the two long horns above its eyes, the little horn on its nose and the wide frill behind its head."
+    ]
+  },
+  "tupandactylus": {
+    "zh-CN": [
+      "这是古神翼龙，它是生活在早白垩世巴西的会飞爬行动物，不是恐龙。",
+      "看看它没有牙齿的喙、巨大的头冠和展开的皮膜翅膀。"
+    ],
+    "en": [
+      "This is Tupandactylus, a flying reptile from Early Cretaceous Brazil. It was not a dinosaur.",
+      "Look at its toothless beak, enormous head crest and outstretched wings made from skin membranes."
+    ]
+  },
+  "tyrannosaurus-rex": {
+    "zh-CN": [
+      "这是霸王龙，它是生活在晚白垩世的食肉恐龙。",
+      "看看它大大的脑袋、粗壮的后腿和两条短短的前肢。"
+    ],
+    "en": [
+      "This is Tyrannosaurus rex, a meat-eating dinosaur from the Late Cretaceous.",
+      "Look at its huge head, powerful hind legs and two very short front limbs."
+    ]
+  },
+  "zebra": {
+    "zh-CN": [
+      "这是斑马，穿着条纹“外套”的马的亲戚。",
+      "每只斑马的条纹都不相同，就像我们的指纹。"
+    ],
+    "en": [
+      "This is the zebra, a horse relative wearing a striped coat.",
+      "Every zebra’s stripes are unique, just like your fingerprints."
+    ]
+  }
+}
