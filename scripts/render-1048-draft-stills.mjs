@@ -1,3 +1,4 @@
+/* global window, document */
 // Renders thumbnail/poster/poster-portrait stills for every 1048 draft from
 // its normalized runtime GLB (tiger pipeline conventions: thumbnail 320×320
 // yaw 35 pitch 10, poster 1200×675 yaw 25 pitch 8, poster-portrait 390×844

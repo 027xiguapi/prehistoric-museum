@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import { museumMode } from '../../../../src/app-mode'
-import type { InitialAppState } from '../../../../src/app-bootstrap'
 import { getAnimalById } from '../../../../src/content/catalog'
 import { staticAnimalDetailIds } from '../../../../src/content/static-animal-details'
 import type {
@@ -10,7 +8,7 @@ import type {
   AnimalPackage,
 } from '../../../../src/content/types'
 import { isLocale, type Locale } from '../../../../src/i18n/locale'
-import { MuseumClient } from '../../../../src/MuseumClient'
+import { AnimalExhibit } from './AnimalExhibit'
 import {
   animalCanonicalUrl,
   animalDetailSeo,
@@ -28,9 +26,6 @@ export const dynamicParams = false
 
 interface AnimalDetailPageProps {
   readonly params: Promise<{ readonly locale: string; animalId: string }>
-  readonly searchParams: Promise<
-    Record<string, string | string[] | undefined>
-  >
 }
 
 interface ResolvedAnimalDetail {
@@ -126,24 +121,12 @@ export async function generateMetadata({
 
 export default async function AnimalDetailPage({
   params,
-  searchParams,
 }: AnimalDetailPageProps) {
   const resolved = resolveAnimalDetail(await params)
   if (!resolved) {
     notFound()
   }
   const { locale, animal, seo } = resolved
-
-  // Short-circuits outside e2e builds so production prerendering never
-  // touches `searchParams` (which would opt the page into dynamic rendering).
-  const csrOnly = museumMode === 'e2e' && (await searchParams).fixtures === '1'
-
-  const initialState: InitialAppState = {
-    animalId: animal.id,
-    locale,
-    pageKind: 'animal-detail',
-    preference: locale,
-  }
 
   return (
     <>
@@ -157,7 +140,7 @@ export default async function AnimalDetailPage({
           ),
         }}
       />
-      <MuseumClient initialState={initialState} csrOnly={csrOnly} />
+      <AnimalExhibit animalId={animal.id} locale={locale} />
     </>
   )
 }

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 
 import type { Locale } from '../content/types'
-import { staticAnimalDetailIds } from '../content/static-animal-details'
 import {
   museumCanonicalUrl,
   museumSocialImageUrl,
@@ -52,11 +51,4 @@ export function museumPageMetadata(locale: Locale): Metadata {
       images: [{ url: socialImage, alt: copy.socialImageAlt }],
     },
   }
-}
-
-// Legacy `?animal=x` museum links normalize to the matching detail URL
-// client-side before the application boots.
-export function museumQueryRedirectSource(detailBase: string): string {
-  const animalIds = JSON.stringify(staticAnimalDetailIds)
-  return `(function(){var p=new URLSearchParams(location.search),a=p.get('animal');if(!a||!${animalIds}.includes(a))return;p.delete('animal');var u=new URL(${JSON.stringify(detailBase)}+encodeURIComponent(a)+'/',location.href);u.search=p.toString();u.hash=location.hash;history.replaceState(history.state,'',u.href);location.reload()})()`
 }

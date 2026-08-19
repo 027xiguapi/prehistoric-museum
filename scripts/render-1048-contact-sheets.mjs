@@ -1,3 +1,4 @@
+/* global window, document */
 // Renders 4-view orientation contact sheets (yaw 0/90/180/270, pitch 10) for
 // every 1048 draft model, so the per-animal baked yaw (head → +Z) and pitch
 // (righting Z-up-authored models) can be decided by inspection. Tiger is

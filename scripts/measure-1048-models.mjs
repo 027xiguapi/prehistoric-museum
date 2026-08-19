@@ -1,3 +1,4 @@
+/* global window */
 // Measures the TRUE world-space bounds of every pristine 1048 model with
 // three.js (GLTFLoader dequantizes KHR_mesh_quantization into node transforms,
 // which plain gltf-transform walks cannot see on skinned meshes). The tiger

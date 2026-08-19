@@ -1,3 +1,4 @@
+/* global window */
 // Finds skinned vertices whose rest-posed world position falls far outside the
 // 0.5–99.5% trimmed bounds (rig-widget strays that inflate every runtime
 // bounding box). Vertex indices match the glTF POSITION accessor order, so a

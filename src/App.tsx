@@ -28,11 +28,6 @@ import {
 import { NarrationController, getNarrationControlLabel } from './audio'
 import { museumMode } from './app-mode'
 import {
-  animalDetailIdFromPath,
-  type AppPageKind,
-  type InitialAppState,
-} from './app-bootstrap'
-import {
   AnimalCollectionSheet,
   type CollectionAnimal,
 } from './components/AnimalCollectionSheet'
@@ -69,8 +64,13 @@ import type {
   DraftAnimalPackage,
   PublishedAnimalPackage,
 } from './content/types'
+import { animalIdPattern } from './content/types'
 import { I18nProvider, useI18n } from './i18n/I18nProvider'
-import { localeFromPath, type Locale } from './i18n/locale'
+import {
+  localeFromPath,
+  type Locale,
+  type LocalePreference,
+} from './i18n/locale'
 import { updateLocalizedMetadata } from './i18n/metadata'
 import { dietLabel, formatSizeFact, messagesFor } from './i18n/messages'
 import { localReviewAnimals } from './review/active-catalog'
@@ -126,11 +126,6 @@ interface RuntimeAnimal {
     readonly narration: string | null
   }
   readonly viewer: ViewerModelDescriptor
-  readonly testBehavior?: {
-    readonly delayMs?: number
-    readonly failuresBeforeSuccess?: number
-    readonly ignoreAbort?: boolean
-  }
 }
 
 interface LoadedRuntimeAnimal {
@@ -468,6 +463,23 @@ function toRuntimeAnimal(
   }
 }
 
+export type AppPageKind = 'zone-select' | 'museum' | 'animal-detail'
+
+export interface InitialAppState {
+  readonly animalId: string
+  readonly locale: Locale
+  readonly pageKind: AppPageKind
+  readonly preference: LocalePreference
+  readonly rootFallback?: boolean
+}
+
+export function animalDetailIdFromPath(pathname: string): string | null {
+  const match = pathname.match(
+    /(?:^|\/)(?:zh-CN|en)\/animal\/([a-z0-9]+(?:-[a-z0-9]+)*)(?:\/|$)/,
+  )
+  return match?.[1] && animalIdPattern.test(match[1]) ? match[1] : null
+}
+
 const localReviewMode = museumMode === 'review'
 const initialLoadSnapshot: AnimalLoadSnapshot = {
   readyAnimalId: null,
@@ -505,119 +517,6 @@ function replaceAnimalUrl(animalId: string, locale: Locale): void {
     '',
     `${url.pathname}${url.search}${url.hash}`,
   )
-}
-
-function makeE2EFixtures(
-  base: RuntimeAnimal,
-  locale: Locale,
-): RuntimeAnimal[] {
-  const fixtureMessages = messagesFor(locale)
-  const makeFixture = (
-    id: string,
-    name: string,
-    intro: string,
-    testBehavior: NonNullable<RuntimeAnimal['testBehavior']>,
-    habitat: RuntimeAnimal['habitat'] = base.habitat,
-  ): RuntimeAnimal => {
-    const markAsset = (url: string) => `${url}#${id}`
-    return {
-      ...base,
-      id,
-      name,
-      intro,
-      habitat,
-      atmosphere:
-        habitat === 'water' ? 'underwater' : base.atmosphere,
-      facts: {
-        ...base.facts,
-        classification:
-          locale === 'zh-CN'
-            ? `测试分类：${name}`
-            : `Test classification: ${name}`,
-        classificationNote:
-          locale === 'zh-CN'
-            ? '仅用于端到端原子切换验证。'
-            : 'Used only to verify atomic exhibit switching in end-to-end tests.',
-        discoveryRegions: [
-          locale === 'zh-CN' ? `测试展区：${name}` : `Test region: ${name}`,
-        ],
-        period:
-          locale === 'zh-CN' ? `测试时期：${name}` : `Test period: ${name}`,
-      },
-      assets: {
-        ...base.assets,
-        modelBytes:
-          id === 'fixture-slow'
-            ? 9 * 1024 * 1024
-            : base.assets.modelBytes,
-        backgroundLandscape: markAsset(base.assets.backgroundLandscape),
-        backgroundPortrait: markAsset(base.assets.backgroundPortrait),
-        poster: markAsset(base.assets.poster),
-        posterPortrait: markAsset(base.assets.posterPortrait),
-        thumbnail: markAsset(base.assets.thumbnail),
-      },
-      viewer: {
-        ...base.viewer,
-        accessibilityLabel: fixtureMessages.viewer.modelLabel(name),
-        id,
-        label: name,
-        modelUrl: `${base.viewer.modelUrl}${
-          base.viewer.modelUrl.includes('?') ? '&' : '?'
-        }fixture=${encodeURIComponent(id)}`,
-      },
-      testBehavior,
-    }
-  }
-
-  return [
-    makeFixture(
-      'fixture-slow',
-      locale === 'zh-CN' ? '慢慢龙' : 'Slow test animal',
-      locale === 'zh-CN'
-        ? '它会慢一点来到展台，用来检查连续选择。'
-        : 'It reaches the exhibit slowly so rapid selections can be checked.',
-      { delayMs: 850, ignoreAbort: true },
-    ),
-    makeFixture(
-      'fixture-fast',
-      locale === 'zh-CN' ? '快快龙' : 'Fast test animal',
-      locale === 'zh-CN'
-        ? '它会很快来到展台，用来确认最新选择获胜。'
-        : 'It reaches the exhibit quickly so the latest selection can win.',
-      { delayMs: 60 },
-      'water',
-    ),
-    makeFixture(
-      'fixture-retry',
-      locale === 'zh-CN' ? '再试龙' : 'Retry test animal',
-      locale === 'zh-CN'
-        ? '它第一次会迷路，再点一次就能来到展台。'
-        : 'Its first visit fails so the retry path can be checked.',
-      { delayMs: 80, failuresBeforeSuccess: 1 },
-    ),
-  ]
-}
-
-function waitForFixture(
-  milliseconds: number,
-  signal: AbortSignal,
-  ignoreAbort = false,
-): Promise<void> {
-  return new Promise((resolve, reject) => {
-    const timer = window.setTimeout(resolve, milliseconds)
-    if (ignoreAbort) {
-      return
-    }
-    const abort = () => {
-      window.clearTimeout(timer)
-      reject(new DOMException('请求已取消。', 'AbortError'))
-    }
-    if (signal.aborted) {
-      abort()
-      return
-    }
-    signal.addEventListener('abort', abort, { once: true })
-  })
 }
 
 const INITIAL_PRESENTATION_MINIMUM_MS = 900
@@ -720,13 +619,6 @@ function preloadImageAsset(
   })
 }
 
-function readE2EFixturesEnabled(): boolean {
-  if (museumMode !== 'e2e' || typeof window === 'undefined') {
-    return false
-  }
-  return new URLSearchParams(window.location.search).get('fixtures') === '1'
-}
-
 function MuseumApp({
   initialAnimalId,
   initialPageKind,
@@ -737,7 +629,6 @@ function MuseumApp({
   readonly rootFallback?: boolean
 }) {
   const { locale, messages } = useI18n()
-  const e2eFixturesEnabled = useMemo(() => readE2EFixturesEnabled(), [])
   const productionAnimals = useMemo(
     () => publishedMainAnimals.map((animal) => toRuntimeAnimal(animal, locale)),
     [locale],
@@ -753,20 +644,7 @@ function MuseumApp({
           ),
     [locale],
   )
-  const e2eFixtureAnimals = useMemo(
-    () =>
-      museumMode === 'e2e'
-        ? makeE2EFixtures(defaultAnimal, locale)
-        : [],
-    [defaultAnimal, locale],
-  )
-  const animals = useMemo(
-    () =>
-      e2eFixturesEnabled
-        ? [...productionAnimals, ...e2eFixtureAnimals]
-        : applicationAnimals,
-    [applicationAnimals, e2eFixtureAnimals, e2eFixturesEnabled, productionAnimals],
-  )
+  const animals = applicationAnimals
   const animalIndex = useMemo(
     () => new Map(animals.map((animal) => [animal.id, animal])),
     [animals],
@@ -832,7 +710,6 @@ function MuseumApp({
   const viewerControllerRef = useRef<ViewerController | null>(null)
   const coordinatorRef = useRef<AnimalLoadCoordinator<LoadedRuntimeAnimal> | null>(null)
   const idlePreloadCoordinatorRef = useRef<IdlePreloadCoordinator | null>(null)
-  const attemptsRef = useRef(new Map<string, number>())
   const activeAnimalRef = useRef(initialAnimal)
   const animalIndexRef = useRef(animalIndex)
   const messagesRef = useRef(messages)
@@ -955,7 +832,7 @@ function MuseumApp({
   const overlayOpen = drawerOpen || collectionOpen || arMode
   // Review packages and e2e fixtures live outside the curated zones, so the
   // zone filter only applies to the production catalog.
-  const zoneAppliesToNavigation = !localReviewMode && !e2eFixturesEnabled
+  const zoneAppliesToNavigation = !localReviewMode
   const navigationAnimals = useMemo(() => {
     if (!zoneAppliesToNavigation || !activeZoneId) {
       return animals
@@ -1389,23 +1266,7 @@ function MuseumApp({
         if (!animal) {
           throw new Error(`没有找到动物 ${animalId}。`)
         }
-        let ignoreAbort = false
-        if (museumMode === 'e2e') {
-          const behavior = animal.testBehavior
-          const attempt = (attemptsRef.current.get(animalId) ?? 0) + 1
-          attemptsRef.current.set(animalId, attempt)
-          if (behavior?.delayMs) {
-            await waitForFixture(
-              behavior.delayMs,
-              context.signal,
-              behavior.ignoreAbort,
-            )
-          }
-          if (attempt <= (behavior?.failuresBeforeSuccess ?? 0)) {
-            throw new Error('确定性的展台加载失败。')
-          }
-          ignoreAbort = behavior?.ignoreAbort ?? false
-        }
+        const ignoreAbort = false
         const shouldHoldInitial = initialPresentationPendingRef.current
         const startedAt = performance.now()
         const reportModelProgress = (progress: ModelLoadProgress) => {
@@ -1745,11 +1606,6 @@ function MuseumApp({
         return
       }
       initialZoneQueryAppliedRef.current = true
-      if (e2eFixturesEnabled) {
-        pageKindRef.current = 'museum'
-        setPageKind('museum')
-        return
-      }
       const requestedZoneId = parseZoneCategoryId(
         new URLSearchParams(window.location.search).get('category'),
       )
@@ -1759,7 +1615,7 @@ function MuseumApp({
         )
       }
     })
-  }, [locale, e2eFixturesEnabled])
+  }, [locale])
 
   const requestAnimal = (animalId: string) => {
     const coordinator = coordinatorRef.current

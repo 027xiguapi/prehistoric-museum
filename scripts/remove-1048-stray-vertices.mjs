@@ -6,7 +6,7 @@
 // Input : converted-1048/<slug>/model.glb + stray-vertices.json
 // Output: converted-1048/<slug>/model-cleaned.glb
 // Usage: node scripts/remove-1048-stray-vertices.mjs --slug=bear
-import { readFile, writeFile } from 'node:fs/promises'
+import { readFile } from 'node:fs/promises'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
