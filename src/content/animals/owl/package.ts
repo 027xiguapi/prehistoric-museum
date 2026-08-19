@@ -30,24 +30,14 @@ export const animalDefinition: DraftAnimalDefinition = {
   },
   narration: {
     'zh-CN': {
-      status: 'pending-review',
-      expectedPath: 'audio/narration.zh-CN.mp3',
-      message: '等待 Qwen3-TTS Serena 中文旁白生成与人工听审。',
-      gate: {
-        id: 'final-narration',
-        locale: 'zh-CN',
-        reason: '旁白音频尚未生成。',
-      },
+      status: 'ready',
+      sourcePath: 'audio/narration.zh-CN.mp3',
+      mimeType: 'audio/mpeg',
     },
     en: {
-      status: 'pending-review',
-      expectedPath: 'audio/narration.en.mp3',
-      message: 'Awaiting Qwen3-TTS Serena English narration and human review.',
-      gate: {
-        id: 'final-narration',
-        locale: 'en',
-        reason: 'Narration audio has not been generated yet.',
-      },
+      status: 'ready',
+      sourcePath: 'audio/narration.en.mp3',
+      mimeType: 'audio/mpeg',
     },
   },
   provenance,

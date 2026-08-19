@@ -1,3 +1,5 @@
+import narrationEnUrl from './audio/narration.en.mp3'
+import narrationZhCNUrl from './audio/narration.zh-CN.mp3'
 import modelUrl from './model/model.glb'
 import posterPortraitUrl from './images/poster-portrait.webp'
 import posterUrl from './images/poster.webp'
@@ -32,7 +34,20 @@ export const animal: DraftAnimalPackage & LegacyLocalReviewAnimalPackage = {
       landscape: imageUrl(landscapeUrl),
       portrait: imageUrl(portraitUrl),
     },
-    narration: {},
+    narration: {
+      'zh-CN': {
+        status: 'ready',
+        sourcePath: 'audio/narration.zh-CN.mp3',
+        mimeType: 'audio/mpeg',
+        url: narrationZhCNUrl,
+      },
+      en: {
+        status: 'ready',
+        sourcePath: 'audio/narration.en.mp3',
+        mimeType: 'audio/mpeg',
+        url: narrationEnUrl,
+      },
+    },
   },
   review: {
     badge: '试点草稿',

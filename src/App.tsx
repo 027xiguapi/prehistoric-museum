@@ -195,8 +195,8 @@ function animalDetailHref(
     : `./${animalId}/`
 }
 
-function museumExhibitHref(locale: Locale): string {
-  return `../../${locale}/`
+function museumExhibitHref(): string {
+  return `../../`
 }
 
 /**
@@ -1555,10 +1555,10 @@ function MuseumApp({
     window.history.replaceState(
       window.history.state,
       '',
-      museumExhibitHref(locale),
+      museumExhibitHref(),
     )
     setPageKind('museum')
-  }, [locale])
+  }, [])
 
   const returnToZoneSelect = useCallback(() => {
     idlePreloadCoordinatorRef.current?.cancelAll()
@@ -2056,7 +2056,7 @@ function MuseumApp({
                 aria-label={messages.returnToMuseum}
                 className="collection-open-button"
                 data-museum-return=""
-                href={museumExhibitHref(locale)}
+                href={museumExhibitHref()}
                 onClick={(event) => {
                   if (
                     event.button !== 0 ||
