@@ -2,15 +2,15 @@ import type { AnimalSizeFact, Diet } from '../content/types'
 import type { Locale } from './locale'
 
 const zhCN = {
-  museumName: '动物园科普网站',
+  museumName: '哇咪动物园',
   creatorBrand: 'Leon做了个',
   todayMeet: '今天认识',
   localReview: '本地评审',
-  documentTitle: '动物园科普网站 | 亲子 3D 史前动物展',
+  documentTitle: '哇咪动物园 | 亲子 3D 史前动物展',
   seo: {
     description: (count: number) =>
-      `和孩子一起走进 3D 动物园科普网站，观察 ${count} 位来自陆地、天空与水中的史前朋友。`,
-    socialImageAlt: '动物园科普网站亲子 3D 展馆',
+      `和孩子一起走进 3D 哇咪动物园，观察 ${count} 位来自陆地、天空与水中的史前朋友。`,
+    socialImageAlt: '哇咪动物园亲子 3D 展馆',
   },
   stageLabel: (animal: string) => `${animal}模型展台`,
   navigationLabel: '动物选择',
@@ -230,16 +230,16 @@ type WidenMessages<Value> = Value extends string
 export type MuseumMessages = WidenMessages<typeof zhCN>
 
 const en = {
-  museumName: 'Zoo Animal Science Website',
+  museumName: 'Wami Zoo',
   creatorBrand: 'Leon Made This',
   todayMeet: 'Meet today’s friend',
   localReview: 'Local review',
-  documentTitle: 'Zoo Animal Science Website | A 3D Family Adventure',
+  documentTitle: 'Wami Zoo | A 3D Family Adventure',
   seo: {
     description: (count) =>
       `Explore ${count} prehistoric animals from land, sky and sea in a gentle 3D museum made for young children and their grown-ups.`,
     socialImageAlt:
-      'Zoo Animal Science Website, a 3D family adventure by Leon Made This',
+      'Wami Zoo, a 3D family adventure by Leon Made This',
   },
   stageLabel: (animal) => `${animal} 3D exhibit`,
   navigationLabel: 'Choose an animal',

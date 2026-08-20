@@ -22,7 +22,7 @@ export const DOWNLOADS = [
   { slug: 'alpine-goat', source: 'AlpineGoat/model.glb', expectedLongestMeters: 1.4 },
   { slug: 'anglerfish', source: 'AnglerFish/model.glb', expectedLongestMeters: 0.5 },
   { slug: 'arabian-horse', source: 'ArabianHorse/model.glb', expectedLongestMeters: 2.2 },
-  { slug: 'ball-python', source: 'BallPython/model.glb', expectedLongestMeters: 1.5 },
+  { slug: 'ball-python', source: 'BallPython/model.glb', expectedLongestMeters: 1.5, yawDegrees: 180 },
   { slug: 'brown-bear', source: 'BrownBear/model.glb', expectedLongestMeters: 2.4 },
   { slug: 'cheetah', source: 'Cheetah/model.glb', expectedLongestMeters: 2.0 },
   { slug: 'common-octopus', source: 'CommonOctopus/model.glb', expectedLongestMeters: 1.0 },
@@ -51,9 +51,9 @@ export const DOWNLOADS = [
   { slug: 'mei-panda', source: 'TurningRed/meiPanda.glb', expectedLongestMeters: 1.1 },
   { slug: 'white-tailed-deer', source: 'WhiteTailedDeer/model.glb', expectedLongestMeters: 1.9 },
   // Nordic collection
-  { slug: 'arctic-fox', source: 'Nordic/ArcticFox/arcticfox.glb', expectedLongestMeters: 0.95 },
+  { slug: 'arctic-fox', source: 'Nordic/ArcticFox/arcticfox.glb', expectedLongestMeters: 0.95, yawDegrees: 45 },
   { slug: 'bumblebee', source: 'Nordic/Bumblebee/bumblebee.glb', expectedLongestMeters: 0.03 },
-  { slug: 'lynx', source: 'Nordic/Lynx/lynx.glb', expectedLongestMeters: 1.1 },
+  { slug: 'lynx', source: 'Nordic/Lynx/lynx.glb', expectedLongestMeters: 1.1, yawDegrees: 45 },
   { slug: 'porpoise', source: 'Nordic/Porpoise/porpoise.glb', expectedLongestMeters: 1.8 },
   { slug: 'woodpecker', source: 'Nordic/Woodpecker/woodpecker.glb', expectedLongestMeters: 0.4 },
   // Olympics athlete action clips (human, non-animal entries kept as drafts)

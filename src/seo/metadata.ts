@@ -91,41 +91,41 @@ export const seoPageCopy = {
     locale: 'x-default',
     htmlLang: 'en',
     brand: 'Leon Made This | Leon做了个',
-    title: 'Zoo Animal Science Website | 动物园科普网站',
+    title: 'Wami Zoo | 哇咪动物园',
     description: `Choose Simplified Chinese or English for a family-friendly 3D museum featuring ${catalogueAnimalCount} prehistoric animals. 选择简体中文或 English，和孩子一起探索 ${catalogueAnimalCount} 位史前动物朋友。`,
-    heading: 'Zoo Animal Science Website | 动物园科普网站',
+    heading: 'Wami Zoo | 哇咪动物园',
     introduction:
-      'A gentle 3D museum for children aged 2–6 and the grown-ups exploring with them. 一个为 2–6 岁孩子和陪伴探索的家长准备的 3D 动物园科普网站。',
+      'A gentle 3D museum for children aged 2–6 and the grown-ups exploring with them. 一个为 2–6 岁孩子和陪伴探索的家长准备的 3D 哇咪动物园。',
     privacy: `Explore ${catalogueAnimalCount} prehistoric animals from land, sky and sea. No account, advertising or page analytics are used, and narration never starts by itself. 展厅收录陆地、天空与水中的 ${catalogueAnimalCount} 位史前动物，无需账号，没有广告和页面分析，也不会自动播放声音。`,
     catalogueHeading: 'Museum collection | 博物馆藏品',
     languageLabel: 'Choose a language | 选择语言',
     systemLanguageLabel: 'Follow system | 跟随系统',
     socialImageFileName: 'social/museum.png',
-    socialImageAlt: 'Zoo Animal Science Website — 动物园科普网站',
+    socialImageAlt: 'Wami Zoo — 哇咪动物园',
   },
   'zh-CN': {
     locale: 'zh-CN',
     htmlLang: 'zh-CN',
     brand: 'Leon做了个',
-    title: '动物园科普网站 | 亲子 3D 史前动物展',
-    description: `和孩子一起走进 3D 动物园科普网站，观察 ${catalogueAnimalCount} 位来自陆地、天空与水中的史前朋友。`,
-    heading: '动物园科普网站',
+    title: '哇咪动物园 | 亲子 3D 史前动物展',
+    description: `和孩子一起走进 3D 哇咪动物园，观察 ${catalogueAnimalCount} 位来自陆地、天空与水中的史前朋友。`,
+    heading: '哇咪动物园',
     introduction:
-      '这是一个面向 2–6 岁孩子和家长的 3D 动物园科普网站。一起转动模型，听观察引导，再读给家长的科学资料。',
+      '这是一个面向 2–6 岁孩子和家长的 3D 哇咪动物园。一起转动模型，听观察引导，再读给家长的科学资料。',
     privacy: `展厅收录 ${catalogueAnimalCount} 位来自陆地、天空与水中的史前动物。无需账号，没有广告和页面分析，声音只会在你主动点击后播放。`,
     catalogueHeading: '博物馆藏品',
     languageLabel: '选择语言',
     systemLanguageLabel: '跟随系统',
     socialImageFileName: 'social/museum.zh-CN.png',
-    socialImageAlt: '动物园科普网站亲子 3D 展馆',
+    socialImageAlt: '哇咪动物园亲子 3D 展馆',
   },
   en: {
     locale: 'en',
     htmlLang: 'en',
     brand: 'Leon Made This',
-    title: 'Zoo Animal Science Website | A 3D Family Adventure',
+    title: 'Wami Zoo | A 3D Family Adventure',
     description: `Explore ${catalogueAnimalCount} prehistoric animals from land, sky and sea in a gentle 3D museum made for young children and their grown-ups.`,
-    heading: 'Zoo Animal Science Website',
+    heading: 'Wami Zoo',
     introduction:
       'A gentle 3D museum for children aged 2–6 and the grown-ups exploring with them. Turn each model, listen to a short observation guide and open the grown-up notes when you want to go deeper.',
     privacy: `Meet ${catalogueAnimalCount} prehistoric animals from land, sky and sea. There are no accounts, adverts or page analytics, and narration only plays when you choose it.`,
@@ -134,7 +134,7 @@ export const seoPageCopy = {
     systemLanguageLabel: 'Follow system',
     socialImageFileName: 'social/museum.en.png',
     socialImageAlt:
-      'Zoo Animal Science Website, a 3D family adventure by Leon Made This',
+      'Wami Zoo, a 3D family adventure by Leon Made This',
   },
 } as const satisfies Record<SeoPageLocale, SeoPageCopy>
 
@@ -192,11 +192,11 @@ export function animalDetailSeo(
   const description = animalSeoDescription(animal.content.narrationSentences)
   const title =
     locale === 'zh-CN'
-      ? `${animal.content.name} | 动物园科普网站`
-      : `${animal.content.name} | Zoo Animal Science Website`
+      ? `${animal.content.name} | 哇咪动物园`
+      : `${animal.content.name} | Wami Zoo`
   const canonical = animalCanonicalUrl(locale, animal.id)
   const museumName =
-    locale === 'zh-CN' ? '动物园科普网站' : 'Zoo Animal Science Website'
+    locale === 'zh-CN' ? '哇咪动物园' : 'Wami Zoo'
   return {
     title,
     description,

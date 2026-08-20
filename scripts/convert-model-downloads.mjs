@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
 import { createRequire } from 'node:module'
 
-import { DOWNLOADS, activeDownloads } from './downloads-manifest.mjs'
+import { DOWNLOADS } from './downloads-manifest.mjs'
 
 const require = createRequire(import.meta.url)
 // The CLI's bundled sharp/libvips is broken in this environment, so PNG→WebP
