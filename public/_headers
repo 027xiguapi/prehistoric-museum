@@ -1,2 +1,6 @@
 /_next/static/*
   cache-control: public,max-age=31536000,immutable
+
+/animals/*
+  Access-Control-Allow-Origin: *
+  cache-control: public,max-age=31536000,immutable

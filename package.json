@@ -10,9 +10,10 @@
   "scripts": {
     "dev": "next dev",
     "review": "npm run validate:review && node scripts/set-env.mjs NEXT_PUBLIC_MUSEUM_MODE=review MUSEUM_BASE_PATH= tsx scripts/serve-review.ts",
-    "build": "next build",
+    "build": "npm run generate:remote-assets && next build",
     "build:e2e": "npm run validate:content && node scripts/set-env.mjs NEXT_PUBLIC_MUSEUM_MODE=e2e MUSEUM_BASE_PATH=/prehistoric-animal-museum next build",
-    "build:mobile": "node scripts/set-env.mjs NEXT_STATIC_EXPORT=1 next build",
+    "build:mobile": "node scripts/set-env.mjs NEXT_STATIC_EXPORT=1 next build && node scripts/strip-remote-assets.mjs",
+    "generate:remote-assets": "node scripts/generate-remote-assets.mjs",
     "cap:sync": "npm run build:mobile && npx cap sync",
     "cap:add:android": "npx cap add android",
     "cap:add:ios": "npx cap add ios",
