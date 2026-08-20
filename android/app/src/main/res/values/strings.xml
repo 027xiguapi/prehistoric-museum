@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">史前动物博物馆</string>
+    <string name="title_activity_main">史前动物博物馆</string>
+    <string name="package_name">com.leonmadethis.museum</string>
+    <string name="custom_url_scheme">com.leonmadethis.museum</string>
+</resources>

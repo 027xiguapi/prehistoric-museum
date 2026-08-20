@@ -39,6 +39,7 @@
     "proxy.ts",
     "next-env.d.ts",
     "next.config.ts",
+    "capacitor.config.ts",
     "scripts/**/*.ts",
     "src",
     ".next/types/**/*.ts",

@@ -5,6 +5,10 @@ import type { NextConfig } from 'next'
 // can never include private review material. Turbopack resolves alias targets
 // relative to the project root (absolute Windows paths are unsupported).
 const isReviewMode = process.env.NEXT_PUBLIC_MUSEUM_MODE === 'review'
+// The Capacitor app is a pure static bundle: `NEXT_STATIC_EXPORT=1` switches
+// the build to `output: 'export'` (the web deployment keeps its Node server
+// and locale middleware otherwise).
+const isStaticExport = process.env.NEXT_STATIC_EXPORT === '1'
 const reviewCatalogAliasTarget = isReviewMode
   ? './src/review/catalog.ts'
   : './src/review/empty-catalog.ts'
@@ -20,6 +24,10 @@ const nextConfig: NextConfig = {
   // The former static site served every page as `<dir>/index.html`, so all
   // canonical, sitemap and in-app URLs carry a trailing slash.
   trailingSlash: true,
+  // Capacitor serves the exported bundle from its local web root, so Next's
+  // image optimizer (which needs a server) must be disabled.
+  ...(isStaticExport ? { output: 'export' as const } : {}),
+  images: { unoptimized: true },
   productionBrowserSourceMaps: process.env.NEXT_PUBLIC_MUSEUM_MODE === 'e2e',
   turbopack: {
     // Binary content assets: emit the file and import its URL.

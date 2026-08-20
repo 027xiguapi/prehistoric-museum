@@ -10,6 +10,7 @@ export default tseslint.config(
       'dist',
       'dist-model-still',
       '.next',
+      'out',
       'next-env.d.ts',
       '.handoff',
       '.wayfinder',
@@ -22,6 +23,9 @@ export default tseslint.config(
       'prototypes',
       'spikes',
       'tools',
+      // Capacitor native projects and their copied web bundles.
+      'android',
+      'ios',
     ],
   },
   {
