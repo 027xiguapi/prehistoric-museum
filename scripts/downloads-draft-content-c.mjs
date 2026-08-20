@@ -1586,4 +1586,514 @@ export const DOWNLOADS_CONTENT_C = [
     habitat: 'land',
     atmosphere: 'forest',
   },
+  {
+    slug: 'ankylosaurus',
+    zhName: '甲龙',
+    enName: 'Ankylosaurus',
+    zhLabel: '甲龙类恐龙（尾锤）',
+    enLabel: 'Armoured dinosaur (tail club)',
+    zhVisible: '看它尾巴末端的大骨锤——挥动起来足以砸断袭击者的骨头。',
+    enVisible:
+      'Look at the bony club at the end of the tail — one swing could break an attacker’s bones.',
+    zhSentences: [
+      '这是甲龙，全身披着骨甲、尾巴末端长着大锤子的恐龙。',
+      '它用尾锤保护自己，连霸王龙也不敢轻易招惹。',
+    ],
+    enSentences: [
+      'This is Ankylosaurus, a dinosaur in bony armour with a club at the end of its tail.',
+      'The tail club was such a good defence that even Tyrannosaurus would think twice.',
+    ],
+    zhPron: 'jiǎ lóng',
+    enPron: 'ang-KY-lo-sor-us',
+    zhPeriod: '晚白垩世（约 6800 万–6600 万年前）',
+    enPeriod: 'Late Cretaceous (about 68–66 million years ago)',
+    zhRegions: ['北美洲西部（美国、加拿大）'],
+    enRegions: ['western North America (United States, Canada)'],
+    size: { kind: 'body-length', minMeters: 6, maxMeters: 8 },
+    diet: 'herbivore',
+    zhParent:
+      '甲龙是甲龙类中最大、最晚出现的成员，与霸王龙生活在同一时代的北美洲。它的背部和头部覆盖着紧密排列的骨质甲板，甲板里还嵌着尖刺，腹部是唯一的软肋，所以它遇到袭击时会趴低身体。尾锤由几块愈合的大骨瘤构成，计算机模拟显示全力挥击可以造成粉碎性骨折。它用喙状嘴切断低矮植物，肠道庞大，一天要吃掉大量蕨类和灌木叶。',
+    enParent:
+      'Ankylosaurus was the largest and last of the ankylosaurs, sharing Late Cretaceous North America with Tyrannosaurus. Its back and head were paved with interlocking bony plates studded with spikes, leaving only the belly soft — so it probably crouched low when attacked. The tail club, made of fused bony knobs, could shatter bone according to computer simulations. It snipped low plants with a beaked mouth and processed huge volumes of ferns and shrub leaves in a roomy gut.',
+    sources: [
+      {
+        title: 'Ankylosaurus — 大英百科全书（Britannica）',
+        url: 'https://www.britannica.com/animal/Ankylosaurus',
+      },
+      {
+        title: 'Ankylosaurus — Wikipedia',
+        url: 'https://en.wikipedia.org/wiki/Ankylosaurus',
+      },
+    ],
+    zhUncertainties: [
+      '体长估计来自不完整骨架，范围较宽。',
+      '尾锤能造成何种程度的伤害依据的是力学模拟，而非直接观察。',
+    ],
+    enUncertainties: [
+      'The length is estimated from incomplete skeletons, so the range is wide.',
+      'The club’s destructive power comes from mechanical simulations, not direct observation.',
+    ],
+    accent: { strong: '#5f6b4f', soft: '#d6dcc4' },
+    habitat: 'land',
+    atmosphere: 'plains',
+  },
+  {
+    slug: 'brachiosaurus',
+    zhName: '腕龙',
+    enName: 'Brachiosaurus',
+    zhLabel: '蜥脚类恐龙（前腿更长）',
+    enLabel: 'Sauropod (longer front legs)',
+    zhVisible: '看它的前腿比后腿长——这让它的肩膀高高耸起，像一台活的吊车。',
+    enVisible:
+      'Notice the front legs are longer than the back ones — that lifts the shoulders high, like a living crane.',
+    zhSentences: [
+      '这是腕龙，能吃到十几米高树叶的长脖子恐龙。',
+      '它的名字意思是“手臂蜥蜴”，因为它的前腿特别长。',
+    ],
+    enSentences: [
+      'This is Brachiosaurus, a long-necked dinosaur that browsed leaves more than ten metres up.',
+      'Its name means “arm lizard” because of those unusually long front legs.',
+    ],
+    zhPron: 'wàn lóng',
+    enPron: 'BRAK-ee-o-sor-us',
+    zhPeriod: '晚侏罗世（约 1.54 亿–1.5 亿年前）',
+    enPeriod: 'Late Jurassic (about 154–150 million years ago)',
+    zhRegions: ['北美洲（美国科罗拉多州等地）'],
+    enRegions: ['North America (Colorado region, United States)'],
+    size: { kind: 'body-length', minMeters: 18, maxMeters: 22 },
+    diet: 'herbivore',
+    zhParent:
+      '腕龙是侏罗纪北美洲最高的植食恐龙之一：大多数蜥脚类前腿比后腿短，腕龙却相反，使它的背部向上倾斜，头部能探到约 9–13 米高。它的鼻孔开口在头顶的隆起上，早期复原因此把它画成潜水生活的样子，现代研究早已否定了这种看法。成年腕龙体重估计 30–40 吨，每天要吃几百千克树叶。《侏罗纪公园》里第一只震撼出场的恐龙就是腕龙。',
+    enParent:
+      'Brachiosaurus was among the tallest plant-eaters of Jurassic North America: unlike most sauropods its front legs were longer than its hind legs, tilting the back upwards so the head could reach perhaps 9–13 metres high. Its nostrils sat on a dome on top of the head, which once led artists to paint it wading underwater — an idea modern research has rejected. Adults are estimated at 30–40 tonnes and needed hundreds of kilograms of leaves a day. It was the first awe-inspiring dinosaur seen in the film Jurassic Park.',
+    sources: [
+      {
+        title: 'Brachiosaurus — 大英百科全书（Britannica）',
+        url: 'https://www.britannica.com/animal/brachiosaurus',
+      },
+      {
+        title: 'Brachiosaurus — Wikipedia',
+        url: 'https://en.wikipedia.org/wiki/Brachiosaurus',
+      },
+    ],
+    zhUncertainties: [
+      '腕龙化石稀少，体重与体长估计范围较宽。',
+      '东非的“布氏腕龙”现已独立为长颈鹿巨龙属，本条目指北美腕龙。',
+    ],
+    enUncertainties: [
+      'Brachiosaurus fossils are scarce, so length and mass estimates carry wide margins.',
+      'The East African “Brachiosaurus” brancai is now placed in its own genus, Giraffatitan; this entry covers the North American animal.',
+    ],
+    accent: { strong: '#6a7a5a', soft: '#d9e0c8' },
+    habitat: 'land',
+    atmosphere: 'plains',
+  },
+  {
+    slug: 'dilophosaurus-ar',
+    zhName: '双脊龙（AR 版）',
+    enName: 'Dilophosaurus (AR Model)',
+    zhLabel: '早期肉食恐龙（双冠）',
+    enLabel: 'Early meat-eating dinosaur (twin crests)',
+    zhVisible: '看它头顶上两片薄薄的骨冠——那是它的招牌，不是用来打架的。',
+    enVisible:
+      'Look at the two thin crests on its head — they were for display, not for fighting.',
+    zhSentences: [
+      '这是双脊龙，头顶长着两片并排骨冠的早期肉食恐龙。',
+      '真实的它不会喷毒，也没有伞状领圈——那是电影编的。',
+    ],
+    enSentences: [
+      'This is Dilophosaurus, an early meat-eater with a pair of crests side by side on its head.',
+      'The real animal could not spit venom and had no neck frill — the film invented that.',
+    ],
+    zhPron: 'shuāng jǐ lóng',
+    enPron: 'dy-LOF-o-sor-us',
+    zhPeriod: '早侏罗世（约 1.93 亿年前）',
+    enPeriod: 'Early Jurassic (about 193 million years ago)',
+    zhRegions: ['北美洲（美国亚利桑那州）'],
+    enRegions: ['North America (Arizona, United States)'],
+    size: { kind: 'body-length', minMeters: 6, maxMeters: 7 },
+    diet: 'carnivore',
+    zhParent:
+      '双脊龙生活在恐龙时代刚开始不久的早侏罗世，是当时北美洲最大的陆地掠食者之一。它头骨细长，两片半圆形的骨冠薄而易碎，古生物学家认为那是用于展示识别或求偶的装饰。1993 年电影《侏罗纪公园》把它塑造成会张开领圈、喷射毒液的小怪物——真实的双脊龙长 6–7 米，远比电影里大，而且没有任何证据表明它有领圈或毒腺。它上颌前端有一个缺口，可能帮助它撕咬鱼类或小动物。',
+    enParent:
+      'Dilophosaurus lived in the Early Jurassic, when the age of dinosaurs was just beginning, and ranked among the largest land predators of its time in North America. Its snout was long and narrow, and the two semicircular crests were thin and fragile — palaeontologists read them as display structures for recognition or courtship. The 1993 film Jurassic Park turned it into a small monster with a rattling frill and venom spit; the real animal was 6–7 metres long and there is no evidence for either feature. A notch at the front of the upper jaw may have helped it grip fish or small prey.',
+    sources: [
+      {
+        title: 'Dilophosaurus — 大英百科全书（Britannica）',
+        url: 'https://www.britannica.com/animal/Dilophosaurus',
+      },
+      {
+        title: 'Dilophosaurus — Wikipedia',
+        url: 'https://en.wikipedia.org/wiki/Dilophosaurus',
+      },
+    ],
+    zhUncertainties: [
+      '本馆已有正式收录的双脊龙条目；此模型为谷歌 AR 捕获版，发布前需决定去留或合并。',
+      '骨冠的功能是推断，无法从化石直接证实。',
+    ],
+    enUncertainties: [
+      'This collection already has a published dilophosaurus entry; this model is the Google AR capture, so before publication one will be chosen or the two merged.',
+      'The crests’ function is inferred and cannot be proven from fossils.',
+    ],
+    accent: { strong: '#7a5c3a', soft: '#e2d2b8' },
+    habitat: 'land',
+    atmosphere: 'forest',
+  },
+  {
+    slug: 'parasaurolophus',
+    zhName: '副栉龙',
+    enName: 'Parasaurolophus',
+    zhLabel: '鸭嘴龙类恐龙（长头冠）',
+    enLabel: 'Duck-billed dinosaur (long crest)',
+    zhVisible: '看它脑袋后面拖着的长管子——那是一支天生的“低音号”。',
+    enVisible:
+      'Look at the long tube trailing behind its head — a built-in trombone.',
+    zhSentences: [
+      '这是副栉龙，头顶拖着一根长长的空心冠管。',
+      '它用这根管子发出低沉的鸣叫，声音能传很远。',
+    ],
+    enSentences: [
+      'This is Parasaurolophus, with a long hollow crest tube on its head.',
+      'It used the tube to trumpet deep calls that carried across the landscape.',
+    ],
+    zhPron: 'fù zhì lóng',
+    enPron: 'pa-ra-SAW-ro-LOF-us',
+    zhPeriod: '晚白垩世（约 7650 万–7300 万年前）',
+    enPeriod: 'Late Cretaceous (about 76.5–73 million years ago)',
+    zhRegions: ['北美洲西部（美国、加拿大）'],
+    enRegions: ['western North America (United States, Canada)'],
+    size: { kind: 'body-length', minMeters: 7.5, maxMeters: 10 },
+    diet: 'herbivore',
+    zhParent:
+      '副栉龙是鸭嘴龙科中头冠最夸张的成员，空心冠管从鼻孔一直延伸到脑后，长度可以超过一米。科学家用 CT 扫描重建冠管内部并模拟吹奏，得到的音调低沉悠长，类似长号——这种叫声可能用于群体联络或求偶。它的嘴里有数百颗不断替换的牙齿，组成“牙齿电池”来研磨坚韧的植物。副栉龙平时四足行走，逃跑时可以只用两条后腿奔跑。',
+    enParent:
+      'Parasaurolophus carried the most extravagant crest of any duck-billed dinosaur: a hollow tube running from the nostrils over a metre beyond the back of the head. Scientists CT-scanned the crest and modelled the sound — deep, resonant notes like a trombone, probably used to keep herds in touch or to court mates. Its jaws held hundreds of continuously replaced teeth forming a grinding “dental battery” for tough plants. It usually walked on all fours but could break into a two-legged run when fleeing.',
+    sources: [
+      {
+        title: 'Parasaurolophus — 大英百科全书（Britannica）',
+        url: 'https://www.britannica.com/animal/Parasaurolophus',
+      },
+      {
+        title: 'Parasaurolophus — Wikipedia',
+        url: 'https://en.wikipedia.org/wiki/Parasaurolophus',
+      },
+    ],
+    zhUncertainties: [
+      '叫声重建来自计算机模拟，实际音域可能更宽。',
+      '已知物种的头冠长度差异很大，本条目按最长的沃氏副栉龙描述。',
+    ],
+    enUncertainties: [
+      'The call reconstruction is a computer model; the real vocal range may have been wider.',
+      'Crest length varies greatly between species; this entry describes the long-crested P. walkeri.',
+    ],
+    accent: { strong: '#8a6d45', soft: '#e6d8bd' },
+    habitat: 'land',
+    atmosphere: 'plains',
+  },
+  {
+    slug: 'pteranodon-ar',
+    zhName: '无齿翼龙（AR 版）',
+    enName: 'Pteranodon (AR Model)',
+    zhLabel: '翼龙（会飞的爬行动物，不是恐龙）',
+    enLabel: 'Pterosaur (a flying reptile, not a dinosaur)',
+    zhVisible: '看它向后翘的头冠和没有牙齿的长喙——翼龙不是恐龙，是会飞的爬行动物。',
+    enVisible:
+      'Look at the backward-pointing crest and the long toothless beak — pterosaurs were flying reptiles, not dinosaurs.',
+    zhSentences: [
+      '这是无齿翼龙，在恐龙时代的天空中滑翔的大翼龙。',
+      '它的翼展比一辆小汽车还长，却没有一颗牙齿。',
+    ],
+    enSentences: [
+      'This is Pteranodon, a great pterosaur that soared over the seas of the dinosaur age.',
+      'Its wingspan was longer than a small car, yet it had no teeth at all.',
+    ],
+    zhPron: 'wú chǐ yì lóng',
+    enPron: 'te-RAN-o-don',
+    zhPeriod: '晚白垩世（约 8600 万–8450 万年前）',
+    enPeriod: 'Late Cretaceous (about 86–84.5 million years ago)',
+    zhRegions: ['北美洲内陆海道（美国堪萨斯州等地）'],
+    enRegions: ['the inland sea of North America (Kansas region, United States)'],
+    size: { kind: 'wingspan', minMeters: 5, maxMeters: 7 },
+    diet: 'carnivore',
+    zhParent:
+      '无齿翼龙生活在晚白垩世的北美内陆海道上空，像今天的信天翁一样借助海上气流长时间滑翔，以俯冲捕鱼为食。它的头冠形状因性别而异——雄性头冠大而向上，可能用于展示。翅膀由一根极度延长的第四指撑起皮膜构成，骨骼中空，体重只有十几到几十千克。在陆地上它可能四肢着地行走。注意：翼龙是会飞的爬行动物，与恐龙是近亲但不是恐龙。',
+    enParent:
+      'Pteranodon soared over the Late Cretaceous inland sea that split North America, riding ocean winds like an albatross and swooping down to catch fish. Crest shape differed between the sexes — males had the larger, upswept crest, probably for display. Each wing was a membrane supported by one hugely elongated fourth finger, and the hollow bones kept weight down to tens of kilograms. On the ground it probably walked on all fours. Remember: pterosaurs were flying reptiles, close cousins of dinosaurs but not dinosaurs themselves.',
+    sources: [
+      {
+        title: 'Pteranodon — 大英百科全书（Britannica）',
+        url: 'https://www.britannica.com/animal/pteranodon',
+      },
+      {
+        title: 'Pteranodon — Wikipedia',
+        url: 'https://en.wikipedia.org/wiki/Pteranodon',
+      },
+    ],
+    zhUncertainties: [
+      '本馆已有正式收录的无齿翼龙条目；此模型为谷歌 AR 捕获版，发布前需决定去留或合并。',
+      '翼展区间主要按雄性估计，雌性明显更小。',
+    ],
+    enUncertainties: [
+      'This collection already has a published pteranodon entry; this model is the Google AR capture, so before publication one will be chosen or the two merged.',
+      'The wingspan range chiefly reflects males; females were markedly smaller.',
+    ],
+    accent: { strong: '#5a6a7a', soft: '#d4dbe2' },
+    habitat: 'air',
+    atmosphere: 'air',
+  },
+  {
+    slug: 'spinosaurus',
+    zhName: '棘龙',
+    enName: 'Spinosaurus',
+    zhLabel: '半水生肉食恐龙（帆背）',
+    enLabel: 'Semi-aquatic predator (sail back)',
+    zhVisible: '看它背上高高的“帆”和鳄鱼一样的长嘴——棘龙是最会游泳的大型肉食恐龙。',
+    enVisible:
+      'Look at the tall “sail” on its back and the crocodile-like snout — Spinosaurus was the most water-loving of the big meat-eaters.',
+    zhSentences: [
+      '这是棘龙，背上长着帆、爱吃鱼的大型肉食恐龙。',
+      '它比霸王龙还长，是目前已知最长的肉食恐龙。',
+    ],
+    enSentences: [
+      'This is Spinosaurus, a sail-backed giant that loved catching fish.',
+      'Longer even than Tyrannosaurus, it is the longest meat-eating dinosaur known.',
+    ],
+    zhPron: 'jí lóng',
+    enPron: 'SPY-no-sor-us',
+    zhPeriod: '晚白垩世（约 9900 万–9350 万年前）',
+    enPeriod: 'Late Cretaceous (about 99–93.5 million years ago)',
+    zhRegions: ['北非（摩洛哥、埃及）'],
+    enRegions: ['North Africa (Morocco, Egypt)'],
+    size: { kind: 'body-length', minMeters: 14, maxMeters: 15 },
+    diet: 'carnivore',
+    zhParent:
+      '棘龙的背帆由长达 1.7 米的脊椎棘支撑，可能用于展示或调节体温。2014 年和 2020 年的新化石彻底改写了它的形象：短后腿、宽大的爪子、桨状的尾巴，说明它大半生泡在北非的河流里，像巨型鹭鸶一样捕食鱼类和锯鳐。圆锥形的牙齿适合咬住滑溜的猎物，鼻孔后移让它能边泡在水里边呼吸。关于它到底是“游泳健将”还是“涉水渔夫”，科学家仍在争论。',
+    enParent:
+      'Spinosaurus wore a sail supported by vertebral spines up to 1.7 metres tall, perhaps for display or temperature control. Fossils revealed in 2014 and 2020 rewrote its image completely: short hind legs, broad claws and a paddle-shaped tail show it spent much of its life in North African rivers, hunting fish and sawfish like a giant heron. Cone-shaped teeth gripped slippery prey, and its nostrils sat far back so it could breathe while mostly submerged. Whether it was an active swimmer or a wading “fisherman” is still hotly debated.',
+    sources: [
+      {
+        title: 'Spinosaurus — 大英百科全书（Britannica）',
+        url: 'https://www.britannica.com/animal/spinosaurus',
+      },
+      {
+        title: 'Spinosaurus — Wikipedia',
+        url: 'https://en.wikipedia.org/wiki/Spinosaurus',
+      },
+    ],
+    zhUncertainties: [
+      '最长肉食恐龙的说法基于不完整的化石，估计仍在修正。',
+      '“主动游泳”还是“岸边涉水”的生态复原在学界有持续争论。',
+    ],
+    enUncertainties: [
+      'The “longest meat-eater” claim rests on incomplete fossils and estimates keep being revised.',
+      'Whether it swam actively or waded at the shore remains an active scientific debate.',
+    ],
+    accent: { strong: '#4f6b6b', soft: '#cfdddd' },
+    habitat: 'water',
+    atmosphere: 'underwater',
+  },
+  {
+    slug: 'stegosaurus-ar',
+    zhName: '剑龙（AR 版）',
+    enName: 'Stegosaurus (AR Model)',
+    zhLabel: '装甲恐龙（骨板与尾刺）',
+    enLabel: 'Armoured dinosaur (plates and tail spikes)',
+    zhVisible: '看它背上两排骨板和尾巴上的四根尖刺——尾巴是武器，骨板可能是“广告牌”。',
+    enVisible:
+      'Look at the two rows of back plates and the four tail spikes — the tail was a weapon, the plates may have been billboards.',
+    zhSentences: [
+      '这是剑龙，背着两排大骨板的植食恐龙。',
+      '它的脑袋只有小狗那么大，尾巴上的尖刺却能赶跑掠食者。',
+    ],
+    enSentences: [
+      'This is Stegosaurus, a plant-eater carrying two rows of huge plates.',
+      'Its brain was dog-sized, but the spikes on its tail could see off predators.',
+    ],
+    zhPron: 'jiàn lóng',
+    enPron: 'STEG-o-sor-us',
+    zhPeriod: '晚侏罗世（约 1.55 亿–1.5 亿年前）',
+    enPeriod: 'Late Jurassic (about 155–150 million years ago)',
+    zhRegions: ['北美洲西部', '葡萄牙'],
+    enRegions: ['western North America', 'Portugal'],
+    size: { kind: 'body-length', minMeters: 6.5, maxMeters: 9 },
+    diet: 'herbivore',
+    zhParent:
+      '剑龙背上 17–22 块骨板里布满血管沟槽，可能用来展示识别、威吓敌人，也可能帮助散热。尾巴末端四根 60–90 厘米的尖刺有个绰号叫“死神的尾巴”（thagomizer）——这个名字竟然源自漫画《远岸》的一个笑话，后来被科学家正式采用。有化石证据显示异特龙的尾椎曾被剑龙的尾刺刺穿。剑龙的脑容量是出名的笑话素材，但“尾巴里还有第二个大脑”的说法并不正确。',
+    enParent:
+      'Stegosaurus carried 17–22 plates riddled with blood-vessel grooves — probably for display and recognition, and possibly for shedding heat. The four 60–90-centimetre spikes on its tail are nicknamed the “thagomizer”, a joke name from a Far Side cartoon that scientists cheerfully adopted. One fossil Allosaurus tail bone bears a puncture matching a stegosaur spike. The tiny brain made Stegosaurus a byword for dimness, but the old claim of a “second brain in the hips” is a myth.',
+    sources: [
+      {
+        title: 'Stegosaurus — 大英百科全书（Britannica）',
+        url: 'https://www.britannica.com/animal/Stegosaurus',
+      },
+      {
+        title: 'Stegosaurus — Wikipedia',
+        url: 'https://en.wikipedia.org/wiki/Stegosaurus',
+      },
+    ],
+    zhUncertainties: [
+      '本馆已有正式收录的剑龙条目；此模型为谷歌 AR 捕获版，发布前需决定去留或合并。',
+      '骨板的具体功能（展示、识别、散热）难以从化石直接证实。',
+    ],
+    enUncertainties: [
+      'This collection already has a published stegosaurus entry; this model is the Google AR capture, so before publication one will be chosen or the two merged.',
+      'The exact function of the plates (display, recognition, cooling) cannot be proven directly from fossils.',
+    ],
+    accent: { strong: '#6b5f4a', soft: '#dcd5c2' },
+    habitat: 'land',
+    atmosphere: 'plains',
+  },
+  {
+    slug: 'triceratops-ar',
+    zhName: '三角龙（AR 版）',
+    enName: 'Triceratops (AR Model)',
+    zhLabel: '角龙类恐龙（三只角）',
+    enLabel: 'Horned dinosaur (three horns)',
+    zhVisible: '数它脸上的角：眼睛上方两根长角，鼻子上还有一根短角。',
+    enVisible:
+      'Count the horns on its face: two long ones above the eyes and a short one on the nose.',
+    zhSentences: [
+      '这是三角龙，长着三只角和大颈盾的植食恐龙。',
+      '它和霸王龙生活在同一时代，是霸王龙的猎物之一。',
+    ],
+    enSentences: [
+      'This is Triceratops, the plant-eater with three horns and a great frilled shield.',
+      'It lived at the same time and place as Tyrannosaurus — and was on its menu.',
+    ],
+    zhPron: 'sān jiǎo lóng',
+    enPron: 'try-SER-a-tops',
+    zhPeriod: '晚白垩世（约 6800 万–6600 万年前）',
+    enPeriod: 'Late Cretaceous (about 68–66 million years ago)',
+    zhRegions: ['北美洲西部（美国、加拿大）'],
+    enRegions: ['western North America (United States, Canada)'],
+    size: { kind: 'body-length', minMeters: 8, maxMeters: 9 },
+    diet: 'herbivore',
+    zhParent:
+      '三角龙是非鸟恐龙灭绝前最后出现的角龙类之一，化石在地狱溪组非常丰富，是科学家了解最透彻的恐龙之一。颈盾由两块颅骨向后延伸而成，年轻个体的颈盾边缘骨片朝外翘起，长大后逐渐与颈盾融合——牛角龙一度被认为是独立属，现在主流观点认为它只是三角龙的老年形态。三角龙用喙状嘴剪断低矮的蕨类和灌木，数百颗牙齿组成的齿系不断替换。有带咬痕的化石显示它确实与霸王龙交过手。',
+    enParent:
+      'Triceratops was among the last horned dinosaurs before the extinction, and its fossils are so common in the Hell Creek Formation that it is one of the best-understood dinosaurs. The frill is an extension of the skull; in youngsters its edge bones point outwards, fusing as the animal matures — the genus Torosaurus, once thought separate, is now widely read as the elderly form of Triceratops. It cropped low ferns and shrubs with a beak, and its hundreds of teeth formed ever-replaced batteries. Bite-marked fossils confirm real battles with Tyrannosaurus.',
+    sources: [
+      {
+        title: 'Triceratops — 大英百科全书（Britannica）',
+        url: 'https://www.britannica.com/animal/Triceratops',
+      },
+      {
+        title: 'Triceratops — Wikipedia',
+        url: 'https://en.wikipedia.org/wiki/Triceratops',
+      },
+    ],
+    zhUncertainties: [
+      '本馆已有正式收录的三角龙条目；此模型为谷歌 AR 捕获版，发布前需决定去留或合并。',
+      '“牛角龙即老年三角龙”是主流但仍在争论的假说。',
+    ],
+    enUncertainties: [
+      'This collection already has a published triceratops entry; this model is the Google AR capture, so before publication one will be chosen or the two merged.',
+      '“Torosaurus is old Triceratops” is the leading but still debated hypothesis.',
+    ],
+    accent: { strong: '#7a6a55', soft: '#ded6c6' },
+    habitat: 'land',
+    atmosphere: 'plains',
+  },
+  {
+    slug: 'tyrannosaurus-rex-ar',
+    zhName: '霸王龙（AR 版）',
+    enName: 'Tyrannosaurus Rex (AR Model)',
+    zhLabel: '大型肉食恐龙（“恐龙之王”）',
+    enLabel: 'Giant predator (the “dinosaur king”)',
+    zhVisible: '看它香蕉大小的牙齿和短短的前肢——小短手其实非常强壮。',
+    enVisible:
+      'Look at the banana-sized teeth and the tiny arms — those little arms were surprisingly strong.',
+    zhSentences: [
+      '这是霸王龙，陆地上咬合力最强的动物之一。',
+      '它的名字意思是“暴君蜥蜴王”。',
+    ],
+    enSentences: [
+      'This is Tyrannosaurus rex, with one of the strongest bites of any land animal ever.',
+      'Its name means “tyrant lizard king”.',
+    ],
+    zhPron: 'bà wáng lóng',
+    enPron: 'ti-RAN-o-sor-us REKS',
+    zhPeriod: '晚白垩世（约 6800 万–6600 万年前）',
+    enPeriod: 'Late Cretaceous (about 68–66 million years ago)',
+    zhRegions: ['北美洲西部（美国、加拿大）'],
+    enRegions: ['western North America (United States, Canada)'],
+    size: { kind: 'body-length', minMeters: 12, maxMeters: 13 },
+    diet: 'carnivore',
+    zhParent:
+      '霸王龙是恐龙时代落幕前的顶级掠食者：体重 8–9 吨，咬合力估计 3–6 吨，足以咬碎骨头——它的粪便化石里确实含有骨渣。锯齿状牙齿像铁钉一样粗，断了还能再长。前肢虽短得够不着嘴，却有两根指头和粗壮的肌肉，可能在起身或近身缠斗时派上用场。它的嗅觉极其灵敏，双眼朝前提供立体视觉。幼年霸王龙可能长着一层绒毛状羽毛，成年个体是否有羽毛仍在争论。',
+    enParent:
+      'Tyrannosaurus rex was the apex predator of the end-Cretaceous world: 8–9 tonnes in weight with a bite estimated at 3–6 tonnes — enough to pulverise bone, and its fossil droppings do contain bone fragments. The serrated teeth were as thick as railway spikes and regrew when lost. The two-fingered arms were too short to reach the mouth but heavily muscled, perhaps used when rising or grappling prey at close quarters. It had an excellent sense of smell and forward-facing eyes for depth perception. Hatchlings may have worn downy feathers; whether adults kept any plumage is still debated.',
+    sources: [
+      {
+        title: 'Tyrannosaurus — 大英百科全书（Britannica）',
+        url: 'https://www.britannica.com/animal/Tyrannosaurus',
+      },
+      {
+        title: 'Tyrannosaurus — Wikipedia',
+        url: 'https://en.wikipedia.org/wiki/Tyrannosaurus',
+      },
+    ],
+    zhUncertainties: [
+      '本馆已有正式收录的霸王龙条目；此模型为谷歌 AR 捕获版，发布前需决定去留或合并。',
+      '成年个体是否有羽毛、咬合力具体数值，均为持续研究中的问题。',
+    ],
+    enUncertainties: [
+      'This collection already has a published tyrannosaurus entry; this model is the Google AR capture, so before publication one will be chosen or the two merged.',
+      'Adult plumage and the precise bite-force figure remain open research questions.',
+    ],
+    accent: { strong: '#5c4a3a', soft: '#d8cec0' },
+    habitat: 'land',
+    atmosphere: 'plains',
+  },
+  {
+    slug: 'velociraptor',
+    zhName: '伶盗龙',
+    enName: 'Velociraptor',
+    zhLabel: '驰龙类恐龙（羽毛与镰刀爪）',
+    enLabel: 'Raptor dinosaur (feathers and sickle claw)',
+    zhVisible: '看它后腿上翘起的镰刀爪——真实的伶盗龙只有火鸡那么大，还长着羽毛。',
+    enVisible:
+      'Look at the raised sickle claw on each foot — the real Velociraptor was turkey-sized and feathered.',
+    zhSentences: [
+      '这是伶盗龙，电影里被放大成“迅猛龙”的原型。',
+      '真实的它浑身长羽，大小和一只火鸡差不多。',
+    ],
+    enSentences: [
+      'This is Velociraptor, the real animal behind the movie “raptor”.',
+      'In life it was feathered all over and about the size of a turkey.',
+    ],
+    zhPron: 'líng dào lóng',
+    enPron: 've-LOS-i-rap-tor',
+    zhPeriod: '晚白垩世（约 7500 万–7100 万年前）',
+    enPeriod: 'Late Cretaceous (about 75–71 million years ago)',
+    zhRegions: ['蒙古', '中国内蒙古'],
+    enRegions: ['Mongolia', 'Inner Mongolia, China'],
+    size: { kind: 'body-length', minMeters: 1.5, maxMeters: 2.0 },
+    diet: 'carnivore',
+    zhParent:
+      '伶盗龙是沙漠中的小型猎手：骨骼轻盈、后腿修长，每只脚的第二趾长着约 6.5 厘米的镰刀爪，用来按住或刺击猎物。2007 年科学家在它的前臂骨上发现了羽茎瘤——羽毛附着的“纽扣”，证明它真的有羽毛（羽毛最初用于保暖和展示，而非飞行）。著名的“搏斗中的恐龙”化石定格了一只伶盗龙与原角龙搏斗的瞬间。《侏罗纪公园》里那些高大的“迅猛龙”其实参考的是恐爪龙，而且去掉了羽毛。',
+    enParent:
+      'Velociraptor was a light, long-legged hunter of the desert, with a 6.5-centimetre sickle claw on the second toe of each foot for pinning or piercing prey. In 2007 scientists found quill knobs — the “buttons” where feathers anchor — on its forearm bone, proving it really was feathered (feathers evolved for warmth and display, not flight). The famous “Fighting Dinosaurs” fossil captures a Velociraptor locked in combat with a Protoceratops. The towering movie raptors were actually modelled on the larger Deinonychus — and stripped of feathers.',
+    sources: [
+      {
+        title: 'Velociraptor — 大英百科全书（Britannica）',
+        url: 'https://www.britannica.com/animal/Velociraptor',
+      },
+      {
+        title: 'Velociraptor — Wikipedia',
+        url: 'https://en.wikipedia.org/wiki/Velociraptor',
+      },
+    ],
+    zhUncertainties: [
+      '体长区间大部分来自细长的尾巴；体重仅约 15–20 千克。',
+      '本模型延续电影式无毛/低羽复原，与科学证据不符，发布前需在文案中明确说明。',
+    ],
+    enUncertainties: [
+      'Much of the length is tail; body mass was only about 15–20 kilograms.',
+      'The model follows the film-style scaly restoration, which the fossil evidence contradicts — the copy must say so clearly before publication.',
+    ],
+    accent: { strong: '#6b5a3f', soft: '#ddd2b8' },
+    habitat: 'land',
+    atmosphere: 'plains',
+  },
 ]

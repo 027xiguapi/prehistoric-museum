@@ -13,6 +13,8 @@ import { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { DOWNLOADS_CONTENT_A } from './downloads-draft-content-a.mjs'
 import { DOWNLOADS_CONTENT_B } from './downloads-draft-content-b.mjs'
+import { DOWNLOADS_CONTENT_C } from './downloads-draft-content-c.mjs'
+import { DOWNLOADS_CONTENT_D } from './downloads-draft-content-d.mjs'
 import { activeDownloads, sourceUrlFor } from './downloads-manifest.mjs'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
@@ -323,7 +325,12 @@ export const animal: DraftAnimalPackage & LegacyLocalReviewAnimalPackage = {
 `
 }
 
-const animals = [...DOWNLOADS_CONTENT_A, ...DOWNLOADS_CONTENT_B].filter(
+const animals = [
+  ...DOWNLOADS_CONTENT_A,
+  ...DOWNLOADS_CONTENT_B,
+  ...DOWNLOADS_CONTENT_C,
+  ...DOWNLOADS_CONTENT_D,
+].filter(
   (animal) => manifestBySlug.has(animal.slug),
 )
 let written = 0

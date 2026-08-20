@@ -20,6 +20,8 @@ import sharp from 'sharp'
 import { activeDownloads } from './downloads-manifest.mjs'
 import { DOWNLOADS_CONTENT_A } from './downloads-draft-content-a.mjs'
 import { DOWNLOADS_CONTENT_B } from './downloads-draft-content-b.mjs'
+import { DOWNLOADS_CONTENT_C } from './downloads-draft-content-c.mjs'
+import { DOWNLOADS_CONTENT_D } from './downloads-draft-content-d.mjs'
 
 const require = createRequire(import.meta.url)
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
@@ -31,17 +33,28 @@ const animalsRoot = join(root, 'src/content/animals')
 // of model height) for diorama models whose subject sits atop a stand/stem
 // (macaw on a pole, bumblebee on a flower).
 const contentSlugs = new Set(
-  [...DOWNLOADS_CONTENT_A, ...DOWNLOADS_CONTENT_B].map((entry) => entry.slug),
+  [
+    ...DOWNLOADS_CONTENT_A,
+    ...DOWNLOADS_CONTENT_B,
+    ...DOWNLOADS_CONTENT_C,
+    ...DOWNLOADS_CONTENT_D,
+  ].map((entry) => entry.slug),
 )
 const SLUG_OVERRIDES = {
   macaw: { frame: 0.62, dy: 0.33 },
   bumblebee: { frame: 0.55, dy: 0.33 },
+  brachiosaurus: { frame: 1.25, dy: 0 },
+  'atlas-moth': { frame: 0.6, dy: 0 },
+  'swallowtail-butterfly': { frame: 0.6, dy: 0 },
+  'morpho-butterfly': { frame: 0.6, dy: 0, pitch: 25 },
+  'caeleb-dressel-start': { frame: 0.5, dy: 0.12 },
+  'niklas-kaul-longjump': { frame: 0.45, dy: 0.05 },
 }
 const SLUGS = Object.fromEntries(
   activeDownloads()
     .map((entry) => entry.slug)
     .filter((slug) => contentSlugs.has(slug))
-    .map((slug) => [slug, SLUG_OVERRIDES[slug] ?? { frame: 1, dy: 0 }]),
+    .map((slug) => [slug, { frame: 1, dy: 0, pitch: 0, ...SLUG_OVERRIDES[slug] }]),
 )
 
 const onlyFlag = process.argv.find((argument) => argument.startsWith('--only='))
@@ -183,7 +196,7 @@ for (const [slug, config] of Object.entries(SLUGS)) {
   await mkdir(outDir, { recursive: true })
   for (const shot of shots) {
     await page.goto(
-      `https://render.test/?w=${shot.w}&h=${shot.h}&yaw=${shot.yaw}&pitch=${shot.pitch}&frame=${config.frame}&dy=${config.dy}`,
+      `https://render.test/?w=${shot.w}&h=${shot.h}&yaw=${shot.yaw}&pitch=${shot.pitch + config.pitch}&frame=${config.frame}&dy=${config.dy}`,
     )
     try {
       await page.waitForFunction(() => window.__ready === true, undefined, {

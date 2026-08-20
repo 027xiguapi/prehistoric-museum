@@ -1,0 +1,47 @@
+import type { AssetProvenance } from '../../types'
+
+// Draft intake from the Google “AR Answers in Search” models bucket. The
+// bucket does not ship a per-model licence statement, so the model is marked
+// NOT redistributable and stays draft until the source licence is confirmed
+// or replaced.
+const modelLicense = {
+  spdx: 'CC-BY-NC-SA-4.0',
+  name: 'Temporary pilot marking — source licence not yet confirmed',
+  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
+} as const
+
+export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
+  {
+    assetPath: 'model/model.glb',
+    kind: 'model',
+    source: {
+      type: 'third-party',
+      title: "Firefly (Google “AR Answers in Search” models bucket)",
+      author: 'Google',
+      url: "https://storage.googleapis.com/ar-answers-in-search-models/static/insects/firefly/model.glb",
+      accessedOn: '2026-08-20',
+      sha256: '0bcc4b4e0e79bbca7dfbbe052866ea8535da755a56bff3c58e5ea207eb4a6574',
+      bytes: 2857628,
+    },
+    license: modelLicense,
+    runtime: {
+      sha256: '0ef3e9c0cb4a0b077061fda3080f8efbfaa519e8897fbd2e3aa80753f96395c3',
+      bytes: 1603764,
+    },
+    modifications: [
+      'Compressed geometry and animation with Meshopt (high level) and museum quantization presets via the model-downloads batch conversion pipeline.',
+      'Re-encoded embedded textures to WebP and applied edge/quality-capped texture squeezing where the source exceeded the runtime budget.',
+      'Wrapped the scene in a normalization node so the model is unit-scale in metres, centred on the origin, and grounded at y = 0 (scale ×2.34; height ≈ 0.007 m, length ≈ 0.025 m).',
+      'Kept the idle animation clip “heike” (10s, 138 channels).',
+    ],
+    attribution: "Firefly 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
+    redistributionAllowed: false,
+    evidencePaths: [
+      "model-downloads/insects/firefly/model.glb",
+      'converted-downloads/firefly/model-normalized.glb',
+      'scripts/convert-model-downloads.mjs',
+      'scripts/prepare-downloads-drafts.mjs',
+      'scripts/generate-downloads-draft-packages.mjs',
+    ],
+  },
+]

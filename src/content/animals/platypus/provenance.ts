@@ -1,0 +1,47 @@
+import type { AssetProvenance } from '../../types'
+
+// Draft intake from the Google “AR Answers in Search” models bucket. The
+// bucket does not ship a per-model licence statement, so the model is marked
+// NOT redistributable and stays draft until the source licence is confirmed
+// or replaced.
+const modelLicense = {
+  spdx: 'CC-BY-NC-SA-4.0',
+  name: 'Temporary pilot marking — source licence not yet confirmed',
+  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
+} as const
+
+export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
+  {
+    assetPath: 'model/model.glb',
+    kind: 'model',
+    source: {
+      type: 'third-party',
+      title: "Platypus (Google “AR Answers in Search” models bucket)",
+      author: 'Google',
+      url: "https://storage.googleapis.com/ar-answers-in-search-models/static/aussie_animals/Platypus.glb",
+      accessedOn: '2026-08-20',
+      sha256: '62ca9eb6877e88b2bc92e7f216eaa9f7a638f40c0c02e96c8a68e941d9806dab',
+      bytes: 6071488,
+    },
+    license: modelLicense,
+    runtime: {
+      sha256: '7ecc6a80fe7beedb59860cd370a9bfb09c8cbab431a164fc7ffe6299f0eaf81f',
+      bytes: 3884112,
+    },
+    modifications: [
+      'Compressed geometry and animation with Meshopt (high level) and museum quantization presets via the model-downloads batch conversion pipeline.',
+      'Re-encoded embedded textures to WebP and applied edge/quality-capped texture squeezing where the source exceeded the runtime budget.',
+      'Wrapped the scene in a normalization node so the model is unit-scale in metres, centred on the origin, and grounded at y = 0 (scale ×1.80; height ≈ 0.276 m, length ≈ 0.6 m).',
+      'Kept the idle animation clip “All Animations” (10s, 360 channels).',
+    ],
+    attribution: "Platypus 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
+    redistributionAllowed: false,
+    evidencePaths: [
+      "model-downloads/aussie_animals/Platypus.glb",
+      'converted-downloads/platypus/model-normalized.glb',
+      'scripts/convert-model-downloads.mjs',
+      'scripts/prepare-downloads-drafts.mjs',
+      'scripts/generate-downloads-draft-packages.mjs',
+    ],
+  },
+]
