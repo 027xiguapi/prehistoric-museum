@@ -19,7 +19,8 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   icons: {
-    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+    icon: [{ url: '/favicon.png', type: 'image/png', sizes: '64x64' }],
+    apple: [{ url: '/WonZoo.png', type: 'image/png' }],
   },
 }
 
