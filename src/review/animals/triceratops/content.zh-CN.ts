@@ -55,7 +55,7 @@ export const zhCN = {
       '颈盾与角可能有多种用途，不在儿童层断言只用于打斗或防御。',
       '模型不作为某一具体种或标本的科学复原证据。',
     ],
-    editedBy: 'Prehistoric Animal Museum primary-source research',
+    editedBy: 'WonZoo primary-source research',
     reviewedBy: 'Local remaining-four content pass',
     reviewedOn: '2026-07-27',
   },

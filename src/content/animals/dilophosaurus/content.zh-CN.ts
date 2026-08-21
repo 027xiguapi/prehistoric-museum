@@ -55,7 +55,7 @@ export const zhCN = {
       "目前没有足够证据确定头冠颜色、软组织、体色和具体功能。",
       "模型头骨、肩带、腕手、后肢与中性张口程度已按本次展陈范围完成人工复核；软组织细节仍属于审慎艺术复原。"
     ],
-    "editedBy": "Prehistoric Animal Museum primary-source research",
+    "editedBy": "WonZoo primary-source research",
     "reviewedBy": "Project owner production review",
     "reviewedOn": "2026-07-31"
   }

@@ -55,7 +55,7 @@ export const zhCN = {
       '不在儿童层把食性或骨穹用途写成已经完全确定的事实。',
       '不展示或断言高速正面撞头行为。',
     ],
-    editedBy: 'Prehistoric Animal Museum primary-source research',
+    editedBy: 'WonZoo primary-source research',
     reviewedBy: 'Local collection-review content pass',
     reviewedOn: '2026-07-27',
   },

@@ -45,7 +45,7 @@ export const zhCN = {
       '食性保持“尚不确定”，不从窃蛋龙类名称或模型外观推断它吃什么。',
       '约 8 米是论文给出的整体估算，不代表当前模型经过了严格比例校准。',
     ],
-    editedBy: 'Prehistoric Animal Museum primary-source research',
+    editedBy: 'WonZoo primary-source research',
     reviewedBy: 'Local Sketchfab candidate review',
     reviewedOn: '2026-07-28',
   },

@@ -57,7 +57,7 @@ export const zhCN = {
       "10–14 米为大型沧龙的近似展示范围，体长估算随标本和方法变化。",
       "尾鳍软组织、体色、张口姿态和游泳幅度已按本次展陈范围完成人工复核；仍属于依据近缘证据的审慎复原。"
     ],
-    "editedBy": "Prehistoric Animal Museum primary-source research",
+    "editedBy": "WonZoo primary-source research",
     "reviewedBy": "Project owner production review",
     "reviewedOn": "2026-07-31"
   }

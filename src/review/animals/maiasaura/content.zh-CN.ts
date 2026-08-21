@@ -58,7 +58,7 @@ export const zhCN = {
       '巢区化石强烈支持群体筑巢；亲代喂养的具体方式和持续时间仍有讨论。',
       '模型的体色与软组织属于审慎的艺术复原。',
     ],
-    editedBy: 'Prehistoric Animal Museum primary-source research',
+    editedBy: 'WonZoo primary-source research',
     reviewedBy: 'Project owner production review',
     reviewedOn: '2026-07-31',
   },

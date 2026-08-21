@@ -51,7 +51,7 @@ export const zhCN = {
       '翅脉证据强，完整身体软组织、体色、眼色和腿棘数量证据弱。',
       '高氧可能帮助昆虫巨型化，但不是已证实的唯一原因。',
     ],
-    editedBy: 'Prehistoric Animal Museum primary-source research',
+    editedBy: 'WonZoo primary-source research',
     reviewedBy: 'Project owner production review',
     reviewedOn: '2026-08-01',
   },

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="Prehistoric Animal Museum — a free 3D world for children and grown-ups to explore together">
+  <img src="./assets/readme/hero.svg" width="100%" alt="WonZoo — a free 3D world for children and grown-ups to explore together">
 </p>
 
 <p align="center">

@@ -51,7 +51,7 @@ export const zhCN = {
       '上游标题所称的幼体年龄与模型很长的象牙并不容易相符，评审时不把它断言为幼体。',
       '毛色、毛量和软组织细节属于复原表达；冰期背景也是绘本式环境复原，不代表某一处具体化石地点。',
     ],
-    editedBy: 'Prehistoric Animal Museum primary-source research',
+    editedBy: 'WonZoo primary-source research',
     reviewedBy: 'Local Sketchfab candidate review',
     reviewedOn: '2026-07-28',
   },

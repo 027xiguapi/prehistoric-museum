@@ -69,12 +69,7 @@ export function renderSocialCard(
   embedFonts = false,
 ): string {
   const copy = seoPageCopy[locale]
-  const titleLines =
-    locale === 'zh-CN'
-      ? ['史前动物博物馆']
-      : locale === 'en'
-        ? ['Prehistoric Animal', 'Museum']
-        : ['Prehistoric Animal Museum', '史前动物博物馆']
+  const titleLines = ['WonZoo']
   const titleFontSize = locale === 'x-default' ? 58 : 68
   const titleStartY = titleLines.length === 1 ? 270 : 225
   const titleMarkup = titleLines

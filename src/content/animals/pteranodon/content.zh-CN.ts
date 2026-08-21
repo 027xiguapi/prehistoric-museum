@@ -55,7 +55,7 @@ export const zhCN = {
       '6–8 米表示翼展，不是体长。',
       '当前静态展示不暗示模型动画复原了真实飞行动作。',
     ],
-    editedBy: 'Prehistoric Animal Museum primary-source research',
+    editedBy: 'WonZoo primary-source research',
     reviewedBy: 'Local collection-review content pass',
     reviewedOn: '2026-07-27',
   },

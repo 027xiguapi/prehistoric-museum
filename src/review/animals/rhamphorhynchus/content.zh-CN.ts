@@ -63,7 +63,7 @@ export const zhCN = {
       '鱼类食物有胃内容物支持；头足类证据记录一次攻击关联，不代表主食比例。',
       '尾帆和翼膜有直接软组织证据，但尾帆形状随生长变化，体色、皮肤纹理、翼膜张力和具体飞行动作仍是艺术复原。',
     ],
-    editedBy: 'Prehistoric Animal Museum primary-source research',
+    editedBy: 'WonZoo primary-source research',
     reviewedBy: 'Project owner production review',
     reviewedOn: '2026-08-01',
   },

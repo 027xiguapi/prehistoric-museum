@@ -1,7 +1,7 @@
 # Brand policy
 
-“Leon做了个”, “Leon Made This”, “史前动物博物馆”, “Prehistoric Animal
-Museum”, their logo lockups, distinctive marks, account avatars, and other
+“Leon做了个”, “Leon Made This”, “WonZoo”, their logo lockups, distinctive
+marks, account avatars, and other
 visual elements used to identify the official creator or project are
 collectively the **Brand Assets**.
 

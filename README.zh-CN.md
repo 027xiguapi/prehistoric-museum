@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/readme/hero.zh-CN.svg" width="100%" alt="史前动物博物馆——给孩子和家长一起观察的免费 3D 史前动物小世界">
+  <img src="./assets/readme/hero.zh-CN.svg" width="100%" alt="WonZoo——给孩子和家长一起观察的免费 3D 史前动物小世界">
 </p>
 
 <p align="center">

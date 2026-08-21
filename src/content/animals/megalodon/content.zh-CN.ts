@@ -60,7 +60,7 @@ export const zhCN = {
       '身体比例、背鳍形状和体色缺少完整化石证据；不能简单视为放大的大白鲨。',
       '当前可确认的最年轻可靠化石记录约为 360 万年前。',
     ],
-    editedBy: 'Prehistoric Animal Museum primary-source research',
+    editedBy: 'WonZoo primary-source research',
     reviewedBy: 'Project owner production review',
     reviewedOn: '2026-07-31',
   },

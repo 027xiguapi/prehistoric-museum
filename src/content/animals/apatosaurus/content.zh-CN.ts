@@ -55,7 +55,7 @@ export const zhCN = {
       '不把迷惑龙与雷龙写成同一个名称；两者现通常作为近亲但不同的属处理。',
       '不把尾巴用途或群居行为写成确定事实。',
     ],
-    editedBy: 'Prehistoric Animal Museum primary-source research',
+    editedBy: 'WonZoo primary-source research',
     reviewedBy: 'Local remaining-four content pass',
     reviewedOn: '2026-07-27',
   },

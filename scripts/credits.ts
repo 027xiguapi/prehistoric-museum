@@ -24,7 +24,7 @@ function sourceAuthor(record: AssetProvenance): string {
     case 'generated':
       return record.source.tool
     case 'derived':
-      return 'Prehistoric Animal Museum'
+      return 'WonZoo'
   }
 }
 

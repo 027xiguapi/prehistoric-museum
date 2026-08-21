@@ -59,7 +59,7 @@ export const zhCN = {
       '1.5–13 米是跨多个蛇颈龙类成员的粗略范围，不可当作当前模型个体体长。',
       '鳍的相位配合会随体型和游速变化；本模型 Idle 只做低速展示性复原。',
     ],
-    editedBy: 'Prehistoric Animal Museum primary-source research',
+    editedBy: 'WonZoo primary-source research',
     reviewedBy: 'Project owner production review',
     reviewedOn: '2026-07-31',
   },

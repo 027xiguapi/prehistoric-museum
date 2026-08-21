@@ -49,7 +49,7 @@ export const zhCN = {
       '体长采用适合亲子阅读的近似范围，不把不同标本的估算写成单一精确值。',
       '不把骨板颜色和叫声描述成已经证实的事实。',
     ],
-    editedBy: 'Prehistoric Animal Museum implementation',
+    editedBy: 'WonZoo implementation',
     reviewedBy: 'First-slice content review',
     reviewedOn: '2026-07-27',
   },

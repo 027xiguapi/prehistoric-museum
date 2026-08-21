@@ -55,7 +55,7 @@ export const zhCN = {
       '不把前肢用途写成已有定论。',
       '儿童层避免血腥、追逐和捕食描写。',
     ],
-    editedBy: 'Prehistoric Animal Museum primary-source research',
+    editedBy: 'WonZoo primary-source research',
     reviewedBy: 'Local remaining-four content pass',
     reviewedOn: '2026-07-27',
   },

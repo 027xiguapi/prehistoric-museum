@@ -56,7 +56,7 @@ export const zhCN = {
       "模型装甲排列、角质鞘长度、体色和软组织属于审慎艺术复原。",
       "展签采用属级“胄甲龙”，不作种级断言；中文名称和肩刺形态已按本次展陈范围完成人工复核。"
     ],
-    "editedBy": "Prehistoric Animal Museum primary-source research",
+    "editedBy": "WonZoo primary-source research",
     "reviewedBy": "Project owner production review",
     "reviewedOn": "2026-07-31"
   }

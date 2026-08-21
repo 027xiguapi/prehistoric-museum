@@ -56,7 +56,7 @@ export const credits = [
     "assetPath": "images/poster-portrait.webp",
     "assetKind": "poster",
     "sourceTitle": "迷惑龙 transparent portrait model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as exact lossless WebP without text, controls, labels, logos, or watermarks."
@@ -68,7 +68,7 @@ export const credits = [
     "assetPath": "images/poster.webp",
     "assetKind": "poster",
     "sourceTitle": "迷惑龙 transparent model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as lossless WebP without text, controls, labels, logos, or watermarks."
@@ -80,7 +80,7 @@ export const credits = [
     "assetPath": "images/thumbnail.webp",
     "assetKind": "thumbnail",
     "sourceTitle": "迷惑龙 collection thumbnail",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Selected a card-size crop that keeps the animal readable.",
       "Exported without embedded text, controls, labels, logos, or watermarks."
@@ -157,7 +157,7 @@ export const credits = [
     "assetPath": "images/poster-portrait.webp",
     "assetKind": "poster",
     "sourceTitle": "双冠龙 transparent portrait model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as exact lossless WebP without text, controls, labels, logos, or watermarks."
@@ -169,7 +169,7 @@ export const credits = [
     "assetPath": "images/poster.webp",
     "assetKind": "poster",
     "sourceTitle": "双冠龙 transparent model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as lossless WebP without text, controls, labels, logos, or watermarks."
@@ -181,7 +181,7 @@ export const credits = [
     "assetPath": "images/thumbnail.webp",
     "assetKind": "thumbnail",
     "sourceTitle": "双冠龙 collection thumbnail",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Selected a card-size crop that keeps the animal readable.",
       "Exported without embedded text, controls, labels, logos, or watermarks."
@@ -258,7 +258,7 @@ export const credits = [
     "assetPath": "images/poster-portrait.webp",
     "assetKind": "poster",
     "sourceTitle": "巨盗龙 transparent portrait model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as exact lossless WebP without text, controls, labels, logos, or watermarks."
@@ -270,7 +270,7 @@ export const credits = [
     "assetPath": "images/poster.webp",
     "assetKind": "poster",
     "sourceTitle": "巨盗龙 transparent model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as lossless WebP without text, controls, labels, logos, or watermarks."
@@ -282,7 +282,7 @@ export const credits = [
     "assetPath": "images/thumbnail.webp",
     "assetKind": "thumbnail",
     "sourceTitle": "巨盗龙 collection thumbnail",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Resized and centred the complete silhouette with animal-specific safe margins.",
       "Encoded as 320 × 320 lossy WebP at quality 88 without text, controls, labels, logos, or watermarks."
@@ -359,7 +359,7 @@ export const credits = [
     "assetPath": "images/poster-portrait.webp",
     "assetKind": "poster",
     "sourceTitle": "鱼龙类 transparent portrait model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as exact lossless WebP without text, controls, labels, logos, or watermarks."
@@ -371,7 +371,7 @@ export const credits = [
     "assetPath": "images/poster.webp",
     "assetKind": "poster",
     "sourceTitle": "鱼龙类 transparent model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as lossless WebP without text, controls, labels, logos, or watermarks."
@@ -383,7 +383,7 @@ export const credits = [
     "assetPath": "images/thumbnail.webp",
     "assetKind": "thumbnail",
     "sourceTitle": "鱼龙类 collection thumbnail",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Selected a card-size crop that keeps the animal readable.",
       "Exported without embedded text, controls, labels, logos, or watermarks."
@@ -460,7 +460,7 @@ export const credits = [
     "assetPath": "images/poster-portrait.webp",
     "assetKind": "poster",
     "sourceTitle": "慈母龙 transparent portrait model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as exact lossless WebP without text, controls, labels, logos, or watermarks."
@@ -472,7 +472,7 @@ export const credits = [
     "assetPath": "images/poster.webp",
     "assetKind": "poster",
     "sourceTitle": "慈母龙 transparent model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as lossless WebP without text, controls, labels, logos, or watermarks."
@@ -484,7 +484,7 @@ export const credits = [
     "assetPath": "images/thumbnail.webp",
     "assetKind": "thumbnail",
     "sourceTitle": "慈母龙 collection thumbnail",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Selected a card-size crop that keeps the animal readable.",
       "Exported without embedded text, controls, labels, logos, or watermarks."
@@ -560,7 +560,7 @@ export const credits = [
     "assetPath": "images/poster-portrait.webp",
     "assetKind": "poster",
     "sourceTitle": "长毛猛犸象 transparent portrait model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as exact lossless WebP without text, controls, labels, logos, or watermarks."
@@ -572,7 +572,7 @@ export const credits = [
     "assetPath": "images/poster.webp",
     "assetKind": "poster",
     "sourceTitle": "长毛猛犸象 transparent model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as lossless WebP without text, controls, labels, logos, or watermarks."
@@ -584,7 +584,7 @@ export const credits = [
     "assetPath": "images/thumbnail.webp",
     "assetKind": "thumbnail",
     "sourceTitle": "长毛猛犸象 collection thumbnail",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Resized and centred the complete silhouette with animal-specific safe margins.",
       "Encoded as 320 × 320 lossy WebP at quality 88 without text, controls, labels, logos, or watermarks."
@@ -662,7 +662,7 @@ export const credits = [
     "assetPath": "images/poster-portrait.webp",
     "assetKind": "poster",
     "sourceTitle": "巨齿鲨 transparent portrait model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as exact lossless WebP without text, controls, labels, logos, or watermarks."
@@ -674,7 +674,7 @@ export const credits = [
     "assetPath": "images/poster.webp",
     "assetKind": "poster",
     "sourceTitle": "巨齿鲨 transparent model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as lossless WebP without text, controls, labels, logos, or watermarks."
@@ -686,7 +686,7 @@ export const credits = [
     "assetPath": "images/thumbnail.webp",
     "assetKind": "thumbnail",
     "sourceTitle": "巨齿鲨 collection thumbnail",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Selected a card-size crop that keeps the animal readable.",
       "Exported without embedded text, controls, labels, logos, or watermarks."
@@ -762,7 +762,7 @@ export const credits = [
     "assetPath": "images/poster-portrait.webp",
     "assetKind": "poster",
     "sourceTitle": "巨脉蜻蜓 transparent portrait model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as exact lossless WebP without text, controls, labels, logos, or watermarks."
@@ -774,7 +774,7 @@ export const credits = [
     "assetPath": "images/poster.webp",
     "assetKind": "poster",
     "sourceTitle": "巨脉蜻蜓 transparent model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as lossless WebP without text, controls, labels, logos, or watermarks."
@@ -786,7 +786,7 @@ export const credits = [
     "assetPath": "images/thumbnail.webp",
     "assetKind": "thumbnail",
     "sourceTitle": "巨脉蜻蜓 collection thumbnail",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Selected a card-size crop that keeps the animal readable.",
       "Exported without embedded text, controls, labels, logos, or watermarks."
@@ -862,7 +862,7 @@ export const credits = [
     "assetPath": "images/poster-portrait.webp",
     "assetKind": "poster",
     "sourceTitle": "沧龙 transparent portrait model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as exact lossless WebP without text, controls, labels, logos, or watermarks."
@@ -874,7 +874,7 @@ export const credits = [
     "assetPath": "images/poster.webp",
     "assetKind": "poster",
     "sourceTitle": "沧龙 transparent model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as lossless WebP without text, controls, labels, logos, or watermarks."
@@ -886,7 +886,7 @@ export const credits = [
     "assetPath": "images/thumbnail.webp",
     "assetKind": "thumbnail",
     "sourceTitle": "沧龙 collection thumbnail",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Selected a card-size crop that keeps the animal readable.",
       "Exported without embedded text, controls, labels, logos, or watermarks."
@@ -963,7 +963,7 @@ export const credits = [
     "assetPath": "images/poster-portrait.webp",
     "assetKind": "poster",
     "sourceTitle": "肿头龙 transparent portrait model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as exact lossless WebP without text, controls, labels, logos, or watermarks."
@@ -975,7 +975,7 @@ export const credits = [
     "assetPath": "images/poster.webp",
     "assetKind": "poster",
     "sourceTitle": "肿头龙 transparent model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as lossless WebP without text, controls, labels, logos, or watermarks."
@@ -987,7 +987,7 @@ export const credits = [
     "assetPath": "images/thumbnail.webp",
     "assetKind": "thumbnail",
     "sourceTitle": "肿头龙 collection thumbnail",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Selected a card-size crop that keeps the animal readable.",
       "Exported without embedded text, controls, labels, logos, or watermarks."
@@ -1062,7 +1062,7 @@ export const credits = [
     "assetPath": "images/poster-portrait.webp",
     "assetKind": "poster",
     "sourceTitle": "蛇颈龙类 transparent portrait model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as exact lossless WebP without text, controls, labels, logos, or watermarks."
@@ -1074,7 +1074,7 @@ export const credits = [
     "assetPath": "images/poster.webp",
     "assetKind": "poster",
     "sourceTitle": "蛇颈龙类 transparent model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as lossless WebP without text, controls, labels, logos, or watermarks."
@@ -1086,7 +1086,7 @@ export const credits = [
     "assetPath": "images/thumbnail.webp",
     "assetKind": "thumbnail",
     "sourceTitle": "蛇颈龙类 collection thumbnail",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Resized and centred the complete silhouette with animal-specific safe margins.",
       "Encoded as 320 × 320 lossy WebP at quality 88 without text, controls, labels, logos, or watermarks."
@@ -1163,7 +1163,7 @@ export const credits = [
     "assetPath": "images/poster-portrait.webp",
     "assetKind": "poster",
     "sourceTitle": "无齿翼龙 transparent portrait model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as exact lossless WebP without text, controls, labels, logos, or watermarks."
@@ -1175,7 +1175,7 @@ export const credits = [
     "assetPath": "images/poster.webp",
     "assetKind": "poster",
     "sourceTitle": "无齿翼龙 transparent model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as lossless WebP without text, controls, labels, logos, or watermarks."
@@ -1187,7 +1187,7 @@ export const credits = [
     "assetPath": "images/thumbnail.webp",
     "assetKind": "thumbnail",
     "sourceTitle": "无齿翼龙 collection thumbnail",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Resized and centred the complete silhouette with animal-specific safe margins.",
       "Encoded as 320 × 320 lossy WebP at quality 88 without text, controls, labels, logos, or watermarks."
@@ -1263,7 +1263,7 @@ export const credits = [
     "assetPath": "images/poster-portrait.webp",
     "assetKind": "poster",
     "sourceTitle": "喙嘴翼龙 transparent portrait model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as exact lossless WebP without text, controls, labels, logos, or watermarks."
@@ -1275,7 +1275,7 @@ export const credits = [
     "assetPath": "images/poster.webp",
     "assetKind": "poster",
     "sourceTitle": "喙嘴翼龙 transparent model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as lossless WebP without text, controls, labels, logos, or watermarks."
@@ -1287,7 +1287,7 @@ export const credits = [
     "assetPath": "images/thumbnail.webp",
     "assetKind": "thumbnail",
     "sourceTitle": "喙嘴翼龙 collection thumbnail",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Selected a card-size crop that keeps the animal readable.",
       "Exported without embedded text, controls, labels, logos, or watermarks."
@@ -1363,7 +1363,7 @@ export const credits = [
     "assetPath": "images/poster-portrait.webp",
     "assetKind": "poster",
     "sourceTitle": "胄甲龙 transparent portrait model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as exact lossless WebP without text, controls, labels, logos, or watermarks."
@@ -1375,7 +1375,7 @@ export const credits = [
     "assetPath": "images/poster.webp",
     "assetKind": "poster",
     "sourceTitle": "胄甲龙 transparent model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as lossless WebP without text, controls, labels, logos, or watermarks."
@@ -1387,7 +1387,7 @@ export const credits = [
     "assetPath": "images/thumbnail.webp",
     "assetKind": "thumbnail",
     "sourceTitle": "胄甲龙 collection thumbnail",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Selected a card-size crop that keeps the animal readable.",
       "Exported without embedded text, controls, labels, logos, or watermarks."
@@ -1463,7 +1463,7 @@ export const credits = [
     "assetPath": "images/poster-portrait.webp",
     "assetKind": "poster",
     "sourceTitle": "Stegosaurus transparent portrait model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as exact lossless WebP without text, controls, labels, logos, or watermarks."
@@ -1475,7 +1475,7 @@ export const credits = [
     "assetPath": "images/poster.webp",
     "assetKind": "poster",
     "sourceTitle": "Stegosaurus transparent model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as exact lossless WebP without text, controls, labels, logos, or watermarks."
@@ -1487,7 +1487,7 @@ export const credits = [
     "assetPath": "images/thumbnail.webp",
     "assetKind": "thumbnail",
     "sourceTitle": "Stegosaurus collection thumbnail",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Replaced the letterboxed overview with a closer crop that keeps the head and back plates readable at card size.",
       "Exported a 320 × 320 WebP without embedded text, controls, or labels."
@@ -1564,7 +1564,7 @@ export const credits = [
     "assetPath": "images/poster-portrait.webp",
     "assetKind": "poster",
     "sourceTitle": "三角龙 transparent portrait model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as exact lossless WebP without text, controls, labels, logos, or watermarks."
@@ -1576,7 +1576,7 @@ export const credits = [
     "assetPath": "images/poster.webp",
     "assetKind": "poster",
     "sourceTitle": "三角龙 transparent model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as lossless WebP without text, controls, labels, logos, or watermarks."
@@ -1588,7 +1588,7 @@ export const credits = [
     "assetPath": "images/thumbnail.webp",
     "assetKind": "thumbnail",
     "sourceTitle": "三角龙 collection thumbnail",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Resized and centred the complete silhouette with animal-specific safe margins.",
       "Encoded as 320 × 320 lossy WebP at quality 88 without text, controls, labels, logos, or watermarks."
@@ -1665,7 +1665,7 @@ export const credits = [
     "assetPath": "images/poster-portrait.webp",
     "assetKind": "poster",
     "sourceTitle": "古神翼龙 transparent portrait model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as exact lossless WebP without text, controls, labels, logos, or watermarks."
@@ -1677,7 +1677,7 @@ export const credits = [
     "assetPath": "images/poster.webp",
     "assetKind": "poster",
     "sourceTitle": "古神翼龙 transparent model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as lossless WebP without text, controls, labels, logos, or watermarks."
@@ -1689,7 +1689,7 @@ export const credits = [
     "assetPath": "images/thumbnail.webp",
     "assetKind": "thumbnail",
     "sourceTitle": "古神翼龙 collection thumbnail",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Selected a card-size crop that keeps the animal readable.",
       "Exported without embedded text, controls, labels, logos, or watermarks."
@@ -1766,7 +1766,7 @@ export const credits = [
     "assetPath": "images/poster-portrait.webp",
     "assetKind": "poster",
     "sourceTitle": "霸王龙 transparent portrait model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as exact lossless WebP without text, controls, labels, logos, or watermarks."
@@ -1778,7 +1778,7 @@ export const credits = [
     "assetPath": "images/poster.webp",
     "assetKind": "poster",
     "sourceTitle": "霸王龙 transparent model still",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as lossless WebP without text, controls, labels, logos, or watermarks."
@@ -1790,7 +1790,7 @@ export const credits = [
     "assetPath": "images/thumbnail.webp",
     "assetKind": "thumbnail",
     "sourceTitle": "霸王龙 collection thumbnail",
-    "author": "Prehistoric Animal Museum",
+    "author": "WonZoo",
     "modifications": [
       "Selected a card-size crop that keeps the animal readable.",
       "Exported without embedded text, controls, labels, logos, or watermarks."

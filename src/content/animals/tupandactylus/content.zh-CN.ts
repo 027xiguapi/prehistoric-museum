@@ -61,7 +61,7 @@ export const zhCN = {
       "无齿喙和巨大软组织头冠有化石证据；冠饰颜色、花纹与展示功能未知。",
       "食植物与飞行距离限制是已提出的解释，不作为儿童层确定事实。"
     ],
-    "editedBy": "Prehistoric Animal Museum primary-source research",
+    "editedBy": "WonZoo primary-source research",
     "reviewedBy": "Project owner production review",
     "reviewedOn": "2026-08-01"
   }

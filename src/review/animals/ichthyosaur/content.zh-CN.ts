@@ -56,7 +56,7 @@ export const zhCN = {
       '类群体型范围不能解释为当前模型个体的体长。',
       '肉食是界面层的群体级概括，不表示所有鱼龙类吃同一种食物。',
     ],
-    editedBy: 'Prehistoric Animal Museum primary-source research',
+    editedBy: 'WonZoo primary-source research',
     reviewedBy: 'Local collection-review content pass',
     reviewedOn: '2026-07-27',
   },
