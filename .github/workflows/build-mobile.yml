@@ -53,6 +53,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      # package.json is the single source of truth for the app version: stamp
+      # it into the native projects (versionName/versionCode,
+      # MARKETING_VERSION/CURRENT_PROJECT_VERSION) before building.
+      - name: Sync native versions
+        run: pnpm run sync:version
+
       # Static-export the Next.js app into `out/` and drop the remote animal
       # assets (models/audio are fetched on demand from NEXT_PUBLIC_ASSET_ORIGIN).
       - name: Build web bundle
@@ -95,6 +101,12 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      # package.json is the single source of truth for the app version: stamp
+      # it into the native projects (versionName/versionCode,
+      # MARKETING_VERSION/CURRENT_PROJECT_VERSION) before building.
+      - name: Sync native versions
+        run: pnpm run sync:version
 
       # Static-export the Next.js app into `out/` and drop the remote animal
       # assets (models/audio are fetched on demand from NEXT_PUBLIC_ASSET_ORIGIN).

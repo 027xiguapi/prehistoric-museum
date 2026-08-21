@@ -2,10 +2,11 @@ import posterPortraitUrl from './images/poster-portrait.webp'
 import posterUrl from './images/poster.webp'
 import thumbnailUrl from './images/thumbnail.webp'
 
-// Draft preview only: borrow the pteranodon backdrop until a atlas-moth
-// scene exists. Never shipped to production (drafts are excluded there).
-import landscapeUrl from '../pteranodon/backgrounds/landscape.webp'
-import portraitUrl from '../pteranodon/backgrounds/portrait.webp'
+// Draft preview only: the animal's own generated scene backdrop (prompt
+// and generation record live in backgrounds/background-generation.txt).
+// Never shipped to production (drafts are excluded there).
+import landscapeUrl from './backgrounds/landscape.webp'
+import portraitUrl from './backgrounds/portrait.webp'
 
 import { imageUrl } from '../../create-runtime-animal'
 import { animalAssetUrl } from '../../remote-assets'
