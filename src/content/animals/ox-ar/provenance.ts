@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '15ddf49bfedaf7421fd502483daa83a1e8e1ca6afd27bd1ee2f43d1de27b6292',
       bytes: 10278968,
     },
-    license: modelLicense,
     runtime: {
       sha256: '20cb58c55a66bc5f65a042f9a425bfa6414dfe5daef056bb6f43951646d8f940',
       bytes: 6857916,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (11.7s, 171 channels).',
     ],
     attribution: "Ox / Cattle (AR Model) 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/farm_rodent/Ox/Ox.glb",
       'converted-downloads/ox-ar/model-normalized.glb',

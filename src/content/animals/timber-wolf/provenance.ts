@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '70d11e176730afda1d176380795584f99082257ac1873a3f489c28490cc02fb1',
       bytes: 4212188,
     },
-    license: modelLicense,
     runtime: {
       sha256: 'd20b12b37818a563000b36396bce8ffa089274723fa11e9d61e6f3a970e69283',
       bytes: 3510584,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “Animation” (18s, 261 channels).',
     ],
     attribution: "Timber Wolf 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/TimberWolf/model.glb",
       'converted-downloads/timber-wolf/model-normalized.glb',

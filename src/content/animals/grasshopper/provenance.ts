@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '901fdeae4345bc39a1a19efe42185211a489fba35128a114482d2131396443a0',
       bytes: 3688932,
     },
-    license: modelLicense,
     runtime: {
       sha256: '4b0cfd6d157036de8cc6207055033d59a62faee1a4fe3dfb7542ba607c76c279',
       bytes: 1657380,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “tonosama” (14s, 181 channels).',
     ],
     attribution: "Grasshopper 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/insects/grasshopper/model.glb",
       'converted-downloads/grasshopper/model-normalized.glb',

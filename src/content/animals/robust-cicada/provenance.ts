@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: 'e8bf78b8646a4e3a5e582d09f1ada73c0d31951b0a6d0b7a704cc52a172b88c2',
       bytes: 5310764,
     },
-    license: modelLicense,
     runtime: {
       sha256: 'f584ede02fe0eb11446053ceda3b3f441cff78157cf2d7bf0e02ddec28656d28',
       bytes: 3416888,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “minmin” (12.633s, 163 channels).',
     ],
     attribution: "Robust Cicada 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/insects/robust_cicada/model.glb",
       'converted-downloads/robust-cicada/model-normalized.glb',

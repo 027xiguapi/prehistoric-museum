@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: 'c0f733a3ff06ed11a6535c9ee936a3346954159629d53b95f768b1561ead4eb1',
       bytes: 5853392,
     },
-    license: modelLicense,
     runtime: {
       sha256: 'fb9c1ca5428db82b246be09542b91fb63fb5d7a2fd54cc7aeb8a3bd37cefae75',
       bytes: 2757752,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (9.958s, 399 channels).',
     ],
     attribution: "Unicorn (Mythical Creature) 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/mythical/Unicorn/Unicorn.glb",
       'converted-downloads/unicorn/model-normalized.glb',

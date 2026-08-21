@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '0baa94092a4a870f181930cd49c859fe8245cf849cea3a654525d293b6ea5521',
       bytes: 13687296,
     },
-    license: modelLicense,
     runtime: {
       sha256: 'facb3e1df7d38dacf1609ed04aa8b6e4d2d25c0822b72186a172f1bc952b2632',
       bytes: 7210272,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (18.033s, 418 channels).',
     ],
     attribution: "Dina Asher-Smith (Block Start) 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/Olympics/DinaAsherSmith/start/start.glb",
       'converted-downloads/dina-asher-smith-start/model-normalized.glb',

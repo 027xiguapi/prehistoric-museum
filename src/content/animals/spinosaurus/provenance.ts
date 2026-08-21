@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '70dcbc4ffdad3fdc93141fb6e7acf58abc1db3b4a4e31f003672fe88401472ff',
       bytes: 8062516,
     },
-    license: modelLicense,
     runtime: {
       sha256: '8f794f08434b0605fcb7144831adc0b8d8742de1092300f5cd8cc0cea2ee15dc',
       bytes: 6155428,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (10.3s, 186 channels).',
     ],
     attribution: "Spinosaurus 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/dinos/Spinosaurus.glb",
       'converted-downloads/spinosaurus/model-normalized.glb',

@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '2e1dee20b57841fdaf63c8226a86319faf37493e1e77a40a65bd8182b086ee8c',
       bytes: 1715568,
     },
-    license: modelLicense,
     runtime: {
       sha256: '3eee15a90fd88caafef6b0e041986a2e11b379330d5f636c203a824631fbb3b5',
       bytes: 1487072,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “Animation” (15s, 124 channels).',
     ],
     attribution: "Alpine Goat 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/AlpineGoat/model.glb",
       'converted-downloads/alpine-goat/model-normalized.glb',

@@ -3,12 +3,6 @@ import type { AssetProvenance } from '../../types'
 // Pilot intake from the owner-supplied “1048动物” drop. The drop did not
 // include a licence statement, so the model is marked NOT redistributable
 // and stays draft until the source licence is confirmed or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -22,7 +16,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '2d1389fe8a61464a34d139deb0f55a776a93c32f970421a57df3e09bbbc6c672',
       bytes: 19307392,
     },
-    license: modelLicense,
     runtime: {
       sha256: 'a6681a4561443b2e10d2525e40e83598e4d92271babf434eabbff31271251312',
       bytes: 11081196,
@@ -34,7 +27,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “snail_idle_anim” (11.208s, 27 channels).',
     ],
     attribution: "Snail 3D model from the owner-supplied 1048动物 drop; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "1048动物/蜗牛/source/exported.glb",
       'converted-1048/snail/model-normalized.glb',

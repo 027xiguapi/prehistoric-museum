@@ -66,8 +66,6 @@ export const animal = {
     modelCredit: {
       attribution:
         '“Mosasaurus” by Lukiethewesly13, CC BY 4.0; source pose and a source-rig partial jaw target baked, helper controls removed, normalized, and given a project-authored eight-second tail-driven morph-target Idle with jaw relaxation for local review.',
-      licenseName: 'Creative Commons Attribution 4.0 International',
-      licenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
       sourceTitle: 'Mosasaurus',
       sourceUrl:
         'https://sketchfab.com/3d-models/mosasaurus-fe0c25c4ed4e4d4aa05312121e2f68df',

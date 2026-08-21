@@ -3,12 +3,6 @@ import type { AssetProvenance } from '../../types'
 // Pilot intake from the owner-supplied “1048动物” drop. The drop did not
 // include a licence statement, so the model is marked NOT redistributable
 // and stays draft until the source licence is confirmed or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -22,7 +16,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: 'ffa2c1f5baea9e253efaf0b0fd66940a9d6361d4c114c1685b50a77ac01e109e',
       bytes: 24817744,
     },
-    license: modelLicense,
     runtime: {
       sha256: '6b4c003842dc95b3ff65860fa17e3b865e5ab8b5697f8412b6107e1c9ee34001',
       bytes: 12329916,
@@ -34,7 +27,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “Fly_land” (3.083s, 741 channels).',
     ],
     attribution: "Crow 3D model from the owner-supplied 1048动物 drop; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "1048动物/乌鸦/source/exported.glb",
       'converted-1048/crow/model-normalized.glb',

@@ -66,8 +66,6 @@ export const animal = {
     modelCredit: {
       attribution:
         '“3D High-poly Baby Woolly Mammoth” by SDPM Esare, CC BY 4.0; normalized and rigged in Blender with repaired neck weights and an in-place head-and-tail museum Idle.',
-      licenseName: 'Creative Commons Attribution 4.0 International',
-      licenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
       sourceTitle: '3D High-poly Baby Woolly Mammoth',
       sourceUrl:
         'https://sketchfab.com/3d-models/3d-high-poly-baby-woolly-mammoth-fce1c86ccedf47a5b9627098be6719d5',

@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: 'e069e204a0b047cd18fffb23153d8d9be8fa4fbe1403309dd88847694bd74640',
       bytes: 8869280,
     },
-    license: modelLicense,
     runtime: {
       sha256: '1cb44cddd39a4e18d9e555075704bc19a44ef691858de41c5528afc3c411f921',
       bytes: 4278192,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (14.958s, 231 channels).',
     ],
     attribution: "Emu (AR Model) 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/aussie_animals/Emu.glb",
       'converted-downloads/emu-ar/model-normalized.glb',

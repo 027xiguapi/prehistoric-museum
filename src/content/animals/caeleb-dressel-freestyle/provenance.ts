@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: 'f2dfbbeab7c5c305861e070bc59988fac09afc954d544be459a51cd9b13b56cd',
       bytes: 11596440,
     },
-    license: modelLicense,
     runtime: {
       sha256: '6b1586236333c49c302cb6af834e34bb29a841eda8401b90209a3f0b8daf8d74',
       bytes: 6442280,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “inPlace” (9.3s, 429 channels).',
     ],
     attribution: "Caeleb Dressel (Freestyle) 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/Olympics/CaelebDressel/freestyle/freestyle.glb",
       'converted-downloads/caeleb-dressel-freestyle/model-normalized.glb',

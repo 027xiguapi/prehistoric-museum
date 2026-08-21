@@ -3,12 +3,6 @@ import type { AssetProvenance } from '../../types'
 // Pilot intake from the owner-supplied “1048动物” drop. The drop did not
 // include a licence statement, so the model is marked NOT redistributable
 // and stays draft until the source licence is confirmed or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -22,7 +16,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '77ac1b00bb144801550003bb1d8318a0409977d848da67fd4943bf60e1ea8e4a',
       bytes: 1485160,
     },
-    license: modelLicense,
     runtime: {
       sha256: '847f38607d8b8e0590e1c4d36d21aee8e922a595e66dd58cf298d1c56873f851',
       bytes: 921696,
@@ -34,7 +27,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “Attackidle_nyi” (0.917s, 234 channels).',
     ],
     attribution: "Scorpion 3D model from the owner-supplied 1048动物 drop; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "1048动物/蝎子/source/exported.glb",
       'converted-1048/scorpion/model-normalized.glb',

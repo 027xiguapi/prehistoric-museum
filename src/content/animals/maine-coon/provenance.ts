@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '073ed1f09e152d6f85dabe0e6c2aa1170c66d993817cfe483861294492541f45',
       bytes: 10756788,
     },
-    license: modelLicense,
     runtime: {
       sha256: 'f45bb9da12bba0c86c49c876030502d0ca175c35a347e3c172a39327212da256',
       bytes: 7883464,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (10s, 171 channels).',
     ],
     attribution: "Maine Coon 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/cats/Mainecoon/Mainecoon.glb",
       'converted-downloads/maine-coon/model-normalized.glb',

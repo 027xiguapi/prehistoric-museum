@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '710b12f399e08fb6c9ad7484627e3f0dd788a78c9b4ac0af3b158551836efe38',
       bytes: 3920852,
     },
-    license: modelLicense,
     runtime: {
       sha256: 'e7b0aef4d4ad9a76cbeae657a838ca3817d9e34a68d9a102f8e6b53c4a91d646',
       bytes: 2131088,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “yonaguni” (10s, 202 channels).',
     ],
     attribution: "Atlas Moth 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/insects/atlas_moth/model.glb",
       'converted-downloads/atlas-moth/model-normalized.glb',

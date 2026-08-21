@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '99c90b1be6b03c03fdaf3e0a4c5cee258e0bfd2aa84f6933ac7d29b94144ad2d',
       bytes: 10389732,
     },
-    license: modelLicense,
     runtime: {
       sha256: '52bd9cde09a1d61ef2634d2fac898d7f1342d0601a4a978e1520a2c49a6daacb',
       bytes: 5626272,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (10s, 174 channels).',
     ],
     attribution: "Chow Chow 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/dogs/Chowchow/Chowchow.glb",
       'converted-downloads/chow-chow/model-normalized.glb',

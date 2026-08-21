@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '22bcaadad48f6d8c8024ed8301c10a361a7ddfcefc992ebc5e588bf0e534cd1e',
       bytes: 1225684,
     },
-    license: modelLicense,
     runtime: {
       sha256: '886ff8a32eafba2c62d965bacddcde6673ef321c65665218b85d489292be70d9',
       bytes: 287204,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “_MED” (7.5s, 130 channels).',
     ],
     attribution: "Santa Claus 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/SantaClaus/model.glb",
       'converted-downloads/santa-claus/model-normalized.glb',

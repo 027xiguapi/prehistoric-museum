@@ -58,8 +58,6 @@ export const animal = {
     modelCredit: {
       attribution:
         '“Tupandactylus” by Paleo Modelist (@victory_), CC BY 4.0; visible source pose baked, textured meshes joined, deformation topology subdivided, restrained surface response added, transforms normalized, and the source animation replaced with a project-authored eight-second in-place morph-target Idle including a conservative lower-jaw close/open cycle for local review.',
-      licenseName: 'Creative Commons Attribution 4.0 International',
-      licenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
       sourceTitle: 'Tupandactylus',
       sourceUrl:
         'https://sketchfab.com/3d-models/tupandactylus-4ea8f4466c2c4e61bc57c12af296d43a',

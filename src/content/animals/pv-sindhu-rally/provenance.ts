@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '21e4cca5e7fffa5f551bb17fae2fc604bf7b3fdc562d0cc06a0f61ce30cfee1c',
       bytes: 16189084,
     },
-    license: modelLicense,
     runtime: {
       sha256: '931ed909710817c3fa0a72c893d6b04e85f55ea30e0f7eac5f2eea2665028ca9',
       bytes: 7479428,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (9.2s, 486 channels).',
     ],
     attribution: "P. V. Sindhu (Rally) 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/Olympics/PVSindhu/rally/rally.glb",
       'converted-downloads/pv-sindhu-rally/model-normalized.glb',

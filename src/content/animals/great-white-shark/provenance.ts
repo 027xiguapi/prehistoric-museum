@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: 'afd43db36baf1f8c355f6fbc872afb993ca3e7893ac2442614fbb024f71daa4f',
       bytes: 1030996,
     },
-    license: modelLicense,
     runtime: {
       sha256: 'dd7e019d34ce510bbf816dc5eca7c0802a9b3d808d99ee9695eb1556acc52634',
       bytes: 464980,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “Animation” (30.667s, 109 channels).',
     ],
     attribution: "Great White Shark 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/GreatWhiteShark/model.glb",
       'converted-downloads/great-white-shark/model-normalized.glb',

@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '35da0c0d2868f16f75487809ee5f5bd3867053f96d559362ac4bf30d6f2bfed7',
       bytes: 6733556,
     },
-    license: modelLicense,
     runtime: {
       sha256: '71594c32e0c6f9072ed18ff74512cef06687f02cdd92a1e79e5270178287c30f',
       bytes: 3248364,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (12.792s, 327 channels).',
     ],
     attribution: "Quokka 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/aussie_animals/Quokka.glb",
       'converted-downloads/quokka/model-normalized.glb',

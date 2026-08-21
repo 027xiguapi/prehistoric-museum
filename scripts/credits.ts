@@ -57,8 +57,6 @@ export function buildCreditEntries(
             assetKind: record.kind,
             sourceTitle: sourceTitle(record),
             author: sourceAuthor(record),
-            licenseName: record.license.name,
-            licenseUrl: record.license.url,
             ...(url === undefined ? {} : { sourceUrl: url }),
             attribution: record.attribution,
             modifications: record.modifications,
@@ -107,7 +105,6 @@ export function renderThirdPartyNotices(
 
 - Asset type: ${record.kind}
 - Source: ${sourceLine(record)}
-- License: [${record.license.name}](${record.license.url})
 - Attribution: ${record.attribution}
 - Runtime SHA-256: \`${record.runtime.sha256}\`
 - Modifications:

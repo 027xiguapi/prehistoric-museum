@@ -15,11 +15,6 @@ export const provenance = [
       "sha256": "03f67116c7c171e9a89192805b79724faa81b35097587edb386185dfd8cb51ce",
       "bytes": 5018936
     },
-    "license": {
-      "spdx": "CC-BY-4.0",
-      "name": "Creative Commons Attribution 4.0 International",
-      "url": "https://creativecommons.org/licenses/by/4.0/"
-    },
     "runtime": {
       "bytes": 3172348,
       "sha256": "5071da06a8a12bf0e3396d84bd3bfd86a3f9f378f322cda53bd69cc3541aa47d"
@@ -51,11 +46,6 @@ export const provenance = [
       "sha256": "e1b6c794a72a807cd250fa4572b24ac999e2a2ea7b5cdab35236ca1b3b94b0b8",
       "bytes": 2239942
     },
-    "license": {
-      "spdx": "CC-BY-NC-SA-4.0",
-      "name": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-      "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
-    },
     "runtime": {
       "bytes": 116250,
       "sha256": "3cd7a9a2c81a8ba67da79731de3bdc050f33ba1d6d9e8d1dce9ecb077a5c7a7a"
@@ -82,11 +72,6 @@ export const provenance = [
       "sha256": "454e28016318e0ccdb492e8832895d182a08f219a9b8908d352e1e674cb33e4e",
       "bytes": 2020976
     },
-    "license": {
-      "spdx": "CC-BY-NC-SA-4.0",
-      "name": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-      "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
-    },
     "runtime": {
       "bytes": 84494,
       "sha256": "bd3d2bd66c8163e5fcb6520ca1560fd44870ef8ea644bb1585e6cf214ed2141a"
@@ -112,11 +97,6 @@ export const provenance = [
         "model/model.glb"
       ],
       "method": "Rendered the deterministic first animation frame at the normal 1200 × 675 landscape runtime camera, composition, size, pose, and lighting; preserved transparent pixels outside the model and contact shadow."
-    },
-    "license": {
-      "spdx": "CC-BY-4.0",
-      "name": "Creative Commons Attribution 4.0 International",
-      "url": "https://creativecommons.org/licenses/by/4.0/"
     },
     "runtime": {
       "bytes": 50936,
@@ -145,11 +125,6 @@ export const provenance = [
         "model/model.glb"
       ],
       "method": "Rendered the deterministic first animation frame at the normal 390 × 844 portrait runtime camera, composition, size, pose, and lighting; preserved transparent pixels outside the model and contact shadow."
-    },
-    "license": {
-      "spdx": "CC-BY-4.0",
-      "name": "Creative Commons Attribution 4.0 International",
-      "url": "https://creativecommons.org/licenses/by/4.0/"
     },
     "runtime": {
       "bytes": 9952,
@@ -180,11 +155,6 @@ export const provenance = [
       ],
       "method": "Captured the current 1440 × 900 desktop presentation in model focus mode, cropped a clean 700 × 700 animal-and-habitat region, resized it to 320 × 320, and encoded it as WebP."
     },
-    "license": {
-      "spdx": "CC-BY-4.0",
-      "name": "Creative Commons Attribution 4.0 International",
-      "url": "https://creativecommons.org/licenses/by/4.0/"
-    },
     "runtime": {
       "bytes": 12150,
       "sha256": "96a2b1a38afb6e17f80fd32f69429a7764fdc42578205c6edb61ea521a3ba64f"
@@ -214,11 +184,6 @@ export const provenance = [
       "prompt": "这是沧龙，一种生活在晚白垩世海洋里的大型有鳞类爬行动物，它并不是恐龙。看看它的鳍状肢和有力的尾部，你能想象它怎样在海水中向前游吗？",
       "sha256": "417548bc44f44d906ab32ba9008fc164cda38c6583f519b4e01e68d993c5b6e9",
       "bytes": 140685
-    },
-    "license": {
-      "spdx": "CC-BY-NC-SA-4.0",
-      "name": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-      "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
     },
     "runtime": {
       "bytes": 140685,

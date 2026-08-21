@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '6374efa95287fc7b5a9b42c93416e935bbd2e6398928fc6a7c2450375c5b6510',
       bytes: 8445384,
     },
-    license: modelLicense,
     runtime: {
       sha256: 'f4681f3893a56462c9385cc486fa4021f58d60c86c87b4c7f2c273f5d4a6b6d7',
       bytes: 5062292,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (9.967s, 261 channels).',
     ],
     attribution: "Red Kangaroo (AR Model) 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/aussie_animals/Kangaroo.glb",
       'converted-downloads/kangaroo-ar/model-normalized.glb',

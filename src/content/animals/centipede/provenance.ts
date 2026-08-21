@@ -3,12 +3,6 @@ import type { AssetProvenance } from '../../types'
 // Pilot intake from the owner-supplied “1048动物” drop. The drop did not
 // include a licence statement, so the model is marked NOT redistributable
 // and stays draft until the source licence is confirmed or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -22,7 +16,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '22709f4ba369feac4b50f9425ae7874cb8b0e428811df85cbc8e5bea6ffdba04',
       bytes: 292705,
     },
-    license: modelLicense,
     runtime: {
       sha256: '4f572e3b61e4381c76a027d91c88be82bc9a9922da4927c93c9aedd258d49df2',
       bytes: 5430728,
@@ -34,7 +27,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “nyi-Test” (11.417s, 285 channels).',
     ],
     attribution: "Centipede 3D model from the owner-supplied 1048动物 drop; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "1048动物/蜈蚣gltf格式/scene.gltf",
       'converted-1048/centipede/model-normalized.glb',

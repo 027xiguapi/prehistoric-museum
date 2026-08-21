@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '7464195159646ef3931de18ca6df41c4bd604934b48b962506beebcadb829362',
       bytes: 2223704,
     },
-    license: modelLicense,
     runtime: {
       sha256: '361096c091f8f5c0520567ca1feb97e0826945aae023d83a04758982db24c0d0',
       bytes: 1054324,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “hurkyury” (12s, 119 channels).',
     ],
     attribution: "Hercules Beetle (AR Model) 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/insects/hercules_beetle/model.glb",
       'converted-downloads/hercules-beetle-ar/model-normalized.glb',

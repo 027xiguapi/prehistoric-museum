@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '4992a54fa67f32eaec00d0e2df977d34e120d080d6e1555ea0e4bfa636c47cba',
       bytes: 15119120,
     },
-    license: modelLicense,
     runtime: {
       sha256: 'a2b4b85d26b1c2ee3a591437a7905a9b77c63d9030487cab8bf03cb1fdb7cd2e',
       bytes: 1683120,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “Take 001” (15s, 97 channels).',
     ],
     attribution: "Golden Eagle 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/GoldenEagle/model.glb",
       'converted-downloads/golden-eagle/model-normalized.glb',

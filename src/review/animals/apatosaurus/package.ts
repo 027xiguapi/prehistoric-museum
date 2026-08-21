@@ -72,9 +72,6 @@ export const animal = {
     modelCredit: {
       attribution:
         '“Apatosaurus” by toro ardido modelos 3d, CC BY 4.0; locally rebuilt with welded duplicate vertices, project-authored PBR skin maps, canonical transforms, and an eight-second morph-target Idle.',
-      licenseName: 'Creative Commons Attribution 4.0 International',
-      licenseUrl:
-        'https://creativecommons.org/licenses/by/4.0/',
       sourceTitle: 'Apatosaurus',
       sourceUrl:
         'https://sketchfab.com/3d-models/apatosaurus-fecabec8e4ef42ef98b5480dbf50c57d',

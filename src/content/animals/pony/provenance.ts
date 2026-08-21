@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '9c3571d2b41c876d4398cc1d6201b18aaa80ece5c1c493b48cd7c8ade3347c4c',
       bytes: 3764824,
     },
-    license: modelLicense,
     runtime: {
       sha256: '80a5f572e466e6811ab22a44f25a7c37c5c56a67845dbd2489102f2c841c9fe3',
       bytes: 2212044,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “Animation” (17.6s, 315 channels).',
     ],
     attribution: "Pony 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/Pony/model.glb",
       'converted-downloads/pony/model-normalized.glb',

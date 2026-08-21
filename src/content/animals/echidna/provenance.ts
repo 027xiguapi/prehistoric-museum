@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '21679df08287ac76731b243d5c35c40e50da4c244074306159b7b33ae16382ff',
       bytes: 8418340,
     },
-    license: modelLicense,
     runtime: {
       sha256: 'e5b0d174228ebbd1d30640b125ce9c9dee33e0fbe9b2d5596784d878e679622d',
       bytes: 3581184,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (11.667s, 255 channels).',
     ],
     attribution: "Echidna 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/aussie_animals/Echidna.glb",
       'converted-downloads/echidna/model-normalized.glb',

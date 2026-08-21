@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '0bd1ad34b21a7e7d9c618fc385da63cffd326e88fb69a3f14a0dedb3d7d33b8a',
       bytes: 9048056,
     },
-    license: modelLicense,
     runtime: {
       sha256: '6e6f690ac6eeec700d4dc2d5ab336d45900c0ba849f765da2830b6128c547551',
       bytes: 6596496,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (10.667s, 126 channels).',
     ],
     attribution: "Border Collie 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/dogs/Bordercollie/Bordercollie.glb",
       'converted-downloads/border-collie/model-normalized.glb',

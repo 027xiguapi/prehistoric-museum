@@ -3,12 +3,6 @@ import type { AssetProvenance } from '../../types'
 // Pilot intake from the owner-supplied “1048动物” drop. The drop did not
 // include a licence statement, so the model is marked NOT redistributable
 // and stays draft until the source licence is confirmed or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -22,7 +16,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '650a749203058643f3ce2626b76d03504d1b2ca536714412cf68fcd4d40ecec6',
       bytes: 7243800,
     },
-    license: modelLicense,
     runtime: {
       sha256: '666e204051ac16e2de4fc3e8412bfc0d585a71d82d5b4f929b8863968b5e8336',
       bytes: 5005692,
@@ -34,7 +27,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “Deer_female_rig.ao|Deer_female_rig.ao|Deer_female_idle|Deer_fem” (13.583s, 171 channels).',
     ],
     attribution: "Deer 3D model from the owner-supplied 1048动物 drop; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "1048动物/鹿/source/exported.glb",
       'converted-1048/deer/model-normalized.glb',

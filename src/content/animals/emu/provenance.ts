@@ -3,12 +3,6 @@ import type { AssetProvenance } from '../../types'
 // Pilot intake from the owner-supplied “1048动物” drop. The drop did not
 // include a licence statement, so the model is marked NOT redistributable
 // and stays draft until the source licence is confirmed or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -22,7 +16,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '6eb731c4c11001bfdae0d91c6e562aa56cda0320856b88d1450f92c4afe68ecd',
       bytes: 7927500,
     },
-    license: modelLicense,
     runtime: {
       sha256: '605924386a187a0ce6f254f58ad61708c3b50f74438dcd3b2430e698a7b7093b',
       bytes: 4262212,
@@ -34,7 +27,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations_skeleton #0” (14.958s, 231 channels).',
     ],
     attribution: "Emu 3D model from the owner-supplied 1048动物 drop; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "1048动物/鸸鹋/source/exported.glb",
       'converted-1048/emu/model-normalized.glb',

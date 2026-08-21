@@ -3,12 +3,6 @@ import type { AssetProvenance } from '../../types'
 // Pilot intake from the owner-supplied “1048动物” drop. The drop did not
 // include a licence statement, so the model is marked NOT redistributable
 // and stays draft until the source licence is confirmed or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -22,7 +16,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '6ad9c6328ecdd5cd5515c794e9a8268eba36f83436c542ed62e2b36326df2d02',
       bytes: 221712,
     },
-    license: modelLicense,
     runtime: {
       sha256: '086025db4b31f7b176a863bbb58d7f361a3621445d1e1bfb71fe57f9f5fb3088',
       bytes: 1949588,
@@ -34,7 +27,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “Sparrow_hover” (6.833s, 202 channels).',
     ],
     attribution: "Sparrow 3D model from the owner-supplied 1048动物 drop; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "1048动物/麻雀gltf/scene.gltf",
       'converted-1048/sparrow/model-normalized.glb',

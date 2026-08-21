@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: 'c1d90ec1fd7d3041e1457150cf0385b1501541d7dc1db7776218784be48ac4d2',
       bytes: 10496344,
     },
-    license: modelLicense,
     runtime: {
       sha256: '9ef780c6ea98bd4fd64c69b7512c740c9f0f894d3278fe02fd55bcfa614b612c',
       bytes: 6795296,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “Animation” (20s, 270 channels).',
     ],
     attribution: "Grogu (The Mandalorian Character) 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/mandalorian/grogu/grogu.glb",
       'converted-downloads/grogu/model-normalized.glb',

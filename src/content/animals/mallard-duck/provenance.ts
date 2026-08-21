@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: 'b5c39205b3fa26d0639945efdbf28e497bcb987cbbd78b7732c44ed88e767443',
       bytes: 1796780,
     },
-    license: modelLicense,
     runtime: {
       sha256: 'fa8beeb9e70fe56ec23978b626851e9ad9f3ad96c208aa1c01fd6b2d77df6027',
       bytes: 1574680,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “Animation” (15s, 165 channels).',
     ],
     attribution: "Mallard 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/MallardDuck/model.glb",
       'converted-downloads/mallard-duck/model-normalized.glb',

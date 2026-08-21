@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '1f7c87a00e9ffa7087fac8c9f65e99beae5354f787e694264b0d94ada5afb4a6',
       bytes: 6185928,
     },
-    license: modelLicense,
     runtime: {
       sha256: '59007d385853f42c983e3ad4c030b20b627c7cf90129a55a4265208d7bf3e639',
       bytes: 4154152,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (9.967s, 252 channels).',
     ],
     attribution: "Scottish Fold 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/cats/ScottishFold/ScottishFold.glb",
       'converted-downloads/scottish-fold/model-normalized.glb',

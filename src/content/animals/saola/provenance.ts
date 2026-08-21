@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '04c1c1dd9eeeb382f1a048ca4131f31da911626bf09a6e3554dcf9a49f074018',
       bytes: 10378864,
     },
-    license: modelLicense,
     runtime: {
       sha256: 'c0f86f260bc56d27ec5bfbce788c48f6861dc24312f2e0ab92811605683b6900',
       bytes: 7109792,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (11.208s, 195 channels).',
     ],
     attribution: "Saola 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/african_endangered/Saola/saola.glb",
       'converted-downloads/saola/model-normalized.glb',

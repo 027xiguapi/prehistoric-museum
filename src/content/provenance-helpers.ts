@@ -406,24 +406,6 @@ export const recomposedCollectionThumbnailDerivation = {
   PublishedAssetProvenanceInput['thumbnailDerivation']
 >
 
-const modelLicense = {
-  spdx: 'CC-BY-4.0',
-  name: 'Creative Commons Attribution 4.0 International',
-  url: 'https://creativecommons.org/licenses/by/4.0/',
-} as const
-
-const generatedImageLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'CC BY-NC-SA 4.0 project-owned ImageGen output',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
-const qwenOutputLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'CC BY-NC-SA 4.0 project-owned Qwen3-TTS output',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export function createReviewedEnglishNarrationProvenance(
   animalId: keyof typeof reviewedEnglishNarrationArtifacts,
   content: AnimalContentEn,
@@ -444,7 +426,6 @@ export function createReviewedEnglishNarrationProvenance(
       sha256: artifact.sha256,
       bytes: artifact.bytes,
     },
-    license: qwenOutputLicense,
     runtime: {
       bytes: artifact.bytes,
       sha256: artifact.sha256,
@@ -482,7 +463,6 @@ export function createPublishedAssetProvenance(
         sha256: input.model.source.sha256,
         bytes: input.model.source.bytes,
       },
-      license: modelLicense,
       runtime: input.model.runtime,
       modifications: input.model.modifications,
       attribution: modelAttribution,
@@ -501,7 +481,6 @@ export function createPublishedAssetProvenance(
         sha256: input.backgrounds.landscape.source.sha256,
         bytes: input.backgrounds.landscape.source.bytes,
       },
-      license: generatedImageLicense,
       runtime: input.backgrounds.landscape.runtime,
       modifications: [
         'Converted the reviewed PNG to lossy WebP at quality 82.',
@@ -523,7 +502,6 @@ export function createPublishedAssetProvenance(
         sha256: input.backgrounds.portrait.source.sha256,
         bytes: input.backgrounds.portrait.source.bytes,
       },
-      license: generatedImageLicense,
       runtime: input.backgrounds.portrait.runtime,
       modifications: [
         'Converted the separately composed reviewed PNG to lossy WebP at quality 82.',
@@ -544,7 +522,6 @@ export function createPublishedAssetProvenance(
         method:
           'Rendered the deterministic first animation frame at the normal 1200 × 675 landscape runtime camera, composition, size, pose, and lighting; preserved transparent pixels outside the model and contact shadow.',
       },
-      license: modelLicense,
       runtime: input.poster,
       modifications: [
         'Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.',
@@ -568,7 +545,6 @@ export function createPublishedAssetProvenance(
         method:
           'Rendered the deterministic first animation frame at the normal 390 × 844 portrait runtime camera, composition, size, pose, and lighting; preserved transparent pixels outside the model and contact shadow.',
       },
-      license: modelLicense,
       runtime: input.posterPortrait,
       modifications: [
         'Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.',
@@ -598,7 +574,6 @@ export function createPublishedAssetProvenance(
           input.thumbnailDerivation?.method ??
           'Deterministic square crop from the accepted desktop review presentation after hiding all interface chrome.',
       },
-      license: modelLicense,
       runtime: input.thumbnail,
       modifications: input.thumbnailDerivation?.modifications ?? [
           'Selected a card-size crop that keeps the animal readable.',
@@ -625,7 +600,6 @@ export function createPublishedAssetProvenance(
         sha256: input.narration.sha256,
         bytes: input.narration.bytes,
       },
-      license: qwenOutputLicense,
       runtime: {
         bytes: input.narration.bytes,
         sha256: input.narration.sha256,

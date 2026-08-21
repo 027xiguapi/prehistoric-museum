@@ -72,8 +72,6 @@ export const animal = {
     modelCredit: {
       attribution:
         '“Dilophosaurus” by Marcel Schanz, CC BY 4.0; visible meshes baked and joined, normalized, and given a project-authored eight-second morph-target Idle with a curated low-amplitude jaw relaxation for local review.',
-      licenseName: 'Creative Commons Attribution 4.0 International',
-      licenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
       sourceTitle: 'Dilophosaurus',
       sourceUrl:
         'https://sketchfab.com/3d-models/dilophosaurus-d09b3aa874db4e1cbf29a14797ca351f',

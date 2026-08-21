@@ -72,8 +72,6 @@ export const animal = {
     modelCredit: {
       attribution:
         '“Plesiosaure” by leo kerjean, CC BY 4.0; normalized, material-adjusted, and given a project-authored 8-second morph-target swimming Idle for local museum review.',
-      licenseName: 'Creative Commons Attribution 4.0 International',
-      licenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
       sourceTitle: 'Plesiosaure',
       sourceUrl:
         'https://sketchfab.com/3d-models/plesiosaure-2f59d503e0754c9d9e157a90ed415c38',

@@ -40,15 +40,6 @@ const today = '2026-08-20'
 
 const LICENSE = `import type { AssetProvenance } from '../../types'
 
-// Draft intake from the Google “AR Answers in Search” models bucket. The
-// bucket does not ship a per-model licence statement, so the model is marked
-// NOT redistributable and stays draft until the source licence is confirmed
-// or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
 `
 
 function zhSizeBlock(animal) {
@@ -160,7 +151,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '${sourceRecord.sha256}',
       bytes: ${sourceRecord.bytes},
     },
-    license: modelLicense,
     runtime: {
       sha256: '${runtime.sha256}',
       bytes: ${runtime.bytes},

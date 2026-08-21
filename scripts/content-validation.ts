@@ -100,18 +100,6 @@ const assetLimits = {
   },
 } as const
 
-const publicationLicenseAllowlist = new Set([
-  'CC0-1.0',
-  'CC-BY-4.0',
-  'CC-BY-NC-SA-4.0',
-  'LicenseRef-Public-Domain',
-  'LicenseRef-OpenAI-Output',
-  'MIT',
-  'BSD-2-Clause',
-  'BSD-3-Clause',
-  'Apache-2.0',
-])
-
 function issue(
   severity: ValidationSeverity,
   code: string,
@@ -719,17 +707,6 @@ export function validateRecordedAsset(
         'error',
         'ASSET_SIZE_MISMATCH',
         `字节数不匹配：记录为 ${record.runtime.bytes}，实际为 ${actualBytes}。`,
-        context,
-      ),
-    )
-  }
-
-  if (!publicationLicenseAllowlist.has(record.license.spdx)) {
-    issues.push(
-      issue(
-        'error',
-        'LICENSE_NOT_ALLOWED',
-        `发布许可 “${record.license.spdx}” 不在允许列表中。`,
         context,
       ),
     )

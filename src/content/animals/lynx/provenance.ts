@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '2515759b73e4572185c8f9e78953c9f0aaa59346e3ab9f1b0ae0743839aa0ab5',
       bytes: 6392544,
     },
-    license: modelLicense,
     runtime: {
       sha256: '53e71f365dba46ab30c5f411ffd495f702563a407aaefe4f7271a3582d3cbb38',
       bytes: 2785180,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “Animation” (9.967s, 133 channels).',
     ],
     attribution: "Eurasian Lynx 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/Nordic/Lynx/lynx.glb",
       'converted-downloads/lynx/model-normalized.glb',

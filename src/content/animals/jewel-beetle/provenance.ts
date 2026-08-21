@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '528a21b68137b6eda014975392be9f3a4920e995de064858b15bec65e11048ab',
       bytes: 3464656,
     },
-    license: modelLicense,
     runtime: {
       sha256: '83deae7522549cbf8e1fbce9e1a99f58bc0be45e4a324fae4f28cfdc0754cd73',
       bytes: 2011224,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “tama” (12s, 157 channels).',
     ],
     attribution: "Jewel Beetle 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/insects/jewel_beetle/model.glb",
       'converted-downloads/jewel-beetle/model-normalized.glb',

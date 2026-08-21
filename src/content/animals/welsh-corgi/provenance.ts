@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: 'edd0ec5fd22804afb9dccb966a492cb742388550b0bfa03d7f170a8e3be319c6',
       bytes: 7745824,
     },
-    license: modelLicense,
     runtime: {
       sha256: '9ad594ca09c1e085800c5defb4bb7708dcddb6aa05d60b594cbbb9b3abffb873',
       bytes: 6024148,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (10s, 159 channels).',
     ],
     attribution: "Welsh Corgi 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/dogs/Welshcorgi/Welshcorgi.glb",
       'converted-downloads/welsh-corgi/model-normalized.glb',

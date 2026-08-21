@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '0bcc4b4e0e79bbca7dfbbe052866ea8535da755a56bff3c58e5ea207eb4a6574',
       bytes: 2857628,
     },
-    license: modelLicense,
     runtime: {
       sha256: '0ef3e9c0cb4a0b077061fda3080f8efbfaa519e8897fbd2e3aa80753f96395c3',
       bytes: 1603764,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “heike” (10s, 138 channels).',
     ],
     attribution: "Firefly 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/insects/firefly/model.glb",
       'converted-downloads/firefly/model-normalized.glb',

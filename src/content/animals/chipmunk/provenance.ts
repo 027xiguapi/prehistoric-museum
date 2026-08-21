@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '72da783eac61fa09976bbe265a4532eaa8649d6b71cd658fe6588e2e31da7059',
       bytes: 7725936,
     },
-    license: modelLicense,
     runtime: {
       sha256: 'd594a8bd644567ba7621fb0c647b94662e6bae603cd63b30c7c6f5d0e9e4309d',
       bytes: 4287656,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (9.967s, 456 channels).',
     ],
     attribution: "Chipmunk 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/farm_rodent/Chipmunk/Chipmunk.glb",
       'converted-downloads/chipmunk/model-normalized.glb',

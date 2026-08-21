@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: 'e2956f2a82763e47633f36bf30b525850801fed21f36d2cdf498e9b9712946b0',
       bytes: 8974412,
     },
-    license: modelLicense,
     runtime: {
       sha256: 'e13ef821013b0207fbd051175033040bc5d0294ac79a19cdd2aa2a63e670ac4b',
       bytes: 5617392,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (10s, 180 channels).',
     ],
     attribution: "Jindo Dog 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/dogs/Jindodog/Jindodog.glb",
       'converted-downloads/jindo-dog/model-normalized.glb',

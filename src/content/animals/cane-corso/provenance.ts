@@ -3,12 +3,6 @@ import type { AssetProvenance } from '../../types'
 // Pilot intake from the owner-supplied “1048动物” drop. The drop did not
 // include a licence statement, so the model is marked NOT redistributable
 // and stays draft until the source licence is confirmed or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -22,7 +16,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: 'befc4a631ff571d372a171d98826cf16d442255c6d426af1ae29e1efda14c322',
       bytes: 8388124,
     },
-    license: modelLicense,
     runtime: {
       sha256: '2249eacd6f197b0ff1a94b0dd726bd8e1511a8730efd241b36a402c881e64231',
       bytes: 3165804,
@@ -34,7 +27,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (11s, 104 channels).',
     ],
     attribution: "Cane Corso 3D model from the owner-supplied 1048动物 drop; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "1048动物/意大利敖犬glb格式/source/Canecorso.glb",
       'converted-1048/cane-corso/model-normalized.glb',

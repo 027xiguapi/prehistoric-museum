@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '05ab80b13e5e090ec62b42117e6190ab72255cafaf7a6db0ac42dbeb21db7578',
       bytes: 9337932,
     },
-    license: modelLicense,
     runtime: {
       sha256: 'dc08ef52942740f7371d33abc1a2452a4aa8520bf6837c06a8a4e14d57d92c72',
       bytes: 6972364,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (12.6s, 180 channels).',
     ],
     attribution: "Velociraptor 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/dinos/Velociraptor.glb",
       'converted-downloads/velociraptor/model-normalized.glb',

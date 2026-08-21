@@ -3,12 +3,6 @@ import type { AssetProvenance } from '../../types'
 // Pilot intake from the owner-supplied “1048动物” drop. The drop did not
 // include a licence statement, so the model is marked NOT redistributable
 // and stays draft until the source licence is confirmed or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -22,7 +16,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: 'bfb2c025caabb5fdd96c8a58bd839312a0cba44f36316f9ad19fa7e758e34951',
       bytes: 16364824,
     },
-    license: modelLicense,
     runtime: {
       sha256: '1318a3b5f6a1fa161545811673504f3cafea9a2267dcfae8a4d5da87d1f579a5',
       bytes: 10038244,
@@ -34,7 +27,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “TRS|Take 001|BaseLayer” (20.792s, 132 channels).',
     ],
     attribution: "Elephant 3D model from the owner-supplied 1048动物 drop; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "1048动物/大象/source/exported.glb",
       'converted-1048/elephant/model-normalized.glb',

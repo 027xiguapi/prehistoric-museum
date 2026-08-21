@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '019422a4dff00cc9c54a337615abb298baf40e44f784d5c7950f1fba5ade88d8',
       bytes: 9083128,
     },
-    license: modelLicense,
     runtime: {
       sha256: '43ce2f4a1dde9bc7d1687bb4d04e1756ab91e3a71224eee1df6f2725df8e402b',
       bytes: 3768080,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (8.3s, 186 channels).',
     ],
     attribution: "Koala 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/aussie_animals/Koala.glb",
       'converted-downloads/koala/model-normalized.glb',

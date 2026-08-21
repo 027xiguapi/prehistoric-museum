@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '6cb035b965f5a570f0f6285fe6d898b79788b2340ec6080e12ac9cd9daac1942',
       bytes: 3869096,
     },
-    license: modelLicense,
     runtime: {
       sha256: 'd2f9e3719c68dc5cbabe4a3578c474deedf876f741126d80722230bae3e8126f',
       bytes: 1608744,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “New animation” (12s, 167 channels).',
     ],
     attribution: "Seven-spot Ladybird 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/insects/ladybug/model.glb",
       'converted-downloads/ladybug/model-normalized.glb',

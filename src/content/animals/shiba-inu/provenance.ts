@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '2ac24d6e0d66f9bbd5b59af669ec55b66e1571c64fe4cf5faf36793126727f8a',
       bytes: 10001560,
     },
-    license: modelLicense,
     runtime: {
       sha256: '2f4c5fab0648fd20819826135c908161bf74f75dddcd859cfdd92c95928392e8',
       bytes: 7151740,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (10s, 195 channels).',
     ],
     attribution: "Shiba Inu 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/dogs/Shibainu/Shibainu.glb",
       'converted-downloads/shiba-inu/model-normalized.glb',

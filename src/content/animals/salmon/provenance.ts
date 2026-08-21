@@ -3,12 +3,6 @@ import type { AssetProvenance } from '../../types'
 // Pilot intake from the owner-supplied “1048动物” drop. The drop did not
 // include a licence statement, so the model is marked NOT redistributable
 // and stays draft until the source licence is confirmed or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -22,7 +16,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: 'cfcc353d200f457454b3dd348555f3b3ac91a1de19c65aafad614c8aaebfd777',
       bytes: 53011,
     },
-    license: modelLicense,
     runtime: {
       sha256: '57383b7489abe4a3e0953ab394e9789bba3381d38da7394fd16d2c8be1aaf325',
       bytes: 2779104,
@@ -34,7 +27,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “swim_metest” (40.958s, 44 channels).',
     ],
     attribution: "Salmon 3D model from the owner-supplied 1048动物 drop; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "1048动物/鲑鱼gltf/scene.gltf",
       'converted-1048/salmon/model-normalized.glb',

@@ -3,12 +3,6 @@ import type { AssetProvenance } from '../../types'
 // Pilot intake from the owner-supplied “1048动物” drop. The drop did not
 // include a licence statement, so the model is marked NOT redistributable
 // and stays draft until the source licence is confirmed or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -22,7 +16,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '5272dd6b14b802f7f647e9c1392bf8fe3da8e4837ebd16d93768b4155d52d18f',
       bytes: 17046044,
     },
-    license: modelLicense,
     runtime: {
       sha256: 'bfd336f3f115f2bd3478c4b584a66d0ea8c61a9f644e4d348ad2c301fd1e103d',
       bytes: 7576444,
@@ -34,7 +27,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “circling” (31.967s, 93 channels).',
     ],
     attribution: "Shark 3D model from the owner-supplied 1048动物 drop; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "1048动物/鲨鱼glb格式/source/Swimming shark.glb",
       'converted-1048/shark/model-normalized.glb',

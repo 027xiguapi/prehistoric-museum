@@ -64,8 +64,6 @@ export const animal = {
     modelCredit: {
       attribution:
         '“Gigantoraptor” by seth the yutyrannus, CC BY 4.0; normalized and given a project-authored in-place museum Idle using the existing rig.',
-      licenseName: 'Creative Commons Attribution 4.0 International',
-      licenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
       sourceTitle: 'Gigantoraptor',
       sourceUrl:
         'https://sketchfab.com/3d-models/gigantoraptor-e51509d66d464104aef1b72c298a40cf',

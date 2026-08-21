@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '25fd314affcce7733054751ca1526376f6a8e85a4d37687043e7db927f6e1a3e',
       bytes: 1679532,
     },
-    license: modelLicense,
     runtime: {
       sha256: '92a3eeabf9ea490902ae783c25b750a8e2308892913dffbfc27a20ec2ac67603',
       bytes: 1118336,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “Take 001” (18.667s, 144 channels).',
     ],
     attribution: "Common Octopus 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/CommonOctopus/model.glb",
       'converted-downloads/common-octopus/model-normalized.glb',

@@ -74,8 +74,6 @@ export const animal = {
     modelCredit: {
       attribution:
         '“PBR Pachycephalasaurus Animated” by Ferocious Industries, CC BY 4.0; normalized for local museum review.',
-      licenseName: 'Creative Commons Attribution 4.0 International',
-      licenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
       sourceTitle: 'PBR Pachycephalasaurus Animated',
       sourceUrl:
         'https://sketchfab.com/3d-models/pbr-pachycephalasaurus-animated-6eea5cee4afa4730bf75c6329a43e56d',

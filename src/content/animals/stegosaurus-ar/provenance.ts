@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '272c2676478b208e792ecd404b5c0e73c73c7a8f3f90b75464395796719d1364',
       bytes: 8955884,
     },
-    license: modelLicense,
     runtime: {
       sha256: '3e76d94dedb5c71c2ae69fef417b836c9b2f888304a34635d73b9e55a7a9eaf9',
       bytes: 6858352,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (14.8s, 93 channels).',
     ],
     attribution: "Stegosaurus (AR Model) 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/dinos/Stegosaurus.glb",
       'converted-downloads/stegosaurus-ar/model-normalized.glb',

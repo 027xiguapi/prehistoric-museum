@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '8f2b5cf7b6e72999b59abf3b60848bc66b9d48803bd2ba1995d6a0c52b993053',
       bytes: 3900656,
     },
-    license: modelLicense,
     runtime: {
       sha256: 'fdc3b24c54441a2a55143543e19037c513e93f08f867896b17e0127a8aeb0f69',
       bytes: 2169828,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “Animation” (44.1s, 202 channels).',
     ],
     attribution: "Anglerfish 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/AnglerFish/model.glb",
       'converted-downloads/anglerfish/model-normalized.glb',

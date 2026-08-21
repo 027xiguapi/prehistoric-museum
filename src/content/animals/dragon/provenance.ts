@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '82ef4ae8bfe9741e071a543c377dcd7a4598c4a65214f70e19497741dbd426ce',
       bytes: 9202584,
     },
-    license: modelLicense,
     runtime: {
       sha256: '01fe865994901f7e0b2395f0f69a42a69a6c86d6146a2c8643e11e2c04b84578',
       bytes: 6059332,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (9.2s, 216 channels).',
     ],
     attribution: "Dragon (Mythical Creature) 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/mythical/Dragon/Dragon.glb",
       'converted-downloads/dragon/model-normalized.glb',

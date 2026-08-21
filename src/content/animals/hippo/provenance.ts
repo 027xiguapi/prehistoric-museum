@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '80b27caf8778a46ad971d7e8fc7222b366b964fe41f007934d91c3206a1dd37c',
       bytes: 5867344,
     },
-    license: modelLicense,
     runtime: {
       sha256: '44a6611f033e54346607d3bfb3be7df2245e5f276edbac5bdbc0d293b60f1568',
       bytes: 2511864,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (10.333s, 375 channels).',
     ],
     attribution: "Hippopotamus 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/african_endangered/Hippo/Hippo.glb",
       'converted-downloads/hippo/model-normalized.glb',

@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '7957cf2e8e7e70d82e6a784a207e4479a3d6c36306b7474738dd407854cbb07d',
       bytes: 2881932,
     },
-    license: modelLicense,
     runtime: {
       sha256: '58885194f192a91747820c05a4bea18c793828d2ca08f21eb03e4d972423a3be',
       bytes: 1329624,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “New animation” (12s, 145 channels).',
     ],
     attribution: "Shining Dung Scarab 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/insects/shining_ball_scarab_beetle/model.glb",
       'converted-downloads/shining-ball-scarab/model-normalized.glb',

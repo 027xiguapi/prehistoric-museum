@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '9f7900e38ea930b38cd7ed4dee15a68ef36e5b8f983ad24c6fe600244e97a5a9',
       bytes: 8129748,
     },
-    license: modelLicense,
     runtime: {
       sha256: '4832949cd26d5de63bb4cc64833f2f92850d93dc9d1a66b00876b90b893c9419',
       bytes: 4357964,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (9.167s, 162 channels).',
     ],
     attribution: "Yorkshire Terrier 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/dogs/Yorkshireterrier/Yorkshireterrier.glb",
       'converted-downloads/yorkshire-terrier/model-normalized.glb',

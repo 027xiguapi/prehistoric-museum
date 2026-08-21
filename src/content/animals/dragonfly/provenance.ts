@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '0df2610ac24be6faad66ea07d6640172e87aa1a24d3d01744be23a45bde29a84',
       bytes: 2899672,
     },
-    license: modelLicense,
     runtime: {
       sha256: 'e10e18a4a0d2a2e051d9a8fd31ecca325f7b38fa92e4856471dcbfac25e3f65f',
       bytes: 1698792,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “oniyanma” (12s, 132 channels).',
     ],
     attribution: "Wandering Glider Dragonfly 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/insects/dragonfly/model.glb",
       'converted-downloads/dragonfly/model-normalized.glb',

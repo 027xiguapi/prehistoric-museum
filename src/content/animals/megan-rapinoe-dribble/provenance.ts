@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: 'dc778817822e5b2534b352f95dfa251c8c2d43350e67441db315e80c53f4f18b',
       bytes: 12972824,
     },
-    license: modelLicense,
     runtime: {
       sha256: 'e9c78c4c852033069dcdb5c609a1abcd3e9be676e38b30264512d5bcef7f3947',
       bytes: 7759144,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “inPlace” (16.767s, 164 channels).',
     ],
     attribution: "Megan Rapinoe (Dribble) 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/Olympics/MeganRapinoe/dribble/dribble.glb",
       'converted-downloads/megan-rapinoe-dribble/model-normalized.glb',

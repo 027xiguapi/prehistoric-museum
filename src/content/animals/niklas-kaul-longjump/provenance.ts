@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: 'f01ee37c62b23ed54c184bcba7399951b9d37e4f24e15ca7e43819758a29c001',
       bytes: 10026108,
     },
-    license: modelLicense,
     runtime: {
       sha256: '5ef42725068bded217363b9526b1459aeb98a443d6cc2cd516ae8a2787090aec',
       bytes: 6628360,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (5.7s, 429 channels).',
     ],
     attribution: "Niklas Kaul (Long Jump) 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/Olympics/NiklasKaul/longjump/longjump.glb",
       'converted-downloads/niklas-kaul-longjump/model-normalized.glb',

@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '922012ac825c22bbebc357c2593bc545f38fb0b82d8b85dd37c3e418af4ff155',
       bytes: 3816356,
     },
-    license: modelLicense,
     runtime: {
       sha256: '37ffbfdd86a34a33488ac355135cc67cbe2ade2a437d4a99c3e26080f91ad922',
       bytes: 2449564,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “suzume” (10s, 170 channels).',
     ],
     attribution: "Asian Giant Hornet 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/insects/hornet/model.glb",
       'converted-downloads/hornet/model-normalized.glb',

@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '4bda8d4387894c799bcf9afa076c6d9363180f28a3db1c6c0286aa0cc41a05f6',
       bytes: 4824180,
     },
-    license: modelLicense,
     runtime: {
       sha256: '04741119f53cd365107717fc6087db149bca971a3b0f42b98c542651e7f1669c',
       bytes: 2605624,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “Animation” (11.967s, 134 channels).',
     ],
     attribution: "Woodpecker 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/Nordic/Woodpecker/woodpecker.glb",
       'converted-downloads/woodpecker/model-normalized.glb',

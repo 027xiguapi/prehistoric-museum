@@ -24,8 +24,6 @@ export interface LocalReviewInfo {
   }
   readonly modelCredit?: {
     readonly attribution: string
-    readonly licenseName: string
-    readonly licenseUrl: string
     readonly sourceTitle: string
     readonly sourceUrl: string
   }

@@ -36,15 +36,6 @@ const backgroundDonorByAtmosphere = {
 const today = '2026-08-18'
 
 const LICENSE = `import type { AssetProvenance } from '../../types'
-
-// Pilot intake from the owner-supplied “1048动物” drop. The drop did not
-// include a licence statement, so the model is marked NOT redistributable
-// and stays draft until the source licence is confirmed or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
 `
 
 function zhSizeBlock(animal) {
@@ -177,7 +168,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '${sourceRecord.sha256}',
       bytes: ${sourceRecord.bytes},
     },
-    license: modelLicense,
     runtime: {
       sha256: '${runtime.sha256}',
       bytes: ${runtime.bytes},

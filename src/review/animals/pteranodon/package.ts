@@ -63,8 +63,6 @@ export const animal = {
     modelCredit: {
       attribution:
         '“Pteranodon (Animated)” by Chistodrako._. / Oscar López Riviello, CC BY 4.0; root motion repaired in Blender for an in-place museum Idle.',
-      licenseName: 'Creative Commons Attribution 4.0 International',
-      licenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
       sourceTitle: 'Pteranodon (Animated)',
       sourceUrl:
         'https://sketchfab.com/3d-models/pteranodon-animated-7d7683df41d1405283f160e81a5dff1b',

@@ -18,8 +18,6 @@ export interface ParentReviewFacts {
 export interface ParentFacts {
   assetCredits: Array<{
     attribution: string
-    licenseName: string
-    licenseUrl: string
     sourceTitle: string
     sourceUrl?: string
   }>

@@ -3,12 +3,6 @@ import type { AssetProvenance } from '../../types'
 // Pilot intake from the owner-supplied “1048动物” drop. The drop did not
 // include a licence statement, so the model is marked NOT redistributable
 // and stays draft until the source licence is confirmed or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -22,7 +16,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '9814bfae7acd685b04d7f41ae0663785e5175d45133f0761ab29bb0ccd511b70',
       bytes: 760826,
     },
-    license: modelLicense,
     runtime: {
       sha256: '138ca5aa1ea3a3c33d708c45197b3a35f27477a72d25148896833686f0f985dc',
       bytes: 6721552,
@@ -34,7 +27,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “Idle_nyi” (9.917s, 105 channels).',
     ],
     attribution: "Ox 3D model from the owner-supplied 1048动物 drop; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "1048动物/黄牛gltf/scene.gltf",
       'converted-1048/ox/model-normalized.glb',

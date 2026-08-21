@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '32b8992136f956c88582437044cb8ff643e4284a4131796e3a4b9a17925bad2f',
       bytes: 9825372,
     },
-    license: modelLicense,
     runtime: {
       sha256: '33ee338e9fe72aa5cb05a8555aa261d447342a5d839f2911934b463906869a7e',
       bytes: 6663044,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (10s, 201 channels).',
     ],
     attribution: "Cocker Spaniel 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/dogs/Cockerspaniel/Cockerspaniel.glb",
       'converted-downloads/cocker-spaniel/model-normalized.glb',

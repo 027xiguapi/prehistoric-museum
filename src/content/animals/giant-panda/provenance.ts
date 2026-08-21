@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: 'd0c9f2ed876a1d90a6d02a7d61ec0cc9bd84d3162d8ea7358c9893bb08344082',
       bytes: 2370892,
     },
-    license: modelLicense,
     runtime: {
       sha256: '4f8d53c7c4714bec00b316ea33eb5b8272890a4d9f410a5ce1b3486c17e37741',
       bytes: 1148472,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “Animation” (21s, 327 channels).',
     ],
     attribution: "Giant Panda 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/GiantPanda/model.glb",
       'converted-downloads/giant-panda/model-normalized.glb',

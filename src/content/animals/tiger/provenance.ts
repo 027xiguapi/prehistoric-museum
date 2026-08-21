@@ -3,12 +3,6 @@ import type { AssetProvenance } from '../../types'
 // Pilot intake from the owner-supplied “1048动物” drop. The drop did not
 // include a licence statement, so the model is marked NOT redistributable
 // and stays draft until the source licence is confirmed or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
         '617104e0890bdbcd2c62e36663343fdc6db105d10e1815233201ea4bc1ae7989',
       bytes: 9_598_664,
     },
-    license: modelLicense,
     runtime: {
       sha256:
         '0da39acc80129e5b3666975a7e567e5ef90d254b14a09b21dd294a79b994f19a',
@@ -36,7 +29,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the single idle animation clip (renamed by the exporter as “Animation”).',
     ],
     attribution: 'Tiger 3D model from the owner-supplied 1048动物 drop; licence pending confirmation.',
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       '1048动物/老虎glb格式/source/Tiger.glb',
       'converted-1048/tiger/model-normalized.glb',

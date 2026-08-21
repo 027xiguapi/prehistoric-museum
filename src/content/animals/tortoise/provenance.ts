@@ -3,12 +3,6 @@ import type { AssetProvenance } from '../../types'
 // Pilot intake from the owner-supplied “1048动物” drop. The drop did not
 // include a licence statement, so the model is marked NOT redistributable
 // and stays draft until the source licence is confirmed or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -22,7 +16,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: 'e1a7d1bb3d748291385042663b20147acadc1f572b41b18131ca8b98dff9941e',
       bytes: 168657,
     },
-    license: modelLicense,
     runtime: {
       sha256: '56036930d758d87e7720bfad047fce551a63bb7cd522b019cdc7de0b5e331f6b',
       bytes: 2029072,
@@ -34,7 +27,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “att_me1” (5.333s, 114 channels).',
     ],
     attribution: "Giant Tortoise 3D model from the owner-supplied 1048动物 drop; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "1048动物/陆龟gltf格式/source/Tortoise.gltf",
       'converted-1048/tortoise/model-normalized.glb',

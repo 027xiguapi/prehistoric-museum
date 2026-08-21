@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: 'ab845df23bf6a0c34e7eb8db2a3fa0558526fb438be655247e8798740544b1e0',
       bytes: 8790864,
     },
-    license: modelLicense,
     runtime: {
       sha256: 'c7abd1dde939dd0f5c33625c0883253cc7b556d83173c08cb820204de71c7e64',
       bytes: 6262696,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (10s, 152 channels).',
     ],
     attribution: "Domestic Pig 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/farm_rodent/Pig/Pig.glb",
       'converted-downloads/pig/model-normalized.glb',

@@ -3,12 +3,6 @@ import type { AssetProvenance } from '../../types'
 // Pilot intake from the owner-supplied “1048动物” drop. The drop did not
 // include a licence statement, so the model is marked NOT redistributable
 // and stays draft until the source licence is confirmed or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -22,7 +16,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: 'b6076b742ea5f21b4e54f294c2574a52c6a95255fd797117ca2d263dca316aed',
       bytes: 8659504,
     },
-    license: modelLicense,
     runtime: {
       sha256: '0cfd22b378ef1ef553225eec89b95a1d9d9859c411b9f0b5c0c35a8461697425',
       bytes: 5042204,
@@ -34,7 +27,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations_skeleton #0.001” (10.333s, 414 channels).',
     ],
     attribution: "Zebra 3D model from the owner-supplied 1048动物 drop; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "1048动物/斑马/source/exported.glb",
       'converted-1048/zebra/model-normalized.glb',

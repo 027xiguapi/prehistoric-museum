@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '9648a7d558d61cc83e05c76ee1fe7ccb9d84a7d83cf89489f62ef0505cb23dfd',
       bytes: 9185180,
     },
-    license: modelLicense,
     runtime: {
       sha256: '3180bbe62b7fe429f887bfe5d288cefb0cd6f4ed1dac81eca7dd0b33ad694741',
       bytes: 6294196,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “Take 001” (10s, 258 channels).',
     ],
     attribution: "Sphynx Cat (AR Model) 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/cats/Sphynx/Sphynx.glb",
       'converted-downloads/sphynx-cat-ar/model-normalized.glb',

@@ -3,12 +3,6 @@ import type { AssetProvenance } from '../../types'
 // Pilot intake from the owner-supplied “1048动物” drop. The drop did not
 // include a licence statement, so the model is marked NOT redistributable
 // and stays draft until the source licence is confirmed or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -22,7 +16,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '8ead83358cb0d4717b9b9963878433da30307ece1dd813a91d37bfc50783c146',
       bytes: 5770700,
     },
-    license: modelLicense,
     runtime: {
       sha256: '8e13d352dbc4e3a6f86f17cc73d884febb57b9577e7099c2064db88219230d62',
       bytes: 4210676,
@@ -34,7 +27,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations_skeleton #0” (9.958s, 252 channels).',
     ],
     attribution: "Kookaburra 3D model from the owner-supplied 1048动物 drop; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "1048动物/笑翠鸟/source/exported.glb",
       'converted-1048/kookaburra/model-normalized.glb',

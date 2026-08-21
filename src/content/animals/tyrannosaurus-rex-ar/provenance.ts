@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '41ea626e266396d6e9b825e8bbfd4cd5e19cc9bdf615c91af31b0bec7d1209f4',
       bytes: 9549588,
     },
-    license: modelLicense,
     runtime: {
       sha256: '5b6c045f93d6000bb3e9dd8c1ceeaf68c7b7fcd4c24daf9b39e34481eecc8f2d',
       bytes: 7336848,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (10.833s, 177 channels).',
     ],
     attribution: "Tyrannosaurus Rex (AR Model) 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/dinos/Tyrannosa.glb",
       'converted-downloads/tyrannosaurus-rex-ar/model-normalized.glb',

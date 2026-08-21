@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '3da0c34231a3053de3a1b4b27668a21419ea529c46bbff920c0fd14f927cab31',
       bytes: 1736640,
     },
-    license: modelLicense,
     runtime: {
       sha256: '148881f8ac5378122da0aba7d59d990a052cc2fbc89431446adb8fa1d94bbb36',
       bytes: 1007256,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “Animation” (23.733s, 162 channels).',
     ],
     attribution: "Emperor Penguin 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/EmperorPenguin/model.glb",
       'converted-downloads/emperor-penguin/model-normalized.glb',

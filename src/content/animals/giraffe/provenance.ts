@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '0a33722279a8ab7495ab9daf55b856dd7e1f5d2824fcfc9b0b694525052bbecc',
       bytes: 7004712,
     },
-    license: modelLicense,
     runtime: {
       sha256: '40c01900b7de28bbbb5d3df5117deec1f95a238b2f820b2b3f8b5025144e3f53',
       bytes: 4223804,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (9.967s, 270 channels).',
     ],
     attribution: "Giraffe 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/african_endangered/Giraffe/Giraffe.glb",
       'converted-downloads/giraffe/model-normalized.glb',

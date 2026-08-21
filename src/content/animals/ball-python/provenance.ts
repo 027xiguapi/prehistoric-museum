@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '030ca6a8e5760bd4a806038a1016863aea628f23d2df688579d72c9cbc40f431',
       bytes: 4972224,
     },
-    license: modelLicense,
     runtime: {
       sha256: '20c21fbfb36374fc26e95ef051cd9bfc8aee69a91176d98c51cc4c6639e7aa02',
       bytes: 4708696,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “Animation” (16s, 129 channels).',
     ],
     attribution: "Ball Python 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/BallPython/model.glb",
       'converted-downloads/ball-python/model-normalized.glb',

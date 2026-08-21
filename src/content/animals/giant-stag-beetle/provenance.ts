@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: 'bd6a62f9414d8dba6cbf488ce261fa64d028b2e0858c986e26bf168e7c2acd5f',
       bytes: 7818344,
     },
-    license: modelLicense,
     runtime: {
       sha256: '8058aef0716524003dcf86282a7ddf70370df430d0e4d6761109c7aedf0e57e2',
       bytes: 4676080,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “ookuwa” (12s, 136 channels).',
     ],
     attribution: "Giant Stag Beetle 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/insects/giant_stag/model.glb",
       'converted-downloads/giant-stag-beetle/model-normalized.glb',

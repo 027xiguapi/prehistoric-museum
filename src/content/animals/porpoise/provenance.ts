@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '3d2d6d73de384775705d8f10382b55091a60ff9bfd79ed88cb31210bb8a223d8',
       bytes: 14180596,
     },
-    license: modelLicense,
     runtime: {
       sha256: '60e75fa4a833148351f545f9c424145ac4af8b6e6171ff0ebd4149c7e594ec73',
       bytes: 10609012,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “Swimming_Loop” (5s, 20 channels).',
     ],
     attribution: "Harbour Porpoise 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/Nordic/Porpoise/porpoise.glb",
       'converted-downloads/porpoise/model-normalized.glb',

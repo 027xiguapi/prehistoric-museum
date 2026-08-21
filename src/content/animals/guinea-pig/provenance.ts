@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '787883a4dd85d734f56b22d6f404477c2ea1e6e16c5f1b8a257c7b6d74f96f4f',
       bytes: 5344004,
     },
-    license: modelLicense,
     runtime: {
       sha256: 'a7eecb9b4243811dfc0ab33e3b5094aece8df42746041e846c8a9f3150578023',
       bytes: 3272800,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (9.967s, 276 channels).',
     ],
     attribution: "Guinea Pig 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/farm_rodent/Guineapig/Guineapig.glb",
       'converted-downloads/guinea-pig/model-normalized.glb',

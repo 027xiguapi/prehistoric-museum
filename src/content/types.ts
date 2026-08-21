@@ -149,23 +149,6 @@ export type AssetKind =
   | 'thumbnail'
   | 'narration'
 
-export type LicenseIdentifier =
-  | 'CC0-1.0'
-  | 'CC-BY-4.0'
-  | 'CC-BY-NC-SA-4.0'
-  | 'LicenseRef-Public-Domain'
-  | 'LicenseRef-OpenAI-Output'
-  | 'MIT'
-  | 'BSD-2-Clause'
-  | 'BSD-3-Clause'
-  | 'Apache-2.0'
-
-export interface AssetLicense {
-  readonly spdx: LicenseIdentifier
-  readonly name: string
-  readonly url: `https://${string}`
-}
-
 export interface ThirdPartyAssetSource {
   readonly type: 'third-party'
   readonly title: string
@@ -208,7 +191,6 @@ export interface AssetProvenance {
   readonly assetPath: CanonicalRuntimeAssetPath
   readonly kind: AssetKind
   readonly source: AssetSource
-  readonly license: AssetLicense
   readonly runtime: {
     readonly sha256: Sha256
     readonly bytes: number
@@ -383,8 +365,6 @@ export interface CreditEntry {
   readonly assetKind: AssetKind
   readonly sourceTitle: string
   readonly author: string
-  readonly licenseName: string
-  readonly licenseUrl: string
   readonly sourceUrl?: string
   readonly attribution: string
   readonly modifications: readonly string[]

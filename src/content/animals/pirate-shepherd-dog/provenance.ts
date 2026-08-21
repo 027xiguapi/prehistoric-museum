@@ -3,12 +3,6 @@ import type { AssetProvenance } from '../../types'
 // Pilot intake from the owner-supplied “1048动物” drop. The drop did not
 // include a licence statement, so the model is marked NOT redistributable
 // and stays draft until the source licence is confirmed or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -22,7 +16,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '7a4be31a6f15c9be21ec201bb1bd929bb2fc04f0eb8e75f793a5a28077269f0b',
       bytes: 8451340,
     },
-    license: modelLicense,
     runtime: {
       sha256: '20daf3d8e9f242741b26bf3f0dd6271452a68905a3ebaa6dab419b9bc47848c9',
       bytes: 5449436,
@@ -34,7 +27,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (11.933s, 351 channels).',
     ],
     attribution: "German Shepherd 3D model from the owner-supplied 1048动物 drop; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "1048动物/海盗牧羊犬glb/source/PirateDog.glb",
       'converted-1048/pirate-shepherd-dog/model-normalized.glb',

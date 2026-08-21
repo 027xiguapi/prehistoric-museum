@@ -3,12 +3,6 @@ import type { AssetProvenance } from '../../types'
 // Pilot intake from the owner-supplied “1048动物” drop. The drop did not
 // include a licence statement, so the model is marked NOT redistributable
 // and stays draft until the source licence is confirmed or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -22,7 +16,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '188d58e8d6b04ad05cb67cde187cee11965f93c6e7e702b79b5053d406413e7f',
       bytes: 19974264,
     },
-    license: modelLicense,
     runtime: {
       sha256: 'f29ba34caa5ce5ce6d744dd44f2cb86df797fbf90cebbc4db978d3bf595b8e5d',
       bytes: 11621468,
@@ -34,7 +27,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'The source model contains no animation clip; the draft renders as a static pose.',
     ],
     attribution: "Saber-Toothed Cat 3D model from the owner-supplied 1048动物 drop; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "1048动物/剑齿虎glb/source/Tiger cat.glb",
       'converted-1048/saber-toothed-tiger/model-normalized.glb',

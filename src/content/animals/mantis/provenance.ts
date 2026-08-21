@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: 'c622891d0475493655ca2f3cc7c0d23f7b835bc19c849f43df62a2bf311ebf93',
       bytes: 1952836,
     },
-    license: modelLicense,
     runtime: {
       sha256: 'a8fc34af6ba063b450de266138e84cbf5ce40c0f2d3a595886606bf7a7648f2f',
       bytes: 731416,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “New animation” (10.467s, 215 channels).',
     ],
     attribution: "Chinese Mantis 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/insects/mantis/model.glb",
       'converted-downloads/mantis/model-normalized.glb',

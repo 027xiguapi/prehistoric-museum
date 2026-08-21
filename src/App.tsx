@@ -411,8 +411,6 @@ function toRuntimeAnimal(
     .filter((credit) => credit.animalId === animal.id && credit.assetKind === 'model')
     .map((credit) => ({
       attribution: credit.attribution,
-      licenseName: credit.licenseName,
-      licenseUrl: credit.licenseUrl,
       sourceTitle: credit.sourceTitle,
       ...('sourceUrl' in credit ? { sourceUrl: credit.sourceUrl } : {}),
     }))

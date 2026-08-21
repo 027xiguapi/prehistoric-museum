@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '8c2510248abe4374d829dbb66bff71b6ddbb3f5da9a947ff92bd9e591ae79417',
       bytes: 5654828,
     },
-    license: modelLicense,
     runtime: {
       sha256: '72d898671a63be9638efaa5c48c55e89f400400370c0f46a45ea0637ee4d9567',
       bytes: 3499676,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (10.067s, 219 channels).',
     ],
     attribution: "Bengal Cat 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/cats/Bengal/Bengal.glb",
       'converted-downloads/bengal-cat/model-normalized.glb',

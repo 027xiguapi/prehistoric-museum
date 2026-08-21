@@ -15,11 +15,6 @@ export const provenance = [
       "sha256": "c209fee5e214739ee4582bf11ce46aefe47f8030de131cb3c8c63a75cffeeeae",
       "bytes": 9817604
     },
-    "license": {
-      "spdx": "CC-BY-4.0",
-      "name": "Creative Commons Attribution 4.0 International",
-      "url": "https://creativecommons.org/licenses/by/4.0/"
-    },
     "runtime": {
       "bytes": 7467036,
       "sha256": "51b895d460d1fc73103e92a632c4aea22e025ee468ab2a011474711711f965f6"
@@ -51,11 +46,6 @@ export const provenance = [
       "sha256": "49f01c5a079e48033b66a522fcb24316be2128cc87c51da2190ee1320a2ee251",
       "bytes": 2775885
     },
-    "license": {
-      "spdx": "CC-BY-NC-SA-4.0",
-      "name": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-      "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
-    },
     "runtime": {
       "bytes": 268198,
       "sha256": "776459c11a6281b2cd93c5870a8b05beec9379d7d57435a37f457fcbacb2d1c3"
@@ -82,11 +72,6 @@ export const provenance = [
       "sha256": "d8979bca0c9b5fe8fb9c9af19590402ad42bc3db6efa33d2680b74c83f331e91",
       "bytes": 2793275
     },
-    "license": {
-      "spdx": "CC-BY-NC-SA-4.0",
-      "name": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-      "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
-    },
     "runtime": {
       "bytes": 260940,
       "sha256": "c785dc8534908407e1afb19814f4980a406859b54c2afab195701ab28638c61f"
@@ -112,11 +97,6 @@ export const provenance = [
         "model/model.glb"
       ],
       "method": "Rendered the deterministic first animation frame at the normal 1200 × 675 landscape runtime camera, composition, size, pose, and lighting; preserved transparent pixels outside the model and contact shadow."
-    },
-    "license": {
-      "spdx": "CC-BY-4.0",
-      "name": "Creative Commons Attribution 4.0 International",
-      "url": "https://creativecommons.org/licenses/by/4.0/"
     },
     "runtime": {
       "bytes": 31452,
@@ -145,11 +125,6 @@ export const provenance = [
         "model/model.glb"
       ],
       "method": "Rendered the deterministic first animation frame at the normal 390 × 844 portrait runtime camera, composition, size, pose, and lighting; preserved transparent pixels outside the model and contact shadow."
-    },
-    "license": {
-      "spdx": "CC-BY-4.0",
-      "name": "Creative Commons Attribution 4.0 International",
-      "url": "https://creativecommons.org/licenses/by/4.0/"
     },
     "runtime": {
       "bytes": 8132,
@@ -180,11 +155,6 @@ export const provenance = [
       ],
       "method": "Deterministic square crop from the accepted desktop review presentation after hiding all interface chrome."
     },
-    "license": {
-      "spdx": "CC-BY-4.0",
-      "name": "Creative Commons Attribution 4.0 International",
-      "url": "https://creativecommons.org/licenses/by/4.0/"
-    },
     "runtime": {
       "bytes": 20762,
       "sha256": "95e16ff8d185a39dc1e3ab469e2a003d7f864bb68af669a6e0ca88bb864a5ebd"
@@ -214,11 +184,6 @@ export const provenance = [
       "prompt": "这是双冠龙，一种生活在早侏罗世北美洲的肉食性恐龙。看看它头顶并排的两片冠，再找找弯曲的尖牙和有力的后腿。",
       "sha256": "0b8c7f4b55d947beb9e5df4728289362f7447dc68d3cd751091462c5ed80f7ee",
       "bytes": 108525
-    },
-    "license": {
-      "spdx": "CC-BY-NC-SA-4.0",
-      "name": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-      "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
     },
     "runtime": {
       "bytes": 108525,

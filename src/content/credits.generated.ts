@@ -9,8 +9,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "Apatosaurus English narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated English narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed English two-sentence script with the Serena voice.",
@@ -24,8 +22,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "迷惑龙 Mandarin narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated Mandarin narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed two-sentence script.",
@@ -39,8 +35,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "Apatosaurus green Morrison gallery forest — landscape",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 迷惑龙 landscape created with OpenAI ImageGen.",
     "modifications": [
       "Converted the reviewed PNG to lossy WebP at quality 82.",
@@ -54,8 +48,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "Apatosaurus green Morrison gallery forest — portrait",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 迷惑龙 portrait created with OpenAI ImageGen.",
     "modifications": [
       "Converted the separately composed reviewed PNG to lossy WebP at quality 82.",
@@ -69,8 +61,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "迷惑龙 transparent portrait model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Apatosaurus” by toro ardido modelos 3d, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -84,8 +74,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "迷惑龙 transparent model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Apatosaurus” by toro ardido modelos 3d, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -99,8 +87,6 @@ export const credits = [
     "assetKind": "thumbnail",
     "sourceTitle": "迷惑龙 collection thumbnail",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Apatosaurus” by toro ardido modelos 3d, CC BY 4.0; modified for the Prehistoric Animal Museum. Scene art generated for this project.",
     "modifications": [
       "Selected a card-size crop that keeps the animal readable.",
@@ -114,8 +100,6 @@ export const credits = [
     "assetKind": "model",
     "sourceTitle": "Apatosaurus",
     "author": "toro ardido modelos 3d",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://sketchfab.com/3d-models/apatosaurus-fecabec8e4ef42ef98b5480dbf50c57d",
     "attribution": "“Apatosaurus” by toro ardido modelos 3d, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
@@ -134,8 +118,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "Dilophosaurus English narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated English narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed English two-sentence script with the Serena voice.",
@@ -149,8 +131,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "双冠龙 Mandarin narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated Mandarin narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed two-sentence script with the pinned Serena voice.",
@@ -164,8 +144,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "双冠龙 reviewed habitat — landscape",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 双冠龙 landscape background created with OpenAI ImageGen.",
     "modifications": [
       "Sharp deterministic cover resize and WebP encoding",
@@ -179,8 +157,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "双冠龙 reviewed habitat — portrait",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 双冠龙 portrait background created with OpenAI ImageGen.",
     "modifications": [
       "Sharp deterministic cover resize and WebP encoding",
@@ -194,8 +170,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "双冠龙 transparent portrait model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Dilophosaurus” by Marcel Schanz, CC-BY-4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -209,8 +183,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "双冠龙 transparent model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Dilophosaurus” by Marcel Schanz, CC-BY-4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -224,8 +196,6 @@ export const credits = [
     "assetKind": "thumbnail",
     "sourceTitle": "双冠龙 collection thumbnail",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Dilophosaurus” by Marcel Schanz, CC-BY-4.0; modified for the Prehistoric Animal Museum. Scene art generated for this project.",
     "modifications": [
       "Selected a card-size crop that keeps the animal readable.",
@@ -239,8 +209,6 @@ export const credits = [
     "assetKind": "model",
     "sourceTitle": "Dilophosaurus",
     "author": "Marcel Schanz",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://sketchfab.com/3d-models/dilophosaurus-d09b3aa874db4e1cbf29a14797ca351f",
     "attribution": "“Dilophosaurus” by Marcel Schanz, CC-BY-4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
@@ -259,8 +227,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "Gigantoraptor English narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated English narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed English two-sentence script with the Serena voice.",
@@ -274,8 +240,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "巨盗龙 Mandarin narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated Mandarin narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed two-sentence script.",
@@ -289,8 +253,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "Gigantoraptor Gobi alluvial plain — landscape",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 巨盗龙 landscape created with OpenAI ImageGen.",
     "modifications": [
       "Converted the reviewed PNG to lossy WebP at quality 82.",
@@ -304,8 +266,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "Gigantoraptor Gobi alluvial plain — portrait",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 巨盗龙 portrait created with OpenAI ImageGen.",
     "modifications": [
       "Converted the separately composed reviewed PNG to lossy WebP at quality 82.",
@@ -319,8 +279,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "巨盗龙 transparent portrait model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Gigantoraptor” by seth the yutyrannus, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -334,8 +292,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "巨盗龙 transparent model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Gigantoraptor” by seth the yutyrannus, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -349,8 +305,6 @@ export const credits = [
     "assetKind": "thumbnail",
     "sourceTitle": "巨盗龙 collection thumbnail",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Gigantoraptor” by seth the yutyrannus, CC BY 4.0; modified for the Prehistoric Animal Museum. Scene art generated for this project.",
     "modifications": [
       "Resized and centred the complete silhouette with animal-specific safe margins.",
@@ -364,8 +318,6 @@ export const credits = [
     "assetKind": "model",
     "sourceTitle": "Gigantoraptor",
     "author": "seth the yutyrannus",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://sketchfab.com/3d-models/gigantoraptor-e51509d66d464104aef1b72c298a40cf",
     "attribution": "“Gigantoraptor” by seth the yutyrannus, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
@@ -384,8 +336,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "Ichthyosaurs English narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated English narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed English two-sentence script with the Serena voice.",
@@ -399,8 +349,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "鱼龙类 Mandarin narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated Mandarin narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed two-sentence script.",
@@ -414,8 +362,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "Ichthyosaur ancient shallow sea — landscape",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 鱼龙类 landscape created with OpenAI ImageGen.",
     "modifications": [
       "Converted the reviewed PNG to lossy WebP at quality 82.",
@@ -429,8 +375,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "Ichthyosaur ancient shallow sea — portrait",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 鱼龙类 portrait created with OpenAI ImageGen.",
     "modifications": [
       "Converted the separately composed reviewed PNG to lossy WebP at quality 82.",
@@ -444,8 +388,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "鱼龙类 transparent portrait model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“ichthyosaurus” by Julian Johnson-Mortimer / FreddyFoxFreddy, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -459,8 +401,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "鱼龙类 transparent model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“ichthyosaurus” by Julian Johnson-Mortimer / FreddyFoxFreddy, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -474,8 +414,6 @@ export const credits = [
     "assetKind": "thumbnail",
     "sourceTitle": "鱼龙类 collection thumbnail",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“ichthyosaurus” by Julian Johnson-Mortimer / FreddyFoxFreddy, CC BY 4.0; modified for the Prehistoric Animal Museum. Scene art generated for this project.",
     "modifications": [
       "Selected a card-size crop that keeps the animal readable.",
@@ -489,8 +427,6 @@ export const credits = [
     "assetKind": "model",
     "sourceTitle": "ichthyosaurus",
     "author": "Julian Johnson-Mortimer / FreddyFoxFreddy",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://sketchfab.com/3d-models/ichthyosaurus-ef8609f5efa84984bc1800bdb36aac3c",
     "attribution": "“ichthyosaurus” by Julian Johnson-Mortimer / FreddyFoxFreddy, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
@@ -509,8 +445,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "Maiasaura English narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated English narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed English two-sentence script with the Serena voice.",
@@ -524,8 +458,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "慈母龙 Mandarin narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated Mandarin narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed two-sentence script.",
@@ -539,8 +471,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "Maiasaura Late Cretaceous floodplain — landscape",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 慈母龙 landscape created with OpenAI ImageGen.",
     "modifications": [
       "Converted the reviewed PNG to lossy WebP at quality 82.",
@@ -554,8 +484,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "Maiasaura Late Cretaceous floodplain — portrait",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 慈母龙 portrait created with OpenAI ImageGen.",
     "modifications": [
       "Converted the separately composed reviewed PNG to lossy WebP at quality 82.",
@@ -569,8 +497,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "慈母龙 transparent portrait model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Maiasaura With Rig” by Dino Dan, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -584,8 +510,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "慈母龙 transparent model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Maiasaura With Rig” by Dino Dan, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -599,8 +523,6 @@ export const credits = [
     "assetKind": "thumbnail",
     "sourceTitle": "慈母龙 collection thumbnail",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Maiasaura With Rig” by Dino Dan, CC BY 4.0; modified for the Prehistoric Animal Museum. Scene art generated for this project.",
     "modifications": [
       "Selected a card-size crop that keeps the animal readable.",
@@ -614,8 +536,6 @@ export const credits = [
     "assetKind": "model",
     "sourceTitle": "Maiasaura With Rig",
     "author": "Dino Dan",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://sketchfab.com/3d-models/maiasaura-with-rig-3da9f211ae304bd0afd1d15a290eabbd",
     "attribution": "“Maiasaura With Rig” by Dino Dan, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
@@ -633,8 +553,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "Woolly mammoth English narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated English narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed English two-sentence script with the Serena voice.",
@@ -648,8 +566,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "长毛猛犸象 Mandarin narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated Mandarin narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed two-sentence script.",
@@ -663,8 +579,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "Woolly mammoth steppe-tundra — landscape",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 长毛猛犸象 landscape created with OpenAI ImageGen.",
     "modifications": [
       "Converted the reviewed PNG to lossy WebP at quality 82.",
@@ -678,8 +592,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "Woolly mammoth steppe-tundra — portrait",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 长毛猛犸象 portrait created with OpenAI ImageGen.",
     "modifications": [
       "Converted the separately composed reviewed PNG to lossy WebP at quality 82.",
@@ -693,8 +605,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "长毛猛犸象 transparent portrait model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“3D High-poly Baby Woolly Mammoth” by SDPM Esare, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -708,8 +618,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "长毛猛犸象 transparent model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“3D High-poly Baby Woolly Mammoth” by SDPM Esare, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -723,8 +631,6 @@ export const credits = [
     "assetKind": "thumbnail",
     "sourceTitle": "长毛猛犸象 collection thumbnail",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“3D High-poly Baby Woolly Mammoth” by SDPM Esare, CC BY 4.0; modified for the Prehistoric Animal Museum. Scene art generated for this project.",
     "modifications": [
       "Resized and centred the complete silhouette with animal-specific safe margins.",
@@ -738,8 +644,6 @@ export const credits = [
     "assetKind": "model",
     "sourceTitle": "3D High-poly Baby Woolly Mammoth",
     "author": "SDPM Esare",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://sketchfab.com/3d-models/3d-high-poly-baby-woolly-mammoth-fce1c86ccedf47a5b9627098be6719d5",
     "attribution": "“3D High-poly Baby Woolly Mammoth” by SDPM Esare, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
@@ -759,8 +663,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "Megalodon English narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated English narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed English two-sentence script with the Serena voice.",
@@ -774,8 +676,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "巨齿鲨 Mandarin narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated Mandarin narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed two-sentence script.",
@@ -789,8 +689,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "Megalodon Neogene continental shelf — landscape",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 巨齿鲨 landscape created with OpenAI ImageGen.",
     "modifications": [
       "Converted the reviewed PNG to lossy WebP at quality 82.",
@@ -804,8 +702,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "Megalodon Neogene continental shelf — portrait",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 巨齿鲨 portrait created with OpenAI ImageGen.",
     "modifications": [
       "Converted the separately composed reviewed PNG to lossy WebP at quality 82.",
@@ -819,8 +715,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "巨齿鲨 transparent portrait model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Otodus Megalodon updated animations” by CanYuTsai, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -834,8 +728,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "巨齿鲨 transparent model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Otodus Megalodon updated animations” by CanYuTsai, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -849,8 +741,6 @@ export const credits = [
     "assetKind": "thumbnail",
     "sourceTitle": "巨齿鲨 collection thumbnail",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Otodus Megalodon updated animations” by CanYuTsai, CC BY 4.0; modified for the Prehistoric Animal Museum. Scene art generated for this project.",
     "modifications": [
       "Selected a card-size crop that keeps the animal readable.",
@@ -864,8 +754,6 @@ export const credits = [
     "assetKind": "model",
     "sourceTitle": "Otodus Megalodon updated animations",
     "author": "CanYuTsai",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://sketchfab.com/3d-models/otodus-megalodon-updated-animations-7e65b8c51251440e9aca8385f286714f",
     "attribution": "“Otodus Megalodon updated animations” by CanYuTsai, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
@@ -883,8 +771,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "Meganeura English narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated English narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed English two-sentence script with the Serena voice.",
@@ -898,8 +784,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "巨脉蜻蜓 Mandarin narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated Mandarin narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed two-sentence script with the pinned Serena voice.",
@@ -913,8 +797,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "巨脉蜻蜓 reviewed habitat — landscape",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 巨脉蜻蜓 landscape background created with OpenAI ImageGen.",
     "modifications": [
       "Sharp deterministic cover resize and WebP encoding",
@@ -928,8 +810,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "巨脉蜻蜓 reviewed habitat — portrait",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 巨脉蜻蜓 portrait background created with OpenAI ImageGen.",
     "modifications": [
       "Sharp deterministic cover resize and WebP encoding",
@@ -943,8 +823,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "巨脉蜻蜓 transparent portrait model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Meganeura Dinoraul but it is a bit accurate” by Nobilis the Palaeovespa (@nobilishornet), CC-BY-4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -958,8 +836,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "巨脉蜻蜓 transparent model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Meganeura Dinoraul but it is a bit accurate” by Nobilis the Palaeovespa (@nobilishornet), CC-BY-4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -973,8 +849,6 @@ export const credits = [
     "assetKind": "thumbnail",
     "sourceTitle": "巨脉蜻蜓 collection thumbnail",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Meganeura Dinoraul but it is a bit accurate” by Nobilis the Palaeovespa (@nobilishornet), CC-BY-4.0; modified for the Prehistoric Animal Museum. Scene art generated for this project.",
     "modifications": [
       "Selected a card-size crop that keeps the animal readable.",
@@ -988,8 +862,6 @@ export const credits = [
     "assetKind": "model",
     "sourceTitle": "Meganeura Dinoraul but it is a bit accurate",
     "author": "Nobilis the Palaeovespa (@nobilishornet)",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://sketchfab.com/3d-models/meganeura-dinoraul-but-it-is-a-bit-accurate-1aaab4a72fbc42b4901d5f1dde12a281",
     "attribution": "“Meganeura Dinoraul but it is a bit accurate” by Nobilis the Palaeovespa (@nobilishornet), CC-BY-4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
@@ -1007,8 +879,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "Mosasaurus English narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated English narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed English two-sentence script with the Serena voice.",
@@ -1022,8 +892,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "沧龙 Mandarin narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated Mandarin narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed two-sentence script with the pinned Serena voice.",
@@ -1037,8 +905,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "沧龙 reviewed habitat — landscape",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 沧龙 landscape background created with OpenAI ImageGen.",
     "modifications": [
       "Sharp deterministic cover resize and WebP encoding",
@@ -1052,8 +918,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "沧龙 reviewed habitat — portrait",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 沧龙 portrait background created with OpenAI ImageGen.",
     "modifications": [
       "Sharp deterministic cover resize and WebP encoding",
@@ -1067,8 +931,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "沧龙 transparent portrait model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Mosasaurus” by Lukiethewesly13, CC-BY-4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -1082,8 +944,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "沧龙 transparent model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Mosasaurus” by Lukiethewesly13, CC-BY-4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -1097,8 +957,6 @@ export const credits = [
     "assetKind": "thumbnail",
     "sourceTitle": "沧龙 collection thumbnail",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Mosasaurus” by Lukiethewesly13, CC-BY-4.0; modified for the Prehistoric Animal Museum. Scene art generated for this project.",
     "modifications": [
       "Selected a card-size crop that keeps the animal readable.",
@@ -1112,8 +970,6 @@ export const credits = [
     "assetKind": "model",
     "sourceTitle": "Mosasaurus",
     "author": "Lukiethewesly13",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://sketchfab.com/3d-models/mosasaurus-fe0c25c4ed4e4d4aa05312121e2f68df",
     "attribution": "“Mosasaurus” by Lukiethewesly13, CC-BY-4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
@@ -1132,8 +988,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "Pachycephalosaurus English narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated English narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed English two-sentence script with the Serena voice.",
@@ -1147,8 +1001,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "肿头龙 Mandarin narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated Mandarin narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed two-sentence script.",
@@ -1162,8 +1014,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "Pachycephalosaurus fern forest — landscape",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 肿头龙 landscape created with OpenAI ImageGen.",
     "modifications": [
       "Converted the reviewed PNG to lossy WebP at quality 82.",
@@ -1177,8 +1027,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "Pachycephalosaurus fern forest — portrait",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 肿头龙 portrait created with OpenAI ImageGen.",
     "modifications": [
       "Converted the separately composed reviewed PNG to lossy WebP at quality 82.",
@@ -1192,8 +1040,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "肿头龙 transparent portrait model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“PBR Pachycephalasaurus Animated” by Ferocious Industries, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -1207,8 +1053,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "肿头龙 transparent model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“PBR Pachycephalasaurus Animated” by Ferocious Industries, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -1222,8 +1066,6 @@ export const credits = [
     "assetKind": "thumbnail",
     "sourceTitle": "肿头龙 collection thumbnail",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“PBR Pachycephalasaurus Animated” by Ferocious Industries, CC BY 4.0; modified for the Prehistoric Animal Museum. Scene art generated for this project.",
     "modifications": [
       "Selected a card-size crop that keeps the animal readable.",
@@ -1237,8 +1079,6 @@ export const credits = [
     "assetKind": "model",
     "sourceTitle": "PBR Pachycephalasaurus Animated",
     "author": "Ferocious Industries",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://sketchfab.com/3d-models/pbr-pachycephalasaurus-animated-6eea5cee4afa4730bf75c6329a43e56d",
     "attribution": "“PBR Pachycephalasaurus Animated” by Ferocious Industries, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
@@ -1255,8 +1095,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "Plesiosaurs English narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated English narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed English two-sentence script with the Serena voice.",
@@ -1270,8 +1108,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "蛇颈龙类 Mandarin narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated Mandarin narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed two-sentence script.",
@@ -1285,8 +1121,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "Plesiosaur Jurassic shallow sea — landscape",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 蛇颈龙类 landscape created with OpenAI ImageGen.",
     "modifications": [
       "Converted the reviewed PNG to lossy WebP at quality 82.",
@@ -1300,8 +1134,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "Plesiosaur Jurassic shallow sea — portrait",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 蛇颈龙类 portrait created with OpenAI ImageGen.",
     "modifications": [
       "Converted the separately composed reviewed PNG to lossy WebP at quality 82.",
@@ -1315,8 +1147,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "蛇颈龙类 transparent portrait model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Plesiosaure” by leo kerjean, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -1330,8 +1160,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "蛇颈龙类 transparent model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Plesiosaure” by leo kerjean, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -1345,8 +1173,6 @@ export const credits = [
     "assetKind": "thumbnail",
     "sourceTitle": "蛇颈龙类 collection thumbnail",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Plesiosaure” by leo kerjean, CC BY 4.0; modified for the Prehistoric Animal Museum. Scene art generated for this project.",
     "modifications": [
       "Resized and centred the complete silhouette with animal-specific safe margins.",
@@ -1360,8 +1186,6 @@ export const credits = [
     "assetKind": "model",
     "sourceTitle": "Plesiosaure",
     "author": "leo kerjean",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://sketchfab.com/3d-models/plesiosaure-2f59d503e0754c9d9e157a90ed415c38",
     "attribution": "“Plesiosaure” by leo kerjean, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
@@ -1380,8 +1204,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "Pteranodon English narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated English narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed English two-sentence script with the Serena voice.",
@@ -1395,8 +1217,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "无齿翼龙 Mandarin narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated Mandarin narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed two-sentence script.",
@@ -1410,8 +1230,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "Pteranodon inland-sea cliffs — landscape",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 无齿翼龙 landscape created with OpenAI ImageGen.",
     "modifications": [
       "Converted the reviewed PNG to lossy WebP at quality 82.",
@@ -1425,8 +1243,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "Pteranodon inland-sea cliffs — portrait",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 无齿翼龙 portrait created with OpenAI ImageGen.",
     "modifications": [
       "Converted the separately composed reviewed PNG to lossy WebP at quality 82.",
@@ -1440,8 +1256,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "无齿翼龙 transparent portrait model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Pteranodon (Animated)” by Chistodrako._. / Oscar López Riviello, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -1455,8 +1269,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "无齿翼龙 transparent model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Pteranodon (Animated)” by Chistodrako._. / Oscar López Riviello, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -1470,8 +1282,6 @@ export const credits = [
     "assetKind": "thumbnail",
     "sourceTitle": "无齿翼龙 collection thumbnail",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Pteranodon (Animated)” by Chistodrako._. / Oscar López Riviello, CC BY 4.0; modified for the Prehistoric Animal Museum. Scene art generated for this project.",
     "modifications": [
       "Resized and centred the complete silhouette with animal-specific safe margins.",
@@ -1485,8 +1295,6 @@ export const credits = [
     "assetKind": "model",
     "sourceTitle": "Pteranodon (Animated)",
     "author": "Chistodrako._. / Oscar López Riviello",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://sketchfab.com/3d-models/pteranodon-animated-7d7683df41d1405283f160e81a5dff1b",
     "attribution": "“Pteranodon (Animated)” by Chistodrako._. / Oscar López Riviello, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
@@ -1504,8 +1312,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "Rhamphorhynchus English narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated English narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed English two-sentence script with the Serena voice.",
@@ -1519,8 +1325,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "喙嘴翼龙 Mandarin narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated Mandarin narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed two-sentence script with the pinned Serena voice.",
@@ -1534,8 +1338,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "喙嘴翼龙 reviewed habitat — landscape",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 喙嘴翼龙 landscape background created with OpenAI ImageGen.",
     "modifications": [
       "Sharp deterministic cover resize and WebP encoding",
@@ -1549,8 +1351,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "喙嘴翼龙 reviewed habitat — portrait",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 喙嘴翼龙 portrait background created with OpenAI ImageGen.",
     "modifications": [
       "Sharp deterministic cover resize and WebP encoding",
@@ -1564,8 +1364,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "喙嘴翼龙 transparent portrait model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Low-poly Rhamphorhynchus idle” by Robear (@xiaorobear), CC-BY-4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -1579,8 +1377,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "喙嘴翼龙 transparent model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Low-poly Rhamphorhynchus idle” by Robear (@xiaorobear), CC-BY-4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -1594,8 +1390,6 @@ export const credits = [
     "assetKind": "thumbnail",
     "sourceTitle": "喙嘴翼龙 collection thumbnail",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Low-poly Rhamphorhynchus idle” by Robear (@xiaorobear), CC-BY-4.0; modified for the Prehistoric Animal Museum. Scene art generated for this project.",
     "modifications": [
       "Selected a card-size crop that keeps the animal readable.",
@@ -1609,8 +1403,6 @@ export const credits = [
     "assetKind": "model",
     "sourceTitle": "Low-poly Rhamphorhynchus idle",
     "author": "Robear (@xiaorobear)",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://sketchfab.com/3d-models/low-poly-rhamphorhynchus-idle-c1e35c7ac4374c778f78025717694675",
     "attribution": "“Low-poly Rhamphorhynchus idle” by Robear (@xiaorobear), CC-BY-4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
@@ -1628,8 +1420,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "Sauropelta English narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated English narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed English two-sentence script with the Serena voice.",
@@ -1643,8 +1433,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "胄甲龙 Mandarin narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated Mandarin narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed two-sentence script with the pinned Serena voice.",
@@ -1658,8 +1446,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "胄甲龙 reviewed habitat — landscape",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 胄甲龙 landscape background created with OpenAI ImageGen.",
     "modifications": [
       "Sharp deterministic cover resize and WebP encoding",
@@ -1673,8 +1459,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "胄甲龙 reviewed habitat — portrait",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 胄甲龙 portrait background created with OpenAI ImageGen.",
     "modifications": [
       "Sharp deterministic cover resize and WebP encoding",
@@ -1688,8 +1472,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "胄甲龙 transparent portrait model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Animated Sauropelta (Free)” by Anees Animates, CC-BY-4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -1703,8 +1485,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "胄甲龙 transparent model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Animated Sauropelta (Free)” by Anees Animates, CC-BY-4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -1718,8 +1498,6 @@ export const credits = [
     "assetKind": "thumbnail",
     "sourceTitle": "胄甲龙 collection thumbnail",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Animated Sauropelta (Free)” by Anees Animates, CC-BY-4.0; modified for the Prehistoric Animal Museum. Scene art generated for this project.",
     "modifications": [
       "Selected a card-size crop that keeps the animal readable.",
@@ -1733,8 +1511,6 @@ export const credits = [
     "assetKind": "model",
     "sourceTitle": "Animated Sauropelta (Free)",
     "author": "Anees Animates",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://sketchfab.com/3d-models/animated-sauropelta-free-c6373f12f3954facb8d5fe48055c9161",
     "attribution": "“Animated Sauropelta (Free)” by Anees Animates, CC-BY-4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
@@ -1752,8 +1528,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "Stegosaurus English narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated English narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed English two-sentence script with the Serena voice.",
@@ -1767,8 +1541,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "Stegosaurus Mandarin narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated Mandarin narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed two-sentence script.",
@@ -1782,8 +1554,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "Stegosaurus prehistoric forest — landscape",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated Stegosaurus landscape created with OpenAI ImageGen.",
     "modifications": [
       "Converted the selected 1672 × 941 PNG candidate to lossy WebP at quality 82.",
@@ -1797,8 +1567,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "Stegosaurus prehistoric forest — portrait",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated Stegosaurus portrait created with OpenAI ImageGen.",
     "modifications": [
       "Converted the selected 941 × 1672 PNG candidate to lossy WebP at quality 82.",
@@ -1812,8 +1580,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "Stegosaurus transparent portrait model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“PBR Stegasaurus (Animated)” by Ferocious Industries, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -1827,8 +1593,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "Stegosaurus transparent model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“PBR Stegasaurus (Animated)” by Ferocious Industries, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -1842,8 +1606,6 @@ export const credits = [
     "assetKind": "thumbnail",
     "sourceTitle": "Stegosaurus collection thumbnail",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "Thumbnail includes “PBR Stegasaurus (Animated)” by Ferocious Industries, CC BY 4.0; scene art generated for this project.",
     "modifications": [
       "Replaced the letterboxed overview with a closer crop that keeps the head and back plates readable at card size.",
@@ -1857,8 +1619,6 @@ export const credits = [
     "assetKind": "model",
     "sourceTitle": "PBR Stegasaurus (Animated)",
     "author": "Ferocious Industries",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://sketchfab.com/3d-models/pbr-stegasaurus-animated-ec254ea1554941fe8a131f62db0faf3d",
     "attribution": "“PBR Stegasaurus (Animated)” by Ferocious Industries, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
@@ -1877,8 +1637,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "Triceratops English narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated English narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed English two-sentence script with the Serena voice.",
@@ -1892,8 +1650,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "三角龙 Mandarin narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated Mandarin narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed two-sentence script.",
@@ -1907,8 +1663,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "Triceratops sage meadow — landscape",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 三角龙 landscape created with OpenAI ImageGen.",
     "modifications": [
       "Converted the reviewed PNG to lossy WebP at quality 82.",
@@ -1922,8 +1676,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "Triceratops sage meadow — portrait",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 三角龙 portrait created with OpenAI ImageGen.",
     "modifications": [
       "Converted the separately composed reviewed PNG to lossy WebP at quality 82.",
@@ -1937,8 +1689,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "三角龙 transparent portrait model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Triceratops dinosaur” by wojciechmiedziocha, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -1952,8 +1702,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "三角龙 transparent model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Triceratops dinosaur” by wojciechmiedziocha, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -1967,8 +1715,6 @@ export const credits = [
     "assetKind": "thumbnail",
     "sourceTitle": "三角龙 collection thumbnail",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Triceratops dinosaur” by wojciechmiedziocha, CC BY 4.0; modified for the Prehistoric Animal Museum. Scene art generated for this project.",
     "modifications": [
       "Resized and centred the complete silhouette with animal-specific safe margins.",
@@ -1982,8 +1728,6 @@ export const credits = [
     "assetKind": "model",
     "sourceTitle": "Triceratops dinosaur",
     "author": "wojciechmiedziocha",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://sketchfab.com/3d-models/triceratops-dinosaur-87527079bad44917ab1b98a456b46c7e",
     "attribution": "“Triceratops dinosaur” by wojciechmiedziocha, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
@@ -2002,8 +1746,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "Tupandactylus English narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated English narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed English two-sentence script with the Serena voice.",
@@ -2017,8 +1759,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "古神翼龙 Mandarin narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated Mandarin narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed two-sentence script with the pinned Serena voice.",
@@ -2032,8 +1772,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "古神翼龙 reviewed habitat — landscape",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 古神翼龙 landscape background created with OpenAI ImageGen.",
     "modifications": [
       "Sharp deterministic cover resize and WebP encoding",
@@ -2047,8 +1785,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "古神翼龙 reviewed habitat — portrait",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 古神翼龙 portrait background created with OpenAI ImageGen.",
     "modifications": [
       "Sharp deterministic cover resize and WebP encoding",
@@ -2062,8 +1798,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "古神翼龙 transparent portrait model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Tupandactylus” by Paleo Modelist (@victory_), CC-BY-4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -2077,8 +1811,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "古神翼龙 transparent model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Tupandactylus” by Paleo Modelist (@victory_), CC-BY-4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -2092,8 +1824,6 @@ export const credits = [
     "assetKind": "thumbnail",
     "sourceTitle": "古神翼龙 collection thumbnail",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Tupandactylus” by Paleo Modelist (@victory_), CC-BY-4.0; modified for the Prehistoric Animal Museum. Scene art generated for this project.",
     "modifications": [
       "Selected a card-size crop that keeps the animal readable.",
@@ -2107,8 +1837,6 @@ export const credits = [
     "assetKind": "model",
     "sourceTitle": "Tupandactylus",
     "author": "Paleo Modelist (@victory_)",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://sketchfab.com/3d-models/tupandactylus-4ea8f4466c2c4e61bc57c12af296d43a",
     "attribution": "“Tupandactylus” by Paleo Modelist (@victory_), CC-BY-4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
@@ -2127,8 +1855,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "Tyrannosaurus rex English narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated English narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed English two-sentence script with the Serena voice.",
@@ -2142,8 +1868,6 @@ export const credits = [
     "assetKind": "narration",
     "sourceTitle": "霸王龙 Mandarin narration",
     "author": "Qwen3-TTS CustomVoice",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated Mandarin narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "modifications": [
       "Generated offline from the exact reviewed two-sentence script.",
@@ -2157,8 +1881,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "Tyrannosaurus bright Hell Creek woodland — landscape",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 霸王龙 landscape created with OpenAI ImageGen.",
     "modifications": [
       "Converted the reviewed PNG to lossy WebP at quality 82.",
@@ -2172,8 +1894,6 @@ export const credits = [
     "assetKind": "background",
     "sourceTitle": "Tyrannosaurus bright Hell Creek woodland — portrait",
     "author": "OpenAI built-in image_gen",
-    "licenseName": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "attribution": "Project-generated 霸王龙 portrait created with OpenAI ImageGen.",
     "modifications": [
       "Converted the separately composed reviewed PNG to lossy WebP at quality 82.",
@@ -2187,8 +1907,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "霸王龙 transparent portrait model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Tyrant King - Tyrannosaurus” by Marcel Schanz, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -2202,8 +1920,6 @@ export const credits = [
     "assetKind": "poster",
     "sourceTitle": "霸王龙 transparent model still",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Tyrant King - Tyrannosaurus” by Marcel Schanz, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
@@ -2217,8 +1933,6 @@ export const credits = [
     "assetKind": "thumbnail",
     "sourceTitle": "霸王龙 collection thumbnail",
     "author": "Prehistoric Animal Museum",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "“Tyrant King - Tyrannosaurus” by Marcel Schanz, CC BY 4.0; modified for the Prehistoric Animal Museum. Scene art generated for this project.",
     "modifications": [
       "Selected a card-size crop that keeps the animal readable.",
@@ -2232,8 +1946,6 @@ export const credits = [
     "assetKind": "model",
     "sourceTitle": "Tyrant King - Tyrannosaurus",
     "author": "Marcel Schanz",
-    "licenseName": "Creative Commons Attribution 4.0 International",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://sketchfab.com/3d-models/tyrant-king-tyrannosaurus-6465a297fa784598adc49f6e0042d449",
     "attribution": "“Tyrant King - Tyrannosaurus” by Marcel Schanz, CC BY 4.0; modified for the Prehistoric Animal Museum.",
     "modifications": [

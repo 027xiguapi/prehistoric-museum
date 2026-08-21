@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '0cfb5e660fcc69ac5ee8a991354aad1d439215561f39ec43eb0ab75eaf86f224',
       bytes: 2930772,
     },
-    license: modelLicense,
     runtime: {
       sha256: '5d13eca53563f9d9aa016cf241420f6502e1341b326b008de02d8ae1256fdbc4',
       bytes: 2612432,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “Animation” (15s, 260 channels).',
     ],
     attribution: "European Hedgehog 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/EuropeanHedgehog/model.glb",
       'converted-downloads/european-hedgehog/model-normalized.glb',

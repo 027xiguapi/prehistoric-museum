@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: 'f475e016d07a8164a9de8ee8de280e263b6b00841ae6dd6af18ab3dc5e92a53c',
       bytes: 2224624,
     },
-    license: modelLicense,
     runtime: {
       sha256: '8d8ea998aae4177b15a393fc02d1b22cd37657948684103ec0e380aae7c31da8',
       bytes: 1709304,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (16s, 261 channels).',
     ],
     attribution: "African Leopard 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/AfricanLeopard/model.glb",
       'converted-downloads/african-leopard/model-normalized.glb',

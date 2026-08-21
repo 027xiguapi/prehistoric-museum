@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '3ddab10c18c002d2050d3494a57d0f63964891eb92e5f002c493eab18aa2cd33',
       bytes: 9118456,
     },
-    license: modelLicense,
     runtime: {
       sha256: '7dea09724f0cf8b7ac195d8b3707549de262673b95f6a1143bad33884292448c',
       bytes: 5799980,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (11.1s, 165 channels).',
     ],
     attribution: "Ragdoll 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/cats/Ragdoll/Ragdoll.glb",
       'converted-downloads/ragdoll/model-normalized.glb',

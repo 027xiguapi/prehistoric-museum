@@ -70,8 +70,6 @@ export const animal = {
     modelCredit: {
       attribution:
         '“Otodus Megalodon updated animations” by CanYuTsai, CC BY 4.0; normalized, material-adjusted, and given a project-authored 8-second full-body swimming Idle for local museum review.',
-      licenseName: 'Creative Commons Attribution 4.0 International',
-      licenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
       sourceTitle: 'Otodus Megalodon updated animations',
       sourceUrl:
         'https://sketchfab.com/3d-models/otodus-megalodon-updated-animations-7e65b8c51251440e9aca8385f286714f',

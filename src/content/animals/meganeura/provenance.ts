@@ -15,11 +15,6 @@ export const provenance = [
       "sha256": "b67cdb48e1ebe0f569aa45ec00144b452be699202bb3f9bdcb88ab4ce7b478f0",
       "bytes": 4623164
     },
-    "license": {
-      "spdx": "CC-BY-4.0",
-      "name": "Creative Commons Attribution 4.0 International",
-      "url": "https://creativecommons.org/licenses/by/4.0/"
-    },
     "runtime": {
       "bytes": 1915624,
       "sha256": "4e388ade5b32132cc60054fa51dc7ac0fe48372efafaf4c57732697b3874589b"
@@ -50,11 +45,6 @@ export const provenance = [
       "sha256": "43733871df7ba0b7cd9a7b2077c307e6800b07aeed12e7c7aa0d4e7c320ca60e",
       "bytes": 2702978
     },
-    "license": {
-      "spdx": "CC-BY-NC-SA-4.0",
-      "name": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-      "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
-    },
     "runtime": {
       "bytes": 265692,
       "sha256": "b1ff0024c5ca7632ea2b982692005f77dac6f9f9b99c6d970204ed27b7b9dbb4"
@@ -81,11 +71,6 @@ export const provenance = [
       "sha256": "506c06c952c2164428eac32cab6d11e3ecf6cdc7114d980574bacd31d9c33a19",
       "bytes": 2873491
     },
-    "license": {
-      "spdx": "CC-BY-NC-SA-4.0",
-      "name": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-      "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
-    },
     "runtime": {
       "bytes": 232732,
       "sha256": "a95452b38ad10c79e0b0ee9b181bc5a382ed8b952d09df0d20ccbac89a7de27f"
@@ -111,11 +96,6 @@ export const provenance = [
         "model/model.glb"
       ],
       "method": "Rendered the deterministic first animation frame at the normal 1200 × 675 landscape runtime camera, composition, size, pose, and lighting; preserved transparent pixels outside the model and contact shadow."
-    },
-    "license": {
-      "spdx": "CC-BY-4.0",
-      "name": "Creative Commons Attribution 4.0 International",
-      "url": "https://creativecommons.org/licenses/by/4.0/"
     },
     "runtime": {
       "bytes": 83682,
@@ -145,11 +125,6 @@ export const provenance = [
       ],
       "method": "Rendered the deterministic first animation frame at the normal 390 × 844 portrait runtime camera, composition, size, pose, and lighting; preserved transparent pixels outside the model and contact shadow."
     },
-    "license": {
-      "spdx": "CC-BY-4.0",
-      "name": "Creative Commons Attribution 4.0 International",
-      "url": "https://creativecommons.org/licenses/by/4.0/"
-    },
     "runtime": {
       "bytes": 25908,
       "sha256": "d98362503064cd026fc99b18810226aa7b380e60e2c6f6954ba41570a7c00b22"
@@ -177,11 +152,6 @@ export const provenance = [
         "images/poster.webp"
       ],
       "method": "Cropped the reviewed poster to a readable 320 × 320 WebP collection image."
-    },
-    "license": {
-      "spdx": "CC-BY-4.0",
-      "name": "Creative Commons Attribution 4.0 International",
-      "url": "https://creativecommons.org/licenses/by/4.0/"
     },
     "runtime": {
       "bytes": 14272,
@@ -212,11 +182,6 @@ export const provenance = [
       "prompt": "这是巨脉蜻蜓，它生活在约三亿年前的晚石炭世，是现代蜻蜓的远亲。看看它四片布满翅脉的翅膀、六条腿和一双大大的复眼。",
       "sha256": "18724a1f72f6dc6e3843646b4c84bc375d6291b0eba97a0fb94ff6c0d4e23446",
       "bytes": 123645
-    },
-    "license": {
-      "spdx": "CC-BY-NC-SA-4.0",
-      "name": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-      "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
     },
     "runtime": {
       "bytes": 123645,

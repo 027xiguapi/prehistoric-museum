@@ -15,11 +15,6 @@ export const provenance = [
       "sha256": "52732b040837bf747ad489a4a6555467e902eaf791cd1af6de919d7585da7b11",
       "bytes": 8701604
     },
-    "license": {
-      "spdx": "CC-BY-4.0",
-      "name": "Creative Commons Attribution 4.0 International",
-      "url": "https://creativecommons.org/licenses/by/4.0/"
-    },
     "runtime": {
       "bytes": 3591444,
       "sha256": "ef283def4b17e92122442c8cfb617dce7abecf0bdc1962dc2ff1f18835e7a58c"
@@ -50,11 +45,6 @@ export const provenance = [
       "sha256": "dc398272e2e58882d87209be400232300164c85330e5156afa5feba693b64b31",
       "bytes": 2867381
     },
-    "license": {
-      "spdx": "CC-BY-NC-SA-4.0",
-      "name": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-      "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
-    },
     "runtime": {
       "bytes": 287382,
       "sha256": "03c2e212e57c9c6a6e246c3af723fa150d3d1a22ff4091e008ccb271d4ffec1d"
@@ -81,11 +71,6 @@ export const provenance = [
       "sha256": "f638d3b24c3d814e9103941ac2ac5fc5d366fb380f47ceefde94c9778097f882",
       "bytes": 3030138
     },
-    "license": {
-      "spdx": "CC-BY-NC-SA-4.0",
-      "name": "CC BY-NC-SA 4.0 project-owned ImageGen output",
-      "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
-    },
     "runtime": {
       "bytes": 346800,
       "sha256": "7b524977921b8dcee435ce597c022051fed7f76ac77bbf597b6f0660d8d3fabc"
@@ -111,11 +96,6 @@ export const provenance = [
         "model/model.glb"
       ],
       "method": "Rendered the deterministic first animation frame at the normal 1200 × 675 landscape runtime camera, composition, size, pose, and lighting; preserved transparent pixels outside the model and contact shadow."
-    },
-    "license": {
-      "spdx": "CC-BY-4.0",
-      "name": "Creative Commons Attribution 4.0 International",
-      "url": "https://creativecommons.org/licenses/by/4.0/"
     },
     "runtime": {
       "bytes": 59128,
@@ -144,11 +124,6 @@ export const provenance = [
         "model/model.glb"
       ],
       "method": "Rendered the deterministic first animation frame at the normal 390 × 844 portrait runtime camera, composition, size, pose, and lighting; preserved transparent pixels outside the model and contact shadow."
-    },
-    "license": {
-      "spdx": "CC-BY-4.0",
-      "name": "Creative Commons Attribution 4.0 International",
-      "url": "https://creativecommons.org/licenses/by/4.0/"
     },
     "runtime": {
       "bytes": 16328,
@@ -179,11 +154,6 @@ export const provenance = [
       ],
       "method": "Deterministic square crop from the accepted desktop review presentation after hiding all interface chrome."
     },
-    "license": {
-      "spdx": "CC-BY-4.0",
-      "name": "Creative Commons Attribution 4.0 International",
-      "url": "https://creativecommons.org/licenses/by/4.0/"
-    },
     "runtime": {
       "bytes": 18116,
       "sha256": "120cfba9e90c7701e140616c24c651e43a2f727f79340db9549e1143aba73f9d"
@@ -213,11 +183,6 @@ export const provenance = [
       "prompt": "这是胄甲龙，一种生活在早白垩世北美洲的植食性甲龙类恐龙。看看它背上的骨质护甲和肩部的大刺，像不像穿着一件结实的防护外套？",
       "sha256": "baee6b0e3d30264dab55b2dda1396715ed3757281feab3ee19106b98f98bdc28",
       "bytes": 134445
-    },
-    "license": {
-      "spdx": "CC-BY-NC-SA-4.0",
-      "name": "CC BY-NC-SA 4.0 project-owned Qwen3-TTS output",
-      "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
     },
     "runtime": {
       "bytes": 134445,

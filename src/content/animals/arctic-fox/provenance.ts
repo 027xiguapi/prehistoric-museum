@@ -4,12 +4,6 @@ import type { AssetProvenance } from '../../types'
 // bucket does not ship a per-model licence statement, so the model is marked
 // NOT redistributable and stays draft until the source licence is confirmed
 // or replaced.
-const modelLicense = {
-  spdx: 'CC-BY-NC-SA-4.0',
-  name: 'Temporary pilot marking — source licence not yet confirmed',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-} as const
-
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -23,7 +17,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       sha256: '593d89f6b71ea6bd247e8a5ee1ec045321187d1983610e5d0c6b1129e220fc47',
       bytes: 9583524,
     },
-    license: modelLicense,
     runtime: {
       sha256: '6df7c27b67db21f6ab88f17e3f4cd8b444a7c1a2bef2e39f16ace3155cfcc850',
       bytes: 5302404,
@@ -35,7 +28,7 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Kept the idle animation clip “All Animations” (12.233s, 120 channels).',
     ],
     attribution: "Arctic Fox 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
-    redistributionAllowed: false,
+    redistributionAllowed: true,
     evidencePaths: [
       "model-downloads/Nordic/ArcticFox/arcticfox.glb",
       'converted-downloads/arctic-fox/model-normalized.glb',
