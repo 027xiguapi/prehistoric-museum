@@ -27,6 +27,7 @@ import * as bull from './animals/bull/animal'
 import * as bullTerrier from './animals/bull-terrier/animal'
 import * as bulldog from './animals/bulldog/animal'
 import * as bumblebee from './animals/bumblebee/animal'
+import * as butterfly from './animals/butterfly/animal'
 import * as caelebDresselButterfly from './animals/caeleb-dressel-butterfly/animal'
 import * as caelebDresselFreestyle from './animals/caeleb-dressel-freestyle/animal'
 import * as caelebDresselStart from './animals/caeleb-dressel-start/animal'
@@ -54,6 +55,7 @@ import * as donkey from './animals/donkey/animal'
 import * as dragon from './animals/dragon/animal'
 import * as dragonfly from './animals/dragonfly/animal'
 import * as duck from './animals/duck/animal'
+import * as eagle from './animals/eagle/animal'
 import * as echidna from './animals/echidna/animal'
 import * as elephant from './animals/elephant/animal'
 import * as emperorPenguin from './animals/emperor-penguin/animal'
@@ -86,6 +88,7 @@ import * as hippo from './animals/hippo/animal'
 import * as hornet from './animals/hornet/animal'
 import * as horse from './animals/horse/animal'
 import * as ichthyosaur from './animals/ichthyosaur/animal'
+import * as jellyfish from './animals/jellyfish/animal'
 import * as jewelBeetle from './animals/jewel-beetle/animal'
 import * as jindoDog from './animals/jindo-dog/animal'
 import * as kangaroo from './animals/kangaroo/animal'
@@ -166,6 +169,7 @@ import * as schnauzerAr from './animals/schnauzer-ar/animal'
 import * as scorpion from './animals/scorpion/animal'
 import * as scottishFold from './animals/scottish-fold/animal'
 import * as seaTurtle from './animals/sea-turtle/animal'
+import * as seahorse from './animals/seahorse/animal'
 import * as shark from './animals/shark/animal'
 import * as sheep from './animals/sheep/animal'
 import * as shibaInu from './animals/shiba-inu/animal'
@@ -197,6 +201,7 @@ import * as unicorn from './animals/unicorn/animal'
 import * as velociraptor from './animals/velociraptor/animal'
 import * as walkersCicada from './animals/walkers-cicada/animal'
 import * as welshCorgi from './animals/welsh-corgi/animal'
+import * as whale from './animals/whale/animal'
 import * as whiteTailedDeer from './animals/white-tailed-deer/animal'
 import * as wombat from './animals/wombat/animal'
 import * as woodpecker from './animals/woodpecker/animal'
@@ -232,6 +237,7 @@ export const animalModules: Readonly<Record<string, AnimalModule>> = {
   './animals/bull-terrier/animal.ts': bullTerrier,
   './animals/bulldog/animal.ts': bulldog,
   './animals/bumblebee/animal.ts': bumblebee,
+  './animals/butterfly/animal.ts': butterfly,
   './animals/caeleb-dressel-butterfly/animal.ts': caelebDresselButterfly,
   './animals/caeleb-dressel-freestyle/animal.ts': caelebDresselFreestyle,
   './animals/caeleb-dressel-start/animal.ts': caelebDresselStart,
@@ -259,6 +265,7 @@ export const animalModules: Readonly<Record<string, AnimalModule>> = {
   './animals/dragon/animal.ts': dragon,
   './animals/dragonfly/animal.ts': dragonfly,
   './animals/duck/animal.ts': duck,
+  './animals/eagle/animal.ts': eagle,
   './animals/echidna/animal.ts': echidna,
   './animals/elephant/animal.ts': elephant,
   './animals/emperor-penguin/animal.ts': emperorPenguin,
@@ -291,6 +298,7 @@ export const animalModules: Readonly<Record<string, AnimalModule>> = {
   './animals/hornet/animal.ts': hornet,
   './animals/horse/animal.ts': horse,
   './animals/ichthyosaur/animal.ts': ichthyosaur,
+  './animals/jellyfish/animal.ts': jellyfish,
   './animals/jewel-beetle/animal.ts': jewelBeetle,
   './animals/jindo-dog/animal.ts': jindoDog,
   './animals/kangaroo/animal.ts': kangaroo,
@@ -371,6 +379,7 @@ export const animalModules: Readonly<Record<string, AnimalModule>> = {
   './animals/scorpion/animal.ts': scorpion,
   './animals/scottish-fold/animal.ts': scottishFold,
   './animals/sea-turtle/animal.ts': seaTurtle,
+  './animals/seahorse/animal.ts': seahorse,
   './animals/shark/animal.ts': shark,
   './animals/sheep/animal.ts': sheep,
   './animals/shiba-inu/animal.ts': shibaInu,
@@ -402,6 +411,7 @@ export const animalModules: Readonly<Record<string, AnimalModule>> = {
   './animals/velociraptor/animal.ts': velociraptor,
   './animals/walkers-cicada/animal.ts': walkersCicada,
   './animals/welsh-corgi/animal.ts': welshCorgi,
+  './animals/whale/animal.ts': whale,
   './animals/white-tailed-deer/animal.ts': whiteTailedDeer,
   './animals/wombat/animal.ts': wombat,
   './animals/woodpecker/animal.ts': woodpecker,

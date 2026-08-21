@@ -1,48 +1,26 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { Footprints, Lock } from 'lucide-react'
+import { Footprints } from 'lucide-react'
 
-import { mainAnimals, allAnimals } from '../content/catalog'
+import { mainAnimals } from '../content/catalog'
 import { draftAnimalsByZone } from '../content/collections/draft-zones'
 import { zoneCategories } from '../content/collections/categories'
-import type { ZoneCategoryId } from '../content/collections/categories'
-import {
-  modernAnimals,
-  modernAnimalsByCategory,
-  modernAnimalName,
-} from '../content/modern-animals'
 import type { Locale } from '../i18n/locale'
 import { messagesFor } from '../i18n/messages'
 
-/** Modern photo-only animals join the matching prehistoric zone sections. */
-const modernCategoryByZone: Partial<
-  Record<ZoneCategoryId, Parameters<typeof modernAnimalsByCategory>[0]>
-> = {
-  plains: 'grassland',
-  forest: 'forest',
-  ocean: 'ocean',
-}
-
-export const categoryPageZoneIds = [
-  ...zoneCategories.map((zone) => zone.id),
-  'sky',
-] as const
+export const categoryPageZoneIds = zoneCategories.map((zone) => zone.id)
 
 export type CategoryPageZoneId = (typeof categoryPageZoneIds)[number]
 
-// Draft 3D animals appear as unlocked exhibit cards. Animals that already
-// exist as a modern placeholder card (e.g. tiger, owl) are unlocked in place
-// instead, so they are not listed twice.
-const modernAnimalIds = new Set(modernAnimals.map((animal) => animal.id))
-
-const draftAnimals = [...draftAnimalsByZone.values()]
-  .flat()
-  .filter((animal) => !modernAnimalIds.has(animal.id))
-
-/** Modern placeholder card becomes an unlocked link when a 3D exhibit exists. */
-function modern3dAnimal(id: string) {
-  return allAnimals.find((animal) => animal.id === id)
-}
+// Draft 3D animals appear as unlocked exhibit cards. A draft in several
+// zones is counted once here.
+const draftAnimals = [
+  ...new Map(
+    [...draftAnimalsByZone.values()]
+      .flat()
+      .map((animal) => [animal.id, animal] as const),
+  ).values(),
+]
 
 export function isCategoryPageZoneId(
   value: string,
@@ -52,9 +30,7 @@ export function isCategoryPageZoneId(
 
 function zoneTitle(locale: Locale, zone: CategoryPageZoneId): string {
   const messages = messagesFor(locale)
-  return zone === 'sky'
-    ? messages.modern.categories.sky
-    : messages.zones[zone].name
+  return messages.zones[zone].name
 }
 
 export function categoryZoneTitle(locale: Locale, zone: CategoryPageZoneId) {
@@ -75,10 +51,7 @@ export function CategoryPageView({ locale, zone }: CategoryPageViewProps) {
 
   const messages = messagesFor(locale)
   const zones = zone === null ? [...categoryPageZoneIds] : [zone]
-  const animalCount =
-    mainAnimals.length +
-    draftAnimals.length +
-    modernAnimalsByCategory('sky').length
+  const animalCount = mainAnimals.length + draftAnimals.length
 
   return (
     <main className="category-page">
@@ -96,23 +69,13 @@ export function CategoryPageView({ locale, zone }: CategoryPageViewProps) {
         </Link>
       </header>
       {zones.map((zoneId) => {
-        const prehistoric =
-          zoneId === 'sky'
-            ? []
-            : mainAnimals.filter((animal) =>
-                zoneCategories
-                  .find((zone) => zone.id === zoneId)!
-                  .animalIds.includes(animal.id),
-              )
-        const modernCategory =
-          zoneId === 'sky' ? 'sky' : modernCategoryByZone[zoneId]
-        const modern = modernCategory
-          ? modernAnimalsByCategory(modernCategory)
-          : []
-        const drafts = (draftAnimalsByZone.get(zoneId) ?? []).filter(
-          (animal) => !modernAnimalIds.has(animal.id),
+        const prehistoric = mainAnimals.filter((animal) =>
+          zoneCategories
+            .find((zone) => zone.id === zoneId)!
+            .animalIds.includes(animal.id),
         )
-        if (prehistoric.length === 0 && modern.length === 0 && drafts.length === 0) {
+        const drafts = draftAnimalsByZone.get(zoneId) ?? []
+        if (prehistoric.length === 0 && drafts.length === 0) {
           return null
         }
         return (
@@ -123,11 +86,7 @@ export function CategoryPageView({ locale, zone }: CategoryPageViewProps) {
           >
             <div className="category-section__head">
               <h2 id={`zone-${zoneId}`}>{zoneTitle(locale, zoneId)}</h2>
-              <p>
-                {zoneId === 'sky'
-                  ? messages.modern.intro
-                  : messages.zones[zoneId].tagline}
-              </p>
+              <p>{messages.zones[zoneId].tagline}</p>
             </div>
             <div className="category-grid" role="list">
               {prehistoric.map((animal, index) => {
@@ -199,70 +158,6 @@ export function CategoryPageView({ locale, zone }: CategoryPageViewProps) {
                       </span>
                     </Link>
                   </div>
-                )
-              })}
-              {modern.map((animal) => {
-                const unlocked = modern3dAnimal(animal.id)
-                if (unlocked) {
-                  const content =
-                    unlocked.content[locale] ?? unlocked.content['zh-CN']
-                  if (content) {
-                    return (
-                      <div key={animal.id} role="listitem">
-                        <Link
-                          aria-label={messages.collection.cardLabel(
-                            content.name,
-                            false,
-                          )}
-                          className="category-card"
-                          href={`/${locale}/animal/${animal.id}`}
-                        >
-                          <span
-                            aria-hidden="true"
-                            className="category-card__image"
-                          >
-                            <img
-                              alt=""
-                              decoding="async"
-                              loading="lazy"
-                              src={unlocked.assets.thumbnail}
-                            />
-                          </span>
-                          <span className="category-card__copy">
-                            <strong>{content.name}</strong>
-                            <small>{content.classificationLabel}</small>
-                          </span>
-                        </Link>
-                      </div>
-                    )
-                  }
-                }
-                return (
-                <div
-                  className="category-card category-card--static"
-                  key={animal.id}
-                  role="listitem"
-                >
-                  <span className="category-card__image category-card__image--locked">
-                    <img
-                      alt=""
-                      decoding="async"
-                      loading="lazy"
-                      src={animal.thumbnail}
-                    />
-                    <span
-                      aria-label={messages.modern.locked}
-                      className="category-card__lock"
-                      role="img"
-                    >
-                      <Lock aria-hidden="true" size={14} strokeWidth={2.4} />
-                    </span>
-                  </span>
-                  <span className="category-card__copy">
-                    <strong>{modernAnimalName(animal, locale)}</strong>
-                    <small>{messages.modern.soon}</small>
-                  </span>
-                </div>
                 )
               })}
             </div>

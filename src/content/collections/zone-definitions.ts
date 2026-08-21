@@ -1,4 +1,4 @@
-import type { PublishedAnimalPackage } from '../types'
+import type { AnimalKind, AtmosphereKind } from '../types'
 
 /** Stable identifier used in URLs (`?category=<id>`) and i18n lookups. */
 export type ZoneCategoryId =
@@ -8,23 +8,61 @@ export type ZoneCategoryId =
   | 'ice'
   | 'ocean'
   | 'insect'
+  | 'sky'
 
 export interface ZoneCategoryDefinition {
   readonly id: ZoneCategoryId
   readonly matches: (animal: {
     readonly id: string
-    readonly kind: PublishedAnimalPackage['kind']
-    readonly atmosphere: PublishedAnimalPackage['atmosphere']
+    readonly kind: AnimalKind
+    readonly atmosphere: AtmosphereKind
   }) => boolean
 }
 
 /**
- * Explicit membership for groups that cannot be derived from `kind` /
- * `atmosphere` yet. Future insects join the museum by adding their ids here.
+ * Explicit membership for animals that cannot be derived from `kind` /
+ * `atmosphere` alone (every insect and insect-adjacent bug in the museum).
  */
-export const insectAnimalIds: readonly string[] = ['meganeura']
+export const insectAnimalIds: readonly string[] = [
+  // Flying insects — also land in `sky` through their `air` atmosphere.
+  'meganeura',
+  'dragonfly',
+  'swallowtail-butterfly',
+  'morpho-butterfly',
+  'atlas-moth',
+  'firefly',
+  'hornet',
+  // Beetles.
+  'atlas-beetle',
+  'giant-stag-beetle',
+  'hercules-beetle',
+  'hercules-beetle-ar',
+  'jewel-beetle',
+  'rhinoceros-beetle',
+  'rosalia-batesi',
+  'shining-ball-scarab',
+  'stag-beetle',
+  'stag-beetle-2',
+  // Cicadas.
+  'brown-cicada',
+  'evening-cicada',
+  'periodical-cicada',
+  'robust-cicada',
+  'walkers-cicada',
+  // Other bugs.
+  'bumblebee',
+  'centipede',
+  'grasshopper',
+  'ladybug',
+  'mantis',
+  'scorpion',
+]
 
-/** Ordered museum homepage category definitions. */
+/**
+ * Ordered museum category definitions. A single animal may match several
+ * categories (e.g. a dragonfly matches both `insect` and `sky`), so the same
+ * exhibit can appear in more than one zone.
+ */
 export const zoneCategoryDefinitions: readonly ZoneCategoryDefinition[] = [
   {
     id: 'dinosaur',
@@ -51,4 +89,19 @@ export const zoneCategoryDefinitions: readonly ZoneCategoryDefinition[] = [
     id: 'insect',
     matches: (animal) => insectAnimalIds.includes(animal.id),
   },
+  {
+    id: 'sky',
+    matches: (animal) => animal.atmosphere === 'air',
+  },
 ]
+
+/** Every zone an animal belongs to, in homepage-category order. */
+export function zoneIdsForAnimal(animal: {
+  readonly id: string
+  readonly kind: AnimalKind
+  readonly atmosphere: AtmosphereKind
+}): ZoneCategoryId[] {
+  return zoneCategoryDefinitions
+    .filter((definition) => definition.matches(animal))
+    .map((definition) => definition.id)
+}

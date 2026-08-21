@@ -28,6 +28,7 @@ const SLUGS = [
   'raccoon', 'sea-turtle', 'hercules-beetle', 'lion', 'kookaburra', 'alpaca',
   'snail', 'scorpion', 'python', 'kangaroo', 'schnauzer', 'frog', 'horse',
   'alligator', 'emu', 'deer',
+  'whale', 'jellyfish', 'seahorse', 'eagle', 'butterfly',
 ]
 
 const onlyFlag = process.argv.find((argument) => argument.startsWith('--only='))

@@ -94,6 +94,12 @@ const SPECIES = [
   { slug: 'alligator', sourceFolder: '鳄鱼', sourceFile: 'source/exported.glb', expectedLongestMeters: 3.5, yawDegrees: 0 },
   { slug: 'emu', sourceFolder: '鸸鹋', sourceFile: 'source/exported.glb', expectedLongestMeters: 1.7, yawDegrees: 0 },
   { slug: 'deer', sourceFolder: '鹿', sourceFile: 'source/exported.glb', expectedLongestMeters: 1.9, yawDegrees: 0 },
+  // Modern animals (owner-supplied, flat GLBs under converted-1048/model/).
+  { slug: 'whale', sourceFolder: 'model', sourceFile: 'whale.glb', sourcePath: 'converted-1048/model/whale.glb', expectedLongestMeters: 15, yawDegrees: 0 },
+  { slug: 'jellyfish', sourceFolder: 'model', sourceFile: 'jellyfish.glb', sourcePath: 'converted-1048/model/jellyfish.glb', expectedLongestMeters: 0.5, yawDegrees: 0 },
+  { slug: 'seahorse', sourceFolder: 'model', sourceFile: 'seahorse.glb', sourcePath: 'converted-1048/model/seahorse.glb', expectedLongestMeters: 0.15, yawDegrees: 0 },
+  { slug: 'eagle', sourceFolder: 'model', sourceFile: 'eagle.glb', sourcePath: 'converted-1048/model/eagle.glb', expectedLongestMeters: 2.0, yawDegrees: 0 },
+  { slug: 'butterfly', sourceFolder: 'model', sourceFile: 'butterfly.glb', sourcePath: 'converted-1048/model/butterfly.glb', expectedLongestMeters: 0.08, yawDegrees: 0 },
 ]
 
 const onlyFlag = process.argv.find((argument) => argument.startsWith('--only='))
@@ -212,6 +218,43 @@ function textureBytes(document) {
   return total
 }
 
+const KHR_MATERIALS_PBR_SPECULAR_GLOSSINESS =
+  'KHR_materials_pbrSpecularGlossiness'
+
+// Rewrites the deprecated spec-gloss PBR workflow into the standard
+// metal-rough workflow that three.js (and most runtimes) implement. The
+// diffuse texture/factor become baseColor, glossiness inverts to roughness,
+// and specular has no metalness equivalent so it maps to metallic 0. Without
+// this, such models render with their default white base colour because
+// GLTFLoader ignores the extension that carries their colour.
+function convertSpecularGlossinessMaterials(document, warnings) {
+  let converted = 0
+  for (const material of document.getRoot().listMaterials()) {
+    const specGloss = material.getExtension(KHR_MATERIALS_PBR_SPECULAR_GLOSSINESS)
+    if (!specGloss) {
+      continue
+    }
+    const diffuseTexture = specGloss.getDiffuseTexture()
+    const diffuseFactor = specGloss.getDiffuseFactor()
+    const glossiness = specGloss.getGlossinessFactor()
+    if (diffuseTexture && !material.getBaseColorTexture()) {
+      material.setBaseColorTexture(diffuseTexture)
+    }
+    material.setBaseColorFactor(diffuseFactor)
+    material.setRoughnessFactor(1 - glossiness)
+    material.setMetallicFactor(0)
+    material.setExtension(KHR_MATERIALS_PBR_SPECULAR_GLOSSINESS, null)
+    converted += 1
+  }
+  if (converted > 0) {
+    document.disposeExtension(KHR_MATERIALS_PBR_SPECULAR_GLOSSINESS)
+    warnings.push(
+      `converted ${converted} deprecated ${KHR_MATERIALS_PBR_SPECULAR_GLOSSINESS} material(s) to metal-rough`,
+    )
+  }
+  return converted
+}
+
 const report = []
 for (const species of SPECIES) {
   if (onlySlugs && !onlySlugs.has(species.slug)) {
@@ -244,6 +287,8 @@ for (const species of SPECIES) {
       document = await io.read(resampledPath)
       await rm(resampledPath, { force: true })
     }
+
+    convertSpecularGlossinessMaterials(document, warnings)
 
     const animations = listAnimations(document)
 
@@ -339,7 +384,9 @@ for (const species of SPECIES) {
     }
     await copyFile(runtimePath, evidencePath)
 
-    const sourcePath = join(root, '1048动物', species.sourceFolder, species.sourceFile)
+    const sourcePath = species.sourcePath
+      ? join(root, species.sourcePath)
+      : join(root, '1048动物', species.sourceFolder, species.sourceFile)
     const [sourceSha256, sourceStat, runtimeSha256] = await Promise.all([
       sha256Of(sourcePath),
       stat(sourcePath),
@@ -356,7 +403,7 @@ for (const species of SPECIES) {
       status: 'ok',
       inputMB: Number(((await stat(inputPath)).size / 1048576).toFixed(2)),
       sourceRecord: {
-        path: `1048动物/${species.sourceFolder}/${species.sourceFile}`,
+        path: species.sourcePath ?? `1048动物/${species.sourceFolder}/${species.sourceFile}`,
         sha256: sourceSha256,
         bytes: sourceStat.size,
       },

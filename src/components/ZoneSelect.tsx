@@ -37,11 +37,13 @@ const zoneIcons: Readonly<Record<ZoneCategoryId, LucideIcon>> = {
   ice: Snowflake,
   ocean: Waves,
   insect: Bug,
+  sky: Bird,
 }
 
 // Illustrated scene per zone, served from /public/img/area/ (file names are
-// Chinese, so they must be URI-encoded for the URL).
-const zoneSceneImages: Readonly<Record<ZoneCategoryId, string>> = {
+// Chinese, so they must be URI-encoded for the URL). Zones without a scene
+// image (currently `sky`) fall back to their default animal thumbnail.
+const zoneSceneImages: Readonly<Partial<Record<ZoneCategoryId, string>>> = {
   dinosaur: encodeURI('/img/area/恐龙.png'),
   ice: encodeURI('/img/area/冰川.png'),
   insect: encodeURI('/img/area/昆虫.png'),
@@ -132,6 +134,7 @@ const zoneTerrain: Readonly<Record<ZoneCategoryId, string>> = {
   dinosaur: '[--sign-tilt:1.6deg] [--zone-accent:#a85f16] [--piece:polygon(4.9%_6.8%,24.4%_2.3%,46.3%_9.1%,70.7%_0%,90.2%_4.5%,100%_0%,95.1%_27.3%,100%_54.5%,95.1%_77.3%,97.6%_88.6%,75.6%_95.5%,51.2%_86.4%,26.8%_100%,4.9%_90.9%,9.8%_70.5%,0%_50%,12.2%_27.3%)] top-[26%] left-[56%] h-[44%] w-[41%] zone-stack:order-3',
   ocean: '[--sign-tilt:-1.3deg] [--zone-accent:#2073bd] [--sign-top:16%] [--sign-left:14%] [--tagline-inset:22%] [--piece:polygon(29.2%_0%,62.5%_2.2%,87.5%_1.1%,100%_11.8%,83.3%_24.7%,95.8%_37.6%,83.3%_50.5%,95.8%_63.4%,83.3%_76.3%,95.8%_87.1%,87.5%_97.8%,54.2%_100%,20.8%_96.8%,0%_82.8%,8.3%_65.6%,0%_48.4%,8.3%_31.2%,0%_16.1%)] top-[3%] left-[3%] h-[93%] w-[24%] zone-stack:order-5',
   plains: '[--sign-tilt:1.1deg] [--zone-accent:#4c8a30] [--sign-top:17%] [--sign-left:10%] [--piece:polygon(2.7%_6.3%,13.5%_18.8%,25.7%_0%,36.5%_12.5%,47.3%_6.3%,59.5%_18.8%,73%_0%,86.5%_12.5%,98.6%_3.1%,100%_31.3%,97.3%_62.5%,98.6%_87.5%,85.1%_100%,66.2%_93.8%,47.3%_100%,28.4%_90.6%,12.2%_100%,1.4%_93.8%,4.1%_62.5%,0%_31.3%)] top-[64%] left-[23%] h-[32%] w-[74%] zone-stack:order-4',
+  sky: '[--sign-tilt:1deg] [--zone-accent:#3d8bd9] [--piece:polygon(3%_16%,22%_7%,40%_14%,58%_4%,78%_11%,96%_5%,100%_45%,90%_72%,97%_93%,72%_100%,46%_90%,22%_100%,4%_90%,0%_55%)] top-[0.5%] left-[35%] h-[23%] w-[33%] zone-stack:order-7',
 }
 
 // Terrain gradient per zone, painted by the clipped button so the frame's
@@ -144,6 +147,7 @@ const zoneBackdrop: Readonly<Record<ZoneCategoryId, string>> = {
   dinosaur: 'bg-[radial-gradient(circle_at_58%_24%,rgb(255_232_164/55%),transparent_50%),radial-gradient(circle_at_30%_80%,rgb(160_80_20/26%),transparent_55%),linear-gradient(155deg,#f5b049_0%,#d97b2b_100%)]',
   ocean: 'bg-[radial-gradient(ellipse_at_45%_14%,rgb(202_240_255/62%),transparent_54%),radial-gradient(ellipse_at_55%_92%,rgb(10_60_130/42%),transparent_58%),linear-gradient(195deg,#4fb7ec_0%,#2073bd_100%)]',
   plains: 'bg-[radial-gradient(circle_at_30%_24%,rgb(240_250_180/58%),transparent_48%),radial-gradient(circle_at_78%_80%,rgb(60_110_30/28%),transparent_52%),linear-gradient(160deg,#aadf62_0%,#5da33e_100%)]',
+  sky: 'bg-[radial-gradient(circle_at_32%_24%,rgb(255_255_255/80%),transparent_50%),linear-gradient(175deg,#a9d8f8_0%,#3d8bd9_100%)]',
 }
 
 const pieceFrameClass = [

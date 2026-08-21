@@ -71,6 +71,11 @@ const SLUGS = {
   alligator: 1,
   emu: 1,
   deer: 1,
+  whale: 1,
+  jellyfish: 1,
+  seahorse: 1,
+  eagle: 1,
+  butterfly: 1,
 }
 
 const onlyFlag = process.argv.find((argument) => argument.startsWith('--only='))

@@ -8,6 +8,7 @@ export type AnimalKind =
   | 'pterosaur'
   | 'marine-reptile'
   | 'other-prehistoric-animal'
+  | 'modern-animal'
 export type Habitat = 'land' | 'air' | 'water'
 export type AtmosphereKind =
   | 'air'

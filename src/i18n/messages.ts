@@ -154,6 +154,10 @@ const zhCN = {
       name: '昆虫',
       tagline: '小小身体藏着大大的秘密',
     },
+    sky: {
+      name: '天空',
+      tagline: '飞上蓝天，和鸟儿、翼龙一起翱翔',
+    },
   },
   collection: {
     friends: (count: number) => `${count} 位史前朋友`,
@@ -384,6 +388,10 @@ const en = {
     insect: {
       name: 'Insects',
       tagline: 'Tiny bodies with big secrets',
+    },
+    sky: {
+      name: 'Sky',
+      tagline: 'Take wing and soar with feathered friends',
     },
   },
   collection: {
