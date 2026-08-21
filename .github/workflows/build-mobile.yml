@@ -1,0 +1,133 @@
+name: Build Mobile Apps
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+# One run per branch at a time: a newer push cancels the in-flight build.
+concurrency:
+  group: mobile-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-android:
+    name: Build Android debug APK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      # Capacitor 8 and AGP 8.x both require a JDK 21 toolchain.
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      # Provides cmdline-tools and accepts SDK licenses; Gradle then downloads
+      # the exact platform/build-tools versions the project declares.
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      # Caches the Gradle distribution and build outputs across runs. The
+      # Android project lives in `android/`, not the repository root.
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          build-root-directory: android
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # Static-export the Next.js app into `out/` and drop the remote animal
+      # assets (models/audio are fetched on demand from NEXT_PUBLIC_ASSET_ORIGIN).
+      - name: Build web bundle
+        run: pnpm run build:mobile
+
+      # Copies `out/` into the Android webview assets and refreshes plugins.
+      - name: Sync Capacitor
+        run: pnpm exec cap sync android
+
+      - name: Build debug APK
+        working-directory: android
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: WonZoo-debug-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+
+  build-ios:
+    name: Build iOS app (unsigned)
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # Static-export the Next.js app into `out/` and drop the remote animal
+      # assets (models/audio are fetched on demand from NEXT_PUBLIC_ASSET_ORIGIN).
+      - name: Build web bundle
+        run: pnpm run build:mobile
+
+      # Copies `out/` into the iOS webview assets and refreshes plugins.
+      - name: Sync Capacitor iOS
+        run: pnpm exec cap sync ios
+
+      # Simulator build with signing disabled: verifies the app compiles and
+      # produces a .app without needing Apple Developer credentials. A signed,
+      # installable IPA requires a provisioning profile + signing identity.
+      - name: Build iOS app (unsigned)
+        working-directory: ios/App
+        run: |
+          xcodebuild \
+            -project App.xcodeproj \
+            -scheme App \
+            -configuration Release \
+            -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
+      - name: Package app bundle
+        working-directory: ios/App/build/Build/Products/Release-iphonesimulator
+        run: zip -r WonZoo-ios-simulator.app.zip App.app
+
+      - name: Upload iOS app
+        uses: actions/upload-artifact@v4
+        with:
+          name: WonZoo-ios-simulator
+          path: ios/App/build/Build/Products/Release-iphonesimulator/WonZoo-ios-simulator.app.zip
+          if-no-files-found: error
