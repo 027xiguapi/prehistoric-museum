@@ -1,4 +1,3 @@
-import modelUrl from './model/model.glb'
 import posterPortraitUrl from './images/poster-portrait.webp'
 import posterUrl from './images/poster.webp'
 import thumbnailUrl from './images/thumbnail.webp'
@@ -9,6 +8,7 @@ import landscapeUrl from '../stegosaurus/backgrounds/landscape.webp'
 import portraitUrl from '../stegosaurus/backgrounds/portrait.webp'
 
 import { imageUrl } from '../../create-runtime-animal'
+import { animalAssetUrl } from '../../remote-assets'
 import { animalDefinition } from './package'
 import type { DraftAnimalPackage } from '../../types'
 import type { LegacyLocalReviewAnimalPackage } from '../../../review/types'
@@ -23,7 +23,7 @@ export const animal: DraftAnimalPackage & LegacyLocalReviewAnimalPackage = {
     en: animalDefinition.content.en!,
   },
   assets: {
-    model: modelUrl,
+    model: animalAssetUrl(animalDefinition.id, 'model.glb'),
     modelBytes: 4154152,
     poster: imageUrl(posterUrl),
     posterPortrait: imageUrl(posterPortraitUrl),
