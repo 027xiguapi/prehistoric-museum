@@ -434,22 +434,13 @@ export function createReviewedEnglishNarrationProvenance(
       'Generated offline from the exact reviewed English two-sentence script with the Serena voice.',
       'Normalized to a reviewed 48 kHz mono MP3 without runtime synthesis.',
     ],
-    attribution:
-      'Project-generated English narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).',
     redistributionAllowed: true,
-    evidencePaths: ['provenance/LICENSES/narration-rights.txt'],
   }
 }
 
 export function createPublishedAssetProvenance(
   input: PublishedAssetProvenanceInput,
 ): readonly [AssetProvenance, ...AssetProvenance[]] {
-  const modelAttribution = `“${input.model.source.title}” by ${input.model.source.author}, CC BY 4.0; modified for the Prehistoric Animal Museum.`
-  const modelEvidence = [
-    'provenance/LICENSES/model-license.txt',
-    'provenance/LICENSES/model-source.txt',
-  ] as const
-
   return [
     {
       assetPath: 'model/model.glb',
@@ -465,9 +456,7 @@ export function createPublishedAssetProvenance(
       },
       runtime: input.model.runtime,
       modifications: input.model.modifications,
-      attribution: modelAttribution,
       redistributionAllowed: true,
-      evidencePaths: modelEvidence,
     },
     {
       assetPath: 'backgrounds/landscape.webp',
@@ -486,9 +475,7 @@ export function createPublishedAssetProvenance(
         'Converted the reviewed PNG to lossy WebP at quality 82.',
         'Removed ancillary metadata without applying a runtime tint or filter.',
       ],
-      attribution: `Project-generated ${input.animalName} landscape created with OpenAI ImageGen.`,
       redistributionAllowed: true,
-      evidencePaths: ['provenance/LICENSES/background-generation.txt'],
     },
     {
       assetPath: 'backgrounds/portrait.webp',
@@ -507,9 +494,7 @@ export function createPublishedAssetProvenance(
         'Converted the separately composed reviewed PNG to lossy WebP at quality 82.',
         'Removed ancillary metadata without applying a runtime tint or filter.',
       ],
-      attribution: `Project-generated ${input.animalName} portrait created with OpenAI ImageGen.`,
       redistributionAllowed: true,
-      evidencePaths: ['provenance/LICENSES/background-generation.txt'],
     },
     {
       assetPath: 'images/poster.webp',
@@ -527,12 +512,7 @@ export function createPublishedAssetProvenance(
         'Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.',
         'Encoded as lossless WebP without text, controls, labels, logos, or watermarks.',
       ],
-      attribution: modelAttribution,
       redistributionAllowed: true,
-      evidencePaths: [
-        ...modelEvidence,
-        'provenance/LICENSES/derived-images.txt',
-      ],
     },
     {
       assetPath: 'images/poster-portrait.webp',
@@ -550,12 +530,7 @@ export function createPublishedAssetProvenance(
         'Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.',
         'Encoded as exact lossless WebP without text, controls, labels, logos, or watermarks.',
       ],
-      attribution: modelAttribution,
       redistributionAllowed: true,
-      evidencePaths: [
-        ...modelEvidence,
-        'provenance/LICENSES/derived-images.txt',
-      ],
     },
     {
       assetPath: 'images/thumbnail.webp',
@@ -579,12 +554,7 @@ export function createPublishedAssetProvenance(
           'Selected a card-size crop that keeps the animal readable.',
           'Exported without embedded text, controls, labels, logos, or watermarks.',
         ],
-      attribution: `${modelAttribution} Scene art generated for this project.`,
       redistributionAllowed: true,
-      evidencePaths: [
-        ...modelEvidence,
-        'provenance/LICENSES/derived-images.txt',
-      ],
     },
     {
       assetPath: 'audio/narration.zh-CN.mp3',
@@ -608,10 +578,7 @@ export function createPublishedAssetProvenance(
         'Generated offline from the exact reviewed two-sentence script.',
         'Normalized to a reviewed 48 kHz mono MP3 without runtime synthesis.',
       ],
-      attribution:
-        'Project-generated Mandarin narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).',
       redistributionAllowed: true,
-      evidencePaths: ['provenance/LICENSES/narration-rights.txt'],
     },
   ]
 }

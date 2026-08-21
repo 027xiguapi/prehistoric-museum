@@ -58,7 +58,6 @@ export function buildCreditEntries(
             sourceTitle: sourceTitle(record),
             author: sourceAuthor(record),
             ...(url === undefined ? {} : { sourceUrl: url }),
-            attribution: record.attribution,
             modifications: record.modifications,
           }
         }),
@@ -105,7 +104,6 @@ export function renderThirdPartyNotices(
 
 - Asset type: ${record.kind}
 - Source: ${sourceLine(record)}
-- Attribution: ${record.attribution}
 - Runtime SHA-256: \`${record.runtime.sha256}\`
 - Modifications:
 ${record.modifications.map((change) => `  - ${change}`).join('\n')}`,

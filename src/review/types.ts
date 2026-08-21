@@ -23,7 +23,6 @@ export interface LocalReviewInfo {
     readonly soft: string
   }
   readonly modelCredit?: {
-    readonly attribution: string
     readonly sourceTitle: string
     readonly sourceUrl: string
   }

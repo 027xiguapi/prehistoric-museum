@@ -26,12 +26,7 @@ export const provenance = [
       "Export one traceable, closed-loop, in-place project Idle. Operation: replace-runtime-animation.",
       "Authored and validator-checked one closed eight-second flying-wing Idle for the shared museum viewer."
     ],
-    "attribution": "“Low-poly Rhamphorhynchus idle” by Robear (@xiaorobear), CC-BY-4.0; modified for the Prehistoric Animal Museum.",
     "redistributionAllowed": true,
-    "evidencePaths": [
-      "provenance/LICENSES/model-license.txt",
-      "provenance/LICENSES/model-source.txt"
-    ]
   },
   {
     "assetPath": "backgrounds/landscape.webp",
@@ -53,11 +48,7 @@ export const provenance = [
       "Sharp deterministic cover resize and WebP encoding",
       "Removed ancillary metadata without applying a runtime tint or filter."
     ],
-    "attribution": "Project-generated 喙嘴翼龙 landscape background created with OpenAI ImageGen.",
     "redistributionAllowed": true,
-    "evidencePaths": [
-      "provenance/LICENSES/background-generation.txt"
-    ]
   },
   {
     "assetPath": "backgrounds/portrait.webp",
@@ -79,11 +70,7 @@ export const provenance = [
       "Sharp deterministic cover resize and WebP encoding",
       "Removed ancillary metadata without applying a runtime tint or filter."
     ],
-    "attribution": "Project-generated 喙嘴翼龙 portrait background created with OpenAI ImageGen.",
     "redistributionAllowed": true,
-    "evidencePaths": [
-      "provenance/LICENSES/background-generation.txt"
-    ]
   },
   {
     "assetPath": "images/poster.webp",
@@ -105,13 +92,7 @@ export const provenance = [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as lossless WebP without text, controls, labels, logos, or watermarks."
     ],
-    "attribution": "“Low-poly Rhamphorhynchus idle” by Robear (@xiaorobear), CC-BY-4.0; modified for the Prehistoric Animal Museum.",
     "redistributionAllowed": true,
-    "evidencePaths": [
-      "provenance/LICENSES/model-license.txt",
-      "provenance/LICENSES/model-source.txt",
-      "provenance/LICENSES/derived-images.txt"
-    ]
   },
   {
     "assetPath": "images/poster-portrait.webp",
@@ -133,13 +114,7 @@ export const provenance = [
       "Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.",
       "Encoded as exact lossless WebP without text, controls, labels, logos, or watermarks."
     ],
-    "attribution": "“Low-poly Rhamphorhynchus idle” by Robear (@xiaorobear), CC-BY-4.0; modified for the Prehistoric Animal Museum.",
     "redistributionAllowed": true,
-    "evidencePaths": [
-      "provenance/LICENSES/model-license.txt",
-      "provenance/LICENSES/model-source.txt",
-      "provenance/LICENSES/derived-images.txt"
-    ]
   },
   {
     "assetPath": "images/thumbnail.webp",
@@ -161,13 +136,7 @@ export const provenance = [
       "Selected a card-size crop that keeps the animal readable.",
       "Exported without embedded text, controls, labels, logos, or watermarks."
     ],
-    "attribution": "“Low-poly Rhamphorhynchus idle” by Robear (@xiaorobear), CC-BY-4.0; modified for the Prehistoric Animal Museum. Scene art generated for this project.",
     "redistributionAllowed": true,
-    "evidencePaths": [
-      "provenance/LICENSES/model-license.txt",
-      "provenance/LICENSES/model-source.txt",
-      "provenance/LICENSES/derived-images.txt"
-    ]
   },
   {
     "assetPath": "audio/narration.zh-CN.mp3",
@@ -191,11 +160,7 @@ export const provenance = [
       "Generated offline from the exact reviewed two-sentence script with the pinned Serena voice.",
       "Normalized to a reviewed 48 kHz mono MP3 without runtime synthesis."
     ],
-    "attribution": "Project-generated Mandarin narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).",
     "redistributionAllowed": true,
-    "evidencePaths": [
-      "provenance/LICENSES/narration-rights.txt"
-    ]
   },
   createReviewedEnglishNarrationProvenance('rhamphorhynchus', en),
 ] as const satisfies readonly [AssetProvenance, ...AssetProvenance[]]

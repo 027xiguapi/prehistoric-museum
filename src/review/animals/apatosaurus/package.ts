@@ -70,8 +70,6 @@ export const animal = {
       soft: '#d2e5df',
     },
     modelCredit: {
-      attribution:
-        '“Apatosaurus” by toro ardido modelos 3d, CC BY 4.0; locally rebuilt with welded duplicate vertices, project-authored PBR skin maps, canonical transforms, and an eight-second morph-target Idle.',
       sourceTitle: 'Apatosaurus',
       sourceUrl:
         'https://sketchfab.com/3d-models/apatosaurus-fecabec8e4ef42ef98b5480dbf50c57d',

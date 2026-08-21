@@ -17,7 +17,6 @@ export interface ParentReviewFacts {
 
 export interface ParentFacts {
   assetCredits: Array<{
-    attribution: string
     sourceTitle: string
     sourceUrl?: string
   }>

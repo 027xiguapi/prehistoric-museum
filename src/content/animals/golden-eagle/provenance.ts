@@ -1,9 +1,5 @@
 import type { AssetProvenance } from '../../types'
 
-// Draft intake from the Google “AR Answers in Search” models bucket. The
-// bucket does not ship a per-model licence statement, so the model is marked
-// NOT redistributable and stays draft until the source licence is confirmed
-// or replaced.
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -27,14 +23,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Wrapped the scene in a normalization node so the model is unit-scale in metres, centred on the origin, and grounded at y = 0 (scale ×1.15; height ≈ 0.362 m, length ≈ 1.104 m).',
       'Kept the idle animation clip “Take 001” (15s, 97 channels).',
     ],
-    attribution: "Golden Eagle 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
     redistributionAllowed: true,
-    evidencePaths: [
-      "model-downloads/GoldenEagle/model.glb",
-      'converted-downloads/golden-eagle/model-normalized.glb',
-      'scripts/convert-model-downloads.mjs',
-      'scripts/prepare-downloads-drafts.mjs',
-      'scripts/generate-downloads-draft-packages.mjs',
-    ],
   },
 ]

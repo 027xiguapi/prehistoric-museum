@@ -196,9 +196,7 @@ export interface AssetProvenance {
     readonly bytes: number
   }
   readonly modifications: readonly [string, ...string[]]
-  readonly attribution: string
   readonly redistributionAllowed: boolean
-  readonly evidencePaths: readonly [string, ...string[]]
 }
 
 export type NarrationSourcePath<Language extends Locale = Locale> =
@@ -366,6 +364,5 @@ export interface CreditEntry {
   readonly sourceTitle: string
   readonly author: string
   readonly sourceUrl?: string
-  readonly attribution: string
   readonly modifications: readonly string[]
 }

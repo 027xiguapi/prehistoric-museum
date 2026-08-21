@@ -67,8 +67,6 @@ export const animal = {
       soft: '#c9e8e1',
     },
     modelCredit: {
-      attribution:
-        '“Low-poly Rhamphorhynchus idle” by Robear (@xiaorobear), CC BY 4.0; archive textures resolved, deformation topology subdivided, surface maps subtly refined, visible pose baked and normalized, and the source animation replaced with a project-authored eight-second in-place morph-target Idle for local review.',
       sourceTitle: 'Low-poly Rhamphorhynchus idle',
       sourceUrl:
         'https://sketchfab.com/3d-models/low-poly-rhamphorhynchus-idle-c1e35c7ac4374c778f78025717694675',

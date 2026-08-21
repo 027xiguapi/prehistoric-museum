@@ -35,13 +35,7 @@ export const provenance = [
       'Retained IdleA only, renamed it Idle, pruned unused data, and repacked the GLB.',
       'Corrected the project-facing animal name from “Stegasaurus” to “Stegosaurus”.',
     ],
-    attribution:
-      '“PBR Stegasaurus (Animated)” by Ferocious Industries, CC BY 4.0; modified for the Prehistoric Animal Museum.',
     redistributionAllowed: true,
-    evidencePaths: [
-      'provenance/LICENSES/model-license.txt',
-      'provenance/LICENSES/model-source.txt',
-    ],
   },
   {
     assetPath: 'backgrounds/landscape.webp',
@@ -65,10 +59,7 @@ export const provenance = [
       'Converted the selected 1672 × 941 PNG candidate to lossy WebP at quality 82.',
       'Removed ancillary metadata without applying a runtime tint, filter, or colour overlay.',
     ],
-    attribution:
-      'Project-generated Stegosaurus landscape created with OpenAI ImageGen.',
     redistributionAllowed: true,
-    evidencePaths: ['provenance/LICENSES/background-generation.txt'],
   },
   {
     assetPath: 'backgrounds/portrait.webp',
@@ -92,10 +83,7 @@ export const provenance = [
       'Converted the selected 941 × 1672 PNG candidate to lossy WebP at quality 82.',
       'Removed ancillary metadata without applying a runtime tint, filter, or colour overlay.',
     ],
-    attribution:
-      'Project-generated Stegosaurus portrait created with OpenAI ImageGen.',
     redistributionAllowed: true,
-    evidencePaths: ['provenance/LICENSES/background-generation.txt'],
   },
   {
     assetPath: 'images/poster.webp',
@@ -117,13 +105,7 @@ export const provenance = [
       'Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.',
       'Encoded as exact lossless WebP without text, controls, labels, logos, or watermarks.',
     ],
-    attribution:
-      '“PBR Stegasaurus (Animated)” by Ferocious Industries, CC BY 4.0; modified for the Prehistoric Animal Museum.',
     redistributionAllowed: true,
-    evidencePaths: [
-      'provenance/LICENSES/model-license.txt',
-      'provenance/LICENSES/derived-images.txt',
-    ],
   },
   {
     assetPath: 'images/poster-portrait.webp',
@@ -145,13 +127,7 @@ export const provenance = [
       'Removed the habitat composite and all interface chrome; kept only the model and contact shadow on a transparent background.',
       'Encoded as exact lossless WebP without text, controls, labels, logos, or watermarks.',
     ],
-    attribution:
-      '“PBR Stegasaurus (Animated)” by Ferocious Industries, CC BY 4.0; modified for the Prehistoric Animal Museum.',
     redistributionAllowed: true,
-    evidencePaths: [
-      'provenance/LICENSES/model-license.txt',
-      'provenance/LICENSES/derived-images.txt',
-    ],
   },
   {
     assetPath: 'images/thumbnail.webp',
@@ -173,13 +149,7 @@ export const provenance = [
       'Replaced the letterboxed overview with a closer crop that keeps the head and back plates readable at card size.',
       'Exported a 320 × 320 WebP without embedded text, controls, or labels.',
     ],
-    attribution:
-      'Thumbnail includes “PBR Stegasaurus (Animated)” by Ferocious Industries, CC BY 4.0; scene art generated for this project.',
     redistributionAllowed: true,
-    evidencePaths: [
-      'provenance/LICENSES/model-license.txt',
-      'provenance/LICENSES/derived-images.txt',
-    ],
   },
   {
     assetPath: 'audio/narration.zh-CN.mp3',
@@ -206,10 +176,7 @@ export const provenance = [
       'Generated offline from the exact reviewed two-sentence script.',
       'Normalized to a reviewed 48 kHz mono MP3 without runtime synthesis.',
     ],
-    attribution:
-      'Project-generated Mandarin narration produced locally with Qwen3-TTS 0.6B CustomVoice (Serena).',
     redistributionAllowed: true,
-    evidencePaths: ['provenance/LICENSES/narration-rights.txt'],
   },
   createReviewedEnglishNarrationProvenance('stegosaurus', en),
 ] satisfies readonly [

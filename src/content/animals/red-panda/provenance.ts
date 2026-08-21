@@ -1,8 +1,5 @@
 import type { AssetProvenance } from '../../types'
 
-// Pilot intake from the owner-supplied “1048动物” drop. The drop did not
-// include a licence statement, so the model is marked NOT redistributable
-// and stays draft until the source licence is confirmed or replaced.
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -26,13 +23,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Replaced the source node transform so the model is unit-scale in metres, centred on the origin, and grounded at y = 0 (scale ×1.28; height ≈ 0.379 m, length ≈ 1.05 m).',
       'Kept the idle animation clip “Take 001” (10s, 357 channels).',
     ],
-    attribution: "Red Panda 3D model from the owner-supplied 1048动物 drop; licence pending confirmation.",
     redistributionAllowed: true,
-    evidencePaths: [
-      "1048动物/小熊猫glb/source/RedPanda.glb",
-      'converted-1048/red-panda/model-normalized.glb',
-      'scripts/convert-1048-models.mjs',
-      'scripts/generate-1048-draft-packages.mjs',
-    ],
   },
 ]

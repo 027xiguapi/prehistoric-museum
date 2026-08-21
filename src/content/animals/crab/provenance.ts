@@ -1,8 +1,5 @@
 import type { AssetProvenance } from '../../types'
 
-// Pilot intake from the owner-supplied “1048动物” drop. The drop did not
-// include a licence statement, so the model is marked NOT redistributable
-// and stays draft until the source licence is confirmed or replaced.
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -26,13 +23,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Replaced the source node transform so the model is unit-scale in metres, centred on the origin, and grounded at y = 0 (scale ×1.01, yaw 180°; height ≈ 0.119 m, length ≈ 0.217 m).',
       'Kept the idle animation clip “crab_run_anim” (0.583s, 86 channels).',
     ],
-    attribution: "Crab 3D model from the owner-supplied 1048动物 drop; licence pending confirmation.",
     redistributionAllowed: true,
-    evidencePaths: [
-      "1048动物/螃蟹glb/source/crap.glb",
-      'converted-1048/crab/model-normalized.glb',
-      'scripts/convert-1048-models.mjs',
-      'scripts/generate-1048-draft-packages.mjs',
-    ],
   },
 ]

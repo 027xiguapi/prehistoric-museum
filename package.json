@@ -20,6 +20,7 @@
     "cap:open:android": "npx cap open android",
     "cap:open:ios": "npx cap open ios",
     "cap:copy": "npx cap copy",
+    "cap:assets": "npx @capacitor/assets generate --android --ios --assetPath resources",
     "start": "next start -p 3001",
     "lint": "eslint . --max-warnings=0",
     "optimize:models": "node scripts/optimize-runtime-models.mjs",
@@ -52,6 +53,7 @@
     "three": "0.185.1"
   },
   "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
     "@eslint/js": "10.0.1",
     "@gltf-transform/cli": "4.4.2",
     "@tailwindcss/postcss": "^4.3.3",
@@ -69,5 +71,8 @@
     "tsx": "4.23.1",
     "typescript": "6.0.3",
     "typescript-eslint": "8.65.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["sharp"]
   }
 }

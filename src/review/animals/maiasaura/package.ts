@@ -71,8 +71,6 @@ export const animal = {
       soft: '#ead9a7',
     },
     modelCredit: {
-      attribution:
-        '“Maiasaura with rig” by Dino Dan, CC BY 4.0; normalized, colour-graded, and given a project-authored 8-second Idle for local museum review.',
       sourceTitle: 'Maiasaura with rig',
       sourceUrl:
         'https://sketchfab.com/3d-models/maiasaura-with-rig-3da9f211ae304bd0afd1d15a290eabbd',

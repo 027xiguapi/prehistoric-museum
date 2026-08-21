@@ -55,8 +55,6 @@ export const animal = {
     ],
     accent: { strong: '#557a55', soft: '#d9c897' },
     modelCredit: {
-      attribution:
-        'Based on “Meganeura Dinoraul but it is a bit accurate” by Nobilis the Palaeovespa (@nobilishornet), licensed under CC BY 4.0. Modified by the Prehistoric Animal Museum project: source pose baked, helper rig removed, materials colour-graded and de-glared, normalized, and given a project-authored eight-second in-place flying-insect morph-target Idle.',
       sourceTitle: 'Meganeura Dinoraul but it is a bit accurate',
       sourceUrl:
         'https://sketchfab.com/3d-models/meganeura-dinoraul-but-it-is-a-bit-accurate-1aaab4a72fbc42b4901d5f1dde12a281',

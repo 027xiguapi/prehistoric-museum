@@ -65,8 +65,6 @@ export const animal = {
       soft: '#e4d2a0',
     },
     modelCredit: {
-      attribution:
-        '“Animated Sauropelta (Free)” by Anees Animates, CC BY 4.0; source pose baked, helper meshes removed, normalized, and given a project-authored eight-second morph-target Idle for local review.',
       sourceTitle: 'Animated Sauropelta (Free)',
       sourceUrl:
         'https://sketchfab.com/3d-models/animated-sauropelta-free-c6373f12f3954facb8d5fe48055c9161',

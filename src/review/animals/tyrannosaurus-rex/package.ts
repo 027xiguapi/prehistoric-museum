@@ -73,8 +73,6 @@ export const animal = {
       soft: '#efd5ae',
     },
     modelCredit: {
-      attribution:
-        '“Tyrant King - Tyrannosaurus” by Marcel Schanz, CC BY 4.0; Sketchfab 1K GLB converted, normalized, given a project-authored Body base-colour midtone lift, and rigged in Blender with repaired weights and an in-place museum Idle.',
       sourceTitle: 'Tyrant King - Tyrannosaurus',
       sourceUrl:
         'https://sketchfab.com/3d-models/tyrant-king-tyrannosaurus-6465a297fa784598adc49f6e0042d449',

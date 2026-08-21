@@ -64,8 +64,6 @@ export const animal = {
       soft: '#efd8ca',
     },
     modelCredit: {
-      attribution:
-        '“Triceratops dinosaur” by wojciechmiedziocha, CC BY 4.0; Sketchfab 1K GLB converted, normalized, and rigged in Blender with repaired weights and an in-place head-and-tail museum Idle.',
       sourceTitle: 'Triceratops dinosaur',
       sourceUrl:
         'https://sketchfab.com/3d-models/triceratops-dinosaur-87527079bad44917ab1b98a456b46c7e',

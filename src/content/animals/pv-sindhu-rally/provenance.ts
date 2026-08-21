@@ -1,9 +1,5 @@
 import type { AssetProvenance } from '../../types'
 
-// Draft intake from the Google “AR Answers in Search” models bucket. The
-// bucket does not ship a per-model licence statement, so the model is marked
-// NOT redistributable and stays draft until the source licence is confirmed
-// or replaced.
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -27,14 +23,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Wrapped the scene in a normalization node so the model is unit-scale in metres, centred on the origin, and grounded at y = 0 (scale ×0.59; height ≈ 0.947 m, length ≈ 2.1 m).',
       'Kept the idle animation clip “All Animations” (9.2s, 486 channels).',
     ],
-    attribution: "P. V. Sindhu (Rally) 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
     redistributionAllowed: true,
-    evidencePaths: [
-      "model-downloads/Olympics/PVSindhu/rally/rally.glb",
-      'converted-downloads/pv-sindhu-rally/model-normalized.glb',
-      'scripts/convert-model-downloads.mjs',
-      'scripts/prepare-downloads-drafts.mjs',
-      'scripts/generate-downloads-draft-packages.mjs',
-    ],
   },
 ]

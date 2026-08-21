@@ -65,8 +65,6 @@ export const animal = {
       soft: '#c2e5e3',
     },
     modelCredit: {
-      attribution:
-        '“ichthyosaurus” by Julian Johnson-Mortimer / FreddyFoxFreddy, CC BY 4.0; head and body welded, residual holes closed, source scars softened, re-UVed and given project-authored 2K aquatic base-colour and tangent-normal maps plus a 1K roughness map, teeth reduced, then rigged in Blender with a six-second in-place museum Idle for local review.',
       sourceTitle: 'ichthyosaurus',
       sourceUrl:
         'https://sketchfab.com/3d-models/ichthyosaurus-ef8609f5efa84984bc1800bdb36aac3c',

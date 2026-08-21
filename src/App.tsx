@@ -410,7 +410,6 @@ function toRuntimeAnimal(
   const assetCredits: ParentFacts['assetCredits'] = credits
     .filter((credit) => credit.animalId === animal.id && credit.assetKind === 'model')
     .map((credit) => ({
-      attribution: credit.attribution,
       sourceTitle: credit.sourceTitle,
       ...('sourceUrl' in credit ? { sourceUrl: credit.sourceUrl } : {}),
     }))

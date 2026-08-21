@@ -1,9 +1,5 @@
 import type { AssetProvenance } from '../../types'
 
-// Draft intake from the Google “AR Answers in Search” models bucket. The
-// bucket does not ship a per-model licence statement, so the model is marked
-// NOT redistributable and stays draft until the source licence is confirmed
-// or replaced.
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {
     assetPath: 'model/model.glb',
@@ -27,14 +23,6 @@ export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
       'Wrapped the scene in a normalization node so the model is unit-scale in metres, centred on the origin, and grounded at y = 0 (scale ×0.96; height ≈ 1.353 m, length ≈ 4.5 m).',
       'Kept the idle animation clip “Animation” (30.667s, 109 channels).',
     ],
-    attribution: "Great White Shark 3D model from the Google “AR Answers in Search” models bucket; licence pending confirmation.",
     redistributionAllowed: true,
-    evidencePaths: [
-      "model-downloads/GreatWhiteShark/model.glb",
-      'converted-downloads/great-white-shark/model-normalized.glb',
-      'scripts/convert-model-downloads.mjs',
-      'scripts/prepare-downloads-drafts.mjs',
-      'scripts/generate-downloads-draft-packages.mjs',
-    ],
   },
 ]

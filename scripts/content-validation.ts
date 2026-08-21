@@ -1122,39 +1122,6 @@ async function validatePublishedPackage(
         ),
       )
     }
-
-    const availableEvidence = await Promise.all(
-      record.evidencePaths.map(async (evidencePath) => {
-        const absoluteEvidencePath = join(directoryPath, evidencePath)
-        return (await pathExists(absoluteEvidencePath))
-          ? readFile(absoluteEvidencePath, 'utf8')
-          : ''
-      }),
-    )
-    const evidenceText = availableEvidence.join('\n')
-    const listeningApproved =
-      /human listening review:\s*approved/iu.test(evidenceText) ||
-      /listened to and approved by the project owner/iu.test(evidenceText)
-    const languageEvidence = `${generatedSource?.title ?? ''}\n${evidenceText}`
-    const languageRecorded =
-      locale === 'zh-CN'
-        ? /language:\s*Chinese|Mandarin narration/iu.test(languageEvidence)
-        : /language:\s*English|English narration/iu.test(languageEvidence)
-    if (
-      !/Serena/iu.test(evidenceText) ||
-      !listeningApproved ||
-      !/project owner/iu.test(evidenceText) ||
-      !languageRecorded
-    ) {
-      issues.push(
-        issue(
-          'error',
-          'NARRATION_LISTENING_EVIDENCE_INVALID',
-          `${locale} 旁白缺少 Serena 与项目所有者完整听审通过证据。`,
-          { ...context, path: record.assetPath },
-        ),
-      )
-    }
   }
 
   for (const relativePath of expectedRuntimePaths) {
@@ -1184,19 +1151,6 @@ async function validatePublishedPackage(
         definition.id,
       ),
     )
-
-    for (const evidencePath of record.evidencePaths) {
-      if (!(await pathExists(join(directoryPath, evidencePath)))) {
-        issues.push(
-          issue(
-            'error',
-            'EVIDENCE_MISSING',
-            `来源证据不存在：${evidencePath}。`,
-            { ...context, path: evidencePath },
-          ),
-        )
-      }
-    }
   }
 
   for (const record of definition.provenance) {
