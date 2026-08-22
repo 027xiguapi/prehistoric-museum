@@ -208,6 +208,15 @@ const zhCN = {
     supportAction: '技术支持',
     supportHint: '查看常见问题与设备要求，或联系我们。',
   },
+  toolbar: {
+    label: '工具',
+    reset: '恢复原样',
+    info: '动物信息',
+    collection: '全馆图鉴',
+    height: '动物身高',
+    weight: '动物体重',
+    weightUnavailable: '暂无体重数据',
+  },
   parent: {
     eyebrow: '一起了解更多',
     title: '给家长的资料',
@@ -466,6 +475,15 @@ const en = {
     supportTitle: 'Support',
     supportAction: 'Technical Support',
     supportHint: 'Read the FAQ and device requirements, or contact us.',
+  },
+  toolbar: {
+    label: 'Tools',
+    reset: 'Reset view',
+    info: 'Animal info',
+    collection: 'Museum guide',
+    height: 'Animal height',
+    weight: 'Animal weight',
+    weightUnavailable: 'No weight data yet',
   },
   parent: {
     eyebrow: 'Explore together',

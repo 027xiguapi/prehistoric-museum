@@ -9,6 +9,7 @@ import {
   useMemo,
   useRef,
   useState,
+  useSyncExternalStore,
 } from 'react'
 import {
   AnimalCollectionSheet,
@@ -26,7 +27,6 @@ import { draftAnimalsByZone } from '@/src/content/collections/draft-zones'
 import {
   zoneCategories,
   zoneCategoryById,
-  zoneCategoryIdsForAnimal,
   zoneIdsForAnimal,
   type ZoneCategoryId,
 } from '@/src/content/collections/categories'
@@ -34,10 +34,10 @@ import { useI18n } from '@/src/i18n/I18nProvider'
 import { updateLocalizedMetadata } from '@/src/i18n/metadata'
 import { formatModelSize } from '@/src/model-policy'
 import { AnimalNavigation } from '@/src/museum/AnimalNavigation'
+import { LeftToolbar } from '@/src/museum/LeftToolbar'
 import { ModelDataNoticeAside } from '@/src/museum/ModelDataNoticeAside'
 import {
   museumExhibitHref,
-  zoneEntryHref,
   type AppPageKind,
 } from '@/src/museum/routing'
 import {
@@ -52,7 +52,6 @@ import {
 } from '@/src/museum/runtime-animal'
 import { SceneBackground } from '@/src/museum/SceneBackground'
 import { StagePanel } from '@/src/museum/StagePanel'
-import { StoryPanel } from '@/src/museum/StoryPanel'
 import type {
   ModelLoadingProgress,
   ViewerFailureKind,
@@ -208,7 +207,6 @@ export function AnimalExhibit({ animalId }: AnimalExhibitProps) {
     requestedAnimalId: initialAnimal.id,
   }))
   const [modelReady, setModelReady] = useState(false)
-  const [storyCollapsed, setStoryCollapsed] = useState(false)
   const [carePlay, setCarePlay] = useState<CarePlayKind | null>(null)
   const careCelebrateTimer = useRef<number | null>(null)
   const [modelLoadingProgress, setModelLoadingProgress] =
@@ -217,19 +215,13 @@ export function AnimalExhibit({ animalId }: AnimalExhibitProps) {
     useState<ViewerFailureKind | null>(null)
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [collectionOpen, setCollectionOpen] = useState(false)
+  const [storyOpen, setStoryOpen] = useState(false)
   const [focusMode, setFocusMode] = useState(false)
   const [arMode, setArMode] = useState(false)
   const [liveMessage, setLiveMessage] = useState(
     messages.loading.initialExhibit(initialAnimal.name),
   )
   const activeAnimal = animalIndex.get(activeAnimalId) ?? initialAnimal
-  const detailCategoryId = useMemo(
-    () =>
-      pageKind === 'animal-detail'
-        ? zoneCategoryIdsForAnimal(activeAnimal)[0] ?? null
-        : null,
-    [activeAnimal, pageKind],
-  )
 
   const { narration, narrationSnapshot } = useNarration({
     activeAnimalId: activeAnimal.id,
@@ -251,6 +243,17 @@ export function AnimalExhibit({ animalId }: AnimalExhibitProps) {
     activeAnimalRef.current = activeAnimal
   }, [activeAnimal])
   const overlayOpen = drawerOpen || collectionOpen || arMode
+  // The story panel is always visible on the mobile layout, where the left
+  // toolbar (which hosts its toggle button) is hidden below 1024px.
+  const isCompact = useSyncExternalStore(
+    (onChange) => {
+      const media = window.matchMedia('(max-width: 1023px)')
+      media.addEventListener('change', onChange)
+      return () => media.removeEventListener('change', onChange)
+    },
+    () => window.matchMedia('(max-width: 1023px)').matches,
+    () => false,
+  )
   // Review packages and e2e fixtures live outside the curated zones, so the
   // zone filter only applies to the production catalog.
   const zoneAppliesToNavigation = !localReviewMode
@@ -511,28 +514,6 @@ export function AnimalExhibit({ animalId }: AnimalExhibitProps) {
     setPageKind('museum')
   }, [])
 
-  const returnToZoneSelect = useCallback(() => {
-    idlePreloadCoordinatorRef.current?.cancelAll()
-    clearLargeModelNotice()
-    narration.pause()
-    setModelLoadingProgress(null)
-    setModelReady(false)
-    setOutgoingAnimal(null)
-    setBackgroundTransitionReady(false)
-    setActiveZoneId(null)
-    detailAnimalIdRef.current = null
-    // Only reachable on the museum page kind, where the URL may still carry
-    // the animal path written by `replaceAnimalUrl`; resolve the locale entry.
-    window.history.replaceState(
-      window.history.state,
-      '',
-      zoneEntryHref(locale),
-    )
-    pageKindRef.current = 'zone-select'
-    setPageKind('zone-select')
-    setLiveMessage(messagesRef.current.zoneSelect.title)
-  }, [clearLargeModelNotice, locale, narration])
-
   /** Keeps the rail in sync when a collection pick jumps across zones. */
   const switchZoneForAnimal = (animalId: string) => {
     if (!zoneAppliesToNavigation) {
@@ -776,16 +757,6 @@ export function AnimalExhibit({ animalId }: AnimalExhibitProps) {
     }
   }
 
-  const handleCollapseStory = () => {
-    setStoryCollapsed(true)
-    setLiveMessage(messages.storyCollapse)
-  }
-
-  const handleExpandStory = () => {
-    setStoryCollapsed(false)
-    setLiveMessage(messages.storyExpand)
-  }
-
   const handleOpenDrawer = () => {
     setCollectionOpen(false)
     setDrawerOpen(true)
@@ -796,10 +767,8 @@ export function AnimalExhibit({ animalId }: AnimalExhibitProps) {
     setCollectionOpen(true)
   }
 
-  const handleReturnToMuseum = () => {
-    leaveAnimalDetailRoute()
-    setDrawerOpen(false)
-    setCollectionOpen(true)
+  const handleToggleStory = () => {
+    setStoryOpen((open) => !open)
   }
 
   const handleResetView = () => {
@@ -879,22 +848,20 @@ export function AnimalExhibit({ animalId }: AnimalExhibitProps) {
         kind={activeAnimal.atmosphere}
       />
       {!focusMode ? (
-        <StoryPanel
+        <LeftToolbar
           activeAnimal={activeAnimal}
           collectionTriggerRef={collectionTriggerRef}
-          detailCategoryId={detailCategoryId}
           drawerTriggerRef={drawerTriggerRef}
+          isCompact={isCompact}
           narrationSnapshot={narrationSnapshot}
-          onCollapseStory={handleCollapseStory}
-          onExpandStory={handleExpandStory}
           onNarrationToggle={handleNarrationToggle}
           onOpenCollection={handleOpenCollection}
           onOpenDrawer={handleOpenDrawer}
-          onReturnToMuseum={handleReturnToMuseum}
-          onReturnToZoneSelect={returnToZoneSelect}
+          onResetView={handleResetView}
+          onToggleStory={handleToggleStory}
           overlayOpen={overlayOpen}
           pageKind={pageKind}
-          storyCollapsed={storyCollapsed}
+          storyOpen={storyOpen}
         />
       ) : null}
 

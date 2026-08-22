@@ -28,10 +28,9 @@ const nextConfig: NextConfig = {
   // image optimizer (which needs a server) must be disabled.
   ...(isStaticExport ? { output: 'export' as const } : {}),
   images: { unoptimized: true },
-  // Models and narration audio under `public/animals/` are fetched on demand
-  // by the Capacitor app (origin `https://localhost`) from the remote
-  // `NEXT_PUBLIC_ASSET_ORIGIN`. Allow cross-origin reads so the browser does
-  // not block those responses.
+  // Models and narration audio under `public/animals/` are bundled locally
+  // and served at `/animals/<id>/<file>`. Keep permissive CORS headers so the
+  // Capacitor web view (which serves from its own local origin) can read them.
   headers() {
     return Promise.resolve([
       {

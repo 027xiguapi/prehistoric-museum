@@ -1,7 +1,8 @@
 // Emits each animal's model and narration audio into `public/animals/<id>/`
-// so the web server (and, via `NEXT_PUBLIC_ASSET_ORIGIN`, the Capacitor app)
-// can serve them at stable URLs instead of bundling them into JS chunks.
-// `public/animals/` is gitignored and regenerated on every web build.
+// so both the web server and the Capacitor static export can serve them from
+// the bundled `out/animals/` directory at stable `/animals/<id>/<file>` URLs
+// instead of inlining them into JS chunks.
+// `public/animals/` is gitignored and regenerated on every build.
 //
 // Usage: node scripts/generate-remote-assets.mjs
 import { cp, mkdir, readdir, rm } from 'node:fs/promises'

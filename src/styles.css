@@ -12,6 +12,10 @@
   }
 }
 
+@theme {
+  --font-display: "ZCOOL KuaiLe", "Yuanti SC", "STYuanti-SC-Regular", sans-serif;
+}
+
 :root {
   --ink: #20352f;
   --ink-muted: #5c6e68;
@@ -90,7 +94,7 @@ a:focus-visible {
   grid-template:
     "story stage" minmax(0, 1fr)
     "story navigation" auto /
-    minmax(292px, 0.68fr) minmax(0, 1.62fr);
+    auto minmax(0, 1.62fr);
   gap: clamp(10px, 1.25vw, 20px);
   width: 100%;
   height: 100dvh;
@@ -99,9 +103,43 @@ a:focus-visible {
     max(16px, env(safe-area-inset-top))
     max(18px, env(safe-area-inset-right))
     max(14px, env(safe-area-inset-bottom))
-    max(18px, env(safe-area-inset-left));
+    max(76px, env(safe-area-inset-left));
   overflow: hidden;
   background: #d8e7c2;
+}
+
+.left-toolbar {
+  position: absolute;
+  left: max(18px, env(safe-area-inset-left));
+  top: 50%;
+  z-index: 24;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 1023px) {
+  .left-toolbar {
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: max(112px, calc(env(safe-area-inset-bottom) + 104px));
+    width: fit-content;
+    margin: 0 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    padding: 6px;
+    border: 1px solid rgb(77 94 69 / 14%);
+    border-radius: 20px;
+    background: rgb(255 253 247 / 91%);
+    box-shadow: 0 8px 24px rgb(36 55 33 / 11%);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+    transform: none;
+  }
 }
 
 .scene-background {
@@ -3010,7 +3048,7 @@ a:focus-visible {
   .museum-experience {
     grid-template:
       "story stage" minmax(0, 1fr) /
-      minmax(268px, 34%) minmax(0, 1fr);
+      auto minmax(0, 1fr);
     gap: 7px;
     min-height: 320px;
     padding:
@@ -3310,6 +3348,32 @@ a:focus-visible {
   box-shadow: none;
 }
 
+.story-panel__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 12;
+}
+
+.story-panel .story-panel__scroll {
+  flex: 1;
+  min-height: 0;
+  padding: 0 2px 2px 0;
+}
+
+.story-panel--sheet {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: min(400px, calc(100% - 24px));
+  max-height: min(60dvh, 560px);
+  margin: 0 auto max(8px, env(safe-area-inset-bottom));
+  overflow: hidden;
+  pointer-events: auto;
+  animation: drawer-enter 290ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
 .museum-kicker {
   min-height: 28px;
   align-self: center;
@@ -3374,9 +3438,38 @@ a:focus-visible {
 }
 
 .story-actions {
-  display: grid;
-  grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr) minmax(74px, 0.7fr);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 7px;
+}
+
+.story-settings {
+  display: inline-flex;
+  width: 52px;
+  height: 52px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(52 82 64 / 16%);
+  border-radius: 15px;
+  color: #31523b;
+  background: rgb(255 255 255 / 55%);
+  box-shadow: inset 0 1px rgb(255 255 255 / 68%);
+  transition:
+    transform 150ms ease,
+    border-color 150ms ease,
+    background-color 150ms ease;
+}
+
+.story-settings:hover {
+  border-color: color-mix(in srgb, var(--animal-accent) 42%, transparent);
+  background: rgb(255 255 255 / 80%);
+  box-shadow: none;
+  transform: translateY(-1px);
+}
+
+.story-settings:active {
+  transform: translateY(1px) scale(0.98);
 }
 
 .narration-control {
@@ -3416,14 +3509,6 @@ a:focus-visible {
   border-color: color-mix(in srgb, var(--animal-accent) 28%, transparent);
   background: color-mix(in srgb, var(--animal-accent-soft) 32%, white);
   text-decoration: none;
-}
-
-.museum-experience[data-page-kind="animal-detail"] .story-actions {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.museum-experience[data-page-kind="animal-detail"] .collection-open-button {
-  grid-column: 1 / -1;
 }
 
 .parent-info-button:hover,
@@ -3715,7 +3800,7 @@ a:focus-visible {
   padding: 10px;
   overflow: hidden;
   border: 1px solid rgb(46 72 58 / 13%);
-  border-radius: 15px;
+  border-radius: 22px;
   color: var(--ink);
   background: #f5f0df;
   cursor: pointer;
@@ -3758,7 +3843,7 @@ a:focus-visible {
   width: 88px;
   height: 88px;
   overflow: hidden;
-  border-radius: 11px;
+  border-radius: 16px;
   background: #dfe7c9;
 }
 
@@ -3858,7 +3943,7 @@ a:focus-visible {
   }
 
   .story-actions {
-    grid-template-columns: minmax(116px, 1.05fr) minmax(100px, 0.9fr) minmax(76px, 0.64fr);
+    grid-template-columns: 52px minmax(116px, 1.05fr) minmax(100px, 0.9fr) minmax(76px, 0.64fr);
   }
 
   .stage-actions {
@@ -3873,6 +3958,7 @@ a:focus-visible {
 @media (max-width: 1023px) and (min-width: 768px) and (orientation: landscape) and (max-height: 560px) {
   .museum-experience[data-page-kind="animal-detail"] .story-actions {
     grid-template-columns:
+      52px
       minmax(0, 1fr)
       minmax(0, 1fr)
       minmax(150px, 1.35fr);
@@ -4013,7 +4099,7 @@ a:focus-visible {
   }
 
   .story-actions {
-    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.96fr) minmax(0, 0.72fr);
+    grid-template-columns: 52px minmax(0, 1.08fr) minmax(0, 0.96fr) minmax(0, 0.72fr);
     gap: 4px;
     margin: 0 0 -4px;
     padding: 4px;
@@ -4027,6 +4113,7 @@ a:focus-visible {
 
   .museum-experience[data-page-kind="animal-detail"] .story-actions {
     grid-template-columns:
+      52px
       minmax(0, 1fr)
       minmax(0, 1fr)
       minmax(128px, 1.45fr);
@@ -4230,7 +4317,7 @@ a:focus-visible {
   .museum-experience {
     grid-template:
       "story stage" minmax(0, 1fr) /
-      minmax(218px, 27%) minmax(0, 1fr);
+      auto minmax(0, 1fr);
     gap: 6px;
   }
 
@@ -4840,255 +4927,6 @@ html[data-locale="en"] .collection-card__copy strong {
   transform: translateY(1px) scale(0.98);
 }
 
-
-/* --- Category showcase page (page-level companion of the collection sheet) --- */
-
-.category-page {
-  display: grid;
-  width: min(1080px, calc(100% - 28px));
-  margin: 0 auto;
-  padding: max(28px, env(safe-area-inset-top)) 0 max(40px, env(safe-area-inset-bottom));
-  gap: 18px;
-  align-content: start;
-  min-height: 100dvh;
-  background: #fffdf7;
-}
-
-.category-hero {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  padding: 20px 30px 22px;
-  text-align: center;
-  border: 1px solid rgb(255 255 255 / 72%);
-  border-radius: 28px;
-  box-shadow: 0 18px 60px rgb(18 32 25 / 18%);
-}
-
-.category-hero__eyebrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  margin: 0;
-  color: var(--leaf);
-  font-size: 0.76rem;
-  font-weight: 820;
-  letter-spacing: 0.08em;
-}
-
-.category-hero h1 {
-  margin: 3px 0 0;
-  color: #214c3c;
-  font-family:
-    "ZCOOL KuaiLe", "Yuanti SC", "STYuanti-SC-Regular", sans-serif;
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  font-weight: 400;
-  line-height: 1.08;
-}
-
-.category-hero p:last-child {
-  margin: 8px 0 0;
-  color: var(--ink-muted);
-  font-size: 0.9rem;
-}
-
-.category-hero__back {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border: 1px solid rgb(46 72 58 / 18%);
-  border-radius: 999px;
-  color: var(--ink);
-  background: #f5f0df;
-  transition:
-    transform 150ms ease,
-    border-color 150ms ease,
-    background-color 150ms ease;
-}
-
-.category-hero__back:hover {
-  border-color: color-mix(in srgb, var(--animal-accent) 36%, transparent);
-  background: #fff;
-  transform: translateY(-1px);
-}
-
-.category-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-  padding: 0 30px;
-}
-
-.category-card {
-  position: relative;
-  display: grid;
-  width: 100%;
-  min-height: 112px;
-  grid-template-columns: 88px minmax(0, 1fr);
-  gap: 12px;
-  align-items: center;
-  padding: 10px;
-  overflow: hidden;
-  border: 1px solid rgb(46 72 58 / 13%);
-  border-radius: 15px;
-  color: var(--ink);
-  background: #f5f0df;
-  transition:
-    transform 150ms ease,
-    border-color 150ms ease,
-    background-color 150ms ease;
-}
-
-.category-card:hover {
-  border-color: color-mix(in srgb, var(--animal-accent) 36%, transparent);
-  background: #fff;
-  transform: translateY(-1px);
-}
-
-.category-card__number {
-  position: absolute;
-  top: 8px;
-  right: 9px;
-  color: rgb(39 70 56 / 38%);
-  font-size: 0.64rem;
-  font-weight: 820;
-  letter-spacing: 0.08em;
-}
-
-.category-card__image {
-  display: block;
-  width: 88px;
-  height: 88px;
-  overflow: hidden;
-  border-radius: 11px;
-  background: #ece7d5;
-}
-
-.category-card__image img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.category-card__copy {
-  display: grid;
-  min-width: 0;
-  gap: 3px;
-  padding-right: 26px;
-}
-
-.category-card__copy strong {
-  overflow: hidden;
-  color: var(--ink);
-  font-size: 1rem;
-  line-height: 1.2;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.category-card__copy small {
-  overflow: hidden;
-  color: var(--ink-muted);
-  font-size: 0.72rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-@media (max-width: 720px) {
-  .category-hero {
-    padding: 24px 20px 14px;
-  }
-
-  .category-grid {
-    grid-template-columns: minmax(0, 1fr);
-    padding: 0;
-  }
-}
-
-/* --- Category sections on the category page (mixed prehistoric + modern) --- */
-
-.category-section {
-  display: grid;
-  gap: 10px;
-}
-
-.category-section__head {
-  display: grid;
-  gap: 2px;
-  padding: 0 30px;
-}
-
-.category-section__head h2 {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 0;
-  color: #214c3c;
-  font-family:
-    "ZCOOL KuaiLe", "Yuanti SC", "STYuanti-SC-Regular", sans-serif;
-  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
-  font-weight: 400;
-  line-height: 1.15;
-}
-
-.category-section__head h2::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: rgb(46 72 58 / 14%);
-}
-
-.category-section__head p {
-  margin: 0;
-  color: var(--ink-muted);
-  font-size: 0.82rem;
-}
-
-.category-card--static {
-  min-height: 0;
-  cursor: default;
-}
-
-.category-card--static:hover {
-  background: #f5f0df;
-  transform: none;
-}
-
-@media (max-width: 720px) {
-  .category-section__head {
-    padding: 0;
-  }
-}
-
-/* Lock badge on photo-only (no 3D model) animal cards */
-
-.category-card__image--locked {
-  position: relative;
-}
-
-.category-card__lock {
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 999px;
-  color: #fffdf7;
-  background: rgb(33 76 60 / 78%);
-  box-shadow: 0 2px 6px rgb(18 32 25 / 30%);
-}
 
 /* --- Settings page (language, appearance, account, about) --- */
 

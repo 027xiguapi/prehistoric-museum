@@ -190,9 +190,6 @@ export function ZoneSelect({ zones }: ZoneSelectProps) {
     >
       <header className="zone-stack:text-center mx-auto flex w-full max-w-[1180px] flex-col items-start gap-2">
         <h1 className="museum-kicker">
-          <span aria-hidden="true" className="museum-mark">
-            <Waves size={16} strokeWidth={2.3} />
-          </span>
           <span>{messages.museumName}</span>
         </h1>
         <p className="m-0 text-[clamp(2rem,5.2vw,3.4rem)] leading-[1.04] font-black tracking-[0.01em] text-[#2e7d4f] [text-shadow:0_3px_0_rgb(255_255_255/80%),0_10px_26px_rgb(46_125_79/28%)]">

@@ -7,7 +7,7 @@ import {
   type ReactNode,
 } from 'react'
 import { useI18n } from '@/src/i18n/I18nProvider'
-import { systemLocale, type LocalePreference } from '@/src/i18n/locale'
+import type { LocalePreference } from '@/src/i18n/locale'
 
 const choices: readonly LocalePreference[] = ['system', 'zh-CN', 'en']
 
@@ -29,31 +29,7 @@ export function LanguageMenu() {
 
   const labelFor = (choice: LocalePreference): ReactNode => {
     if (choice === 'system') {
-      const resolved = systemLocale(
-        navigator.languages.length > 0
-          ? navigator.languages
-          : [navigator.language],
-      )
-      const resolvedLabel =
-        resolved === 'zh-CN'
-          ? messages.language.chinese
-          : messages.language.english
-      const fullLabel = messages.language.systemResolved(resolvedLabel)
-      const resolvedLabelStart = fullLabel.indexOf(resolvedLabel)
-      return (
-        <span lang={locale}>
-          {fullLabel.slice(0, resolvedLabelStart)}
-          <span
-            lang={resolved}
-            style={{
-              fontFamily: resolved === 'zh-CN' ? ZH_FONT_STACK : EN_FONT_STACK,
-            }}
-          >
-            {resolvedLabel}
-          </span>
-          {fullLabel.slice(resolvedLabelStart + resolvedLabel.length)}
-        </span>
-      )
+      return <span lang={locale}>{messages.language.system}</span>
     }
     return (
       <span

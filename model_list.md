@@ -42,9 +42,6 @@ https://storage.googleapis.com/ar-answers-in-search-models/static/Olympics/Nikla
 https://storage.googleapis.com/ar-answers-in-search-models/static/Olympics/NiklasKaul/longjump/longjump.glb
 https://storage.googleapis.com/ar-answers-in-search-models/static/Olympics/NiklasKaul/polevault/polevault.glb
 https://storage.googleapis.com/ar-answers-in-search-models/static/Olympics/NiklasKaul/shotput/shotput.glb
-https://storage.googleapis.com/ar-answers-in-search-models/static/Olympics/PVSindhu/rally/rally.glb
-https://storage.googleapis.com/ar-answers-in-search-models/static/Olympics/PVSindhu/shots/shots.glb
-https://storage.googleapis.com/ar-answers-in-search-models/static/Olympics/PVSindhu/smash/smash.glb
 https://storage.googleapis.com/ar-answers-in-search-models/static/Olympics/SimoneBiles/doubledouble/doubledouble.glb
 https://storage.googleapis.com/ar-answers-in-search-models/static/Olympics/SimoneBiles/jumpseries/jumpseries.glb
 https://storage.googleapis.com/ar-answers-in-search-models/static/Olympics/SimoneBiles/tripledouble/tripledouble.glb

@@ -21,6 +21,14 @@ import type {
 import type { RuntimeAnimal } from '@/src/museum/runtime-animal'
 import type { ModelLoadingProgress } from '@/src/museum/types'
 
+// 先隐藏：暂时关闭舞台右侧的互动 dock（喂食/洗澡/走一走/摇摇头/打球）。
+// 恢复时把该值改回 true 即可。
+const SHOW_CARE_DOCK = false
+
+// 先隐藏：暂时关闭舞台头部的操作按钮（语言切换/恢复视角/专注/AR）。
+// 恢复时把该值改回 true 即可。
+const SHOW_STAGE_ACTIONS = false
+
 /** "AR" text glyph used in place of a lucide icon on the AR button. */
 function ArGlyph({
   size = 25,
@@ -135,7 +143,7 @@ export function StagePanel({
       {carePlay ? (
         <StagePlayEffect kind={carePlay} onDone={onCarePlayDone} />
       ) : null}
-      {!focusMode ? (
+      {SHOW_CARE_DOCK && !focusMode ? (
         <CareDock
           dietCode={activeAnimal.dietCode}
           disabled={!modelReady}
@@ -147,28 +155,30 @@ export function StagePanel({
         />
       ) : null}
       {!focusMode ? (
-        <div aria-hidden={overlayOpen} className="stage-actions" inert={overlayOpen}>
-          <LanguageMenu />
-          <IconButton
-            icon={RotateCcw}
-            label={messages.resetView}
-            onClick={onResetView}
-          />
-          <IconButton
-            disabled={!modelReady}
-            icon={Maximize2}
-            hideTooltipOnFocus
-            label={messages.focusView}
-            onClick={onEnterFocusMode}
-            ref={focusTriggerRef}
-          />
-          <IconButton
-            disabled={!modelReady}
-            icon={ArGlyph}
-            label={messages.ar.open}
-            onClick={onOpenAr}
-          />
-        </div>
+        SHOW_STAGE_ACTIONS ? (
+          <div aria-hidden={overlayOpen} className="stage-actions" inert={overlayOpen}>
+            <LanguageMenu />
+            <IconButton
+              icon={RotateCcw}
+              label={messages.resetView}
+              onClick={onResetView}
+            />
+            <IconButton
+              disabled={!modelReady}
+              icon={Maximize2}
+              hideTooltipOnFocus
+              label={messages.focusView}
+              onClick={onEnterFocusMode}
+              ref={focusTriggerRef}
+            />
+            <IconButton
+              disabled={!modelReady}
+              icon={ArGlyph}
+              label={messages.ar.open}
+              onClick={onOpenAr}
+            />
+          </div>
+        ) : null
       ) : (
         <>
           <p aria-hidden="true" className="focus-return-hint">

@@ -47,8 +47,6 @@ const SLUG_OVERRIDES = {
   'atlas-moth': { frame: 0.6, dy: 0 },
   'swallowtail-butterfly': { frame: 0.6, dy: 0 },
   'morpho-butterfly': { frame: 0.6, dy: 0, pitch: 25 },
-  'caeleb-dressel-start': { frame: 0.5, dy: 0.12 },
-  'niklas-kaul-longjump': { frame: 0.45, dy: 0.05 },
 }
 const SLUGS = Object.fromEntries(
   activeDownloads()
