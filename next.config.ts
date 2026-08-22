@@ -28,6 +28,18 @@ const nextConfig: NextConfig = {
   // image optimizer (which needs a server) must be disabled.
   ...(isStaticExport ? { output: 'export' as const } : {}),
   images: { unoptimized: true },
+  // Models and narration audio under `public/animals/` are fetched on demand
+  // by the Capacitor app (origin `https://localhost`) from the remote
+  // `NEXT_PUBLIC_ASSET_ORIGIN`. Allow cross-origin reads so the browser does
+  // not block those responses.
+  headers() {
+    return Promise.resolve([
+      {
+        source: '/animals/:path*',
+        headers: [{ key: 'Access-Control-Allow-Origin', value: '*' }],
+      },
+    ])
+  },
   productionBrowserSourceMaps: process.env.NEXT_PUBLIC_MUSEUM_MODE === 'e2e',
   turbopack: {
     // Binary content assets: emit the file and import its URL.

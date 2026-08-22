@@ -46,7 +46,7 @@ const BOOT_ERROR_TRAP = `(function () {
       shown.style.cssText = 'position:fixed;left:0;right:0;top:0;z-index:2147483647;background:#fff3f3;color:#a40000;padding:8px 10px;font:12px/1.4 monospace;white-space:pre-wrap;word-break:break-all;max-height:45vh;overflow:auto;margin:0;border-bottom:2px solid #a40000;'
       ;(document.body || document.documentElement).appendChild(shown)
     }
-    shown.textContent += line + '\n'
+    shown.textContent += line + '\\n'
   }
   window.addEventListener('error', function (event) {
     var target = event && event.target
