@@ -126,7 +126,7 @@ export default async function AnimalDetailPage({
   if (!resolved) {
     notFound()
   }
-  const { locale, animal, seo } = resolved
+  const { animal, seo } = resolved
 
   return (
     <>
@@ -140,7 +140,7 @@ export default async function AnimalDetailPage({
           ),
         }}
       />
-      <AnimalExhibit animalId={animal.id} locale={locale} />
+      <AnimalExhibit animalId={animal.id} />
     </>
   )
 }

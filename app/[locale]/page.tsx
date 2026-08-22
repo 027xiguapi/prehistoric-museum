@@ -35,5 +35,5 @@ export default async function MuseumLocalePage({ params }: MuseumPageProps) {
     throw new Error('主展览集合中没有可展示的动物。')
   }
 
-  return <MuseumHome defaultAnimalId={defaultAnimalId} locale={locale} />
+  return <MuseumHome defaultAnimalId={defaultAnimalId} />
 }

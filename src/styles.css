@@ -53,9 +53,11 @@ body {
   overflow: hidden;
 }
 
-/* Document-style pages (e.g. the category browser) render more content than
-   the viewport and must scroll; the 3D museum shell keeps overflow hidden. */
-body:has(.category-page) {
+/* Document-style pages (e.g. the category browser and the settings page)
+   render more content than the viewport and must scroll; the 3D museum shell
+   keeps overflow hidden. */
+body:has(.category-page),
+body:has(.config-page) {
   overflow-y: auto;
 }
 
@@ -3326,6 +3328,37 @@ a:focus-visible {
   gap: 10px;
 }
 
+.museum-back-link {
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+  padding: 0 11px 0 7px;
+  border: 1px solid rgb(52 82 64 / 16%);
+  border-radius: 999px;
+  color: #31523b;
+  background: rgb(255 255 255 / 62%);
+  font-size: 0.8rem;
+  font-weight: 780;
+  white-space: nowrap;
+  text-decoration: none;
+  transition:
+    transform 150ms ease,
+    border-color 150ms ease,
+    background-color 150ms ease;
+}
+
+.museum-back-link:hover {
+  border-color: color-mix(in srgb, var(--animal-accent) 42%, transparent);
+  background: rgb(255 255 255 / 88%);
+  transform: translateY(-1px);
+}
+
+.museum-back-link:active {
+  transform: translateY(1px) scale(0.97);
+}
+
 .museum-mark {
   width: 26px;
   height: 26px;
@@ -4729,6 +4762,50 @@ html[data-locale="en"] .collection-card__copy strong {
   top: max(14px, env(safe-area-inset-top));
   right: max(16px, env(safe-area-inset-right));
   z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.zone-select-settings {
+  display: inline-flex;
+  width: 52px;
+  height: 52px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(255 255 255 / 65%);
+  border-radius: 18px;
+  color: #214a33;
+  background: rgb(255 253 247 / 90%);
+  box-shadow: 0 8px 22px rgb(37 56 32 / 14%), inset 0 1px rgb(255 255 255 / 78%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background-color 150ms ease, transform 150ms ease;
+}
+
+.zone-select-settings:hover {
+  background: rgb(255 255 255 / 96%);
+  transform: translateY(-1px);
+}
+
+.zone-select-settings:active {
+  transform: translateY(1px) scale(0.97);
+}
+
+@media (max-width: 1023px) and (orientation: portrait) {
+  .zone-select-settings {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+  }
+}
+
+@media (max-height: 560px) and (orientation: landscape) {
+  .zone-select-settings {
+    width: 48px;
+    height: 48px;
+    border-radius: 13px;
+  }
 }
 
 .zone-return-button {
@@ -4778,11 +4855,13 @@ html[data-locale="en"] .collection-card__copy strong {
 }
 
 .category-hero {
+  position: relative;
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 26px 30px 16px;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 30px 22px;
+  text-align: center;
   border: 1px solid rgb(255 255 255 / 72%);
   border-radius: 28px;
   box-shadow: 0 18px 60px rgb(18 32 25 / 18%);
@@ -4791,6 +4870,7 @@ html[data-locale="en"] .collection-card__copy strong {
 .category-hero__eyebrow {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 7px;
   margin: 0;
   color: var(--leaf);
@@ -4816,17 +4896,18 @@ html[data-locale="en"] .collection-card__copy strong {
 }
 
 .category-hero__back {
+  position: absolute;
+  top: 16px;
+  left: 16px;
   display: inline-flex;
   align-items: center;
-  flex-shrink: 0;
-  padding: 9px 16px;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
   border: 1px solid rgb(46 72 58 / 18%);
   border-radius: 999px;
   color: var(--ink);
   background: #f5f0df;
-  font-size: 0.82rem;
-  font-weight: 780;
-  white-space: nowrap;
   transition:
     transform 150ms ease,
     border-color 150ms ease,
@@ -4924,7 +5005,6 @@ html[data-locale="en"] .collection-card__copy strong {
 
 @media (max-width: 720px) {
   .category-hero {
-    flex-direction: column;
     padding: 24px 20px 14px;
   }
 
@@ -5008,4 +5088,361 @@ html[data-locale="en"] .collection-card__copy strong {
   color: #fffdf7;
   background: rgb(33 76 60 / 78%);
   box-shadow: 0 2px 6px rgb(18 32 25 / 30%);
+}
+
+/* --- Settings page (language, appearance, account, about) --- */
+
+.config-page {
+  display: grid;
+  width: min(720px, calc(100% - 28px));
+  margin: 0 auto;
+  padding: max(28px, env(safe-area-inset-top)) 0 max(40px, env(safe-area-inset-bottom));
+  gap: 16px;
+  align-content: start;
+  min-height: 100dvh;
+  background: #fffdf7;
+}
+
+.config-hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 26px 30px 12px;
+}
+
+.config-hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  color: var(--leaf);
+  font-size: 0.76rem;
+  font-weight: 820;
+  letter-spacing: 0.08em;
+}
+
+.config-hero h1 {
+  margin: 3px 0 0;
+  color: #214c3c;
+  font-family:
+    "ZCOOL KuaiLe", "Yuanti SC", "STYuanti-SC-Regular", sans-serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1.08;
+}
+
+.config-hero p:last-child {
+  margin: 8px 0 0;
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+}
+
+.config-page > .config-close {
+  justify-self: end;
+  margin-right: 30px;
+}
+
+.config-close {
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(46 72 58 / 18%);
+  border-radius: 999px;
+  color: var(--ink);
+  background: #f5f0df;
+  transition:
+    transform 150ms ease,
+    border-color 150ms ease,
+    background-color 150ms ease;
+}
+
+.config-close:hover {
+  border-color: rgb(53 104 89 / 40%);
+  background: #fff;
+  transform: translateY(-1px);
+}
+
+.config-close:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.config-section {
+  display: grid;
+  gap: 8px;
+  padding: 0 30px;
+}
+
+.config-section__head {
+  display: grid;
+  gap: 2px;
+}
+
+.config-section__head h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: #214c3c;
+  font-size: 1.02rem;
+  font-weight: 850;
+  line-height: 1.25;
+}
+
+.config-section__head h2 svg {
+  color: var(--leaf);
+  flex-shrink: 0;
+}
+
+.config-section__head p {
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 0.8rem;
+}
+
+.config-group {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid rgb(46 72 58 / 13%);
+  border-radius: 16px;
+  background: #f5f0df;
+}
+
+.config-row {
+  display: flex;
+  width: 100%;
+  min-height: 54px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 0;
+  color: var(--ink);
+  background: transparent;
+  font-size: 0.92rem;
+  font-weight: 720;
+  text-align: left;
+}
+
+.config-group > .config-row + .config-row {
+  box-shadow: inset 0 1px 0 rgb(46 72 58 / 10%);
+}
+
+button.config-row {
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+
+button.config-row:hover {
+  background: rgb(255 255 255 / 55%);
+}
+
+button.config-row:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: -2px;
+}
+
+a.config-row {
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 150ms ease;
+}
+
+a.config-row:hover {
+  background: rgb(255 255 255 / 55%);
+}
+
+a.config-row:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: -2px;
+}
+
+.config-row[aria-checked='true'] {
+  background: rgb(255 255 255 / 62%);
+}
+
+.config-row--disabled {
+  color: rgb(32 53 47 / 55%);
+}
+
+.config-row__label {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 10px;
+}
+
+.config-row__aside {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 10px;
+}
+
+.config-row__check {
+  display: inline-flex;
+  width: 18px;
+  justify-content: center;
+  color: var(--leaf);
+}
+
+.config-row__check--hidden {
+  visibility: hidden;
+}
+
+.config-row__value {
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+  font-weight: 680;
+}
+
+.config-radio {
+  position: relative;
+  display: block;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  border: 2px solid rgb(44 75 60 / 45%);
+  border-radius: 999px;
+  background: #fffdf7;
+}
+
+.config-row[aria-checked='true'] .config-radio {
+  border-color: var(--leaf);
+}
+
+.config-row[aria-checked='true'] .config-radio::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: 999px;
+  background: var(--leaf);
+}
+
+.config-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 999px;
+  color: var(--leaf);
+  background: rgb(53 104 89 / 10%);
+  font-size: 0.68rem;
+  font-weight: 820;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* Placeholder toggle for the upcoming dark mode row: always off for now. */
+.config-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: rgb(32 53 47 / 18%);
+}
+
+.config-switch__thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #fffdf7;
+  box-shadow: 0 1px 3px rgb(18 32 25 / 28%);
+}
+
+@media (max-width: 720px) {
+  .config-page > .config-close {
+    margin-right: 20px;
+  }
+
+  .config-hero {
+    flex-direction: column;
+    padding: 24px 20px 10px;
+  }
+
+  .config-section {
+    padding: 0;
+  }
+}
+
+/* --- Public info pages (privacy policy, technical support) --- */
+
+.info-page > .config-close {
+  justify-self: start;
+  margin-left: 30px;
+  margin-right: 0;
+}
+
+.info-body {
+  display: grid;
+  gap: 18px;
+}
+
+.info-section {
+  gap: 8px;
+}
+
+.info-section__text {
+  display: grid;
+  gap: 10px;
+}
+
+.info-section__text p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.info-section__text a {
+  color: var(--leaf);
+  font-weight: 720;
+  text-decoration: none;
+}
+
+.info-section__text a:hover {
+  text-decoration: underline;
+}
+
+.info-faq {
+  display: grid;
+  gap: 14px;
+}
+
+.info-faq__item {
+  display: grid;
+  gap: 4px;
+}
+
+.info-faq__question {
+  margin: 0;
+  color: #214c3c;
+  font-size: 0.94rem;
+  font-weight: 820;
+  line-height: 1.4;
+}
+
+.info-faq__answer {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 720px) {
+  .info-page > .config-close {
+    margin-left: 20px;
+  }
+
+  .info-section {
+    padding: 0 20px;
+  }
 }

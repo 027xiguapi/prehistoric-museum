@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Footprints } from 'lucide-react'
 
+import { BackButton } from './buttons/BackButton'
 import { mainAnimals } from '../content/catalog'
 import { draftAnimalsByZone } from '../content/collections/draft-zones'
 import { zoneCategories } from '../content/collections/categories'
@@ -56,6 +57,11 @@ export function CategoryPageView({ locale, zone }: CategoryPageViewProps) {
   return (
     <main className="category-page">
       <header className="category-hero">
+        <BackButton
+          className="category-hero__back"
+          href={`/${locale}`}
+          label={messages.collection.back}
+        />
         <div>
           <p className="category-hero__eyebrow">
             <Footprints aria-hidden="true" size={17} strokeWidth={2.2} />
@@ -64,9 +70,6 @@ export function CategoryPageView({ locale, zone }: CategoryPageViewProps) {
           <h1>{zone === null ? messages.collection.title : zoneTitle(locale, zone)}</h1>
           <p>{messages.collection.intro}</p>
         </div>
-        <Link className="category-hero__back" href={`/${locale}`}>
-          {messages.collection.back}
-        </Link>
       </header>
       {zones.map((zoneId) => {
         const prehistoric = mainAnimals.filter((animal) =>

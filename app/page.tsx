@@ -13,9 +13,15 @@ import { useEffect } from 'react'
 // HTML, so even a WebView too old to parse the modern JS chunks (which would
 // otherwise strand the app on this blank page forever) still reaches the
 // prerendered catalogue — or at least shows a tappable way in.
+//
+// The target must carry the `index.html` suffix: Capacitor's local server
+// (Android `WebViewLocalServer` and the iOS `Router` alike) answers every
+// extension-less path with the ROOT index.html (SPA fallback), so pointing
+// at `/zh-CN/` makes the WebView receive this stub again at that very URL —
+// an infinite self-reload loop that re-fetches all chunks and never paints.
 export default function RootPage() {
   useEffect(() => {
-    window.location.replace('/zh-CN/')
+    window.location.replace('/zh-CN/index.html')
   }, [])
 
   return (
@@ -30,8 +36,8 @@ export default function RootPage() {
         padding: '2rem',
       }}
     >
-      <meta httpEquiv="refresh" content="0;url=/zh-CN/" />
-      <a href="/zh-CN/" style={{ fontSize: '1.25rem', color: '#2e5e46' }}>
+      <meta httpEquiv="refresh" content="0;url=/zh-CN/index.html" />
+      <a href="/zh-CN/index.html" style={{ fontSize: '1.25rem', color: '#2e5e46' }}>
         正在进入动物园…
         <br />
         Tap to enter the zoo

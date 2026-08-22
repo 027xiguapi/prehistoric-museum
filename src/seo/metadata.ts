@@ -232,5 +232,5 @@ export const seoNotFoundCopy = {
   title: 'Page not found | 页面没有找到',
   heading: '404 · Page not found · 页面没有找到',
   message: 'The trail ends here. 这条参观路线暂时走不通。',
-  returnLabel: 'Return to the museum · 返回博物馆',
+  returnLabel: 'Back · 返回',
 } as const

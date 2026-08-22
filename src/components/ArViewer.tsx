@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { X } from 'lucide-react'
+import { CloseButton } from './buttons/CloseButton'
 import { useI18n } from '../i18n/I18nProvider'
 import type { ArState } from '../ar/CameraArSession'
 import { isWebXrArAvailable } from '../ar/WebXrArSession'
@@ -157,14 +157,13 @@ export function ArViewer({
         }}
         ref={stageRef}
       />
-      <button
-        aria-label={messages.ar.close}
+      <CloseButton
         className="ar-close friendly-button friendly-button--small"
+        label={messages.ar.close}
         onClick={onClose}
-        type="button"
-      >
-        <X aria-hidden="true" size={22} strokeWidth={2.25} />
-      </button>
+        size={22}
+        strokeWidth={2.25}
+      />
       <div aria-live="polite" className="ar-hud" role="status">
         {state === 'scanning' ? (
           <div className="ar-hud__message">

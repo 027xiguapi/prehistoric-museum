@@ -8,6 +8,7 @@ import '@fontsource-variable/noto-sans-sc'
 import '@fontsource-variable/nunito'
 import '@fontsource/zcool-kuaile'
 import '../../src/styles.css'
+import { I18nProvider } from '../../src/i18n/I18nProvider'
 import { isLocale } from '../../src/i18n/locale'
 
 export const viewport: Viewport = {
@@ -81,7 +82,9 @@ export default async function LocaleLayout({
         {process.env.NEXT_STATIC_EXPORT === '1' && (
           <script dangerouslySetInnerHTML={{ __html: BOOT_ERROR_TRAP }} />
         )}
-        {children}
+        <I18nProvider initialState={{ locale, preference: locale }}>
+          {children}
+        </I18nProvider>
         {/* Raw <script> instead of next/script: AdSense logs a console
             warning about the data-nscript attribute the framework adds.
             Only the web deployment shows ads — the Capacitor app is a pure
