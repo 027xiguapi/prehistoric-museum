@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import { PrivacyPageView } from '../../../src/components/PrivacyPageView'
-import { isLocale, supportedLocales } from '../../../src/i18n/locale'
-import { messagesFor } from '../../../src/i18n/messages'
-import { privacyPolicyFor } from '../../../src/i18n/privacy-policy'
+import { PrivacyPageView } from '@/src/components/PrivacyPageView'
+import { isLocale, supportedLocales } from '@/src/i18n/locale'
+import { messagesFor } from '@/src/i18n/messages'
+import { privacyPolicyFor } from '@/src/i18n/privacy-policy'
 
 export function generateStaticParams() {
   return supportedLocales.map((locale) => ({ locale }))

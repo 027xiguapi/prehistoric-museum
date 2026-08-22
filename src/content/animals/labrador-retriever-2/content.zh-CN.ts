@@ -1,4 +1,4 @@
-import type { AnimalContentZhCN } from '../../types'
+import type { AnimalContentZhCN } from '@/src/content/types'
 
 export const zhCN = {
   name: "拉布拉多寻回犬（模型二）",

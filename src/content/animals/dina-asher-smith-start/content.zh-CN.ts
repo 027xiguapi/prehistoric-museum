@@ -1,4 +1,4 @@
-import type { AnimalContentZhCN } from '../../types'
+import type { AnimalContentZhCN } from '@/src/content/types'
 
 export const zhCN = {
   name: "迪娜·阿舍-史密斯（起跑）",

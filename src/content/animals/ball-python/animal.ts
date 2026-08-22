@@ -1,18 +1,18 @@
-import posterPortraitUrl from './images/poster-portrait.webp'
-import posterUrl from './images/poster.webp'
-import thumbnailUrl from './images/thumbnail.webp'
+import posterPortraitUrl from '@/src/content/animals/ball-python/images/poster-portrait.webp'
+import posterUrl from '@/src/content/animals/ball-python/images/poster.webp'
+import thumbnailUrl from '@/src/content/animals/ball-python/images/thumbnail.webp'
 
 // Draft preview only: the animal's own generated scene backdrop (prompt
 // and generation record live in backgrounds/background-generation.txt).
 // Never shipped to production (drafts are excluded there).
-import landscapeUrl from './backgrounds/landscape.webp'
-import portraitUrl from './backgrounds/portrait.webp'
+import landscapeUrl from '@/src/content/animals/ball-python/backgrounds/landscape.webp'
+import portraitUrl from '@/src/content/animals/ball-python/backgrounds/portrait.webp'
 
-import { imageUrl } from '../../create-runtime-animal'
-import { animalAssetUrl } from '../../remote-assets'
-import { animalDefinition } from './package'
-import type { DraftAnimalPackage } from '../../types'
-import type { LegacyLocalReviewAnimalPackage } from '../../../review/types'
+import { imageUrl } from '@/src/content/create-runtime-animal'
+import { animalAssetUrl } from '@/src/content/remote-assets'
+import { animalDefinition } from '@/src/content/animals/ball-python/package'
+import type { DraftAnimalPackage } from '@/src/content/types'
+import type { LegacyLocalReviewAnimalPackage } from '@/src/review/types'
 
 // Draft package assembled as a review-style displayable so the dev server can
 // preview it at /{locale}/animal/ball-python/. Production builds filter

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-import { seoSiteOrigin } from '../src/seo/metadata'
+import { seoSiteOrigin } from '@/src/seo/metadata'
 
 export const dynamic = 'force-static'
 

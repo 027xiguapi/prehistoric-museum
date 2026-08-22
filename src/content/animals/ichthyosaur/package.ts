@@ -1,7 +1,7 @@
-import { definePublishedAnimal } from '../../types'
-import { en } from './content.en'
-import { zhCN } from './content.zh-CN'
-import { provenance } from './provenance'
+import { definePublishedAnimal } from '@/src/content/types'
+import { en } from '@/src/content/animals/ichthyosaur/content.en'
+import { zhCN } from '@/src/content/animals/ichthyosaur/content.zh-CN'
+import { provenance } from '@/src/content/animals/ichthyosaur/provenance'
 
 export const animalDefinition = definePublishedAnimal({
   id: 'ichthyosaur',

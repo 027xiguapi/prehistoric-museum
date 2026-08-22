@@ -9,10 +9,10 @@ import {
   MODEL_DATA_REMINDER_STORAGE_KEY,
   NARROW_TOUCH_MEDIA_QUERY,
   isLargeModel,
-} from '../model-policy'
-import type { AnimalLoadCoordinator } from '../state'
-import type { LoadedRuntimeAnimal, RuntimeAnimal } from './runtime-animal'
-import type { ModelDataNotice } from './types'
+} from '@/src/model-policy'
+import type { AnimalLoadCoordinator } from '@/src/state'
+import type { LoadedRuntimeAnimal, RuntimeAnimal } from '@/src/museum/runtime-animal'
+import type { ModelDataNotice } from '@/src/museum/types'
 
 const LARGE_MODEL_NOTICE_DELAY_MS = 600
 

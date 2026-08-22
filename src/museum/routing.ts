@@ -1,5 +1,5 @@
-import { animalIdPattern } from '../content/types'
-import { localeFromPath, type Locale } from '../i18n/locale'
+import { animalIdPattern } from '@/src/content/types'
+import { localeFromPath, type Locale } from '@/src/i18n/locale'
 
 export type AppPageKind = 'zone-select' | 'museum' | 'animal-detail'
 

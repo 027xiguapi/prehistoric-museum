@@ -1,6 +1,6 @@
-import { museumMode } from '../app-mode'
+import { museumMode } from '@/src/app-mode'
 import { reviewModelPreviewUrl } from '$museum-review-runtime'
-import { modelPreviewModules } from './model-preview-modules.generated'
+import { modelPreviewModules } from '@/src/viewer/model-preview-modules.generated'
 
 export function modelPreviewFor(
   animalId: string,

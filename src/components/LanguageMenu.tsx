@@ -6,8 +6,8 @@ import {
   type KeyboardEvent as ReactKeyboardEvent,
   type ReactNode,
 } from 'react'
-import { useI18n } from '../i18n/I18nProvider'
-import { systemLocale, type LocalePreference } from '../i18n/locale'
+import { useI18n } from '@/src/i18n/I18nProvider'
+import { systemLocale, type LocalePreference } from '@/src/i18n/locale'
 
 const choices: readonly LocalePreference[] = ['system', 'zh-CN', 'en']
 

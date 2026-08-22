@@ -1,7 +1,7 @@
 import {
   modelPreviewProfiles,
   type ModelPreviewFileName,
-} from '../viewer/model-preview-profiles'
+} from '@/src/viewer/model-preview-profiles'
 
 export type LocalReviewAnimalId =
   | 'stegosaurus'

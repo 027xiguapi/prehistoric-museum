@@ -5,25 +5,25 @@ import {
   type RefObject,
   type SetStateAction,
 } from 'react'
-import type { NarrationController } from '../audio'
-import { museumMode } from '../app-mode'
-import type { Locale } from '../i18n/locale'
-import type { MuseumMessages } from '../i18n/messages'
+import type { NarrationController } from '@/src/audio'
+import { museumMode } from '@/src/app-mode'
+import type { Locale } from '@/src/i18n/locale'
+import type { MuseumMessages } from '@/src/i18n/messages'
 import {
   AnimalLoadCoordinator,
   IdlePreloadCoordinator,
   type AnimalLoadContext,
   type AnimalLoadSnapshot,
   type IdlePreloadTarget,
-} from '../state'
-import type { ModelCache } from '../viewer/model-cache'
+} from '@/src/state'
+import type { ModelCache } from '@/src/viewer/model-cache'
 import type {
   ModelLoadProgress,
   ViewerController,
-} from '../viewer/ViewerController'
-import { replaceAnimalUrl } from './routing'
-import type { LoadedRuntimeAnimal, RuntimeAnimal } from './runtime-animal'
-import type { ModelLoadingProgress, ViewerFailureKind } from './types'
+} from '@/src/viewer/ViewerController'
+import { replaceAnimalUrl } from '@/src/museum/routing'
+import type { LoadedRuntimeAnimal, RuntimeAnimal } from '@/src/museum/runtime-animal'
+import type { ModelLoadingProgress, ViewerFailureKind } from '@/src/museum/types'
 
 const INITIAL_PRESENTATION_MINIMUM_MS = 900
 const REDUCED_MOTION_INITIAL_MINIMUM_MS = 180

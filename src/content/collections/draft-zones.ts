@@ -1,6 +1,6 @@
-import { allAnimals } from '../catalog'
-import type { AnimalPackage } from '../types'
-import { zoneIdsForAnimal, type ZoneCategoryId } from './zone-definitions'
+import { allAnimals } from '@/src/content/catalog'
+import type { AnimalPackage } from '@/src/content/types'
+import { zoneIdsForAnimal, type ZoneCategoryId } from '@/src/content/collections/zone-definitions'
 
 /**
  * Zone placement for draft 3D animals. A draft can belong to several zones

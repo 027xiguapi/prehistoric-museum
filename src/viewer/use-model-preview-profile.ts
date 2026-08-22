@@ -4,7 +4,7 @@ import {
   modelPreviewProfiles,
   selectModelPreviewProfile,
   type ModelPreviewProfile,
-} from './model-preview-profiles'
+} from '@/src/viewer/model-preview-profiles'
 
 function currentProfile(): ModelPreviewProfile {
   return selectModelPreviewProfile((media) => window.matchMedia(media).matches)

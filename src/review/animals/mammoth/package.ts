@@ -1,6 +1,6 @@
-import type { CompleteDraftAnimalPackage } from '../../types'
-import { reviewAssetUrl } from '../../assets'
-import { zhCN } from './content.zh-CN'
+import type { CompleteDraftAnimalPackage } from '@/src/review/types'
+import { reviewAssetUrl } from '@/src/review/assets'
+import { zhCN } from '@/src/review/animals/mammoth/content.zh-CN'
 
 export const animal = {
   id: 'mammoth',

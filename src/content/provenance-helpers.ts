@@ -3,7 +3,7 @@ import type {
   AssetProvenance,
   IsoDate,
   Sha256,
-} from './types'
+} from '@/src/content/types'
 
 interface RuntimeFile {
   readonly bytes: number

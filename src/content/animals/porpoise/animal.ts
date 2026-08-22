@@ -1,17 +1,17 @@
-import posterPortraitUrl from './images/poster-portrait.webp'
-import posterUrl from './images/poster.webp'
-import thumbnailUrl from './images/thumbnail.webp'
+import posterPortraitUrl from '@/src/content/animals/porpoise/images/poster-portrait.webp'
+import posterUrl from '@/src/content/animals/porpoise/images/poster.webp'
+import thumbnailUrl from '@/src/content/animals/porpoise/images/thumbnail.webp'
 
 // Draft preview only: borrow the mosasaurus backdrop until a porpoise
 // scene exists. Never shipped to production (drafts are excluded there).
-import landscapeUrl from '../mosasaurus/backgrounds/landscape.webp'
-import portraitUrl from '../mosasaurus/backgrounds/portrait.webp'
+import landscapeUrl from '@/src/content/animals/mosasaurus/backgrounds/landscape.webp'
+import portraitUrl from '@/src/content/animals/mosasaurus/backgrounds/portrait.webp'
 
-import { imageUrl } from '../../create-runtime-animal'
-import { animalAssetUrl } from '../../remote-assets'
-import { animalDefinition } from './package'
-import type { DraftAnimalPackage } from '../../types'
-import type { LegacyLocalReviewAnimalPackage } from '../../../review/types'
+import { imageUrl } from '@/src/content/create-runtime-animal'
+import { animalAssetUrl } from '@/src/content/remote-assets'
+import { animalDefinition } from '@/src/content/animals/porpoise/package'
+import type { DraftAnimalPackage } from '@/src/content/types'
+import type { LegacyLocalReviewAnimalPackage } from '@/src/review/types'
 
 // Draft package assembled as a review-style displayable so the dev server can
 // preview it at /{locale}/animal/porpoise/. Production builds filter

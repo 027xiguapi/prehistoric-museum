@@ -1,7 +1,7 @@
-import type { DraftAnimalDefinition } from '../../types'
-import { en } from './content.en'
-import { zhCN } from './content.zh-CN'
-import { provenance } from './provenance'
+import type { DraftAnimalDefinition } from '@/src/content/types'
+import { en } from '@/src/content/animals/seahorse/content.en'
+import { zhCN } from '@/src/content/animals/seahorse/content.zh-CN'
+import { provenance } from '@/src/content/animals/seahorse/provenance'
 
 // Draft modern-animal package: the model, bilingual copy and rendered previews
 // are in place; narration audio, licence confirmation and owner review gates

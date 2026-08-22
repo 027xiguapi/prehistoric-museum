@@ -11,28 +11,28 @@ import {
   WebGLRenderer,
 } from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import { museumMode } from '../app-mode'
+import { museumMode } from '@/src/app-mode'
 import {
   computeCameraFit,
   computeCompositionFieldOfView,
   computeCompositionViewOffset,
-} from './camera-fit'
-import { disposeObject3D } from './dispose'
-import type { ModelCache } from './model-cache'
-import { createModelPreviewPresentationSignature } from './model-preview-contract'
+} from '@/src/viewer/camera-fit'
+import { disposeObject3D } from '@/src/viewer/dispose'
+import type { ModelCache } from '@/src/viewer/model-cache'
+import { createModelPreviewPresentationSignature } from '@/src/viewer/model-preview-contract'
 import {
   MODEL_PREVIEW_CAMERA_FIELD_OF_VIEW_DEGREES,
   MODEL_PREVIEW_MAX_PIXEL_RATIO,
   modelScaleForViewport,
-} from './model-preview-profiles'
-import type { ViewerModelDescriptor } from './viewer-model-descriptor'
+} from '@/src/viewer/model-preview-profiles'
+import type { ViewerModelDescriptor } from '@/src/viewer/viewer-model-descriptor'
 import {
   buildStagedModel,
   computeModelBounds,
   type ModelLoadProgress,
   type StagedViewerModel,
   type ViewerFailure,
-} from './build-staged-model'
+} from '@/src/viewer/build-staged-model'
 import {
   collectReactionBones,
   resetBone,
@@ -40,9 +40,9 @@ import {
   strideLeg,
   swingBone,
   type ReactionBones,
-} from './reaction-bones'
+} from '@/src/viewer/reaction-bones'
 
-export type { ViewerModelDescriptor } from './viewer-model-descriptor'
+export type { ViewerModelDescriptor } from '@/src/viewer/viewer-model-descriptor'
 export {
   buildStagedModel,
   classifyModelResourceTiming,
@@ -50,14 +50,14 @@ export {
   computeModelBounds,
   readModelResponseBuffer,
   requestModelResponse,
-} from './build-staged-model'
+} from '@/src/viewer/build-staged-model'
 export type {
   ModelLoadProgress,
   ModelLoadSource,
   StagedViewerModel,
   ViewerFailure,
   ViewerFailureKind,
-} from './build-staged-model'
+} from '@/src/viewer/build-staged-model'
 
 export interface ViewerControllerOptions {
   compositionFrame?: HTMLElement

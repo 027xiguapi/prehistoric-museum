@@ -3,7 +3,7 @@ import type { StaticImageData } from 'next/image'
 import type {
   PublishedAnimalPackage,
   PublishedAnimalDefinition,
-} from './types'
+} from '@/src/content/types'
 
 type ImageAsset = string | StaticImageData
 

@@ -9,13 +9,13 @@ import {
   Volume2,
 } from 'lucide-react'
 import { useId, type RefObject } from 'react'
-import { getNarrationControlLabel, type NarrationSnapshot } from '../audio'
-import { ResponsiveAnimalTitle } from '../components/ResponsiveAnimalTitle'
-import { StoryPanelToggle } from '../components/StoryPanelToggle'
-import type { ZoneCategoryId } from '../content/collections/categories'
-import { useI18n } from '../i18n/I18nProvider'
-import { localReviewMode, type RuntimeAnimal } from './runtime-animal'
-import { museumExhibitHref, type AppPageKind } from './routing'
+import { getNarrationControlLabel, type NarrationSnapshot } from '@/src/audio'
+import { ResponsiveAnimalTitle } from '@/src/components/ResponsiveAnimalTitle'
+import { StoryPanelToggle } from '@/src/components/StoryPanelToggle'
+import type { ZoneCategoryId } from '@/src/content/collections/categories'
+import { useI18n } from '@/src/i18n/I18nProvider'
+import { localReviewMode, type RuntimeAnimal } from '@/src/museum/runtime-animal'
+import { museumExhibitHref, type AppPageKind } from '@/src/museum/routing'
 
 interface StoryPanelProps {
   readonly activeAnimal: RuntimeAnimal

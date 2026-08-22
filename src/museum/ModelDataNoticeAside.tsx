@@ -1,5 +1,5 @@
-import { useI18n } from '../i18n/I18nProvider'
-import type { ModelDataNotice } from './types'
+import { useI18n } from '@/src/i18n/I18nProvider'
+import type { ModelDataNotice } from '@/src/museum/types'
 
 interface ModelDataNoticeAsideProps {
   readonly message: string | null

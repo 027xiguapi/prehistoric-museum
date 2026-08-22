@@ -1,15 +1,15 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Footprints } from 'lucide-react'
-import { museumMode } from '../app-mode'
-import { useI18n } from '../i18n/I18nProvider'
+import { museumMode } from '@/src/app-mode'
+import { useI18n } from '@/src/i18n/I18nProvider'
 import type {
   ViewerController,
   ViewerFailure,
-} from '../viewer/ViewerController'
-import type { ModelCache } from '../viewer/model-cache'
-import { modelPreviewProfiles } from '../viewer/model-preview-profiles'
-import { modelPreviewFor } from '../viewer/responsive-model-stills'
-import { useModelPreviewProfile } from '../viewer/use-model-preview-profile'
+} from '@/src/viewer/ViewerController'
+import type { ModelCache } from '@/src/viewer/model-cache'
+import { modelPreviewProfiles } from '@/src/viewer/model-preview-profiles'
+import { modelPreviewFor } from '@/src/viewer/responsive-model-stills'
+import { useModelPreviewProfile } from '@/src/viewer/use-model-preview-profile'
 
 interface ViewerStageProps {
   animalId: string
@@ -134,7 +134,7 @@ export function ViewerStage({
     const initialise = async () => {
       try {
         const { ViewerController, ViewerUnavailableError } = await import(
-          '../viewer/ViewerController'
+          '@/src/viewer/ViewerController'
         )
         if (cancelled) {
           return

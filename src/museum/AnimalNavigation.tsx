@@ -1,12 +1,12 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useEffect, useRef, useState, type RefObject } from 'react'
-import { IconButton } from '../components/IconButton'
-import { staticAnimalDetailIds } from '../content/static-animal-details'
-import { useI18n } from '../i18n/I18nProvider'
-import type { AnimalLoadSnapshot } from '../state'
-import { localReviewMode, type RuntimeAnimal } from './runtime-animal'
-import { animalDetailHref, type AppPageKind } from './routing'
-import type { ModelLoadingProgress } from './types'
+import { IconButton } from '@/src/components/IconButton'
+import { staticAnimalDetailIds } from '@/src/content/static-animal-details'
+import { useI18n } from '@/src/i18n/I18nProvider'
+import type { AnimalLoadSnapshot } from '@/src/state'
+import { localReviewMode, type RuntimeAnimal } from '@/src/museum/runtime-animal'
+import { animalDetailHref, type AppPageKind } from '@/src/museum/routing'
+import type { ModelLoadingProgress } from '@/src/museum/types'
 
 const staticAnimalDetailIdSet = new Set<string>(staticAnimalDetailIds)
 

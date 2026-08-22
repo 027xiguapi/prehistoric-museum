@@ -1,4 +1,4 @@
-import type { AnimalKind, AtmosphereKind } from '../types'
+import type { AnimalKind, AtmosphereKind } from '@/src/content/types'
 
 /** Stable identifier used in URLs (`?category=<id>`) and i18n lookups. */
 export type ZoneCategoryId =

@@ -1,4 +1,4 @@
-import { buildLocaleUrl, localeFromPath, type Locale } from './locale'
+import { buildLocaleUrl, localeFromPath, type Locale } from '@/src/i18n/locale'
 
 export interface LocalizedMetadata {
   readonly locale: Locale

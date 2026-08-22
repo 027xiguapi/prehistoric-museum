@@ -1,17 +1,17 @@
-import posterPortraitUrl from './images/poster-portrait.webp'
-import posterUrl from './images/poster.webp'
-import thumbnailUrl from './images/thumbnail.webp'
+import posterPortraitUrl from '@/src/content/animals/crow/images/poster-portrait.webp'
+import posterUrl from '@/src/content/animals/crow/images/poster.webp'
+import thumbnailUrl from '@/src/content/animals/crow/images/thumbnail.webp'
 
 // Draft preview only: borrow the pteranodon backdrop until a crow
 // scene exists. Never shipped to production (drafts are excluded there).
-import landscapeUrl from '../pteranodon/backgrounds/landscape.webp'
-import portraitUrl from '../pteranodon/backgrounds/portrait.webp'
+import landscapeUrl from '@/src/content/animals/pteranodon/backgrounds/landscape.webp'
+import portraitUrl from '@/src/content/animals/pteranodon/backgrounds/portrait.webp'
 
-import { imageUrl } from '../../create-runtime-animal'
-import { animalAssetUrl } from '../../remote-assets'
-import { animalDefinition } from './package'
-import type { DraftAnimalPackage } from '../../types'
-import type { LegacyLocalReviewAnimalPackage } from '../../../review/types'
+import { imageUrl } from '@/src/content/create-runtime-animal'
+import { animalAssetUrl } from '@/src/content/remote-assets'
+import { animalDefinition } from '@/src/content/animals/crow/package'
+import type { DraftAnimalPackage } from '@/src/content/types'
+import type { LegacyLocalReviewAnimalPackage } from '@/src/review/types'
 
 // Draft pilot package assembled as a review-style displayable so the dev
 // server can preview it at /{locale}/animal/crow/. Production builds

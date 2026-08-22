@@ -1,6 +1,6 @@
-import { createReviewedEnglishNarrationProvenance } from '../../provenance-helpers'
-import type { AssetProvenance } from '../../types'
-import { en } from './content.en'
+import { createReviewedEnglishNarrationProvenance } from '@/src/content/provenance-helpers'
+import type { AssetProvenance } from '@/src/content/types'
+import { en } from '@/src/content/animals/dilophosaurus/content.en'
 
 export const provenance = [
   {

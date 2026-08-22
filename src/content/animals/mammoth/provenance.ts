@@ -3,9 +3,9 @@ import {
   createReviewedEnglishNarrationProvenance,
   recomposedCollectionThumbnailDerivation,
   reviewedBackgroundSources,
-} from '../../provenance-helpers'
-import { en } from './content.en'
-import { zhCN } from './content.zh-CN'
+} from '@/src/content/provenance-helpers'
+import { en } from '@/src/content/animals/mammoth/content.en'
+import { zhCN } from '@/src/content/animals/mammoth/content.zh-CN'
 
 const baseProvenance = createPublishedAssetProvenance({
   animalName: zhCN.name,

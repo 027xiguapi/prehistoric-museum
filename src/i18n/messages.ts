@@ -1,5 +1,5 @@
-import type { AnimalSizeFact, Diet } from '../content/types'
-import type { Locale } from './locale'
+import type { AnimalSizeFact, Diet } from '@/src/content/types'
+import type { Locale } from '@/src/i18n/locale'
 
 const zhCN = {
   museumName: 'WonZoo',

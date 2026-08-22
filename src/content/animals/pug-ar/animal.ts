@@ -1,17 +1,17 @@
-import posterPortraitUrl from './images/poster-portrait.webp'
-import posterUrl from './images/poster.webp'
-import thumbnailUrl from './images/thumbnail.webp'
+import posterPortraitUrl from '@/src/content/animals/pug-ar/images/poster-portrait.webp'
+import posterUrl from '@/src/content/animals/pug-ar/images/poster.webp'
+import thumbnailUrl from '@/src/content/animals/pug-ar/images/thumbnail.webp'
 
 // Draft preview only: borrow the apatosaurus backdrop until a pug-ar
 // scene exists. Never shipped to production (drafts are excluded there).
-import landscapeUrl from '../apatosaurus/backgrounds/landscape.webp'
-import portraitUrl from '../apatosaurus/backgrounds/portrait.webp'
+import landscapeUrl from '@/src/content/animals/apatosaurus/backgrounds/landscape.webp'
+import portraitUrl from '@/src/content/animals/apatosaurus/backgrounds/portrait.webp'
 
-import { imageUrl } from '../../create-runtime-animal'
-import { animalAssetUrl } from '../../remote-assets'
-import { animalDefinition } from './package'
-import type { DraftAnimalPackage } from '../../types'
-import type { LegacyLocalReviewAnimalPackage } from '../../../review/types'
+import { imageUrl } from '@/src/content/create-runtime-animal'
+import { animalAssetUrl } from '@/src/content/remote-assets'
+import { animalDefinition } from '@/src/content/animals/pug-ar/package'
+import type { DraftAnimalPackage } from '@/src/content/types'
+import type { LegacyLocalReviewAnimalPackage } from '@/src/review/types'
 
 // Draft package assembled as a review-style displayable so the dev server can
 // preview it at /{locale}/animal/pug-ar/. Production builds filter

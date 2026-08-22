@@ -1,9 +1,9 @@
 import { ShieldCheck } from 'lucide-react'
 
-import { BackButton } from './buttons/BackButton'
-import type { Locale } from '../i18n/locale'
-import { messagesFor } from '../i18n/messages'
-import { privacyPolicyFor } from '../i18n/privacy-policy'
+import { BackButton } from '@/src/components/buttons/BackButton'
+import type { Locale } from '@/src/i18n/locale'
+import { messagesFor } from '@/src/i18n/messages'
+import { privacyPolicyFor } from '@/src/i18n/privacy-policy'
 
 /**
  * Public, static privacy policy page. It is rendered under the shared

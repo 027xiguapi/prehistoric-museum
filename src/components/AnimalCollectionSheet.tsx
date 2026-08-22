@@ -1,9 +1,9 @@
 import { createPortal } from 'react-dom'
 import { useEffect, useId, useRef } from 'react'
 import { Check, Footprints, X } from 'lucide-react'
-import { useI18n } from '../i18n/I18nProvider'
-import { IconButton } from './IconButton'
-import { LanguageMenu } from './LanguageMenu'
+import { useI18n } from '@/src/i18n/I18nProvider'
+import { IconButton } from '@/src/components/IconButton'
+import { LanguageMenu } from '@/src/components/LanguageMenu'
 
 export interface CollectionAnimal {
   readonly classification: string

@@ -1,4 +1,4 @@
-import type { AnimalCollection } from '../types'
+import type { AnimalCollection } from '@/src/content/types'
 
 export const mainCollection = {
   id: 'main',

@@ -1,8 +1,8 @@
 import type {
   AnimalAnimation,
   AnimalPresentation,
-} from '../content/types'
-import type { ViewerModelDescriptor } from './viewer-model-descriptor'
+} from '@/src/content/types'
+import type { ViewerModelDescriptor } from '@/src/viewer/viewer-model-descriptor'
 
 interface ViewerAnimalSource {
   readonly animation?: AnimalAnimation

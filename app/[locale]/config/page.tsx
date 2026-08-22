@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import packageManifest from '../../../package.json'
-import { ConfigPageView } from '../../../src/components/ConfigPageView'
-import { isLocale, supportedLocales } from '../../../src/i18n/locale'
-import { messagesFor } from '../../../src/i18n/messages'
+import packageManifest from '@/package.json'
+import { ConfigPageView } from '@/src/components/ConfigPageView'
+import { isLocale, supportedLocales } from '@/src/i18n/locale'
+import { messagesFor } from '@/src/i18n/messages'
 
 export function generateStaticParams() {
   return supportedLocales.map((locale) => ({ locale }))

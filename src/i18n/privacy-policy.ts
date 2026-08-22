@@ -1,5 +1,5 @@
-import type { Locale } from './locale'
-import { SUPPORT_EMAIL } from './contact'
+import type { Locale } from '@/src/i18n/locale'
+import { SUPPORT_EMAIL } from '@/src/i18n/contact'
 
 /**
  * Localized privacy policy content.

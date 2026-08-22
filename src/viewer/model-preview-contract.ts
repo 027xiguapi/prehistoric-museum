@@ -1,4 +1,4 @@
-import type { ViewerModelDescriptor } from './viewer-model-descriptor'
+import type { ViewerModelDescriptor } from '@/src/viewer/viewer-model-descriptor'
 import {
   MODEL_PREVIEW_CAMERA_FIELD_OF_VIEW_DEGREES,
   MODEL_PREVIEW_CONTRACT_VERSION,
@@ -7,7 +7,7 @@ import {
   MODEL_PREVIEW_OBJECT_FIT,
   MODEL_PREVIEW_PHONE_PORTRAIT_SCALE,
   modelPreviewProfiles,
-} from './model-preview-profiles'
+} from '@/src/viewer/model-preview-profiles'
 
 type PreviewDescriptor = Pick<ViewerModelDescriptor, 'animation' | 'presentation'>
 

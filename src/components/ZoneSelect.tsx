@@ -27,8 +27,8 @@ import {
   Waves,
   type LucideIcon,
 } from 'lucide-react'
-import { useI18n } from '../i18n/I18nProvider'
-import type { ZoneCategoryId } from '../content/collections/zone-definitions'
+import { useI18n } from '@/src/i18n/I18nProvider'
+import type { ZoneCategoryId } from '@/src/content/collections/zone-definitions'
 
 const zoneIcons: Readonly<Record<ZoneCategoryId, LucideIcon>> = {
   dinosaur: Bone,

@@ -1,4 +1,4 @@
-import type { AnimalContentEn } from '../../types'
+import type { AnimalContentEn } from '@/src/content/types'
 
 export const en = {
   name: "Triceratops (AR Model)",

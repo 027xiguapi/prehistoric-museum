@@ -11,7 +11,7 @@ import type {
   PublishedNarrationAssets,
   PublishedNarrationPlans,
   PublishedAnimalPackage,
-} from '../content/types'
+} from '@/src/content/types'
 
 export interface LocalReviewInfo {
   readonly badge: string

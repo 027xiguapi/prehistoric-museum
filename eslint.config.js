@@ -71,9 +71,6 @@ export default tseslint.config(
     files: [
       'app/**/*.{ts,tsx}',
       'src/components/CategoryPageView.tsx',
-      // MuseumExperience.tsx owns the shared exhibit core and its client entry
-      // contract types/helpers (AppPageKind, InitialAppState, path parsing).
-      'src/MuseumExperience.tsx',
     ],
     rules: {
       'react-refresh/only-export-components': 'off',

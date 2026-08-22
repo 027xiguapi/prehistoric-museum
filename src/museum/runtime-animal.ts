@@ -1,29 +1,29 @@
-import { museumMode } from '../app-mode'
+import { museumMode } from '@/src/app-mode'
 import type {
   ParentFacts,
   ParentReviewFacts,
-} from '../components/ParentDrawer'
-import { allAnimals, mainAnimals } from '../content/catalog'
-import { credits } from '../content/credits.generated'
+} from '@/src/components/ParentDrawer'
+import { allAnimals, mainAnimals } from '@/src/content/catalog'
+import { credits } from '@/src/content/credits.generated'
 import type {
   AnimalKind,
   AnimalPackage,
   Diet,
   DraftAnimalPackage,
   PublishedAnimalPackage,
-} from '../content/types'
-import type { Locale } from '../i18n/locale'
-import { dietLabel, formatSizeFact, messagesFor } from '../i18n/messages'
+} from '@/src/content/types'
+import type { Locale } from '@/src/i18n/locale'
+import { dietLabel, formatSizeFact, messagesFor } from '@/src/i18n/messages'
 import type {
   DisplayableAnimalPackage,
   LegacyLocalReviewAnimalPackage,
-} from '../review/types'
-import { createViewerModelDescriptor } from '../viewer/create-viewer-model-descriptor'
+} from '@/src/review/types'
+import { createViewerModelDescriptor } from '@/src/viewer/create-viewer-model-descriptor'
 import type {
   StagedViewerModel,
   ViewerModelDescriptor,
-} from '../viewer/ViewerController'
-import { animalDetailIdFromPath } from './routing'
+} from '@/src/viewer/ViewerController'
+import { animalDetailIdFromPath } from '@/src/museum/routing'
 
 export interface RuntimeAnimal {
   readonly id: string

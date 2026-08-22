@@ -1,4 +1,4 @@
-import type { RuntimeAnimal } from './runtime-animal'
+import type { RuntimeAnimal } from '@/src/museum/runtime-animal'
 
 export function SceneBackground({
   animal,

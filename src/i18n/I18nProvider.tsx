@@ -17,10 +17,10 @@ import {
   systemLocale,
   type Locale,
   type LocalePreference,
-} from './locale'
-import { readInitialLocaleState } from './browser-locale'
-import type { InitialLocaleState } from './browser-locale'
-import { messagesFor, type MuseumMessages } from './messages'
+} from '@/src/i18n/locale'
+import { readInitialLocaleState } from '@/src/i18n/browser-locale'
+import type { InitialLocaleState } from '@/src/i18n/browser-locale'
+import { messagesFor, type MuseumMessages } from '@/src/i18n/messages'
 
 interface I18nContextValue {
   readonly locale: Locale

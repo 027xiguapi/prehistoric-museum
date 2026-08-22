@@ -1,9 +1,9 @@
-import type { AtmosphereKind } from '../content/types'
-import { AirAtmosphere } from './AirAtmosphere'
-import { ForestAtmosphere } from './ForestAtmosphere'
-import { IceAtmosphere } from './IceAtmosphere'
-import { PlainsAtmosphere } from './PlainsAtmosphere'
-import { UnderwaterAtmosphere } from './UnderwaterAtmosphere'
+import type { AtmosphereKind } from '@/src/content/types'
+import { AirAtmosphere } from '@/src/components/AirAtmosphere'
+import { ForestAtmosphere } from '@/src/components/ForestAtmosphere'
+import { IceAtmosphere } from '@/src/components/IceAtmosphere'
+import { PlainsAtmosphere } from '@/src/components/PlainsAtmosphere'
+import { UnderwaterAtmosphere } from '@/src/components/UnderwaterAtmosphere'
 
 export function SceneAtmosphere({
   diffuseForestLight = false,

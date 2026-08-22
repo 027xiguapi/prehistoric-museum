@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Beef, Footprints, Leaf, MoveHorizontal, ShowerHead, Volleyball, X, type LucideIcon } from 'lucide-react'
-import { useI18n } from '../i18n/I18nProvider'
-import type { Diet } from '../content/types'
-import type { CarePlayKind } from './StagePlayEffect'
+import { useI18n } from '@/src/i18n/I18nProvider'
+import type { Diet } from '@/src/content/types'
+import type { CarePlayKind } from '@/src/components/StagePlayEffect'
 
 interface CareDockButtonProps {
   readonly disabled: boolean

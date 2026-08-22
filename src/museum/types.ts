@@ -1,4 +1,4 @@
-import type { ModelLoadProgress } from '../viewer/ViewerController'
+import type { ModelLoadProgress } from '@/src/viewer/ViewerController'
 
 export type ModelDataNotice =
   | { readonly kind: 'first-entry' }

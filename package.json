@@ -12,7 +12,7 @@
     "review": "npm run validate:review && node scripts/set-env.mjs NEXT_PUBLIC_MUSEUM_MODE=review MUSEUM_BASE_PATH= tsx scripts/serve-review.ts",
     "build": "npm run generate:remote-assets && next build",
     "build:e2e": "npm run validate:content && node scripts/set-env.mjs NEXT_PUBLIC_MUSEUM_MODE=e2e MUSEUM_BASE_PATH=/prehistoric-animal-museum next build",
-    "build:mobile": "node scripts/set-env.mjs NEXT_STATIC_EXPORT=1 next build && node scripts/strip-remote-assets.mjs",
+    "build:mobile": "node scripts/set-env.mjs NEXT_STATIC_EXPORT=1 NEXT_PUBLIC_ASSET_ORIGIN=https://museum.routerpark.com next build && node scripts/strip-remote-assets.mjs",
     "generate:remote-assets": "node scripts/generate-remote-assets.mjs",
     "sync:version": "node scripts/sync-native-version.mjs",
     "cap:sync": "npm run sync:version && npm run build:mobile && npx cap sync",

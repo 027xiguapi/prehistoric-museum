@@ -1,9 +1,9 @@
 // Shared multilingual SEO copy and metadata builders.
 
-import { animalSeoDescription } from '../content/animal-seo'
-import { mainAnimals } from '../content/catalog'
-import { staticAnimalDetailIds } from '../content/static-animal-details'
-import type { Habitat, Locale } from '../content/types'
+import { animalSeoDescription } from '@/src/content/animal-seo'
+import { mainAnimals } from '@/src/content/catalog'
+import { staticAnimalDetailIds } from '@/src/content/static-animal-details'
+import type { Habitat, Locale } from '@/src/content/types'
 
 export type SeoPageLocale = 'x-default' | Locale
 

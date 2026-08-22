@@ -1,6 +1,6 @@
 import createMiddleware from 'next-intl/middleware'
 
-import { routing } from './src/i18n/routing'
+import { routing } from '@/src/i18n/routing'
 
 // Locale entry selection is delegated to next-intl (cookie + Accept-Language
 // detection, always-prefixed routes).

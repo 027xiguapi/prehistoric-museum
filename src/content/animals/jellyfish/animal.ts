@@ -1,16 +1,16 @@
-import posterPortraitUrl from './images/poster-portrait.webp'
-import posterUrl from './images/poster.webp'
-import thumbnailUrl from './images/thumbnail.webp'
+import posterPortraitUrl from '@/src/content/animals/jellyfish/images/poster-portrait.webp'
+import posterUrl from '@/src/content/animals/jellyfish/images/poster.webp'
+import thumbnailUrl from '@/src/content/animals/jellyfish/images/thumbnail.webp'
 
 // Draft preview only: borrow the mosasaurus backdrop until a jellyfish scene exists.
-import landscapeUrl from '../mosasaurus/backgrounds/landscape.webp'
-import portraitUrl from '../mosasaurus/backgrounds/portrait.webp'
+import landscapeUrl from '@/src/content/animals/mosasaurus/backgrounds/landscape.webp'
+import portraitUrl from '@/src/content/animals/mosasaurus/backgrounds/portrait.webp'
 
-import { imageUrl } from '../../create-runtime-animal'
-import { animalAssetUrl } from '../../remote-assets'
-import { animalDefinition } from './package'
-import type { DraftAnimalPackage } from '../../types'
-import type { LegacyLocalReviewAnimalPackage } from '../../../review/types'
+import { imageUrl } from '@/src/content/create-runtime-animal'
+import { animalAssetUrl } from '@/src/content/remote-assets'
+import { animalDefinition } from '@/src/content/animals/jellyfish/package'
+import type { DraftAnimalPackage } from '@/src/content/types'
+import type { LegacyLocalReviewAnimalPackage } from '@/src/review/types'
 
 export const animal: DraftAnimalPackage & LegacyLocalReviewAnimalPackage = {
   ...animalDefinition,

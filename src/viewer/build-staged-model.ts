@@ -16,9 +16,9 @@ import {
 } from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js'
-import { disposeObject3D } from './dispose'
-import type { ModelCache } from './model-cache'
-import type { ViewerModelDescriptor } from './viewer-model-descriptor'
+import { disposeObject3D } from '@/src/viewer/dispose'
+import type { ModelCache } from '@/src/viewer/model-cache'
+import type { ViewerModelDescriptor } from '@/src/viewer/viewer-model-descriptor'
 
 export type ViewerFailureKind =
   | 'webgl-unavailable'

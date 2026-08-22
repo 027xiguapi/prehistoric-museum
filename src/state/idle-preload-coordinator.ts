@@ -1,4 +1,4 @@
-import type { ModelCache } from '../viewer/model-cache'
+import type { ModelCache } from '@/src/viewer/model-cache'
 
 export const DEFAULT_IDLE_PRELOAD_DELAY_MS = 2_000
 

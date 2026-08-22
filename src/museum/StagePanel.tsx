@@ -4,22 +4,22 @@ import type {
   PointerEvent as ReactPointerEvent,
   RefObject,
 } from 'react'
-import { CareDock } from '../components/CareDock'
-import { IconButton } from '../components/IconButton'
-import { LanguageMenu } from '../components/LanguageMenu'
+import { CareDock } from '@/src/components/CareDock'
+import { IconButton } from '@/src/components/IconButton'
+import { LanguageMenu } from '@/src/components/LanguageMenu'
 import {
   StagePlayEffect,
   type CarePlayKind,
-} from '../components/StagePlayEffect'
-import { ViewerStage } from '../components/ViewerStage'
-import { useI18n } from '../i18n/I18nProvider'
-import type { ModelCache } from '../viewer/model-cache'
+} from '@/src/components/StagePlayEffect'
+import { ViewerStage } from '@/src/components/ViewerStage'
+import { useI18n } from '@/src/i18n/I18nProvider'
+import type { ModelCache } from '@/src/viewer/model-cache'
 import type {
   ViewerController,
   ViewerFailure,
-} from '../viewer/ViewerController'
-import type { RuntimeAnimal } from './runtime-animal'
-import type { ModelLoadingProgress } from './types'
+} from '@/src/viewer/ViewerController'
+import type { RuntimeAnimal } from '@/src/museum/runtime-animal'
+import type { ModelLoadingProgress } from '@/src/museum/types'
 
 /** "AR" text glyph used in place of a lucide icon on the AR button. */
 function ArGlyph({

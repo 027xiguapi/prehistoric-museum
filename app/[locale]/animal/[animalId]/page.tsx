@@ -1,19 +1,19 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import { getAnimalById } from '../../../../src/content/catalog'
-import { staticAnimalDetailIds } from '../../../../src/content/static-animal-details'
+import { getAnimalById } from '@/src/content/catalog'
+import { staticAnimalDetailIds } from '@/src/content/static-animal-details'
 import type {
   AnimalContent,
   AnimalPackage,
-} from '../../../../src/content/types'
-import { isLocale, type Locale } from '../../../../src/i18n/locale'
-import { AnimalExhibit } from './AnimalExhibit'
+} from '@/src/content/types'
+import { isLocale, type Locale } from '@/src/i18n/locale'
+import { AnimalExhibit } from '@/app/[locale]/animal/[animalId]/AnimalExhibit'
 import {
   animalCanonicalUrl,
   animalDetailSeo,
   type AnimalDetailSeo,
-} from '../../../../src/seo/metadata'
+} from '@/src/seo/metadata'
 
 export function generateStaticParams() {
   return staticAnimalDetailIds.flatMap((animalId) => [

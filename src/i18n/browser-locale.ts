@@ -4,7 +4,7 @@ import {
   resolveLocale,
   type Locale,
   type LocalePreference,
-} from './locale'
+} from '@/src/i18n/locale'
 
 export interface InitialLocaleState {
   readonly locale: Locale

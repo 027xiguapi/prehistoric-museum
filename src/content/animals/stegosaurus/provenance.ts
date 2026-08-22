@@ -1,6 +1,6 @@
-import { createReviewedEnglishNarrationProvenance } from '../../provenance-helpers'
-import type { AssetProvenance } from '../../types'
-import { en } from './content.en'
+import { createReviewedEnglishNarrationProvenance } from '@/src/content/provenance-helpers'
+import type { AssetProvenance } from '@/src/content/types'
+import { en } from '@/src/content/animals/stegosaurus/content.en'
 
 const sharedBackgroundPrompt =
   'Precise edit of the accepted layered paper-cut and soft-gouache fern forest clearing; subtly raise the horizon and extend continuous level ground through the centred Stegosaurus staging zone; preserve the vegetation, palette, lighting, texture, and framing; no animal, person, text, UI, logo, watermark, or particles.'

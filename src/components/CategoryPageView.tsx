@@ -2,12 +2,12 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Footprints } from 'lucide-react'
 
-import { BackButton } from './buttons/BackButton'
-import { mainAnimals } from '../content/catalog'
-import { draftAnimalsByZone } from '../content/collections/draft-zones'
-import { zoneCategories } from '../content/collections/categories'
-import type { Locale } from '../i18n/locale'
-import { messagesFor } from '../i18n/messages'
+import { BackButton } from '@/src/components/buttons/BackButton'
+import { mainAnimals } from '@/src/content/catalog'
+import { draftAnimalsByZone } from '@/src/content/collections/draft-zones'
+import { zoneCategories } from '@/src/content/collections/categories'
+import type { Locale } from '@/src/i18n/locale'
+import { messagesFor } from '@/src/i18n/messages'
 
 export const categoryPageZoneIds = zoneCategories.map((zone) => zone.id)
 

@@ -7,9 +7,9 @@ import '@fontsource-variable/fredoka'
 import '@fontsource-variable/noto-sans-sc'
 import '@fontsource-variable/nunito'
 import '@fontsource/zcool-kuaile'
-import '../../src/styles.css'
-import { I18nProvider } from '../../src/i18n/I18nProvider'
-import { isLocale } from '../../src/i18n/locale'
+import '@/src/styles.css'
+import { I18nProvider } from '@/src/i18n/I18nProvider'
+import { isLocale } from '@/src/i18n/locale'
 
 export const viewport: Viewport = {
   width: 'device-width',

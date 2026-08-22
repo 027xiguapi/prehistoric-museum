@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
-import { CloseButton } from './buttons/CloseButton'
-import { useI18n } from '../i18n/I18nProvider'
-import type { ArState } from '../ar/CameraArSession'
-import { isWebXrArAvailable } from '../ar/WebXrArSession'
-import type { ModelCache } from '../viewer/model-cache'
-import type { ViewerModelDescriptor } from '../viewer/viewer-model-descriptor'
+import { CloseButton } from '@/src/components/buttons/CloseButton'
+import { useI18n } from '@/src/i18n/I18nProvider'
+import type { ArState } from '@/src/ar/CameraArSession'
+import { isWebXrArAvailable } from '@/src/ar/WebXrArSession'
+import type { ModelCache } from '@/src/viewer/model-cache'
+import type { ViewerModelDescriptor } from '@/src/viewer/viewer-model-descriptor'
 
 interface ArViewerProps {
   readonly descriptor: ViewerModelDescriptor
@@ -51,7 +51,7 @@ export function ArViewer({
         return
       }
       setMode('camera')
-      void import('../ar/CameraArSession').then(
+      void import('@/src/ar/CameraArSession').then(
         ({ CameraArSession: CameraArSessionClass }) => {
           if (disposed) {
             return
@@ -71,7 +71,7 @@ export function ArViewer({
       )
     }
     if (isWebXrArAvailable()) {
-      void import('../ar/WebXrArSession').then(
+      void import('@/src/ar/WebXrArSession').then(
         ({ WebXrArSession: WebXrArSessionClass }) => {
           if (disposed) {
             return

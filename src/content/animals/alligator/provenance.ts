@@ -1,4 +1,4 @@
-import type { AssetProvenance } from '../../types'
+import type { AssetProvenance } from '@/src/content/types'
 
 export const provenance: readonly [AssetProvenance, ...AssetProvenance[]] = [
   {

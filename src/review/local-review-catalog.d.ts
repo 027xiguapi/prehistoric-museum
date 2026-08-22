@@ -3,7 +3,7 @@
  * turning this declaration into an invalid module augmentation.
  */
 declare module '$museum-review-catalog' {
-  const localReviewAnimals: readonly import('./types').DisplayableAnimalPackage[]
+  const localReviewAnimals: readonly import('@/src/review/types').DisplayableAnimalPackage[]
   export { localReviewAnimals }
 }
 

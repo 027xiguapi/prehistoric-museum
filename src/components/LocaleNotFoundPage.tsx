@@ -1,10 +1,10 @@
 'use client'
 
 import { useSyncExternalStore } from 'react'
-import { seoNotFoundCopy } from '../seo/metadata'
-import { messagesFor } from '../i18n/messages'
-import { localeFromPath, type Locale } from '../i18n/locale'
-import '../styles.css'
+import { seoNotFoundCopy } from '@/src/seo/metadata'
+import { messagesFor } from '@/src/i18n/messages'
+import { localeFromPath, type Locale } from '@/src/i18n/locale'
+import '@/src/styles.css'
 
 function subscribeToNothing(onChange: () => void): () => void {
   void onChange

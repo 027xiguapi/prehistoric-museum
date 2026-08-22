@@ -1,11 +1,11 @@
-import { animalModules } from './animal-modules.generated'
-import { mainCollection } from './collections/main'
+import { animalModules } from '@/src/content/animal-modules.generated'
+import { mainCollection } from '@/src/content/collections/main'
 import type {
   AnimalCollection,
   AnimalModule,
   AnimalPackage,
   PublishedAnimalPackage,
-} from './types'
+} from '@/src/content/types'
 
 export interface DiscoveryOptions {
   readonly includeDrafts: boolean

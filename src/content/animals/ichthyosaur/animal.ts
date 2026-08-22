@@ -1,12 +1,12 @@
-import landscapeUrl from './backgrounds/landscape.webp'
-import portraitUrl from './backgrounds/portrait.webp'
-import posterUrl from './images/poster.webp'
-import posterPortraitUrl from './images/poster-portrait.webp'
-import thumbnailUrl from './images/thumbnail.webp'
+import landscapeUrl from '@/src/content/animals/ichthyosaur/backgrounds/landscape.webp'
+import portraitUrl from '@/src/content/animals/ichthyosaur/backgrounds/portrait.webp'
+import posterUrl from '@/src/content/animals/ichthyosaur/images/poster.webp'
+import posterPortraitUrl from '@/src/content/animals/ichthyosaur/images/poster-portrait.webp'
+import thumbnailUrl from '@/src/content/animals/ichthyosaur/images/thumbnail.webp'
 
-import { createRuntimeAnimal } from '../../create-runtime-animal'
-import { animalAssetUrl } from '../../remote-assets'
-import { animalDefinition } from './package'
+import { createRuntimeAnimal } from '@/src/content/create-runtime-animal'
+import { animalAssetUrl } from '@/src/content/remote-assets'
+import { animalDefinition } from '@/src/content/animals/ichthyosaur/package'
 
 export const animal = createRuntimeAnimal(animalDefinition, {
   backgroundLandscape: landscapeUrl,

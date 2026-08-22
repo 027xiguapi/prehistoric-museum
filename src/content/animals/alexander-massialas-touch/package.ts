@@ -1,7 +1,7 @@
-import type { DraftAnimalDefinition } from '../../types'
-import { en } from './content.en'
-import { zhCN } from './content.zh-CN'
-import { provenance } from './provenance'
+import type { DraftAnimalDefinition } from '@/src/content/types'
+import { en } from '@/src/content/animals/alexander-massialas-touch/content.en'
+import { zhCN } from '@/src/content/animals/alexander-massialas-touch/content.zh-CN'
+import { provenance } from '@/src/content/animals/alexander-massialas-touch/provenance'
 
 // Draft package: the model, bilingual copy and rendered previews are in
 // place; the final Serena narration audio, licence confirmation and owner

@@ -16,10 +16,10 @@ import {
   type ModelLoadProgress,
   type StagedViewerModel,
   type ViewerFailure,
-} from '../viewer/build-staged-model'
-import { disposeObject3D } from '../viewer/dispose'
-import type { ModelCache } from '../viewer/model-cache'
-import type { ViewerModelDescriptor } from '../viewer/viewer-model-descriptor'
+} from '@/src/viewer/build-staged-model'
+import { disposeObject3D } from '@/src/viewer/dispose'
+import type { ModelCache } from '@/src/viewer/model-cache'
+import type { ViewerModelDescriptor } from '@/src/viewer/viewer-model-descriptor'
 
 export type ArState =
   | 'unsupported'

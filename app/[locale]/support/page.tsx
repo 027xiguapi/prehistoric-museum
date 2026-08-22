@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import { TechnicalSupportPageView } from '../../../src/components/TechnicalSupportPageView'
-import { isLocale, supportedLocales } from '../../../src/i18n/locale'
-import { messagesFor } from '../../../src/i18n/messages'
-import { technicalSupportFor } from '../../../src/i18n/technical-support'
+import { TechnicalSupportPageView } from '@/src/components/TechnicalSupportPageView'
+import { isLocale, supportedLocales } from '@/src/i18n/locale'
+import { messagesFor } from '@/src/i18n/messages'
+import { technicalSupportFor } from '@/src/i18n/technical-support'
 
 export function generateStaticParams() {
   return supportedLocales.map((locale) => ({ locale }))

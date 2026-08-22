@@ -5,12 +5,12 @@ import {
   useSyncExternalStore,
   type RefObject,
 } from 'react'
-import { NarrationController, type NarrationSnapshot } from '../audio'
+import { NarrationController, type NarrationSnapshot } from '@/src/audio'
 import type {
   AnimalLoadCoordinator,
   AnimalLoadPhase,
-} from '../state'
-import type { LoadedRuntimeAnimal } from './runtime-animal'
+} from '@/src/state'
+import type { LoadedRuntimeAnimal } from '@/src/museum/runtime-animal'
 
 const NARRATION_IDLE_PRELOAD_DELAY_MS = 2_000
 

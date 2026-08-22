@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
 
-import type { Locale } from '../content/types'
+import type { Locale } from '@/src/content/types'
 import {
   museumCanonicalUrl,
   museumSocialImageUrl,
   seoPageCopy,
-} from './metadata'
+} from '@/src/seo/metadata'
 
 export function museumPageMetadata(locale: Locale): Metadata {
   const copy = seoPageCopy[locale]

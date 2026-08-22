@@ -1,9 +1,9 @@
 import { LifeBuoy } from 'lucide-react'
 
-import { BackButton } from './buttons/BackButton'
-import type { Locale } from '../i18n/locale'
-import { messagesFor } from '../i18n/messages'
-import { technicalSupportFor } from '../i18n/technical-support'
+import { BackButton } from '@/src/components/buttons/BackButton'
+import type { Locale } from '@/src/i18n/locale'
+import { messagesFor } from '@/src/i18n/messages'
+import { technicalSupportFor } from '@/src/i18n/technical-support'
 
 /**
  * Public, static technical-support page. Reachable at a public URL for App

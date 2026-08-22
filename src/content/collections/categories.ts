@@ -1,10 +1,10 @@
-import { productionAnimals } from '../catalog'
-import type { PublishedAnimalPackage } from '../types'
+import { productionAnimals } from '@/src/content/catalog'
+import type { PublishedAnimalPackage } from '@/src/content/types'
 import {
   zoneCategoryDefinitions,
   type ZoneCategoryId,
   type ZoneCategoryDefinition,
-} from './zone-definitions'
+} from '@/src/content/collections/zone-definitions'
 
 export type { ZoneCategoryId }
 

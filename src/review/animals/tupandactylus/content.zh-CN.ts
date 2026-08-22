@@ -1,4 +1,4 @@
-import type { AnimalContentZhCN } from '../../../content/types'
+import type { AnimalContentZhCN } from '@/src/content/types'
 
 export const zhCN = {
   name: '古神翼龙',

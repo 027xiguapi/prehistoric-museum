@@ -14,13 +14,13 @@ import {
 } from 'lucide-react'
 import { useSyncExternalStore } from 'react'
 
-import { CloseButton } from './buttons/CloseButton'
-import { useI18n } from '../i18n/I18nProvider'
+import { CloseButton } from '@/src/components/buttons/CloseButton'
+import { useI18n } from '@/src/i18n/I18nProvider'
 import {
   systemLocale,
   type Locale,
   type LocalePreference,
-} from '../i18n/locale'
+} from '@/src/i18n/locale'
 
 const languageChoices: readonly LocalePreference[] = ['system', 'zh-CN', 'en']
 

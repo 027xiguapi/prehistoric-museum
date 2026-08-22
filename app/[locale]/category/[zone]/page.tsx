@@ -1,14 +1,14 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import { supportedLocales, isLocale } from '../../../../src/i18n/locale'
-import { messagesFor } from '../../../../src/i18n/messages'
+import { supportedLocales, isLocale } from '@/src/i18n/locale'
+import { messagesFor } from '@/src/i18n/messages'
 import {
   CategoryPageView,
   categoryPageZoneIds,
   categoryZoneTitle,
   isCategoryPageZoneId,
-} from '../../../../src/components/CategoryPageView'
+} from '@/src/components/CategoryPageView'
 
 export function generateStaticParams() {
   return supportedLocales.flatMap((locale) =>

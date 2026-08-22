@@ -2,7 +2,7 @@ export {
   NARRATION_UNAVAILABLE_LABEL,
   NarrationController,
   getNarrationControlLabel,
-} from './narration-controller'
+} from '@/src/audio/narration-controller'
 export type {
   NarrationAvailability,
   NarrationControlLabels,
@@ -13,4 +13,4 @@ export type {
   NarrationPlayResult,
   NarrationSnapshot,
   NarrationTrack,
-} from './narration-controller'
+} from '@/src/audio/narration-controller'
