@@ -143,7 +143,13 @@ function updateAnimalStructuredData({
     'script#animal-structured-data[type="application/ld+json"]',
   )
   if (!animalDetail) {
-    script?.remove()
+    // The prerendered script node belongs to React's tree: imperatively
+    // removing it crashes the next React commit with a NotFoundError
+    // (removeChild on a missing node). Blank the stale JSON-LD instead and
+    // let React drop the node itself when the detail page unmounts.
+    if (script) {
+      script.textContent = ''
+    }
     return
   }
   if (!script) {
@@ -209,13 +215,11 @@ export function updateLocalizedMetadata({
     localizedCanonical(root, 'zh-CN', detailId),
   )
   ensureAlternate('en', localizedCanonical(root, 'en', detailId))
-  if (animalDetail) {
-    document
-      .querySelector<HTMLLinkElement>(
-        'link[rel="alternate"][hreflang="x-default"]',
-      )
-      ?.remove()
-  } else {
+  // Animal detail pages omit the x-default alternate. It is already absent
+  // from their prerendered head, and React's head diffing removes it during
+  // client-side navigations — never remove React-owned nodes imperatively,
+  // the next React commit would crash with NotFoundError (removeChild).
+  if (!animalDetail) {
     ensureAlternate('x-default', localizedCanonical(root, 'x-default'))
   }
   ensureMeta('name', 'description', localizedDescription)

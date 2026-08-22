@@ -17,7 +17,7 @@ import { useEffect } from 'react'
 // The target must carry the `index.html` suffix: Capacitor's local server
 // (Android `WebViewLocalServer` and the iOS `Router` alike) answers every
 // extension-less path with the ROOT index.html (SPA fallback), so pointing
-// at `/zh-CN/` makes the WebView receive this page again at that very URL —
+// at `/en/` makes the WebView receive this page again at that very URL —
 // an infinite self-reload loop that re-fetches all chunks and never paints.
 //
 // This page has no root layout, so no global CSS or fonts are loaded here;
@@ -39,7 +39,7 @@ const LOADER_STYLES = `
 
 export default function RootPage() {
   useEffect(() => {
-    window.location.replace('/zh-CN/index.html')
+    window.location.replace('/en/index.html')
   }, [])
 
   return (
@@ -59,10 +59,10 @@ export default function RootPage() {
         textAlign: 'center',
       }}
     >
-      <meta httpEquiv="refresh" content="0;url=/zh-CN/index.html" />
+      <meta httpEquiv="refresh" content="0;url=/en/index.html" />
       <style>{LOADER_STYLES}</style>
       <a
-        href="/zh-CN/index.html"
+        href="/en/index.html"
         style={{
           display: 'flex',
           flexDirection: 'column',
@@ -137,7 +137,7 @@ export default function RootPage() {
             opacity: 0.85,
           }}
         >
-          正在进入动物园…
+          Entering the zoo…
         </span>
         <span style={{ fontSize: 'clamp(0.8rem, 3vw, 0.95rem)', opacity: 0.6 }}>
           Tap to enter the zoo

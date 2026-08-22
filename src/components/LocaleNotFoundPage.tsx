@@ -12,7 +12,7 @@ function subscribeToNothing(onChange: () => void): () => void {
 }
 
 function getServerLocale(): Locale {
-  return 'zh-CN'
+  return 'en'
 }
 
 function getClientLocale(): Locale {
@@ -62,7 +62,7 @@ function NotFoundContent() {
 /**
  * Root 404 shell: renders its own <html>/<body> because nothing above it
  * provides them. The locale is resolved on the client from the URL path (then
- * browser languages); the server render defaults to Chinese so markup stays
+ * browser languages); the server render defaults to English so markup stays
  * hydration-stable.
  */
 export function LocaleNotFoundPage() {

@@ -71,7 +71,7 @@ export function systemLocale(languages: readonly string[]): Locale {
       return 'en'
     }
   }
-  return 'zh-CN'
+  return 'en'
 }
 
 export function resolveLocale({
