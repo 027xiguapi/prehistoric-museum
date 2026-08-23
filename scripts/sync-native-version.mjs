@@ -36,6 +36,14 @@ const targets = [
       [/MARKETING_VERSION = [^;]+;/g, `MARKETING_VERSION = ${version};`],
     ],
   },
+  {
+    file: join(repositoryRoot, 'harmony', 'AppScope', 'app.json5'),
+    label: 'harmony/AppScope/app.json5',
+    replacements: [
+      [/"?versionCode"?\s*:\s*\d+/g, `"versionCode": ${buildNumber}`],
+      [/"?versionName"?\s*:\s*"[^"]*"/g, `"versionName": "${version}"`],
+    ],
+  },
 ]
 
 for (const target of targets) {

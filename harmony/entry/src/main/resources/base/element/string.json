@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "WonZoo main module"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "WonZoo 3D prehistoric animal museum"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "WonZoo"
+    }
+  ]
+}

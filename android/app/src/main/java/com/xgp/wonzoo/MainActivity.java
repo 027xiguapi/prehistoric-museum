@@ -1,4 +1,4 @@
-package com.leonmadethis.museum;
+package com.xgp.wonzoo;
 
 import com.getcapacitor.BridgeActivity;
 

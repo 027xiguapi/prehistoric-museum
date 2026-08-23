@@ -69,3 +69,16 @@ ios/App/App/capacitor.config.json
 ios/App/Pods/
 ios/App/build/
 ios/DerivedData/
+
+# HarmonyOS (DevEco / hvigor)
+harmony/entry/src/main/resources/rawfile/web/
+harmony/.hvigor/
+harmony/.clangd/
+harmony/.clang-format/
+harmony/.clang-tidy/
+harmony/build/
+harmony/oh_modules/
+harmony/entry/build/
+harmony/entry/.cxx/
+harmony/entry/.preview/
+harmony/local.properties
