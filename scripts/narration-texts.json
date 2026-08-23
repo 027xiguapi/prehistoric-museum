@@ -1,4 +1,24 @@
 {
+  "african-leopard": {
+    "zh-CN": [
+      "这是非洲豹，一位会把猎物搬上树的大猫。",
+      "它满身玫瑰花形的斑点，帮它藏进草丛和树影里。"
+    ],
+    "en": [
+      "This is the African leopard, a big cat that carries its prey up into trees.",
+      "Its rosette spots help it hide among grass and tree shadows."
+    ]
+  },
+  "akita": {
+    "zh-CN": [
+      "这是秋田犬，日本最著名的大型犬。",
+      "忠犬八公就是一只秋田犬，它的铜像立在东京涩谷车站前。"
+    ],
+    "en": [
+      "This is the Akita, Japan’s most famous large dog.",
+      "Hachikō, the dog who waited years for his owner, was an Akita — his statue stands outside Tokyo’s Shibuya Station."
+    ]
+  },
   "alligator": {
     "zh-CN": [
       "这是短吻鳄，像活化石一样的古老爬行动物。",
@@ -19,6 +39,36 @@
       "Its soft warm fleece is sheared and spun into beautiful knitwear."
     ]
   },
+  "alpine-goat": {
+    "zh-CN": [
+      "这是阿尔卑斯山羊，来自欧洲高山地区的家养山羊品种。",
+      "它的蹄子像登山鞋一样，能在陡峭的岩壁上稳稳站立。"
+    ],
+    "en": [
+      "This is the Alpine goat, a domestic goat breed from the high mountains of Europe.",
+      "Its hooves work like climbing shoes, gripping steep rocky cliffs with ease."
+    ]
+  },
+  "anglerfish": {
+    "zh-CN": [
+      "这是鮟鱇鱼，住在黑漆漆的深海里的小小猎手。",
+      "它头顶伸出一根钓鱼竿，竿尖的小灯会发光，把好奇的小鱼引过来。"
+    ],
+    "en": [
+      "This is the anglerfish, a little hunter living in the pitch-black deep sea.",
+      "A rod grows out of its head, and the glowing bulb at its tip lures curious little fish close."
+    ]
+  },
+  "ankylosaurus": {
+    "zh-CN": [
+      "这是甲龙，全身披着骨甲、尾巴末端长着大锤子的恐龙。",
+      "它用尾锤保护自己，连霸王龙也不敢轻易招惹。"
+    ],
+    "en": [
+      "This is Ankylosaurus, a dinosaur in bony armour with a club at the end of its tail.",
+      "The tail club was such a good defence that even Tyrannosaurus would think twice."
+    ]
+  },
   "apatosaurus": {
     "zh-CN": [
       "这是迷惑龙，它是生活在晚侏罗世的大型植食性恐龙。",
@@ -27,6 +77,16 @@
     "en": [
       "This is Apatosaurus, a giant plant-eating dinosaur from the Late Jurassic.",
       "Look at its long neck, long tail and four sturdy, pillar-like legs."
+    ]
+  },
+  "arabian-horse": {
+    "zh-CN": [
+      "这是阿拉伯马，世界上最古老的马品种之一。",
+      "它体型轻盈，耐力惊人，古时候能穿越大沙漠传递消息。"
+    ],
+    "en": [
+      "This is the Arabian horse, one of the oldest horse breeds in the world.",
+      "Light and elegant, with astonishing stamina, it once crossed great deserts carrying messages."
     ]
   },
   "arabian-leopard": {
@@ -39,6 +99,66 @@
       "Its rosette spots let it melt into the shadows of the rocks."
     ]
   },
+  "arctic-fox": {
+    "zh-CN": [
+      "这是北极狐，冬天一身雪白、夏天换成灰褐色的“换装大师”。",
+      "它蓬松的大尾巴睡觉时正好当被子盖。"
+    ],
+    "en": [
+      "This is the Arctic fox, a master of costume change: snow-white in winter, grey-brown in summer.",
+      "It wraps its big fluffy tail around itself like a quilt when it sleeps."
+    ]
+  },
+  "atlas-beetle": {
+    "zh-CN": [
+      "这是亚特拉斯南洋大兜虫，东南亚森林里的大力士。",
+      "它的幼虫在腐木里住上一两年，才变成威武的甲虫。"
+    ],
+    "en": [
+      "This is the Atlas beetle, a heavyweight of the South-East Asian forests.",
+      "Its grub lives inside rotting logs for a year or two before becoming this armoured adult."
+    ]
+  },
+  "atlas-moth": {
+    "zh-CN": [
+      "这是乌桕大蚕蛾，翅膀展开比你的手掌还大得多。",
+      "它的成虫口器退化，一生不吃不喝，只为了繁殖。"
+    ],
+    "en": [
+      "This is the Atlas moth, with wings far wider than your hand.",
+      "The adult’s mouth is sealed shut — it never eats and lives only to reproduce."
+    ]
+  },
+  "australian-shepherd": {
+    "zh-CN": [
+      "这是澳大利亚牧羊犬，牛仔牧场上最忙碌的狗。",
+      "它会用眼神和快速的移动把羊群赶到一起。"
+    ],
+    "en": [
+      "This is the Australian Shepherd, the busiest dog on the ranch.",
+      "It gathers sheep with its gaze and quick, darting movements."
+    ]
+  },
+  "ball-python": {
+    "zh-CN": [
+      "这是球蟒，一种个子不大的温柔蟒蛇。",
+      "它害怕时会把头藏在身体中间，卷成一个紧紧的球。"
+    ],
+    "en": [
+      "This is the ball python, a gentle python that stays fairly small.",
+      "When frightened, it hides its head in the middle of its coils and rolls into a tight ball."
+    ]
+  },
+  "beagle": {
+    "zh-CN": [
+      "这是比格犬，靠鼻子工作的猎犬。",
+      "它的鼻子有两亿多个嗅觉感受器，是人类的四十多倍。"
+    ],
+    "en": [
+      "This is the Beagle, a hound that works by nose.",
+      "Its nose carries over 200 million scent receptors — more than forty times ours."
+    ]
+  },
   "bear": {
     "zh-CN": [
       "这是棕熊，陆地上最大的捕食者之一。",
@@ -47,6 +167,56 @@
     "en": [
       "This is the brown bear, one of the biggest land predators on Earth.",
       "With thick fur and strong claws, it curls up in a den and sleeps through winter."
+    ]
+  },
+  "bengal-cat": {
+    "zh-CN": [
+      "这是孟加拉猫，长着豹纹的家猫。",
+      "它精力旺盛，很多个体还喜欢玩水。"
+    ],
+    "en": [
+      "This is the Bengal, a domestic cat with a wild leopard look.",
+      "It is athletic and energetic, and many Bengals actually enjoy water."
+    ]
+  },
+  "border-collie": {
+    "zh-CN": [
+      "这是边境牧羊犬，被公认为最聪明的犬种。",
+      "一只叫“追逐者”的边境牧羊犬记住了一千多个玩具的名字。"
+    ],
+    "en": [
+      "This is the Border Collie, widely considered the cleverest dog breed.",
+      "One famous collie, Chaser, learnt the names of over a thousand toys."
+    ]
+  },
+  "brachiosaurus": {
+    "zh-CN": [
+      "这是腕龙，能吃到十几米高树叶的长脖子恐龙。",
+      "它的名字意思是“手臂蜥蜴”，因为它的前腿特别长。"
+    ],
+    "en": [
+      "This is Brachiosaurus, a long-necked dinosaur that browsed leaves more than ten metres up.",
+      "Its name means “arm lizard” because of those unusually long front legs."
+    ]
+  },
+  "brown-bear": {
+    "zh-CN": [
+      "这是棕熊，森林里的大力士，最爱蹲在河边捞鱼吃。",
+      "冬天来之前，它会吃得胖胖的，然后钻进洞里睡上一整个冬天。"
+    ],
+    "en": [
+      "This is the brown bear, the strong one of the forest, happiest fishing by a rushing river.",
+      "Before winter it eats until it is plump, then curls up in a den and sleeps the winter away."
+    ]
+  },
+  "brown-cicada": {
+    "zh-CN": [
+      "这是油蝉，日本夏天最有代表性的蝉鸣“ミーン、ミーン”就来自它。",
+      "雄蝉腹部的鼓膜振动发声，是昆虫世界的大嗓门。"
+    ],
+    "en": [
+      "This is the large brown cicada, whose “miin miin” song defines Japanese summer.",
+      "Males sing with drumming plates on the abdomen — among the loudest insects on Earth."
     ]
   },
   "bull": {
@@ -59,6 +229,46 @@
       "With curved horns and powerful muscles, it eats grass and spends much of the day feeding."
     ]
   },
+  "bull-terrier": {
+    "zh-CN": [
+      "这是牛头梗，长着一颗蛋形脑袋的梗犬。",
+      "它肌肉发达又爱玩，外号“穿着狗装的孩子”。"
+    ],
+    "en": [
+      "This is the Bull Terrier, the terrier with an egg-shaped head.",
+      "Muscular and mischievous, it is nicknamed “the kid in a dog suit”."
+    ]
+  },
+  "bulldog": {
+    "zh-CN": [
+      "这是英国斗牛犬，一脸严肃其实脾气很温和。",
+      "它打呼噜的声音像一台小拖拉机。"
+    ],
+    "en": [
+      "This is the Bulldog — a serious face hiding a gentle nature.",
+      "Its snore sounds like a tiny tractor."
+    ]
+  },
+  "bumblebee": {
+    "zh-CN": [
+      "这是熊蜂，圆滚滚、毛茸茸的“飞行小暖炉”。",
+      "它能把身体预热到四十度，凉爽的清晨它是花丛里第一个开工的。"
+    ],
+    "en": [
+      "This is the bumblebee, a round, fluffy “little flying stove”.",
+      "It can warm its body to forty degrees, making it the first to work on a cool morning."
+    ]
+  },
+  "butterfly": {
+    "zh-CN": [
+      "这是蝴蝶，一种会飞的昆虫。",
+      "它的翅膀上布满彩色鳞片，扇动起来就能在花丛间飞舞。"
+    ],
+    "en": [
+      "This is a butterfly, a flying insect.",
+      "Its wings are covered in colorful scales, and it flutters among the flowers."
+    ]
+  },
   "cane-corso": {
     "zh-CN": [
       "这是卡斯罗犬，来自意大利的大个子守卫犬。",
@@ -69,6 +279,16 @@
       "It has a sturdy body and clever eyes, and long ago it even worked alongside the Romans."
     ]
   },
+  "cane-corso-ar": {
+    "zh-CN": [
+      "这是卡斯罗犬，意大利古老的护卫犬和农场犬。",
+      "它的祖先可以追溯到古罗马的战争犬。"
+    ],
+    "en": [
+      "This is the Cane Corso, an ancient Italian guardian and farm dog.",
+      "Its ancestors are traced back to the war dogs of ancient Rome."
+    ]
+  },
   "centipede": {
     "zh-CN": [
       "这是蜈蚣，一种有很多很多条腿的小猎人。",
@@ -77,6 +297,66 @@
     "en": [
       "This is the centipede, a little hunter with very many legs.",
       "Each body segment carries one pair of legs, and they ripple in waves as it walks."
+    ]
+  },
+  "cheetah": {
+    "zh-CN": [
+      "这是猎豹，陆地上跑得最快的动物。",
+      "它从眼睛到嘴巴有两条黑线，像运动员涂的防晒墨线，帮它盯紧猎物。"
+    ],
+    "en": [
+      "This is the cheetah, the fastest runner on land.",
+      "Black lines run from its eyes to its mouth like an athlete’s eye black, helping it keep prey in focus."
+    ]
+  },
+  "chihuahua": {
+    "zh-CN": [
+      "这是吉娃娃，口袋大小的墨西哥犬。",
+      "个子虽小，它却觉得自己是一只大狗。"
+    ],
+    "en": [
+      "This is the Chihuahua, a pocket-sized dog from Mexico.",
+      "Tiny as it is, it believes itself to be a very big dog."
+    ]
+  },
+  "chipmunk": {
+    "zh-CN": [
+      "这是花栗鼠，背着五条深色条纹的小松鼠。",
+      "它把坚果塞进腮帮子里，运回地洞储藏过冬。"
+    ],
+    "en": [
+      "This is the chipmunk, a small striped ground squirrel.",
+      "It packs nuts into its cheek pouches and carries them home to its burrow for winter."
+    ]
+  },
+  "chow-chow": {
+    "zh-CN": [
+      "这是松狮犬，来自中国的古老犬种。",
+      "它走路像踩着高跷，是因为后腿膝盖几乎不弯曲。"
+    ],
+    "en": [
+      "This is the Chow Chow, an ancient breed from China.",
+      "It walks as if on stilts because its hind knees barely bend."
+    ]
+  },
+  "cocker-spaniel": {
+    "zh-CN": [
+      "这是可卡犬，曾经专门在灌木丛里惊起丘鹬的猎犬。",
+      "它摇尾巴的速度在犬界数一数二。"
+    ],
+    "en": [
+      "This is the Cocker Spaniel, a hunting dog bred to flush woodcock from cover.",
+      "Its tail wags at one of the fastest rates in the dog world."
+    ]
+  },
+  "common-octopus": {
+    "zh-CN": [
+      "这是普通章鱼，海洋里最会变戏法的无脊椎动物。",
+      "它有八条灵活的腕和三颗心脏，皮肤还能一秒变色。"
+    ],
+    "en": [
+      "This is the common octopus, the ocean’s greatest invertebrate magician.",
+      "It has eight bendy arms and three hearts, and its skin can change colour in a second."
     ]
   },
   "coyote": {
@@ -109,6 +389,16 @@
       "It can fashion tools from twigs to fetch insects — and it remembers human faces."
     ]
   },
+  "dachshund": {
+    "zh-CN": [
+      "这是腊肠犬，德语名字的意思是“獾狗”。",
+      "它敢钻进地洞里独自面对比它大的獾。"
+    ],
+    "en": [
+      "This is the Dachshund — the German name literally means “badger dog”.",
+      "It was bred to dive into burrows and face a badger alone underground."
+    ]
+  },
   "deer": {
     "zh-CN": [
       "这是鹿，头顶长“树枝”的优雅动物。",
@@ -129,6 +419,56 @@
       "Can you spot the two thin crests side by side on its head? Now look for curved teeth and powerful hind legs."
     ]
   },
+  "dilophosaurus-ar": {
+    "zh-CN": [
+      "这是双脊龙，头顶长着两片并排骨冠的早期肉食恐龙。",
+      "真实的它不会喷毒，也没有伞状领圈——那是电影编的。"
+    ],
+    "en": [
+      "This is Dilophosaurus, an early meat-eater with a pair of crests side by side on its head.",
+      "The real animal could not spit venom and had no neck frill — the film invented that."
+    ]
+  },
+  "doberman": {
+    "zh-CN": [
+      "这是杜宾犬，以它的培育者路易斯·杜伯曼命名。",
+      "它又快又壮，是世界上最优秀的护卫犬之一。"
+    ],
+    "en": [
+      "This is the Doberman, named after its creator, Louis Dobermann.",
+      "Fast and powerful, it ranks among the world’s finest protection dogs."
+    ]
+  },
+  "donkey": {
+    "zh-CN": [
+      "这是驴，人类驯化了五千多年的好帮手。",
+      "它能在崎岖的山路上驮运重物，比马更稳当。"
+    ],
+    "en": [
+      "This is the donkey, a helper humans domesticated over five thousand years ago.",
+      "It carries heavy loads over rough mountain paths more surely than a horse."
+    ]
+  },
+  "dragon": {
+    "zh-CN": [
+      "这是龙，欧洲传说里守护宝藏的会飞的巨兽。",
+      "中国的龙象征吉祥和水，与西方的喷火龙完全不同。"
+    ],
+    "en": [
+      "This is the dragon of European legend, a flying beast guarding treasure.",
+      "Chinese dragons are completely different — symbols of luck and water, not fire."
+    ]
+  },
+  "dragonfly": {
+    "zh-CN": [
+      "这是黄蜻，全世界分布最广的蜻蜓。",
+      "它能乘着季风跨海迁徙，一代接力飞几千公里。"
+    ],
+    "en": [
+      "This is the wandering glider, the most widespread dragonfly on Earth.",
+      "Riding monsoon winds across oceans, its migrations span thousands of kilometres over several generations."
+    ]
+  },
   "duck": {
     "zh-CN": [
       "这是鸭子，最喜欢在水里玩的水鸟。",
@@ -137,6 +477,26 @@
     "en": [
       "This is the duck, a waterbird that loves to play on ponds.",
       "It strains food from the water with its flat bill, bobbing its tail as it paddles."
+    ]
+  },
+  "eagle": {
+    "zh-CN": [
+      "这是老鹰，一种凶猛的大鸟。",
+      "它张开宽大的翅膀在高空盘旋，用锐利的眼睛寻找地面上的猎物。"
+    ],
+    "en": [
+      "This is an eagle, a fierce large bird.",
+      "It soars on broad wings high in the sky and uses its sharp eyes to spot prey below."
+    ]
+  },
+  "echidna": {
+    "zh-CN": [
+      "这是针鼹，全世界仅有的两种会下蛋的哺乳动物之一。",
+      "它用长长的舌头舔食蚂蚁和白蚁。"
+    ],
+    "en": [
+      "This is the echidna, one of only two kinds of egg-laying mammals.",
+      "It licks up ants and termites with a long, sticky tongue."
     ]
   },
   "elephant": {
@@ -149,6 +509,16 @@
       "Its trunk can rip a whole branch — or gently pick up a single peanut."
     ]
   },
+  "emperor-penguin": {
+    "zh-CN": [
+      "这是帝企鹅，企鹅家族里个子最高的成员。",
+      "在南极冰天雪地里，企鹅爸爸把蛋放在脚背上，用肚子盖住保暖。"
+    ],
+    "en": [
+      "This is the emperor penguin, the tallest member of the penguin family.",
+      "On the Antarctic ice, penguin dads balance the egg on their feet and cover it with a warm belly flap."
+    ]
+  },
   "emu": {
     "zh-CN": [
       "这是鸸鹋，澳大利亚不会飞的大鸟。",
@@ -157,6 +527,36 @@
     "en": [
       "This is the emu, Australia’s giant flightless bird.",
       "It cannot fly, but it outruns any human."
+    ]
+  },
+  "emu-ar": {
+    "zh-CN": [
+      "这是鸸鹋，澳大利亚最大的鸟，个子仅次于鸵鸟。",
+      "它虽然不会飞，却是个长跑健将。"
+    ],
+    "en": [
+      "This is the emu, Australia’s largest bird, second in height only to the ostrich.",
+      "It cannot fly, but it is a champion runner."
+    ]
+  },
+  "european-hedgehog": {
+    "zh-CN": [
+      "这是西欧刺猬，背着约五千根刺的夜行小兽。",
+      "它走路呼呼作响，最爱在花园里找蜗牛和甲虫当夜宵。"
+    ],
+    "en": [
+      "This is the European hedgehog, a night-walker carrying about five thousand spines.",
+      "It snuffles along noisily, hunting snails and beetles for its midnight snack."
+    ]
+  },
+  "evening-cicada": {
+    "zh-CN": [
+      "这是蜩，日本文学里代表初秋的蝉。",
+      "它多在清晨和傍晚鸣叫，叫声像“かなかな”的风铃声。"
+    ],
+    "en": [
+      "This is the higurashi, the cicada that signals early autumn in Japanese poetry.",
+      "It sings mostly at dawn and dusk, a chiming “kana-kana” like tiny bells."
     ]
   },
   "fennec-fox": {
@@ -169,6 +569,26 @@
       "Its giant ears work like little radars, and thick furry paws let it walk on burning sand."
     ]
   },
+  "firefly": {
+    "zh-CN": [
+      "这是萤火虫，夏夜里提着小灯笼的甲虫。",
+      "它一闪一闪，是在用光信号寻找伴侣。"
+    ],
+    "en": [
+      "This is the firefly, the little lantern beetle of summer nights.",
+      "Each flash is a coded signal for finding a mate."
+    ]
+  },
+  "french-bulldog": {
+    "zh-CN": [
+      "这是法国斗牛犬，长着蝙蝠耳朵的小个子伙伴犬。",
+      "它鼻子短短的，天热时会呼哧呼哧喘气给自己降温。"
+    ],
+    "en": [
+      "This is the French bulldog, a small companion dog with bat ears.",
+      "Its nose is so short that on hot days it pants to keep itself cool."
+    ]
+  },
   "frog": {
     "zh-CN": [
       "这是青蛙，水陆两栖的跳跃能手。",
@@ -177,6 +597,36 @@
     "en": [
       "This is the frog, the jumping champion that lives in water and on land.",
       "It starts as a gill-breathing tadpole, then grows lungs and breathes through skin too."
+    ]
+  },
+  "german-shepherd": {
+    "zh-CN": [
+      "这是德国牧羊犬，警察、军队和救援队的好帮手。",
+      "电影明星“任丁丁”让全世界认识了这种狗。"
+    ],
+    "en": [
+      "This is the German Shepherd, partner to police, armies and rescue teams.",
+      "The film star Rin Tin Tin made the breed famous worldwide."
+    ]
+  },
+  "giant-panda": {
+    "zh-CN": [
+      "这是大熊猫，一天要吃几十公斤竹子的黑白熊。",
+      "它的黑眼圈像一副墨镜，手腕上还有抓竹子的“伪拇指”。"
+    ],
+    "en": [
+      "This is the giant panda, a black-and-white bear that eats tens of kilograms of bamboo a day.",
+      "Its dark eye patches look like sunglasses, and a false thumb on its wrist helps it hold bamboo."
+    ]
+  },
+  "giant-stag-beetle": {
+    "zh-CN": [
+      "这是大锹形虫，日本最大的锹甲。",
+      "雄虫用大颚夹住对手，把他从树干上扔下去。"
+    ],
+    "en": [
+      "This is the giant stag beetle, the largest stag beetle in Japan.",
+      "Males grip rivals in their great jaws and hurl them off the tree trunk."
     ]
   },
   "gigantoraptor": {
@@ -189,6 +639,16 @@
       "Look at its long neck, slender legs and bird-like body shape."
     ]
   },
+  "giraffe": {
+    "zh-CN": [
+      "这是长颈鹿，世界上最高的陆生动物。",
+      "它的舌头又长又灵活，能够到高高的金合欢树叶。"
+    ],
+    "en": [
+      "This is the giraffe, the tallest land animal in the world.",
+      "Its long, nimble tongue reaches acacia leaves high above the ground."
+    ]
+  },
   "goat": {
     "zh-CN": [
       "这是山羊，最能爬高的家畜。",
@@ -199,6 +659,96 @@
       "Its wide rectangular pupils give it an amazing field of view."
     ]
   },
+  "golden-eagle": {
+    "zh-CN": [
+      "这是金雕，山野上空最威风的大型猛禽。",
+      "它俯冲下来的时候，脚上的利爪能一下抓住狐狸和野兔。"
+    ],
+    "en": [
+      "This is the golden eagle, the grand raptor of open mountains.",
+      "When it stoops from the sky, its powerful talons can seize a fox or a hare in one grab."
+    ]
+  },
+  "golden-retriever": {
+    "zh-CN": [
+      "这是金毛寻回犬，嘴巴温柔到能衔住生鸡蛋的工作犬。",
+      "它长着防水的金色被毛，天生就是游泳和捡回猎物的高手。"
+    ],
+    "en": [
+      "This is the golden retriever, a working dog with a mouth so soft it can carry an egg unbroken.",
+      "Its waterproof golden coat makes it a born swimmer and fetcher."
+    ]
+  },
+  "grasshopper": {
+    "zh-CN": [
+      "这是蚱蜢，草丛里的跳远冠军。",
+      "它的耳朵长在肚子上，不在头上。"
+    ],
+    "en": [
+      "This is the grasshopper, the long-jump champion of the grass.",
+      "Its ears sit on its belly, not on its head."
+    ]
+  },
+  "great-dane": {
+    "zh-CN": [
+      "这是大丹犬，世界上最高的犬种。",
+      "它性格温和，不知道自己有多大，总想当一只“膝盖上的小狗”。"
+    ],
+    "en": [
+      "This is the Great Dane, the tallest dog breed in the world.",
+      "Gentle and unaware of its size, it keeps trying to be a lap dog."
+    ]
+  },
+  "great-white-shark": {
+    "zh-CN": [
+      "这是大白鲨，海洋里最有名的大鲨鱼。",
+      "它有几百颗备用牙齿，一生要换掉成千上万颗。"
+    ],
+    "en": [
+      "This is the great white shark, the most famous big shark in the ocean.",
+      "It keeps hundreds of spare teeth and goes through thousands in a lifetime."
+    ]
+  },
+  "green-sea-turtle": {
+    "zh-CN": [
+      "这是绿海龟，能横穿整个大洋的远航家。",
+      "它用前鳍像翅膀一样划水，累了就在海草床上吃素。"
+    ],
+    "en": [
+      "This is the green sea turtle, a long-distance voyager that crosses whole oceans.",
+      "It rows with wing-like front flippers and grazes on seagrass meadows."
+    ]
+  },
+  "grogu": {
+    "zh-CN": [
+      "这是古古，星战剧集《曼达洛人》里最受欢迎的角色。",
+      "观众也叫他“小尤达”，因为他的种族和尤达大师一样神秘。"
+    ],
+    "en": [
+      "This is Grogu, the breakout star of The Mandalorian.",
+      "Fans first called him “Baby Yoda” because his species is as mysterious as Yoda’s."
+    ]
+  },
+  "guinea-pig": {
+    "zh-CN": [
+      "这是豚鼠，又叫“荷兰猪”，来自南美洲的安第斯山区。",
+      "它高兴时会原地蹦起来，这个动作叫“爆米花跳”。"
+    ],
+    "en": [
+      "This is the guinea pig, a rodent from the Andes of South America.",
+      "When happy, it hops straight up — a move called “popcorning”."
+    ]
+  },
+  "hamster": {
+    "zh-CN": [
+      "这是仓鼠，把食物藏在腮帮子里的穴居小兽。",
+      "它在野外的地洞能分出卧室、粮仓和卫生间。"
+    ],
+    "en": [
+      "This is the hamster, a burrowing rodent that hoards food in its cheeks.",
+      "Its wild burrows have separate rooms for sleeping, storing food and even a toilet."
+    ]
+  },
   "hercules-beetle": {
     "zh-CN": [
       "这是犀牛甲虫，世界上最大的甲虫之一。",
@@ -207,6 +757,36 @@
     "en": [
       "This is the Hercules beetle, one of the biggest beetles on Earth.",
       "The male’s long horn is used to wrestle rivals."
+    ]
+  },
+  "hercules-beetle-ar": {
+    "zh-CN": [
+      "这是长戟大兜虫，以希腊神话的大力神赫拉克勒斯命名。",
+      "雄虫的角能占到体长的三分之二。"
+    ],
+    "en": [
+      "This is the Hercules beetle, named after the mythological strongman.",
+      "A male’s horns can make up two-thirds of his total length."
+    ]
+  },
+  "hippo": {
+    "zh-CN": [
+      "这是河马，白天泡在水里、晚上上岸吃草的大块头。",
+      "别看它胖，它跑起来比人快得多。"
+    ],
+    "en": [
+      "This is the hippopotamus, a heavyweight that soaks in water by day and grazes on land at night.",
+      "Despite its bulk, a hippo can run much faster than a human."
+    ]
+  },
+  "hornet": {
+    "zh-CN": [
+      "这是日本大黄蜂，最大的胡蜂，毒性很强，要远远观察。",
+      "蜜蜂对付它的办法是几十只一拥而上，用体温“煮熟”入侵者。"
+    ],
+    "en": [
+      "This is the Asian giant hornet — the largest hornet, with a potent sting; observe from afar.",
+      "Honeybees fight back by mobbing it in a hot bee-ball that cooks the invader."
     ]
   },
   "horse": {
@@ -229,6 +809,36 @@
       "Look at its streamlined body and four flippers. Does it look like a little boat made for swimming?"
     ]
   },
+  "jellyfish": {
+    "zh-CN": [
+      "这是水母，一种生活在海里的古老动物。",
+      "它半透明的身体像一把伞，一下一下地收缩，推动自己向前漂。"
+    ],
+    "en": [
+      "This is a jellyfish, an ancient animal that lives in the sea.",
+      "Its see-through body looks like an umbrella, and it pulses to drift through the water."
+    ]
+  },
+  "jewel-beetle": {
+    "zh-CN": [
+      "这是彩虹吉丁虫，会发光的“飞行宝石”。",
+      "日本的法隆寺曾用几万片吉丁虫鞘翅装饰佛龛。"
+    ],
+    "en": [
+      "This is the jewel beetle, a flying gemstone.",
+      "In Japan, tens of thousands of jewel-beetle wing cases once decorated a temple shrine."
+    ]
+  },
+  "jindo-dog": {
+    "zh-CN": [
+      "这是珍岛犬，来自韩国珍岛的猎犬。",
+      "它一生只认一个主人，是韩国“忠诚”的代名词。"
+    ],
+    "en": [
+      "This is the Jindo, a hunting dog from Korea’s Jindo Island.",
+      "It bonds to one person for life — in Korea its name means loyalty itself."
+    ]
+  },
   "kangaroo": {
     "zh-CN": [
       "这是袋鼠，澳大利亚的跳跃高手。",
@@ -237,6 +847,16 @@
     "en": [
       "This is the kangaroo, the jumping champion of Australia.",
       "Baby kangaroos ride inside a pouch on their mother’s tummy."
+    ]
+  },
+  "kangaroo-ar": {
+    "zh-CN": [
+      "这是红袋鼠，世界上最大的有袋动物。",
+      "它跳一步能跨过 8 米，相当于两辆小汽车的长度！"
+    ],
+    "en": [
+      "This is the red kangaroo, the largest marsupial in the world.",
+      "A single hop can cover 8 metres — about the length of two small cars!"
     ]
   },
   "kitten": {
@@ -249,6 +869,16 @@
       "Its eyes are big and bright, and its ears turn toward every sound."
     ]
   },
+  "koala": {
+    "zh-CN": [
+      "这是考拉，住在桉树上的澳大利亚有袋动物。",
+      "它几乎只吃桉树叶，这种叶子对别的动物来说可是有毒的。"
+    ],
+    "en": [
+      "This is the koala, an Australian marsupial that lives in eucalyptus trees.",
+      "It eats almost nothing but eucalyptus leaves, which are poisonous to most other animals."
+    ]
+  },
   "kookaburra": {
     "zh-CN": [
       "这是笑翠鸟，澳大利亚森林里的“大笑鸟”。",
@@ -257,6 +887,46 @@
     "en": [
       "This is the kookaburra, the “laughing bird” of Australian forests.",
       "Its call sounds like big human laughter — really it is announcing territory."
+    ]
+  },
+  "kookaburra-ar": {
+    "zh-CN": [
+      "这是笑翠鸟，叫声像人大笑的翠鸟。",
+      "它不捕鱼，专吃蜥蜴、蛇和昆虫。"
+    ],
+    "en": [
+      "This is the laughing kookaburra, a kingfisher whose call sounds like human laughter.",
+      "It hunts lizards, snakes and insects rather than fish."
+    ]
+  },
+  "labrador-retriever": {
+    "zh-CN": [
+      "这是拉布拉多寻回犬，全世界最受欢迎的狗狗之一。",
+      "它脚趾间有蹼，天生就是游泳好手，最爱帮忙捡东西。"
+    ],
+    "en": [
+      "This is the Labrador retriever, one of the most popular dogs in the world.",
+      "Webbed toes make it a natural swimmer that loves fetching things for people."
+    ]
+  },
+  "labrador-retriever-2": {
+    "zh-CN": [
+      "这是拉布拉多寻回犬，连续多年蝉联全球最受欢迎犬种。",
+      "它的祖先在纽芬兰帮渔民捡回渔网和鱼。"
+    ],
+    "en": [
+      "This is the Labrador Retriever, for years the world’s most popular dog breed.",
+      "Its ancestors helped Newfoundland fishermen retrieve nets and fish."
+    ]
+  },
+  "ladybug": {
+    "zh-CN": [
+      "这是七星瓢虫，背上有七颗星的迷你甲虫。",
+      "它一天能吃掉上百只蚜虫，是花园的免费保镖。"
+    ],
+    "en": [
+      "This is the seven-spot ladybird, a tiny beetle with seven stars on its back.",
+      "It can eat over a hundred aphids a day — a free bodyguard for the garden."
     ]
   },
   "lion": {
@@ -269,6 +939,36 @@
       "The male wears a shaggy mane, and his roar carries for kilometres."
     ]
   },
+  "lion-ar": {
+    "zh-CN": [
+      "这是狮子，唯一过着大家族生活的猫科动物。",
+      "雌狮们一起合作打猎，雄狮的鬃毛是它威风的“围巾”。"
+    ],
+    "en": [
+      "This is the lion, the only cat that lives in a big family group.",
+      "Lionesses hunt as a team, while the male’s mane is his regal “scarf”."
+    ]
+  },
+  "lynx": {
+    "zh-CN": [
+      "这是猞猁，北欧森林里神出鬼没的大脚猫。",
+      "它宽大的脚掌像雪地靴，能悄悄走过深雪不陷下去。"
+    ],
+    "en": [
+      "This is the lynx, the shadowy big-footed cat of northern forests.",
+      "Its broad paws work like snowshoes, letting it tiptoe across deep snow."
+    ]
+  },
+  "macaw": {
+    "zh-CN": [
+      "这是金刚鹦鹉，中南美洲雨林里的大个子鹦鹉。",
+      "它披着一身彩虹羽毛，还常常和伴侣并肩飞成一列。"
+    ],
+    "en": [
+      "This is the macaw, the big parrot of Central and South American rainforests.",
+      "It wears rainbow feathers and often flies in a line, wing to wing with its partner."
+    ]
+  },
   "maiasaura": {
     "zh-CN": [
       "这是慈母龙，一种生活在晚白垩世北美洲的植食性鸭嘴龙类恐龙。",
@@ -279,6 +979,36 @@
       "Look at its broad beak and strong hind legs. Can you imagine it walking slowly near a nesting ground?"
     ]
   },
+  "maine-coon": {
+    "zh-CN": [
+      "这是缅因猫，体型巨大却性格温柔的“温柔巨人”。",
+      "它的大爪子像雪鞋，是雪地行走的 native 装备。"
+    ],
+    "en": [
+      "This is the Maine Coon, the “gentle giant” of cat breeds.",
+      "Its big tufted paws work like snowshoes in winter."
+    ]
+  },
+  "mallard-duck": {
+    "zh-CN": [
+      "这是绿头鸭，全世界最常见的野鸭，也是家鸭的祖先。",
+      "它吃东西时会屁股朝天倒插进水里，样子滑稽极了。"
+    ],
+    "en": [
+      "This is the mallard, the most familiar wild duck on Earth and the ancestor of farm ducks.",
+      "It feeds by tipping tail-up into the water — a wonderfully silly sight."
+    ]
+  },
+  "maltese": {
+    "zh-CN": [
+      "这是马尔济斯犬，古罗马贵妇怀里的“袖珍犬”。",
+      "它的毛像人的头发一样不停生长，几乎不掉毛。"
+    ],
+    "en": [
+      "This is the Maltese, the “sleeve dog” of Roman ladies.",
+      "Its coat grows continuously like human hair and barely sheds."
+    ]
+  },
   "mammoth": {
     "zh-CN": [
       "这是身披长毛的猛犸象，它是冰河时期生活在北方开阔地的史前象类。",
@@ -287,6 +1017,16 @@
     "en": [
       "This shaggy animal is a woolly mammoth, a prehistoric relative of elephants that lived on the open lands of the cold north.",
       "Look at its thick, shaggy coat, small ears and long tusks that curve forwards."
+    ]
+  },
+  "mantis": {
+    "zh-CN": [
+      "这是中华大刀螳，举着大刀等待猎物的伏击高手。",
+      "它是唯一能把头转过肩膀向后看的昆虫。"
+    ],
+    "en": [
+      "This is the Chinese mantis, an ambush hunter waiting with blades raised.",
+      "It is the only insect that can turn its head to look over its shoulder."
     ]
   },
   "megalodon": {
@@ -307,6 +1047,36 @@
     "en": [
       "This is Meganeura. It lived about 300 million years ago and was a distant relative of today's dragonflies.",
       "Look at its four vein-covered wings, six legs and two enormous compound eyes."
+    ]
+  },
+  "mei-panda": {
+    "zh-CN": [
+      "这是小美，电影《青春变形记》里一激动就会变成红熊猫的女孩。",
+      "变身后的她毛茸茸、软乎乎，连烦恼也跟着“膨胀”。"
+    ],
+    "en": [
+      "This is Mei, the girl from the film Turning Red who turns into a red panda whenever her feelings boil over.",
+      "In panda form she is big, fluffy and soft — and so are her troubles."
+    ]
+  },
+  "milk-cow": {
+    "zh-CN": [
+      "这是荷斯坦奶牛，一杯牛奶背后每天要吃几十千克草料。",
+      "牛有四个胃，会把吃下去的草再呕回嘴里细细嚼。"
+    ],
+    "en": [
+      "This is the Holstein dairy cow — every glass of milk costs her dozens of kilograms of feed a day.",
+      "Cows have four stomachs and chew their food twice, bringing it back up for a second go."
+    ]
+  },
+  "morpho-butterfly": {
+    "zh-CN": [
+      "这是大蓝闪蝶，中南美雨林里的“会飞的蓝宝石”。",
+      "它翅膀背面是朴实的褐色，合起翅膀就隐身了。"
+    ],
+    "en": [
+      "This is the blue morpho, a flying sapphire of the American rainforest.",
+      "The underside of its wings is dull brown — close them and it vanishes."
     ]
   },
   "mosasaurus": {
@@ -369,6 +1139,16 @@
       "It wears a pair of curved horns and is strong enough to pull a plough."
     ]
   },
+  "ox-ar": {
+    "zh-CN": [
+      "这是黄牛，耕田拉车的老牛是农耕文明的大功臣。",
+      "“老黄牛精神”就是形容任劳任怨的品格。"
+    ],
+    "en": [
+      "This is cattle as a working ox — ploughing fields and pulling carts powered farming civilisations.",
+      "In Chinese culture, the “old yellow ox” is the symbol of tireless, uncomplaining work."
+    ]
+  },
   "pachycephalosaurus": {
     "zh-CN": [
       "这是肿头龙，它是一种生活在晚白垩世的植食性恐龙。",
@@ -379,6 +1159,26 @@
       "Look at its round, bony dome and the little bumps around it. Does it look like a small, round hat?"
     ]
   },
+  "parasaurolophus": {
+    "zh-CN": [
+      "这是副栉龙，头顶拖着一根长长的空心冠管。",
+      "它用这根管子发出低沉的鸣叫，声音能传很远。"
+    ],
+    "en": [
+      "This is Parasaurolophus, with a long hollow crest tube on its head.",
+      "It used the tube to trumpet deep calls that carried across the landscape."
+    ]
+  },
+  "periodical-cicada": {
+    "zh-CN": [
+      "这是十七年蝉，在地下生活十七年才羽化的“时间胶囊”昆虫。",
+      "同一批蝉会约好一样在同一年倾巢而出，多达数十亿只。"
+    ],
+    "en": [
+      "This is the periodical cicada, a time-capsule insect that spends seventeen years underground.",
+      "A whole brood emerges in the same year — billions of cicadas at once."
+    ]
+  },
   "persian-cat": {
     "zh-CN": [
       "这是波斯猫，猫中有名的“长毛贵族”。",
@@ -387,6 +1187,16 @@
     "en": [
       "This is the Persian cat, the famous “long-haired aristocrat” of cats.",
       "Its fur is long and silky and needs daily brushing, and its personality is calm and quiet."
+    ]
+  },
+  "pig": {
+    "zh-CN": [
+      "这是家猪，聪明程度在农场动物里数一数二。",
+      "它打滚不是不爱干净，而是在给自己涂防晒霜。"
+    ],
+    "en": [
+      "This is the domestic pig, among the cleverest of all farm animals.",
+      "It rolls in mud not from dirtiness but to put on sunscreen."
     ]
   },
   "pigeon": {
@@ -409,6 +1219,26 @@
       "It is a clever, brave working dog that often helps police and rescue teams."
     ]
   },
+  "pitbull": {
+    "zh-CN": [
+      "这是美国比特斗牛梗，充满争议的强壮犬种。",
+      "它对家人的感情深厚，但需要非常负责任的主人。"
+    ],
+    "en": [
+      "This is the American Pit Bull Terrier, a strong breed surrounded by debate.",
+      "It loves its family deeply — and it needs an exceptionally responsible owner."
+    ]
+  },
+  "platypus": {
+    "zh-CN": [
+      "这是鸭嘴兽，会下蛋的哺乳动物，长得像是把几种动物拼在了一起。",
+      "它闭着眼睛和鼻子潜水，靠扁嘴感应猎物发出的微弱电流。"
+    ],
+    "en": [
+      "This is the platypus, an egg-laying mammal that looks stitched together from several animals.",
+      "It dives with eyes and ears shut, using its bill to sense the faint electricity of prey."
+    ]
+  },
   "plesiosaurus": {
     "zh-CN": [
       "这是蛇颈龙类，它们不是恐龙，而是和恐龙生活在同一时代的海生爬行动物。",
@@ -417,6 +1247,46 @@
     "en": [
       "This is a plesiosaur. Plesiosaurs were sea reptiles that lived alongside dinosaurs, but they were not dinosaurs.",
       "Look at its long neck and four flippers. All four could work together like wings under the water."
+    ]
+  },
+  "pomeranian": {
+    "zh-CN": [
+      "这是博美犬，个头最小却气场十足的“小狐狸”。",
+      "它有两层毛，天冷时蓬起来就像穿了一件羽毛斗篷。"
+    ],
+    "en": [
+      "This is the Pomeranian, the tiniest dog with the biggest personality.",
+      "Its double coat fluffs up in cold weather like a feathered cloak."
+    ]
+  },
+  "pony": {
+    "zh-CN": [
+      "这是矮种马，不是小马驹，而是一辈子都长不高的马品种。",
+      "它虽然个子小，力气却大得能驮起大人。"
+    ],
+    "en": [
+      "This is a pony — not a foal, but a breed that stays small for life.",
+      "It may be little, yet it is strong enough to carry a grown-up."
+    ]
+  },
+  "poodle": {
+    "zh-CN": [
+      "这是贵宾犬，游泳健将出身的聪明犬。",
+      "它在犬类智商排行榜上常年名列第二。"
+    ],
+    "en": [
+      "This is the Poodle, a clever dog bred as a water retriever.",
+      "It regularly ranks second in canine intelligence lists."
+    ]
+  },
+  "porpoise": {
+    "zh-CN": [
+      "这是鼠海豚，北欧海域里害羞的小鲸鱼。",
+      "它很少跳出海面，换气时只轻轻冒头，像海里的“小幽灵”。"
+    ],
+    "en": [
+      "This is the harbour porpoise, the shy little whale of northern seas.",
+      "It seldom leaps; it just surfaces quietly for a breath, like a tiny ghost of the sea."
     ]
   },
   "pteranodon": {
@@ -429,6 +1299,16 @@
       "Look at its long toothless beak, the crest behind its head and its broad, outstretched wings."
     ]
   },
+  "pteranodon-ar": {
+    "zh-CN": [
+      "这是无齿翼龙，在恐龙时代的天空中滑翔的大翼龙。",
+      "它的翼展比一辆小汽车还长，却没有一颗牙齿。"
+    ],
+    "en": [
+      "This is Pteranodon, a great pterosaur that soared over the seas of the dinosaur age.",
+      "Its wingspan was longer than a small car, yet it had no teeth at all."
+    ]
+  },
   "pug": {
     "zh-CN": [
       "这是哈巴狗，一种脸扁扁的小型犬。",
@@ -437,6 +1317,16 @@
     "en": [
       "This is the pug, a small dog with a wonderfully flat face.",
       "Its tail curls in a little spiral and wiggles like mad when it is happy."
+    ]
+  },
+  "pug-ar": {
+    "zh-CN": [
+      "这是哈巴狗，一张扁扁的“黑脸”配一对圆眼睛。",
+      "它打起呼噜来像小猪，是天生的沙发伙伴。"
+    ],
+    "en": [
+      "This is the pug, with its squashed dark face and big round eyes.",
+      "It snores like a tiny piglet — a sofa companion born and bred."
     ]
   },
   "python": {
@@ -449,6 +1339,16 @@
       "Its jaws swing open amazingly wide to swallow meals bigger than its head."
     ]
   },
+  "quokka": {
+    "zh-CN": [
+      "这是短尾矮袋鼠，被称为“世界上最快乐的动物”。",
+      "它只生活在澳大利亚西南角的几座小岛和一小块大陆上。"
+    ],
+    "en": [
+      "This is the quokka, often called the “world’s happiest animal”.",
+      "It lives only on a few islands and one small corner of mainland south-western Australia."
+    ]
+  },
   "rabbit": {
     "zh-CN": [
       "这是兔子，长耳朵的跳跃高手。",
@@ -459,6 +1359,16 @@
       "Its ears turn in every direction and also help it stay cool."
     ]
   },
+  "rabbit-ar": {
+    "zh-CN": [
+      "这是兔子，长耳朵和大后腿的跳跃高手。",
+      "它的眼睛长在头两侧，几乎能看到一整圈的风景。"
+    ],
+    "en": [
+      "This is the rabbit, a hopping champion with long ears and mighty hind legs.",
+      "Its eyes sit on the sides of its head, letting it see almost all the way round."
+    ]
+  },
   "raccoon": {
     "zh-CN": [
       "这是浣熊，戴着“眼罩”的机灵鬼。",
@@ -467,6 +1377,26 @@
     "en": [
       "This is the raccoon, the clever creature in an eye mask.",
       "Its front paws are so nimble it can unscrew lids and feel for food underwater."
+    ]
+  },
+  "raccoon-ar": {
+    "zh-CN": [
+      "这是浣熊，北美洲最会“洗东西”的小机灵鬼。",
+      "它把食物放进水里搓来搓去，小手灵活得能打开瓶盖。"
+    ],
+    "en": [
+      "This is the raccoon, North America’s cleverest little “food-washer”.",
+      "It dunks food in water and rubs it clean, and its clever paws can even undo bottle caps."
+    ]
+  },
+  "ragdoll": {
+    "zh-CN": [
+      "这是布偶猫，被抱起来会全身放松的“布娃娃”猫。",
+      "它性格温顺，喜欢跟在主人身后。"
+    ],
+    "en": [
+      "This is the Ragdoll, a cat that relaxes completely when you hold it.",
+      "It is famously gentle and loves following its people around."
     ]
   },
   "red-panda": {
@@ -489,6 +1419,56 @@
       "Look at its long tail, the little sail at its tip and its outstretched wings made from skin membranes."
     ]
   },
+  "rhinoceros-beetle": {
+    "zh-CN": [
+      "这是独角仙，日本孩子夏天最想抓到的昆虫。",
+      "它能举起比自己重几十倍的东西，是昆虫界的大力士。"
+    ],
+    "en": [
+      "This is the Japanese rhinoceros beetle, the insect every child in Japan wants to catch in summer.",
+      "It can lift dozens of times its own weight — a true insect strongman."
+    ]
+  },
+  "robust-cicada": {
+    "zh-CN": [
+      "这是鸣鸣蝉，夏末初秋“ミンミン”高歌的蝉。",
+      "它的歌声明亮急促，越热叫得越欢。"
+    ],
+    "en": [
+      "This is the robust cicada, singing “min-min” at the end of summer.",
+      "Its song is bright and urgent, and it sings loudest on the hottest days."
+    ]
+  },
+  "rosalia-batesi": {
+    "zh-CN": [
+      "这是琉璃星天牛，披着蓝色丝绒的天牛。",
+      "它的超长触角是探测树木气味的“天线”。"
+    ],
+    "en": [
+      "This is Rosalia batesi, a longhorn beetle dressed in blue velvet.",
+      "Its extra-long antennae are aerials for sniffing out the right tree."
+    ]
+  },
+  "rottweiler": {
+    "zh-CN": [
+      "这是罗威纳犬，历史最悠久的工作犬之一。",
+      "古罗马时代它的祖先赶着牛群行军，后来又拉着屠夫的肉车上街。"
+    ],
+    "en": [
+      "This is the Rottweiler, one of the oldest working dogs.",
+      "Its ancestors drove cattle for Roman legions, and later it pulled butchers’ meat carts to market."
+    ]
+  },
+  "russian-blue": {
+    "zh-CN": [
+      "这是俄罗斯蓝猫，披着银蓝色“双层大衣”的猫。",
+      "它安静又聪明，嘴角上翘像在微笑。"
+    ],
+    "en": [
+      "This is the Russian Blue, wrapped in a silvery “double coat”.",
+      "It is quiet and clever, with upturned mouth corners like a permanent smile."
+    ]
+  },
   "saber-toothed-tiger": {
     "zh-CN": [
       "这是剑齿虎，一种生活在冰河时代的史前大猫。",
@@ -507,6 +1487,26 @@
     "en": [
       "This is the salmon, a remarkable traveller.",
       "It is born in rivers, grows up at sea, then swims back to its home river to spawn."
+    ]
+  },
+  "santa-claus": {
+    "zh-CN": [
+      "这是圣诞老人，传说中平安夜给孩子们送礼物的白胡子爷爷。",
+      "据说他驾着驯鹿雪橇，一夜之间跑遍全世界。"
+    ],
+    "en": [
+      "This is Santa Claus, the white-bearded grandfather who, legend says, delivers presents on Christmas Eve.",
+      "He is said to fly a reindeer sleigh around the whole world in a single night."
+    ]
+  },
+  "saola": {
+    "zh-CN": [
+      "这是中南大羚，1992 年才被科学界发现的神秘动物。",
+      "因为它的两只角从侧面看像独角，人们叫它“亚洲独角兽”。"
+    ],
+    "en": [
+      "This is the saola, a mysterious animal only described by science in 1992.",
+      "Its two horns merge into one when seen in profile, earning it the name “Asian unicorn”."
     ]
   },
   "sauropelta": {
@@ -529,6 +1529,16 @@
       "Its beard collects water and crumbs, so it gets a wipe after meals."
     ]
   },
+  "schnauzer-ar": {
+    "zh-CN": [
+      "这是雪纳瑞犬，长着大胡子的德国农场犬。",
+      "它曾经在农场上抓老鼠、看门、赶牲畜。"
+    ],
+    "en": [
+      "This is the Schnauzer, the bearded farm dog from Germany.",
+      "It once earned its keep catching rats, guarding yards and driving stock."
+    ]
+  },
   "scorpion": {
     "zh-CN": [
       "这是蝎子，夜晚出来的蛛形纲小猎手。",
@@ -539,6 +1549,16 @@
       "Under ultraviolet light its armour glows blue-green."
     ]
   },
+  "scottish-fold": {
+    "zh-CN": [
+      "这是苏格兰折耳猫，耳朵像小帽子一样折在头上。",
+      "它喜欢像人一样端坐着，被叫做“佛陀坐姿”。"
+    ],
+    "en": [
+      "This is the Scottish Fold, whose ears fold forward like a little cap.",
+      "It loves sitting upright like a human, a pose nicknamed the “Buddha sit”."
+    ]
+  },
   "sea-turtle": {
     "zh-CN": [
       "这是海龟，海洋里的远航旅行家。",
@@ -547,6 +1567,16 @@
     "en": [
       "This is the sea turtle, the long-distance sailor of the oceans.",
       "Its legs have turned into paddles, making it a strong swimmer."
+    ]
+  },
+  "seahorse": {
+    "zh-CN": [
+      "这是海马，一种生活在海里的小鱼。",
+      "它总是挺直身体游泳，还会用卷卷的尾巴勾住海草，不让水流冲走。"
+    ],
+    "en": [
+      "This is a seahorse, a small fish that lives in the sea.",
+      "It swims upright and grips seagrass with its curled tail so the current does not wash it away."
     ]
   },
   "shark": {
@@ -567,6 +1597,66 @@
     "en": [
       "This is the sheep, one of the first animals humans ever tamed.",
       "Its wool grows all year, and each spring the fleece is sheared and spun into warm yarn."
+    ]
+  },
+  "shiba-inu": {
+    "zh-CN": [
+      "这是柴犬，日本最古老的犬种之一。",
+      "它爱干净得像猫，还会发出独特的“柴犬尖叫”。"
+    ],
+    "en": [
+      "This is the Shiba Inu, one of Japan’s oldest breeds.",
+      "Cat-clean and dramatic, it is famous for the piercing “Shiba scream”."
+    ]
+  },
+  "shih-tzu": {
+    "zh-CN": [
+      "这是西施犬，中国皇宫里养大的伴侣犬。",
+      "它的任务不是工作，而是陪伴主人上千年。"
+    ],
+    "en": [
+      "This is the Shih Tzu, a companion dog raised in Chinese palaces.",
+      "Its only job for a thousand years has been to keep people company."
+    ]
+  },
+  "shining-ball-scarab": {
+    "zh-CN": [
+      "这是虹彩粪金龟，把动物粪便滚成球搬走的清道夫。",
+      "它处理粪便是在帮草原“打扫卫生”。"
+    ],
+    "en": [
+      "This is the shining dung scarab, a cleaner that rolls animal droppings into balls.",
+      "By burying dung it keeps the grassland clean and fertilised."
+    ]
+  },
+  "short-haired-cat": {
+    "zh-CN": [
+      "这是短毛猫，不是某一个品种，而是千千万万只“混血”家猫的统称。",
+      "短毛好打理，跳跃和捕鼠的本领也一点不含糊。"
+    ],
+    "en": [
+      "This is the domestic shorthair — not a single breed, but the name for millions of mixed-ancestry house cats.",
+      "The easy-care coat comes with full-strength pouncing and mousing skills."
+    ]
+  },
+  "siamese": {
+    "zh-CN": [
+      "这是暹罗猫，来自泰国的古老猫种。",
+      "它爱“说话”，叫声又响又特别。"
+    ],
+    "en": [
+      "This is the Siamese, an ancient breed from Thailand.",
+      "It is famously talkative, with a loud, distinctive voice."
+    ]
+  },
+  "siberian-husky": {
+    "zh-CN": [
+      "这是西伯利亚哈士奇，能拉着雪橇跑上百公里的雪橇犬。",
+      "它精力过剩、爱“唱歌”，还是著名的“越狱大师”。"
+    ],
+    "en": [
+      "This is the Siberian Husky, a sled dog built to run hundreds of kilometres.",
+      "Bursting with energy, it howls rather than barks and is a famous escape artist."
     ]
   },
   "snail": {
@@ -599,6 +1689,26 @@
       "Its wrinkly skin is warm and soft to the touch."
     ]
   },
+  "sphynx-cat-ar": {
+    "zh-CN": [
+      "这是斯芬克斯猫，天生几乎没有毛的猫。",
+      "因为没有毛保暖，它最喜欢钻被窝和晒太阳。"
+    ],
+    "en": [
+      "This is the Sphynx, a cat born nearly hairless.",
+      "With no fur coat to keep it warm, it loves duvets and sunny spots."
+    ]
+  },
+  "spinosaurus": {
+    "zh-CN": [
+      "这是棘龙，背上长着帆、爱吃鱼的大型肉食恐龙。",
+      "它比霸王龙还长，是目前已知最长的肉食恐龙。"
+    ],
+    "en": [
+      "This is Spinosaurus, a sail-backed giant that loved catching fish.",
+      "Longer even than Tyrannosaurus, it is the longest meat-eating dinosaur known."
+    ]
+  },
   "stag-beetle": {
     "zh-CN": [
       "这是锹甲，一种长着大颚的甲虫。",
@@ -607,6 +1717,16 @@
     "en": [
       "This is the stag beetle, a beetle with giant jaws.",
       "The male’s jaws look like deer antlers and are used mainly to wrestle rivals."
+    ]
+  },
+  "stag-beetle-2": {
+    "zh-CN": [
+      "这是锹形虫，雄虫用大颚决斗，争夺吸食树汁的地盘。",
+      "被它的大颚夹住并不会太痛——大颚主要是用来“举”对手的。"
+    ],
+    "en": [
+      "This is the stag beetle: males duel with their great jaws over the best sap flows.",
+      "A pinch from those jaws barely hurts — they are built for lifting rivals, not biting."
     ]
   },
   "stegosaurus": {
@@ -619,6 +1739,26 @@
       "Look at the two rows of plates along its back. Do they look like a line of little hills?"
     ]
   },
+  "stegosaurus-ar": {
+    "zh-CN": [
+      "这是剑龙，背着两排大骨板的植食恐龙。",
+      "它的脑袋只有小狗那么大，尾巴上的尖刺却能赶跑掠食者。"
+    ],
+    "en": [
+      "This is Stegosaurus, a plant-eater carrying two rows of huge plates.",
+      "Its brain was dog-sized, but the spikes on its tail could see off predators."
+    ]
+  },
+  "swallowtail-butterfly": {
+    "zh-CN": [
+      "这是金凤蝶，拖着燕尾的大蝴蝶。",
+      "它的毛毛虫遇到危险时会伸出橙色的“臭角”吓退敌人。"
+    ],
+    "en": [
+      "This is the swallowtail, the big butterfly with a forked tail.",
+      "Its caterpillar puffs out a bright orange stink-horn when threatened."
+    ]
+  },
   "tiger": {
     "zh-CN": [
       "这是老虎，世界上最大的猫科动物，它住在森林里。",
@@ -627,6 +1767,26 @@
     "en": [
       "This is a tiger, the biggest cat in the world, and it lives in the forest.",
       "Look at its orange fur and black stripes — every tiger wears a pattern all its own."
+    ]
+  },
+  "tiger-ar": {
+    "zh-CN": [
+      "这是老虎，世界上最大的猫科动物。",
+      "它和大多数猫不一样，特别爱游泳，天热时整天泡在河里。"
+    ],
+    "en": [
+      "This is the tiger, the largest cat in the world.",
+      "Unlike most cats it loves swimming and will soak in a river all day in hot weather."
+    ]
+  },
+  "timber-wolf": {
+    "zh-CN": [
+      "这是森林狼，生活在北美森林里的灰狼。",
+      "狼群其实是一个家庭：狼爸爸、狼妈妈和不同年龄的孩子。"
+    ],
+    "en": [
+      "This is the timber wolf, the grey wolf of North American forests.",
+      "A wolf pack is really a family: father, mother and children of different ages."
     ]
   },
   "tortoise": {
@@ -649,6 +1809,16 @@
       "Look at the two long horns above its eyes, the little horn on its nose and the wide frill behind its head."
     ]
   },
+  "triceratops-ar": {
+    "zh-CN": [
+      "这是三角龙，长着三只角和大颈盾的植食恐龙。",
+      "它和霸王龙生活在同一时代，是霸王龙的猎物之一。"
+    ],
+    "en": [
+      "This is Triceratops, the plant-eater with three horns and a great frilled shield.",
+      "It lived at the same time and place as Tyrannosaurus — and was on its menu."
+    ]
+  },
   "tupandactylus": {
     "zh-CN": [
       "这是古神翼龙，它是生活在早白垩世巴西的会飞爬行动物，不是恐龙。",
@@ -669,6 +1839,106 @@
       "Look at its huge head, powerful hind legs and two very short front limbs."
     ]
   },
+  "tyrannosaurus-rex-ar": {
+    "zh-CN": [
+      "这是霸王龙，陆地上咬合力最强的动物之一。",
+      "它的名字意思是“暴君蜥蜴王”。"
+    ],
+    "en": [
+      "This is Tyrannosaurus rex, with one of the strongest bites of any land animal ever.",
+      "Its name means “tyrant lizard king”."
+    ]
+  },
+  "unicorn": {
+    "zh-CN": [
+      "这是独角兽，欧洲传说里额生独角的白色骏马。",
+      "现实中的“独角兽角”其实是独角鲸的长牙。"
+    ],
+    "en": [
+      "This is the unicorn, the white horse of European legend with a single horn.",
+      "Real “unicorn horns” sold in history were actually narwhal tusks."
+    ]
+  },
+  "velociraptor": {
+    "zh-CN": [
+      "这是伶盗龙，电影里被放大成“迅猛龙”的原型。",
+      "真实的它浑身长羽，大小和一只火鸡差不多。"
+    ],
+    "en": [
+      "This is Velociraptor, the real animal behind the movie “raptor”.",
+      "In life it was feathered all over and about the size of a turkey."
+    ]
+  },
+  "walkers-cicada": {
+    "zh-CN": [
+      "这是节节蝉，夏末唱“ツクツクボウシ”的蝉。",
+      "它的歌声先升调再降调，像在数着夏天剩下的日子。"
+    ],
+    "en": [
+      "This is Walker’s cicada, singing “tsuku-tsuku-boushi” at summer’s end.",
+      "Its song rises, plateaus and falls — as if counting down the last days of summer."
+    ]
+  },
+  "welsh-corgi": {
+    "zh-CN": [
+      "这是柯基犬，个子小小却能牧牛的“牧牛犬”。",
+      "英国女王伊丽莎白二世一生养了三十多只柯基。"
+    ],
+    "en": [
+      "This is the Corgi, a cattle-herding dog in a small, low package.",
+      "Queen Elizabeth II kept more than thirty of them during her life."
+    ]
+  },
+  "whale": {
+    "zh-CN": [
+      "这是鲸鱼，生活在海洋里的巨型哺乳动物。",
+      "它上下摆动尾巴向前游，还要浮出水面呼吸空气。"
+    ],
+    "en": [
+      "This is a whale, a giant mammal that lives in the ocean.",
+      "It swims by moving its tail up and down, and it comes to the surface to breathe air."
+    ]
+  },
+  "white-tailed-deer": {
+    "zh-CN": [
+      "这是白尾鹿，北美洲最常见的鹿。",
+      "刚出生的小鹿身上有白色斑点，像撒了一层糖霜。"
+    ],
+    "en": [
+      "This is the white-tailed deer, the most common deer of North America.",
+      "Newborn fawns wear white spots like a dusting of sugar."
+    ]
+  },
+  "wombat": {
+    "zh-CN": [
+      "这是袋熊，考拉的近亲，住在自己挖的地洞里。",
+      "它是世界上唯一会拉出方形便便的动物。"
+    ],
+    "en": [
+      "This is the wombat, a close relative of the koala that lives in burrows it digs itself.",
+      "It is the only animal in the world that produces cube-shaped droppings."
+    ]
+  },
+  "woodpecker": {
+    "zh-CN": [
+      "这是啄木鸟，森林里的“树木医生”。",
+      "它每秒能敲树二十下，脑袋自带“安全帽”。"
+    ],
+    "en": [
+      "This is the woodpecker, the forest’s “tree doctor”.",
+      "It can drum a tree twenty times a second, thanks to a built-in crash helmet."
+    ]
+  },
+  "yorkshire-terrier": {
+    "zh-CN": [
+      "这是约克夏梗，工人阶级出身的迷你犬。",
+      "它个子小，胆子却比很多大狗都大。"
+    ],
+    "en": [
+      "This is the Yorkshire Terrier, a tiny dog with working-class roots.",
+      "Small as it is, it is braver than many dogs ten times its size."
+    ]
+  },
   "zebra": {
     "zh-CN": [
       "这是斑马，穿着条纹“外套”的马的亲戚。",
@@ -677,6 +1947,16 @@
     "en": [
       "This is the zebra, a horse relative wearing a striped coat.",
       "Every zebra’s stripes are unique, just like your fingerprints."
+    ]
+  },
+  "zebra-ar": {
+    "zh-CN": [
+      "这是平原斑马，非洲草原上黑白条纹的“马”。",
+      "科学家认为条纹可以迷惑吸血蝇虫，让它们不敢降落。"
+    ],
+    "en": [
+      "This is the plains zebra, the black-and-white striped “horse” of the African savanna.",
+      "Scientists think the stripes confuse biting flies and stop them landing."
     ]
   }
 }

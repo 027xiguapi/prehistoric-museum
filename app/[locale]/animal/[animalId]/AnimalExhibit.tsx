@@ -215,7 +215,7 @@ export function AnimalExhibit({ animalId }: AnimalExhibitProps) {
     useState<ViewerFailureKind | null>(null)
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [collectionOpen, setCollectionOpen] = useState(false)
-  const [storyOpen, setStoryOpen] = useState(false)
+  const [storyOpen, setStoryOpen] = useState(true)
   const [focusMode, setFocusMode] = useState(false)
   const [arMode, setArMode] = useState(false)
   const [liveMessage, setLiveMessage] = useState(

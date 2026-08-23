@@ -327,19 +327,45 @@ if (options.dryRun) {
   process.exit(0)
 }
 
+// The queue API throttles aggressively: after a short burst it starts
+// resetting connections ("fetch failed") until the window clears. Space
+// requests out and retry transient failures with a short backoff so a long
+// batch keeps making progress instead of failing the remaining animals.
+const REQUEST_DELAY_MS = 1_000
+const RETRY_BACKOFF_MS = [5_000, 15_000, 30_000]
+
+async function generateWithRetry(job) {
+  for (let attempt = 0; ; attempt++) {
+    try {
+      const audioUrl = await synthesize(job.text, job.lang)
+      await download(audioUrl, job.audioFile)
+      return null
+    } catch (error) {
+      if (attempt >= RETRY_BACKOFF_MS.length) {
+        return error
+      }
+      const wait = RETRY_BACKOFF_MS[attempt]
+      console.warn(
+        `retry ${job.id} (${job.lang}) in ${wait / 1000}s: ${error.message}`,
+      )
+      await sleep(wait)
+    }
+  }
+}
+
 let succeeded = 0
 let failed = 0
 for (const [index, job] of jobs.entries()) {
   const label = `${job.id} (${job.lang}) [${index + 1}/${jobs.length}]`
-  try {
-    const audioUrl = await synthesize(job.text, job.lang)
-    await download(audioUrl, job.audioFile)
-    succeeded++
-    console.log(`ok    ${label} -> ${job.audioFile}`)
-  } catch (error) {
+  const error = await generateWithRetry(job)
+  if (error) {
     failed++
     console.error(`FAIL  ${label}: ${error.message}`)
+  } else {
+    succeeded++
+    console.log(`ok    ${label} -> ${job.audioFile}`)
   }
+  await sleep(REQUEST_DELAY_MS)
 }
 
 console.log(`\nDone: ${succeeded} succeeded, ${failed} failed.`)
