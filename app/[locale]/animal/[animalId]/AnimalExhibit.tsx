@@ -9,13 +9,13 @@ import {
   useMemo,
   useRef,
   useState,
-  useSyncExternalStore,
 } from 'react'
 import {
   AnimalCollectionSheet,
   type CollectionAnimal,
 } from '@/src/components/AnimalCollectionSheet'
 import { ArViewer } from '@/src/components/ArViewer'
+import { BackButton } from '@/src/components/buttons/BackButton'
 import { SettingsButton } from '@/src/components/buttons/SettingsButton'
 import { LanguageMenu } from '@/src/components/LanguageMenu'
 import { ParentDrawer } from '@/src/components/ParentDrawer'
@@ -27,6 +27,7 @@ import { draftAnimalsByZone } from '@/src/content/collections/draft-zones'
 import {
   zoneCategories,
   zoneCategoryById,
+  zoneCategoryIdsForAnimal,
   zoneIdsForAnimal,
   type ZoneCategoryId,
 } from '@/src/content/collections/categories'
@@ -222,6 +223,10 @@ export function AnimalExhibit({ animalId }: AnimalExhibitProps) {
     messages.loading.initialExhibit(initialAnimal.name),
   )
   const activeAnimal = animalIndex.get(activeAnimalId) ?? initialAnimal
+  const backCategoryId = useMemo(
+    () => zoneCategoryIdsForAnimal(activeAnimal)[0] ?? null,
+    [activeAnimal],
+  )
 
   const { narration, narrationSnapshot } = useNarration({
     activeAnimalId: activeAnimal.id,
@@ -243,17 +248,6 @@ export function AnimalExhibit({ animalId }: AnimalExhibitProps) {
     activeAnimalRef.current = activeAnimal
   }, [activeAnimal])
   const overlayOpen = drawerOpen || collectionOpen || arMode
-  // The story panel is always visible on the mobile layout, where the left
-  // toolbar (which hosts its toggle button) is hidden below 1024px.
-  const isCompact = useSyncExternalStore(
-    (onChange) => {
-      const media = window.matchMedia('(max-width: 1023px)')
-      media.addEventListener('change', onChange)
-      return () => media.removeEventListener('change', onChange)
-    },
-    () => window.matchMedia('(max-width: 1023px)').matches,
-    () => false,
-  )
   // Review packages and e2e fixtures live outside the curated zones, so the
   // zone filter only applies to the production catalog.
   const zoneAppliesToNavigation = !localReviewMode
@@ -847,12 +841,20 @@ export function AnimalExhibit({ animalId }: AnimalExhibitProps) {
         key={`atmosphere-${activeAnimal.id}`}
         kind={activeAnimal.atmosphere}
       />
+      {!focusMode && backCategoryId ? (
+        <div aria-hidden={overlayOpen} inert={overlayOpen}>
+          <BackButton
+            className="animal-back-button"
+            href={`/${locale}/category/${backCategoryId}/`}
+            label={messages.collection.back}
+          />
+        </div>
+      ) : null}
       {!focusMode ? (
         <LeftToolbar
           activeAnimal={activeAnimal}
           collectionTriggerRef={collectionTriggerRef}
           drawerTriggerRef={drawerTriggerRef}
-          isCompact={isCompact}
           narrationSnapshot={narrationSnapshot}
           onNarrationToggle={handleNarrationToggle}
           onOpenCollection={handleOpenCollection}

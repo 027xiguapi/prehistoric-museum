@@ -8,7 +8,7 @@ import {
   Scale,
   Volume2,
 } from 'lucide-react'
-import { useRef, type RefObject } from 'react'
+import type { RefObject } from 'react'
 import { getNarrationControlLabel, type NarrationSnapshot } from '@/src/audio'
 import { IconButton } from '@/src/components/IconButton'
 import { useI18n } from '@/src/i18n/I18nProvider'
@@ -20,7 +20,6 @@ interface LeftToolbarProps {
   readonly activeAnimal: RuntimeAnimal
   readonly collectionTriggerRef: RefObject<HTMLElement | null>
   readonly drawerTriggerRef: RefObject<HTMLButtonElement | null>
-  readonly isCompact: boolean
   readonly narrationSnapshot: NarrationSnapshot
   readonly onNarrationToggle: () => Promise<void>
   readonly onOpenCollection: () => void
@@ -36,7 +35,6 @@ export function LeftToolbar({
   activeAnimal,
   collectionTriggerRef,
   drawerTriggerRef,
-  isCompact,
   narrationSnapshot,
   onNarrationToggle,
   onOpenCollection,
@@ -48,7 +46,6 @@ export function LeftToolbar({
   storyOpen,
 }: LeftToolbarProps) {
   const { messages } = useI18n()
-  const storyTriggerRef = useRef<HTMLButtonElement>(null)
   const narrationPlaying = narrationSnapshot.playback === 'playing'
   const narrationAvailable = narrationSnapshot.availability === 'available'
   const narrationLabel = getNarrationControlLabel(
@@ -82,7 +79,6 @@ export function LeftToolbar({
           icon={Info}
           label={storyOpen ? messages.storyCollapse : messages.storyExpand}
           onClick={onToggleStory}
-          ref={storyTriggerRef}
         />
         <IconButton
           icon={BookOpen}
@@ -110,11 +106,8 @@ export function LeftToolbar({
       {storyOpen ? (
         <StoryPanel
           activeAnimal={activeAnimal}
-          isCompact={isCompact}
-          onClose={onToggleStory}
           overlayOpen={overlayOpen}
           pageKind={pageKind}
-          returnFocusTo={storyTriggerRef}
         />
       ) : null}
     </>

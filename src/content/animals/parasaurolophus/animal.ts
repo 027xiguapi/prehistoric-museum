@@ -32,7 +32,20 @@ export const animal: DraftAnimalPackage & LegacyLocalReviewAnimalPackage = {
       landscape: imageUrl(landscapeUrl),
       portrait: imageUrl(portraitUrl),
     },
-    narration: {},
+    narration: {
+      'zh-CN': {
+        status: 'ready',
+        sourcePath: 'audio/narration.zh-CN.mp3',
+        mimeType: 'audio/mpeg',
+        url: animalAssetUrl(animalDefinition.id, 'narration.zh-CN.mp3'),
+      },
+      en: {
+        status: 'ready',
+        sourcePath: 'audio/narration.en.mp3',
+        mimeType: 'audio/mpeg',
+        url: animalAssetUrl(animalDefinition.id, 'narration.en.mp3'),
+      },
+    },
   },
   review: {
     badge: '下载批次草稿',

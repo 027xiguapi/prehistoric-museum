@@ -163,6 +163,7 @@ const zhCN = {
   },
   collection: {
     friends: (count: number) => `${count} 位史前朋友`,
+    zoneFriends: (count: number, zoneName: string) => `${count} 位${zoneName}朋友`,
     title: '全馆图鉴',
     intro: '选一位朋友，马上前往它的 3D 展台。',
     back: '返回',
@@ -431,6 +432,7 @@ const en = {
   },
   collection: {
     friends: (count) => `${count} prehistoric friends`,
+    zoneFriends: (count, zoneName) => `${count} ${zoneName} friends`,
     title: 'Museum guide',
     intro: 'Choose a friend and go straight to its 3D exhibit.',
     back: 'Back',

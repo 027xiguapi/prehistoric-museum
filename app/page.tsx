@@ -1,7 +1,3 @@
-'use client'
-
-import { useEffect } from 'react'
-
 // Root entry for static builds (Capacitor). The web deployment resolves the
 // bare `/` path through the next-intl middleware instead, so this page only
 // matters when `output: 'export'` produces `out/index.html` as the app entry.
@@ -11,7 +7,7 @@ import { useEffect } from 'react'
 //
 // The meta refresh and the visible link are prerendered into the static
 // HTML, so even a WebView too old to parse the modern JS chunks (which would
-// otherwise strand the app on this page forever) still reaches the
+// otherwise strand the app on this blank page forever) still reaches the
 // prerendered catalogue — or at least shows a tappable way in.
 //
 // The target must carry the `index.html` suffix: Capacitor's local server
@@ -37,11 +33,30 @@ const LOADER_STYLES = `
 }
 `
 
-export default function RootPage() {
-  useEffect(() => {
-    window.location.replace('/en/index.html')
-  }, [])
+// Inline, ES5-compatible locale picker. It runs synchronously while the
+// static HTML is parsed — before the no-JS meta refresh below — so a device
+// reporting a Chinese language reaches /zh-CN/index.html and everything else
+// reaches /en/index.html.
+const LOCALE_REDIRECT = `(function () {
+  var langs = navigator.languages && navigator.languages.length
+    ? navigator.languages
+    : [navigator.language || 'zh-CN']
+  var locale = 'zh-CN'
+  for (var i = 0; i < langs.length; i++) {
+    var lang = String(langs[i]).toLowerCase()
+    if (lang === 'zh' || lang.indexOf('zh-') === 0) {
+      locale = 'zh-CN'
+      break
+    }
+    if (lang === 'en' || lang.indexOf('en-') === 0) {
+      locale = 'en'
+      break
+    }
+  }
+  window.location.replace('/' + locale + '/index.html')
+})()`
 
+export default function RootPage() {
   return (
     <main
       aria-busy="true"
@@ -59,10 +74,11 @@ export default function RootPage() {
         textAlign: 'center',
       }}
     >
-      <meta httpEquiv="refresh" content="0;url=/en/index.html" />
+      <script dangerouslySetInnerHTML={{ __html: LOCALE_REDIRECT }} />
+      <meta httpEquiv="refresh" content="0;url=/zh-CN/index.html" />
       <style>{LOADER_STYLES}</style>
       <a
-        href="/en/index.html"
+        href="/zh-CN/index.html"
         style={{
           display: 'flex',
           flexDirection: 'column',

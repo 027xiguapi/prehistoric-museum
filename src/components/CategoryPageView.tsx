@@ -200,7 +200,12 @@ export function CategoryPageView({ locale, zone }: CategoryPageViewProps) {
         <div>
           <p className={COUNT_CLASS}>
             <Footprints aria-hidden="true" size={16} strokeWidth={2.4} />
-            {messages.collection.friends(animalCount)}
+            {zone === null
+              ? messages.collection.friends(animalCount)
+              : messages.collection.zoneFriends(
+                  animalCount,
+                  zoneTitle(locale, zone),
+                )}
           </p>
           <h1 className={TITLE_CLASS}>
             {zone === null ? messages.collection.title : zoneTitle(locale, zone)}
