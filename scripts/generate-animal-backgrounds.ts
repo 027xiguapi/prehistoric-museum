@@ -14,6 +14,7 @@
 //   node --import tsx scripts/generate-animal-backgrounds.ts <slug...>
 //   node --import tsx scripts/generate-animal-backgrounds.ts --all [--force]
 //   node --import tsx scripts/generate-animal-backgrounds.ts --atmosphere=forest
+//   node --import tsx scripts/generate-animal-backgrounds.ts --from-file=scripts/background-batch.json
 //   node --import tsx scripts/generate-animal-backgrounds.ts --dry-run <slug...>
 //
 // Required credential (one of):
@@ -102,6 +103,28 @@ const ATMOSPHERE_PROMPTS: Record<
 }
 
 const ATMOSPHERE_KINDS = new Set<string>(Object.keys(ATMOSPHERE_PROMPTS))
+
+// Batch manifests may be a JSON array of slugs or free-form text with one slug
+// per line (quotes, trailing commas and `#` comments tolerated). Slugs are
+// trimmed, so pasted JSON with spaces inside the array parses cleanly.
+function readSlugFile(relativePath: string): string[] {
+  const raw = readFileSync(resolve(repositoryRoot, relativePath), 'utf8')
+  try {
+    const parsed: unknown = JSON.parse(raw)
+    if (Array.isArray(parsed)) {
+      return parsed
+        .filter((entry): entry is string => typeof entry === 'string')
+        .map((slug) => slug.trim())
+        .filter(Boolean)
+    }
+  } catch {
+    // Fall through to the line-based format.
+  }
+  return raw
+    .split(/\r?\n/)
+    .map((line) => line.replace(/#.*$/, '').replace(/[",[\]]/g, '').trim())
+    .filter(Boolean)
+}
 
 type EraWord = 'prehistoric' | 'natural'
 
@@ -357,7 +380,20 @@ async function main(): Promise<void> {
   const generateAll = args.includes('--all')
   const force = args.includes('--force')
   const dryRun = args.includes('--dry-run')
-  const requestedSlugs = args.filter((argument) => !argument.startsWith('--'))
+  const fromFileFlag = args.find((argument) =>
+    argument.startsWith('--from-file=')
+  )
+  const fileSlugs = fromFileFlag
+    ? readSlugFile(fromFileFlag.slice('--from-file='.length))
+    : []
+  if (fromFileFlag && fileSlugs.length === 0) {
+    throw new Error(`批处理文件里没有读到任何 slug: ${fromFileFlag.slice('--from-file='.length)}`)
+  }
+  const requestedSlugs = [
+    ...new Set(
+      args.filter((argument) => !argument.startsWith('--')).concat(fileSlugs),
+    ),
+  ]
   const atmosphereFlag = args.find((argument) =>
     argument.startsWith('--atmosphere=')
   )
@@ -401,7 +437,11 @@ async function main(): Promise<void> {
     console.log('未指定动物，未生成任何图片。')
     console.log(
       missingIds.length > 0
-        ? `缺少背景的动物: ${missingIds.join(', ')}\n用 --all 生成全部，或传入具体 slug（--dry-run 只预览提示词）。`
+        ? `缺少背景的动物: ${missingIds.join(', ')}\n` +
+            '提示：npm run 需要用 “--” 分隔才会把参数传给脚本，例如：\n' +
+            '  npm run generate:backgrounds -- --from-file=scripts/background-batch.json\n' +
+            '  npm run generate:backgrounds -- --all\n' +
+            '  npm run generate:backgrounds -- --dry-run <animal-id>'
         : '所有动物都已有背景。',
     )
     return

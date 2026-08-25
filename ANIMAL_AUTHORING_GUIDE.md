@@ -130,6 +130,34 @@ Landscape and portrait backgrounds are separate compositions, not runtime
 crops. Keep the central model area quiet and do not bake animals, text, UI,
 logos, or watermarks into the scene.
 
+Drafts may temporarily borrow a published animal's backdrop
+(`backgroundDonorByAtmosphere` in the draft package generators); replace the
+borrowed pair with the animal's own scene before promotion. New backgrounds
+can be generated through the museum's image endpoint (defaults to
+`gpt-image-2` via `https://pai.zaiduyu.top/api/openai/v1`; the session cookie
+is read from `IMAGE_API_COOKIE` in `.env`). Each prompt automatically tells
+the image model which exhibit animal the backdrop is staged for — name,
+classification, era and native range come from the package content — and asks
+for an animal-free stage that suits that species' habitat:
+
+```sh
+# Preview the per-animal prompts without spending a generation:
+npm run generate:backgrounds -- --dry-run <animal-id>
+
+# Generate the pair (skips animals that already have both files; --force overwrites):
+npm run generate:backgrounds -- <animal-id>
+npm run generate:backgrounds -- --all
+npm run generate:backgrounds -- --atmosphere=forest
+# Or drive a curated batch from a slug list (JSON array or one slug per line):
+npm run generate:backgrounds -- --from-file=scripts/background-batch.json
+```
+
+The script writes `backgrounds/landscape.webp` (1672×941), 
+`backgrounds/portrait.webp` (941×1672), and a
+`backgrounds/background-generation.txt` record of the model, endpoint and both
+prompts for provenance. Keep the landscape+portrait pair under the 2 MiB
+ceiling (1.2 MiB target) checked by `npm run validate:content`.
+
 Capture the poster from the accepted runtime presentation, then derive a
 readable square thumbnail. Current ceilings are:
 
