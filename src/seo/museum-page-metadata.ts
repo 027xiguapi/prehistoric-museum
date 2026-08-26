@@ -28,7 +28,6 @@ export function museumPageMetadata(locale: Locale): Metadata {
     },
     openGraph: {
       type: 'website',
-      siteName: copy.brand,
       locale: ogLocale,
       alternateLocale: ogAlternate,
       title: copy.title,

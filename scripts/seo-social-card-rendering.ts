@@ -107,7 +107,6 @@ export function renderSocialCard(
   <g fill="#315f53" opacity=".7"><path d="M920 430c65-90 153-100 222-34-52 1-77 24-84 70-42-46-85-57-138-36Z"/><path d="M827 494c53-64 119-63 166-7-40-5-62 11-73 46-28-38-58-51-93-39Z"/></g>
   <g filter="url(#shadow)">
     <rect x="72" y="70" width="860" height="490" rx="44" fill="#fff" opacity=".84"/>
-    <text x="125" y="145" fill="#51766b" font-family="${fontFamily}" font-size="28" font-weight="700">${escapeHtml(copy.brand)}</text>
     <text fill="#20382f" font-family="${fontFamily}" font-size="${titleFontSize}" font-weight="700">${titleMarkup}</text>
     <text x="125" y="382" fill="#355b50" font-family="${fontFamily}" font-size="31" font-weight="600">${escapeHtml(subtitle)}</text>
     <g transform="translate(125 420)" fill="#d6724d"><circle cx="33" cy="33" r="33"/><circle cx="111" cy="33" r="33"/><circle cx="189" cy="33" r="33"/></g>

@@ -5,7 +5,7 @@ animalName: Python
 atmosphere: forest
 model: gpt-image-2
 endpoint: https://pai.zaiduyu.top/api/openai/v1/images/generations
-generatedAt: 2026-08-26T00:56:34.764Z
+generatedAt: 2026-08-26T01:45:21.758Z
 
 Landscape prompt:
 This background is the empty stage backdrop behind a museum exhibit of Python (Python snake; era: Present day (python family around 50 million years old); native to Africa; Asia; Australia). Compose the scenery to suit this animal's real habitat and era; the animal itself is added later as a separate 3D model, so the scene must stay free of any creatures. Wide 16:9 natural forest scene: towering ferns, cycads and conifers, soft dappled sunlight through the canopy, mossy ground, faint distant mist. Soft natural lighting, gentle depth of field, muted painterly natural-history museum diorama. No animals, no people, no text, no logos, no watermarks. Keep the center of the frame calm and uncluttered.
