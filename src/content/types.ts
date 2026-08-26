@@ -17,8 +17,8 @@ export type AtmosphereKind =
   | 'plains'
   | 'underwater'
 export type Diet = 'herbivore' | 'carnivore' | 'omnivore' | 'unknown'
-/** Interface locales. Animal packages only ship zh-CN/en content today; */
-export type Locale = 'zh-CN' | 'zh-TW' | 'en'
+/** Interface locales. Animal packages only ship zh-CN/en content today. */
+export type Locale = 'zh-CN' | 'zh-TW' | 'ja' | 'en'
 /**
  * Locales with first-party animal packages. Traditional Chinese reuses the
  * zh-CN package content at runtime until per-animal zh-TW copy exists.

@@ -50,8 +50,14 @@ function resolveAnimalDetail(
   }
 
   // Packages only carry zh-CN/en content; Traditional Chinese falls back to
-  // the zh-CN copy, mirroring the client-side runtime fallback.
-  const contentLocale = params.locale === 'zh-TW' ? 'zh-CN' : params.locale
+  // the zh-CN copy and Japanese to the English copy, mirroring the runtime
+  // fallback.
+  const contentLocale =
+    params.locale === 'zh-TW'
+      ? 'zh-CN'
+      : params.locale === 'ja'
+        ? 'en'
+        : params.locale
   const content =
     animal.content[contentLocale] ??
     (animal.status === 'draft' ? animal.content['zh-CN'] : undefined)
@@ -93,6 +99,7 @@ export async function generateMetadata({
       languages: {
         'zh-CN': animalCanonicalUrl('zh-CN', animal.id),
         'zh-TW': animalCanonicalUrl('zh-TW', animal.id),
+        ja: animalCanonicalUrl('ja', animal.id),
         en: animalCanonicalUrl('en', animal.id),
       },
     },

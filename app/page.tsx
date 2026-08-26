@@ -55,6 +55,10 @@ const LOCALE_REDIRECT = `(function () {
       locale = 'zh-CN'
       break
     }
+    if (lang === 'ja' || lang.indexOf('ja-') === 0) {
+      locale = 'ja'
+      break
+    }
     if (lang === 'en' || lang.indexOf('en-') === 0) {
       locale = 'en'
       break

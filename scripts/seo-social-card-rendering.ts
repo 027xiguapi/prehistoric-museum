@@ -83,17 +83,21 @@ export function renderSocialCard(
       ? `和孩子一起探索 ${catalogueAnimalCount} 位史前动物朋友`
       : locale === 'zh-TW'
         ? `和孩子一起探索 ${catalogueAnimalCount} 位史前動物朋友`
-        : locale === 'en'
-          ? `Meet ${catalogueAnimalCount} prehistoric animals in 3D`
-          : 'A bilingual 3D family museum · 双语亲子 3D 博物馆'
+        : locale === 'ja'
+          ? `お子さまと一緒に ${catalogueAnimalCount} 体の先史時代の動物を 3D で探索`
+          : locale === 'en'
+            ? `Meet ${catalogueAnimalCount} prehistoric animals in 3D`
+            : 'A bilingual 3D family museum · 双语亲子 3D 博物馆'
   const galleryLabel =
     locale === 'zh-TW'
       ? '陸地 · 天空 · 水中'
       : locale === 'zh-CN'
         ? '陆地 · 天空 · 水中'
-        : locale === 'en'
-          ? 'Land · Sky · Sea'
-          : 'Land · Sky · Sea | 陆地 · 天空 · 水中'
+        : locale === 'ja'
+          ? '陸 · 空 · 海'
+          : locale === 'en'
+            ? 'Land · Sky · Sea'
+            : 'Land · Sky · Sea | 陆地 · 天空 · 水中'
   const fontFamily = embedFonts
     ? 'Museum Latin, Museum Chinese'
     : 'ui-rounded, system-ui, sans-serif'
@@ -130,7 +134,7 @@ export async function renderSocialCardPng(
 
 export function createSeoSocialCardManifest(): SeoSocialCardManifest {
   const cards = Object.fromEntries(
-    (['x-default', 'zh-CN', 'zh-TW', 'en'] as const).map((locale) => [
+    (['x-default', 'zh-CN', 'zh-TW', 'ja', 'en'] as const).map((locale) => [
       locale,
       {
         fileName: seoPageCopy[locale].socialImageFileName.replace('social/', ''),

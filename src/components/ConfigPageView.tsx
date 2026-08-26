@@ -26,6 +26,7 @@ const languageChoices: readonly LocalePreference[] = [
   'system',
   'zh-CN',
   'zh-TW',
+  'ja',
   'en',
 ]
 
@@ -33,6 +34,8 @@ const ZH_FONT_STACK =
   '"Noto Sans SC Variable", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif'
 const ZH_TW_FONT_STACK =
   '"Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Noto Sans SC Variable", system-ui, sans-serif'
+const JA_FONT_STACK =
+  '"Noto Sans JP Variable", "Noto Sans JP", "Hiragino Sans", "Yu Gothic UI", system-ui, sans-serif'
 const EN_FONT_STACK =
   '"Nunito Variable", "Avenir Next", Avenir, system-ui, sans-serif'
 
@@ -129,7 +132,9 @@ function SystemLanguageLabel() {
       ? messages.language.chinese
       : resolved === 'zh-TW'
         ? messages.language.traditionalChinese
-        : messages.language.english
+        : resolved === 'ja'
+          ? messages.language.japanese
+          : messages.language.english
   const fullLabel = messages.language.systemResolved(resolvedLabel)
   const resolvedLabelStart = fullLabel.indexOf(resolvedLabel)
   return (
@@ -143,7 +148,9 @@ function SystemLanguageLabel() {
               ? ZH_FONT_STACK
               : resolved === 'zh-TW'
                 ? ZH_TW_FONT_STACK
-                : EN_FONT_STACK,
+                : resolved === 'ja'
+                  ? JA_FONT_STACK
+                  : EN_FONT_STACK,
         }}
       >
         {resolvedLabel}
@@ -171,14 +178,18 @@ function LanguageChoiceLabel({
             ? ZH_FONT_STACK
             : choice === 'zh-TW'
               ? ZH_TW_FONT_STACK
-              : EN_FONT_STACK,
+              : choice === 'ja'
+                ? JA_FONT_STACK
+                : EN_FONT_STACK,
       }}
     >
       {choice === 'zh-CN'
         ? messages.language.chinese
         : choice === 'zh-TW'
           ? messages.language.traditionalChinese
-          : messages.language.english}
+          : choice === 'ja'
+            ? messages.language.japanese
+            : messages.language.english}
     </span>
   )
 }

@@ -32,7 +32,7 @@ export function museumExhibitHref(): string {
  */
 export function zoneEntryHref(locale: Locale): string {
   const localized = window.location.pathname.match(
-    /^(.*\/)(?:zh-CN|zh-TW|en)(?:\/|$)/,
+    /^(.*\/)(?:zh-CN|zh-TW|ja|en)(?:\/|$)/,
   )
   const prefix = localized
     ? localized[1]
@@ -42,7 +42,7 @@ export function zoneEntryHref(locale: Locale): string {
 
 export function animalDetailIdFromPath(pathname: string): string | null {
   const match = pathname.match(
-    /(?:^|\/)(?:zh-CN|zh-TW|en)\/animal\/([a-z0-9]+(?:-[a-z0-9]+)*)(?:\/|$)/,
+    /(?:^|\/)(?:zh-CN|zh-TW|ja|en)\/animal\/([a-z0-9]+(?:-[a-z0-9]+)*)(?:\/|$)/,
   )
   return match?.[1] && animalIdPattern.test(match[1]) ? match[1] : null
 }
@@ -51,7 +51,7 @@ export function replaceAnimalUrl(animalId: string, locale: Locale): void {
   const url = new URL(window.location.href)
   // `/{prefix}/{locale}/animal/{animalId}/` — the prefix keeps any configured
   // basePath intact; a locale-less root path gets the locale inserted.
-  const localized = url.pathname.match(/^(.*\/)(?:zh-CN|zh-TW|en)(?:\/|$)/)
+  const localized = url.pathname.match(/^(.*\/)(?:zh-CN|zh-TW|ja|en)(?:\/|$)/)
   const prefix = localized ? localized[1] : url.pathname.replace(/[^/]*$/, '')
   url.pathname = `${prefix}${locale}/animal/${animalId}/`
   url.searchParams.delete('animal')

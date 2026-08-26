@@ -128,6 +128,57 @@ const zhTW: TechnicalSupportContent = {
   ],
 }
 
+const ja: TechnicalSupportContent = {
+  title: 'テクニカルサポート',
+  summary:
+    'お困りですか？よくある質問と必要な環境をご確認いただくか、直接お問い合わせください。',
+  contactLabel: 'お問い合わせ',
+  contactIntro:
+    'それでも解決しない場合は、端末の機種名・OS のバージョン・問題の内容を添えて下記のアドレスまでメールをお送りください。できるだけ早くご返信します。',
+  contactEmail: SUPPORT_EMAIL,
+  sections: [
+    {
+      title: 'よくある質問',
+      paragraphs: [],
+      questions: [
+        {
+          question: 'AR が開かない、またはカメラが使えない',
+          answer:
+            'AR にはカメラの許可が必要です。システム設定で WonZoo のカメラを許可してからもう一度お試しください。AR にはカメラと WebGL の両方に対応した端末も必要です。',
+        },
+        {
+          question: '3D モデルの読み込みが遅い、または失敗する',
+          answer:
+            '動物モデルの初回ダウンロードは通信量を使うため、Wi-Fi 環境での読み込みをおすすめします。失敗した場合は動物のカードをタップして再試行できます。',
+        },
+        {
+          question: 'ナレーションが聞こえない',
+          answer:
+            'ナレーションは自動では再生されません。「聞く」ボタンをタップし、端末がマナーモードになっていないかご確認ください。',
+        },
+        {
+          question: '言語を変更するには？',
+          answer:
+            '「設定」→「言語」で、簡体中文・繁體中文・日本語・English のいずれかを選ぶか、システム言語に従うことができます。',
+        },
+        {
+          question: '画面がカクつく、または端末が熱くなる',
+          answer:
+            '他のバックグラウンドアプリを閉じるか、画面の明るさを下げてお試しください。長時間の AR 使用時に端末が少し温かくなるのは正常です。',
+        },
+      ],
+    },
+    {
+      title: '必要な環境',
+      paragraphs: [
+        'WonZoo は比較的新しい iOS / Android 端末に対応しています。ウェブ版は WebGL に対応したモダンブラウザが必要です。',
+        'AR にはカメラを搭載した端末が必要で、安全な（HTTPS）ページからアクセスします。',
+        '快適にご利用いただくため、OS は新しいバージョンに保つことをおすすめします。',
+      ],
+    },
+  ],
+}
+
 const en: TechnicalSupportContent = {
   title: 'Technical Support',
   summary:
@@ -187,6 +238,8 @@ export function technicalSupportFor(
       return zhCN
     case 'zh-TW':
       return zhTW
+    case 'ja':
+      return ja
     default:
       return en
   }

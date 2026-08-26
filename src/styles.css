@@ -4605,6 +4605,12 @@ html[data-locale="zh-TW"] {
     "Microsoft JhengHei", system-ui, sans-serif;
 }
 
+html[data-locale="ja"] {
+  font-family:
+    "Noto Sans JP Variable", "Noto Sans JP", "Hiragino Sans",
+    "Yu Gothic UI", system-ui, sans-serif;
+}
+
 html[data-locale="en"] {
   font-family:
     "Nunito Variable", "Avenir Next", Avenir, system-ui, sans-serif;

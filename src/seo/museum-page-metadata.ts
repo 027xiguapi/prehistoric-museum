@@ -16,7 +16,9 @@ export function museumPageMetadata(locale: Locale): Metadata {
       ? 'zh_TW'
       : locale === 'zh-CN'
         ? 'zh_CN'
-        : 'en_GB'
+        : locale === 'ja'
+          ? 'ja_JP'
+          : 'en_GB'
   const ogAlternate = locale === 'en' ? 'zh_CN' : 'en_GB'
 
   return {
@@ -28,6 +30,7 @@ export function museumPageMetadata(locale: Locale): Metadata {
       languages: {
         'zh-CN': museumCanonicalUrl('zh-CN'),
         'zh-TW': museumCanonicalUrl('zh-TW'),
+        ja: museumCanonicalUrl('ja'),
         en: museumCanonicalUrl('en'),
         'x-default': museumCanonicalUrl('x-default'),
       },

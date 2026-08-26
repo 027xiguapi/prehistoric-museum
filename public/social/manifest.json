@@ -15,6 +15,10 @@
       "fileName": "museum.zh-TW.png",
       "sourceSha256": "948aff01629a34e4413d661735d962d408a3d3170cce9921ec8ba01170473198"
     },
+    "ja": {
+      "fileName": "museum.ja.png",
+      "sourceSha256": "ef363e902361809b78734875b6ae2bb52b631af5d21e1a6911a98c8e4f143def"
+    },
     "en": {
       "fileName": "museum.en.png",
       "sourceSha256": "b8e7e73f9d39659785fe747f9458595a19090cbac58f893c93fab4bd121b9e7d"

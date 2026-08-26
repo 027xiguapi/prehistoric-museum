@@ -14,7 +14,7 @@ const manifest = createSeoSocialCardManifest()
 
 // librsvg/Pango share a process-wide font cache. Render in a fixed sequence so
 // two cards cannot race while registering the embedded project fonts.
-for (const locale of ['x-default', 'zh-CN', 'zh-TW', 'en'] as const) {
+for (const locale of ['x-default', 'zh-CN', 'zh-TW', 'ja', 'en'] as const) {
   const { fileName } = manifest.cards[locale]
   const outputPath = resolve(outputDirectory, fileName)
   await mkdir(dirname(outputPath), { recursive: true })

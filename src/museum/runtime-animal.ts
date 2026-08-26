@@ -94,8 +94,10 @@ function narrationUrlFor(
   locale: Locale,
 ): string | null {
   // Animal packages ship zh-CN/en tracks only; Traditional Chinese reuses
-  // the Mandarin narration until a dedicated track exists.
-  const contentLocale = locale === 'zh-TW' ? 'zh-CN' : locale
+  // the Mandarin narration and Japanese reuses the English narration until
+  // dedicated tracks exist.
+  const contentLocale =
+    locale === 'zh-TW' ? 'zh-CN' : locale === 'ja' ? 'en' : locale
   const narration = animal.assets.narration as unknown
   if (!narration || typeof narration !== 'object') {
     return null
@@ -130,8 +132,9 @@ export function toRuntimeAnimal(
   locale: Locale,
 ): RuntimeAnimal {
   // Packages only carry zh-CN/en content; Traditional Chinese falls back to
-  // the zh-CN copy until per-animal translations exist.
-  const contentLocale = locale === 'zh-TW' ? 'zh-CN' : locale
+  // the zh-CN copy and Japanese to the English copy until translations exist.
+  const contentLocale =
+    locale === 'zh-TW' ? 'zh-CN' : locale === 'ja' ? 'en' : locale
   const content =
     animal.content[contentLocale] ??
     (animal.status === 'draft' ? animal.content['zh-CN'] : undefined)

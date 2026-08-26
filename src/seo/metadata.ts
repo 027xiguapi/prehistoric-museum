@@ -14,6 +14,7 @@ export interface SeoCatalogueEntry {
   readonly habitat: Habitat
   readonly zhCN: string
   readonly zhTW: string
+  readonly ja: string
   readonly en: string
 }
 
@@ -21,6 +22,7 @@ export interface SeoCatalogueGroup {
   readonly habitat: Habitat
   readonly zhCN: string
   readonly zhTW: string
+  readonly ja: string
   readonly en: string
   readonly animals: readonly SeoCatalogueEntry[]
 }
@@ -45,21 +47,24 @@ const catalogueGroupCopy = {
   land: {
     zhCN: '陆地展厅',
     zhTW: '陸地展廳',
+    ja: '陸のギャラリー',
     en: 'Land gallery',
   },
   air: {
     zhCN: '天空展厅',
     zhTW: '天空展廳',
+    ja: '空のギャラリー',
     en: 'Sky gallery',
   },
   water: {
     zhCN: '水中展厅',
     zhTW: '水中展廳',
+    ja: '海のギャラリー',
     en: 'Sea gallery',
   },
 } as const satisfies Record<
   Habitat,
-  Pick<SeoCatalogueGroup, 'zhCN' | 'zhTW' | 'en'>
+  Pick<SeoCatalogueGroup, 'zhCN' | 'zhTW' | 'ja' | 'en'>
 >
 
 const catalogueHabitatOrder = ['land', 'air', 'water'] as const satisfies
@@ -68,9 +73,10 @@ const catalogueHabitatOrder = ['land', 'air', 'water'] as const satisfies
 const catalogueAnimals: readonly SeoCatalogueEntry[] = mainAnimals.map(
   (animal) => {
     const zhCN = animal.content['zh-CN'].name.trim()
-    // No per-animal Traditional copy exists yet; the zh-TW catalogue reuses
-    // the zh-CN public name until translations land.
+    // No per-animal Traditional/Japanese copy exists yet; the zh-TW catalogue
+    // reuses the zh-CN public name and the ja catalogue the English name.
     const zhTW = animal.content['zh-CN'].name.trim()
+    const ja = animal.content.en.name.trim()
     const en = animal.content.en.name.trim()
     if (!zhCN || !en) {
       throw new Error(
@@ -82,6 +88,7 @@ const catalogueAnimals: readonly SeoCatalogueEntry[] = mainAnimals.map(
       habitat: animal.habitat,
       zhCN,
       zhTW,
+      ja,
       en,
     }
   },
@@ -103,7 +110,7 @@ export const seoPageCopy = {
     locale: 'x-default',
     htmlLang: 'en',
     title: 'WonZoo',
-    description: `Choose Simplified Chinese, Traditional Chinese or English for a family-friendly 3D museum featuring ${catalogueAnimalCount} prehistoric animals. 選擇簡體中文、繁體中文或 English，和孩子一起探索 ${catalogueAnimalCount} 位史前動物朋友。`,
+    description: `Choose Simplified Chinese, Traditional Chinese, Japanese or English for a family-friendly 3D museum featuring ${catalogueAnimalCount} prehistoric animals. 選擇簡體中文、繁體中文、日本語或 English，和孩子一起探索 ${catalogueAnimalCount} 位史前動物朋友。`,
     heading: 'WonZoo',
     introduction:
       'A gentle 3D museum for children aged 2–6 and the grown-ups exploring with them. 一个为 2–6 岁孩子和陪伴探索的家长准备的 3D WonZoo。',
@@ -143,6 +150,21 @@ export const seoPageCopy = {
     systemLanguageLabel: '跟隨系統',
     socialImageFileName: 'social/museum.zh-TW.png',
     socialImageAlt: 'WonZoo親子 3D 展館',
+  },
+  ja: {
+    locale: 'ja',
+    htmlLang: 'ja',
+    title: 'WonZoo | 親子向け 3D 動物図鑑',
+    description: `お子さまと一緒に 3D WonZoo で、陸・空・海の ${catalogueAnimalCount} 体の先史時代の仲間たちを観察しましょう。`,
+    heading: 'WonZoo',
+    introduction:
+      '2～6 歳のお子さまと保護者のための 3D WonZoo です。モデルを回し、観察ガイドを聞き、保護者向けの解説を開いて一緒に深く知ることができます。',
+    privacy: `陸・空・海の ${catalogueAnimalCount} 体の先史時代の動物を収蔵。アカウント不要で広告やページ解析もなく、音声はタップしたときだけ再生されます。`,
+    catalogueHeading: 'ミュージアム収蔵品',
+    languageLabel: '言語を選ぶ',
+    systemLanguageLabel: 'システムに従う',
+    socialImageFileName: 'social/museum.ja.png',
+    socialImageAlt: 'WonZoo 親子向け 3D ミュージアム',
   },
   en: {
     locale: 'en',
@@ -185,10 +207,12 @@ export function animalSocialImageUrl(animalId: string): string {
 export const seoSitemapUrls: readonly string[] = [
   museumCanonicalUrl('zh-CN'),
   museumCanonicalUrl('zh-TW'),
+  museumCanonicalUrl('ja'),
   museumCanonicalUrl('en'),
   ...staticAnimalDetailIds.flatMap((animalId) => [
     animalCanonicalUrl('zh-CN', animalId),
     animalCanonicalUrl('zh-TW', animalId),
+    animalCanonicalUrl('ja', animalId),
     animalCanonicalUrl('en', animalId),
   ]),
 ]
@@ -214,9 +238,11 @@ export function animalDetailSeo(
     }
   },
 ): AnimalDetailSeo {
-  // Point the hreflang alternate at the zh-CN page: its content is the
-  // source the Traditional Chinese page falls back to.
-  const otherLocale: Locale = locale === 'en' ? 'zh-CN' : 'en'
+  // Point the hreflang alternate at the page whose content this locale falls
+  // back to: zh-TW reuses zh-CN, ja reuses en, and en/zh-CN point at the
+  // other source language.
+  const otherLocale: Locale =
+    locale === 'en' || locale === 'zh-TW' ? 'zh-CN' : 'en'
   const description = animalSeoDescription(animal.content.narrationSentences)
   const title = `${animal.content.name} | WonZoo`
   const canonical = animalCanonicalUrl(locale, animal.id)

@@ -104,9 +104,11 @@ const zhCN = {
     systemResolved: (language: string) => `跟随系统（当前：${language}）`,
     chinese: '简体中文',
     traditionalChinese: '繁體中文',
+    japanese: '日本語',
     english: 'English',
     chineseShort: '中',
     traditionalChineseShort: '繁',
+    japaneseShort: '日',
     englishShort: 'EN',
   },
   viewer: {
@@ -375,9 +377,11 @@ const zhTW: MuseumMessages = {
     systemResolved: (language: string) => `跟隨系統（目前：${language}）`,
     chinese: '簡體中文',
     traditionalChinese: '繁體中文',
+    japanese: '日本語',
     english: 'English',
     chineseShort: '简',
     traditionalChineseShort: '繁',
+    japaneseShort: '日',
     englishShort: 'EN',
   },
   viewer: {
@@ -528,6 +532,273 @@ const zhTW: MuseumMessages = {
   },
 }
 
+// Japanese shares the zh-CN copy structure; animal names and narration still
+// come from the en content packages (no per-animal Japanese translations
+// exist yet), so the ja interface falls back to English animal content.
+const ja: MuseumMessages = {
+  museumName: 'WonZoo',
+  creatorBrand: 'Leon Made This',
+  todayMeet: 'きょうのなかま',
+  localReview: 'ローカルレビュー',
+  documentTitle: 'WonZoo | 親子で楽しむ 3D 恐竜・動物図鑑',
+  seo: {
+    description: (count: number) =>
+      `お子さまと一緒に 3D WonZoo で、陸・空・海の ${count} 体の先史時代の仲間たちを観察しましょう。`,
+    socialImageAlt: 'WonZoo 親子向け 3D ミュージアム',
+  },
+  stageLabel: (animal: string) => `${animal}の展示ステージ`,
+  navigationLabel: '動物を選ぶ',
+  reviewNavigationLabel: 'ローカルレビュー用の動物を選ぶ',
+  previousAnimal: '前の動物',
+  nextAnimal: '次の動物',
+  viewAnimal: (animal: string, review = '', failed = false) =>
+    `${animal}を見る${review ? `、ローカルレビュー、${review}` : ''}${
+      failed ? '、読み込みに失敗しました。タップして再試行' : ''
+    }`,
+  narration: {
+    listen: '紹介を聞く',
+    pause: '紹介を一時停止',
+    unavailable: '紹介を準備中です',
+    listenShort: '聞く',
+    pauseShort: '一時停止',
+    unavailableShort: '音声はまだありません',
+    playing: (animal: string) => `${animal}の紹介を再生中です。`,
+    paused: (animal: string) => `${animal}の紹介を一時停止しました。`,
+  },
+  parentInfo: '保護者向けガイド',
+  parentInfoShort: '保護者ガイド',
+  openCollection: '全コレクション図鑑を開く',
+  returnToMuseum: '戻って全コレクション図鑑を開く',
+  returnToMuseumShort: '戻る',
+  returnToCategory: 'カテゴリーページに戻る',
+  returnToCategoryShort: 'カテゴリーに戻る',
+  collectionShort: '全館',
+  resetView: '初期表示に戻す',
+  resetDone: '初期表示に戻しました。',
+  storyCollapse: '紹介を閉じる',
+  storyExpand: '紹介を開く',
+  focusView: 'モデルに集中する',
+  focusEntered:
+    'モデル集中モードです。画面をタップするか Escape キーで戻ります。',
+  focusReturnHint: '画面をタップすると戻ります',
+  exitFocus: 'モデル集中モードを終了',
+  focusExited: 'ミュージアム全体の表示に戻りました。',
+  care: {
+    feed: 'ごはんをあげる',
+    bathe: 'お風呂に入れる',
+    play: 'ボールで遊ぶ',
+    walk: 'お散歩する',
+    shake: '首を振る',
+    walked: (animal: string) => `${animal}が小さな足でトコトコ歩いてきた！`,
+    shook: (animal: string) => `${animal}が首を振りました。`,
+    fedMeat: (animal: string) => `${animal}がお肉をもりもり食べた！おいしそう！`,
+    fedLeaves: (animal: string) => `${animal}が葉っぱをシャクシャク食べた！`,
+    refused: (animal: string) => `${animal}が首を振った。これは好きじゃないみたい。`,
+    feedPrompt: '何を食べるかな？お椀を選んでみよう！',
+    closePicker: 'えさ選びを閉じる',
+    bowlLeaf: '葉っぱのお椀',
+    bowlMeat: 'お肉のお椀',
+    bathed: (animal: string) => `${animal}がピカピカになった！泡がきらきら！`,
+    played: (animal: string) => `${animal}とボール遊び。うれしそうに蹴り返してきた！`,
+  },
+  notFound: {
+    code: '404',
+    title: 'ページが見つかりません',
+    body: 'この見学ルートは今は通れません。展示はまだ準備中かもしれません。',
+    return: '戻る',
+  },
+  loading: {
+    preparingExhibit: '新しい動物の展示を準備しています。',
+    retryingExhibit: '展示を準備し直しています。',
+    initialExhibit: (animal: string) => `${animal}の展示を準備しています。`,
+    opening: '開いています…',
+    inviting: '呼び出しています…',
+    downloading: (percent: number) => `ダウンロード中 · ${percent}%`,
+    retry: 'タップしてもう一度',
+    failed: '今は準備ができていません。もう一度タップしてみてください。',
+    arrived: (animal: string) => `${animal}が展示ステージに来ました。`,
+    failedRetry: (animal: string) =>
+      `${animal}は今は準備ができていません。カードをタップして再試行できます。`,
+    backgroundPending: (animal: string) =>
+      `${animal}の背景をまだ準備中です。前の画面を表示しています。`,
+    unknownAnimal: 'この動物',
+  },
+  dataNotice: {
+    dismissLabel: 'モデルの通信量のお知らせを閉じる',
+    dismiss: 'わかりました',
+    wifi: '3D 動物は通信量を使います。Wi-Fi 接続だとよりスムーズに観覧できます。',
+    largeModel: (animal: string, size: string) =>
+      `${animal}の 3D モデルは約 ${size} です。初回ダウンロードは大きめなので、読み込みに少し時間がかかることがあります。`,
+  },
+  viewerFallbackAnnouncement: (animal: string) =>
+    `3D 展示が利用できないため、${animal}の静止画像を表示しています。`,
+  language: {
+    buttonLabel: '言語を切り替え、現在日本語',
+    menuLabel: '表示言語を選ぶ',
+    system: 'システムに従う',
+    systemResolved: (language: string) => `システムに従う（現在：${language}）`,
+    chinese: '簡体中文',
+    traditionalChinese: '繁體中文',
+    japanese: '日本語',
+    english: 'English',
+    chineseShort: '中',
+    traditionalChineseShort: '繁',
+    japaneseShort: '日',
+    englishShort: 'EN',
+  },
+  viewer: {
+    modelLabel: (animal: string) =>
+      `${animal}の 3D モデル。ドラッグで回転、スクロールまたはピンチで拡大縮小`,
+    webglUnavailable: 'このブラウザでは今 3D モデルを表示できません。',
+    contextLost: '3D 描画環境が一時的に利用できません。',
+    stillAlt: (animal: string) => `透明背景の${animal}の静止画像`,
+    preparing: '3D モデルを開いています…',
+    downloading: '3D モデルをダウンロード中…',
+    downloadingPercent: (percent: number) =>
+      `3D モデルをダウンロード中 · ${percent}%`,
+    checkingCache: '3D モデルを探しています…',
+    invitingFirst: '最初のお友達を呼んでいます……',
+    progressLabel: '3D モデルの読み込み進捗',
+    gestureHint: 'ドラッグで回転、スクロールまたはピンチで拡大縮小',
+    fallbackTitle: '今日は静止画像で見てみよう',
+    retry: 'モデルを再読み込み',
+  },
+  zoneSelect: {
+    title: '今日は誰に会いに行く？',
+    subtitle: 'ゾーンを選んでね。動物のお友達が待っているよ。',
+    enter: (zone: string) => `${zone}ゾーンに入る`,
+    enterShort: '入る',
+    friends: (count: number) => `${count} 人のお友達`,
+    backToZones: 'ゾーン選択に戻る',
+    backToZonesShort: 'ゾーン',
+  },
+  zones: {
+    dinosaur: {
+      name: '恐竜',
+      tagline: '大地の王者と、空を飛ぶ翼竜の仲間たち',
+    },
+    plains: {
+      name: '草原',
+      tagline: '広い草原に群れの大きな動物たちが暮らす',
+    },
+    forest: {
+      name: '森',
+      tagline: '深い森に大きな足あとが隠れている',
+    },
+    ice: {
+      name: '氷河',
+      tagline: 'ひんやり冷たい氷の世界',
+    },
+    ocean: {
+      name: '海',
+      tagline: '海に潜って、巨獣と一緒に泳ごう',
+    },
+    insect: {
+      name: '昆虫',
+      tagline: '小さな体に大きな秘密が隠れている',
+    },
+    sky: {
+      name: '空',
+      tagline: '青空へ飛び立ち、鳥や翼竜と一緒に舞い上がろう',
+    },
+  },
+  collection: {
+    friends: (count: number) => `${count} 人の先史時代のお友達`,
+    zoneFriends: (count: number, zoneName: string) =>
+      `${count} 人の${zoneName}のお友達`,
+    title: '全コレクション図鑑',
+    intro: 'お友達を選んで、すぐに 3D 展示へ。',
+    back: '戻る',
+    close: '全コレクション図鑑を閉じる',
+    cardLabel: (animal: string, current: boolean) =>
+      `${current ? '現在の展示、' : ''}${animal}の展示へ`,
+    current: '現在',
+    opening: '開いています',
+    preparing: '準備中',
+    downloading: (percent: number) => `ダウンロード中 ${percent}%`,
+  },
+  modern: {
+    title: '現代の動物のお友達',
+    intro: 'まだ 3D 展示はないけれど、写真でごあいさつしよう。',
+    categories: {
+      grassland: '草原',
+      ocean: '海',
+      sky: '空',
+      forest: '森',
+    },
+    soon: '写真のみ',
+    locked: '3D 展示はまだありません',
+  },
+  config: {
+    title: '設定',
+    intro:
+      '表示言語を変更したり、バージョンを確認したりできます。機能はこれから増えます。',
+    close: '閉じてホームに戻る',
+    languageTitle: '言語',
+    languageHint: '表示に使う言語を選びます。切り替えるとすぐに反映されます。',
+    appearanceTitle: '外観',
+    darkMode: 'ダークモード',
+    appearanceHint: 'ダークテーマは準備中です。ここに場所を確保しています。',
+    accountTitle: 'アカウント',
+    accountAction: 'ログイン',
+    accountHint: 'ログインと同期機能は準備中です。',
+    aboutTitle: 'このアプリについて',
+    versionLabel: 'バージョン',
+    comingSoon: '近日公開',
+    privacyTitle: 'プライバシー',
+    privacyAction: 'プライバシーポリシー',
+    privacyHint: '情報の収集・利用・保護の方法をご確認ください。',
+    supportTitle: 'サポート',
+    supportAction: 'テクニカルサポート',
+    supportHint: 'よくある質問と必要な環境をご確認いただくか、お問い合わせください。',
+  },
+  toolbar: {
+    label: 'ツール',
+    reset: '元に戻す',
+    info: '動物情報',
+    collection: '全コレクション図鑑',
+    height: '動物の身長',
+    weight: '動物の体重',
+    weightUnavailable: '体重データはまだありません',
+  },
+  parent: {
+    eyebrow: '一緒にもっと知る',
+    title: '保護者向けガイド',
+    close: '保護者向けガイドを閉じる',
+    period: '生きた時代',
+    regions: '化石の発見地域',
+    diet: '食べ物',
+    classification: '分類のヒント',
+    narration: 'ナレーションの文字起こし',
+    sources: '参考資料',
+    credits: '3D モデルと素材のクレジット',
+    licensing: 'オープンソースとライセンス',
+    licensingBody:
+      '本プロジェクトのコードは AGPL-3.0、オリジナルの科学解説とビジュアルは CC BY-NC-SA 4.0（非営利共有）です。ブランドは公式のなりすまし防止のみに使用し、第三者素材は元のライセンスに従います。',
+    fullLicensing: 'ライセンスの全文を見る',
+    moreHint: '下にさらに情報があります。',
+    more: '上にスワイプしてもっと見る',
+    joinRegions: (regions: readonly string[]) => regions.join('、'),
+  },
+  ar: {
+    open: 'AR',
+    title: 'AR（拡張現実）',
+    requestingCamera: 'カメラをリクエストしています…',
+    cameraDenied:
+      'カメラの許可がありません。ブラウザ設定で許可してからもう一度お試しください。',
+    unsupported:
+      'この端末では今 AR を利用できません。カメラと WebGL に対応した安全な（HTTPS）ページが必要です。',
+    scanning: 'AR を起動しています…',
+    found: (animal: string) => `${animal}が現れました！`,
+    error: 'AR で問題が起きました。閉じてもう一度お試しください。',
+    close: 'AR を終了',
+    xrSearching: '動物をあなたの前に呼び出しています…',
+    xrPlaced: '現れました！画面をタップして位置を変えられます。右上で終了します。',
+    cameraMode: '2 本指のピンチで拡大縮小、画面をタップすると手前に戻ります。',
+    switchAnimal: '別の動物に替える',
+  },
+}
+
 const en = {
   museumName: 'WonZoo',
   creatorBrand: 'Leon Made This',
@@ -633,9 +904,11 @@ const en = {
     systemResolved: (language) => `Follow system (currently ${language})`,
     chinese: '简体中文',
     traditionalChinese: '繁體中文',
+    japanese: '日本語',
     english: 'English',
     chineseShort: '中',
     traditionalChineseShort: '繁',
+    japaneseShort: '日',
     englishShort: 'EN',
   },
   viewer: {
@@ -795,6 +1068,8 @@ export function messagesFor(locale: Locale): MuseumMessages {
       return zhCN
     case 'zh-TW':
       return zhTW
+    case 'ja':
+      return ja
     default:
       return en
   }
@@ -802,36 +1077,48 @@ export function messagesFor(locale: Locale): MuseumMessages {
 
 export function dietLabel(diet: Diet, locale: Locale): string {
   const labels =
-    locale === 'zh-TW'
+    locale === 'ja'
       ? {
-          herbivore: '植食',
+          herbivore: '草食',
           carnivore: '肉食',
-          omnivore: '雜食',
-          unknown: '尚不確定',
+          omnivore: '雑食',
+          unknown: '未確定',
         }
-      : locale === 'zh-CN'
+      : locale === 'zh-TW'
         ? {
             herbivore: '植食',
             carnivore: '肉食',
-            omnivore: '杂食',
-            unknown: '尚不确定',
+            omnivore: '雜食',
+            unknown: '尚不確定',
           }
-        : {
-            herbivore: 'Plant-eater',
-            carnivore: 'Meat-eater',
-            omnivore: 'Plants and meat',
-            unknown: 'Not yet certain',
-          }
+        : locale === 'zh-CN'
+          ? {
+              herbivore: '植食',
+              carnivore: '肉食',
+              omnivore: '杂食',
+              unknown: '尚不确定',
+            }
+          : {
+              herbivore: 'Plant-eater',
+              carnivore: 'Meat-eater',
+              omnivore: 'Plants and meat',
+              unknown: 'Not yet certain',
+            }
   return labels[diet]
 }
 
 function formatNumber(value: number, locale: Locale): string {
-  return new Intl.NumberFormat(
-    locale === 'zh-TW' ? 'zh-TW' : locale === 'zh-CN' ? 'zh-CN' : 'en-GB',
-    {
-      maximumFractionDigits: 2,
-    },
-  ).format(value)
+  const intlLocale =
+    locale === 'ja'
+      ? 'ja-JP'
+      : locale === 'zh-TW'
+        ? 'zh-TW'
+        : locale === 'zh-CN'
+          ? 'zh-CN'
+          : 'en-GB'
+  return new Intl.NumberFormat(intlLocale, {
+    maximumFractionDigits: 2,
+  }).format(value)
 }
 
 function formatFeet(metres: number): string {
@@ -852,28 +1139,32 @@ export function formatSizeFact(
   const isChinese = locale === 'zh-CN' || locale === 'zh-TW'
   const label =
     size.kind === 'wingspan'
-      ? locale === 'zh-TW'
-        ? '翼展'
-        : locale === 'zh-CN'
+      ? locale === 'ja'
+        ? '翼幅'
+        : isChinese
           ? '翼展'
           : 'Wingspan'
       : size.kind === 'shoulder-height'
-        ? locale === 'zh-TW'
+        ? locale === 'ja'
           ? '肩高'
-          : locale === 'zh-CN'
+          : isChinese
             ? '肩高'
             : 'Shoulder height'
         : size.kind === 'group-range'
-          ? locale === 'zh-TW'
-            ? '類群體型'
-            : locale === 'zh-CN'
-              ? '类群体型'
-              : 'Group size range'
-          : locale === 'zh-TW'
-            ? '體長'
-            : locale === 'zh-CN'
-              ? '体长'
-              : 'Body length'
+          ? locale === 'ja'
+            ? 'グループの大きさ'
+            : locale === 'zh-TW'
+              ? '類群體型'
+              : locale === 'zh-CN'
+                ? '类群体型'
+                : 'Group size range'
+          : locale === 'ja'
+            ? '体長'
+            : locale === 'zh-TW'
+              ? '體長'
+              : locale === 'zh-CN'
+                ? '体长'
+                : 'Body length'
 
   const metric = isChinese ? `${metres} 米（约）` : `${metres} m`
   const imperial = same

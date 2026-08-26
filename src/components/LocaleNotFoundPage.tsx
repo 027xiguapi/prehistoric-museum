@@ -42,7 +42,13 @@ function NotFoundContent() {
   const locale = useNotFoundLocale()
   const copy = messagesFor(locale).notFound
   const home =
-    locale === 'en' ? '/en/' : locale === 'zh-TW' ? '/zh-TW/' : '/zh-CN/'
+    locale === 'en'
+      ? '/en/'
+      : locale === 'zh-TW'
+        ? '/zh-TW/'
+        : locale === 'ja'
+          ? '/ja/'
+          : '/zh-CN/'
 
   return (
     <main className="mx-auto flex min-h-dvh max-w-2xl flex-col items-center justify-center gap-6 px-6 py-16 text-center">

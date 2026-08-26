@@ -147,14 +147,15 @@ interface CategoryCardProps {
 
 /**
  * Resolves the display content for a package, falling back from zh-TW to the
- * zh-CN copy (packages ship zh-CN/en only) and from a draft's missing locale
- * to its zh-CN draft text.
+ * zh-CN copy and from ja to the English copy (packages ship zh-CN/en only),
+ * then from a draft's missing locale to its zh-CN draft text.
  */
 export function animalContentFor(
   animal: AnimalPackage,
   locale: Locale,
 ): AnimalContent | undefined {
-  const contentLocale = locale === 'zh-TW' ? 'zh-CN' : locale
+  const contentLocale =
+    locale === 'zh-TW' ? 'zh-CN' : locale === 'ja' ? 'en' : locale
   return (
     animal.content[contentLocale] ?? animal.content['zh-CN']
   )
