@@ -196,6 +196,28 @@ function buildPrompts(
   }
 }
 
+// The endpoint caps clients at 20 requests per 60s and reports the wait in
+// seconds via a `retryAfter` field. Pacing every request keeps failure
+// cascades (which return instantly) from tripping the limiter.
+const REQUEST_INTERVAL_MS = 3500
+
+const sleep = (milliseconds: number) =>
+  new Promise((resolveWait) => setTimeout(resolveWait, milliseconds))
+
+/** Thrown when the account is out of credits so the whole run can stop. */
+class BillingExhaustedError extends Error {}
+
+function isBillingFailure(status: number, text: string): boolean {
+  return (
+    /billing_rejected|insufficient_user_quota|额度不足|积分余额不足/.test(text)
+  ) && (status === 400 || status === 403)
+}
+
+function retryAfterMilliseconds(text: string): number | null {
+  const match = /"retryAfter"\s*:\s*(\d+)/.exec(text)
+  return match ? Number(match[1]) * 1000 : null
+}
+
 async function generateImage(prompt: string): Promise<Buffer> {
   const base = IMAGE_API_BASE.replace(/\/$/, '')
   const headers: Record<string, string> = {
@@ -220,6 +242,8 @@ async function generateImage(prompt: string): Promise<Buffer> {
       signal: AbortSignal.timeout(180_000),
     })
 
+  await sleep(REQUEST_INTERVAL_MS)
+
   let response: Response
   try {
     response = await doFetch()
@@ -227,22 +251,36 @@ async function generateImage(prompt: string): Promise<Buffer> {
     // Network failure (timeout / disconnect): retry once after 3s.
     const reason = error instanceof Error ? error.message : String(error)
     console.warn(`生图请求失败，3 秒后重试: ${reason}`)
-    await new Promise((resolveWait) => setTimeout(resolveWait, 3000))
+    await sleep(3000)
     response = await doFetch()
   }
 
   if (!response.ok) {
     let text = await response.text()
-    // Transient rate-limit / server errors: retry once after 30s so a long
-    // batch keeps going instead of losing the remaining animals.
-    if (response.status === 429 || response.status >= 500) {
-      console.warn(
-        `生图返回 ${response.status}，30 秒后重试: ${text.slice(0, 200)}`,
+    if (isBillingFailure(response.status, text)) {
+      throw new BillingExhaustedError(
+        `账户积分/额度不足: ${response.status} ${text.slice(0, 200)}`,
       )
-      await new Promise((resolveWait) => setTimeout(resolveWait, 30_000))
+    }
+    // Transient rate-limit / server errors: retry honoring the endpoint's
+    // `retryAfter` hint (two attempts) so a long batch keeps going.
+    for (let attempt = 0; attempt < 2; attempt += 1) {
+      if (response.ok || (response.status !== 429 && response.status < 500)) {
+        break
+      }
+      const waitMs = Math.max(retryAfterMilliseconds(text) ?? 0, 30_000) + 5000
+      console.warn(
+        `生图返回 ${response.status}，${Math.round(waitMs / 1000)} 秒后重试: ${text.slice(0, 200)}`,
+      )
+      await sleep(waitMs)
       response = await doFetch()
       if (!response.ok) {
         text = await response.text()
+        if (isBillingFailure(response.status, text)) {
+          throw new BillingExhaustedError(
+            `账户积分/额度不足: ${response.status} ${text.slice(0, 200)}`,
+          )
+        }
       }
     }
     if (!response.ok) {
@@ -454,15 +492,32 @@ async function main(): Promise<void> {
   }
 
   const failures: string[] = []
+  let consecutiveBillingFailures = 0
   for (const definition of targets) {
     try {
       await generateForSlug(definition, force, dryRun)
+      consecutiveBillingFailures = 0
     } catch (error) {
       const reason = error instanceof Error ? error.message : String(error)
       failures.push(definition.id)
       console.error(
         `✗ ${definition.id} — ${exhibitName(definition)} 失败: ${reason}`,
       )
+      // Once the account is out of credits every further call fails too;
+      // stop after three in a row instead of hammering the endpoint (which
+      // also trips its rate limiter). Rerunning after a top-up resumes.
+      if (error instanceof BillingExhaustedError) {
+        consecutiveBillingFailures += 1
+        if (consecutiveBillingFailures >= 3) {
+          console.log(
+            `\n账户积分/额度已耗尽，连续 ${consecutiveBillingFailures} 次计费失败，中止本次运行。` +
+              '已生成的文件会保留；充值后重新运行会自动跳过它们。',
+          )
+          break
+        }
+      } else {
+        consecutiveBillingFailures = 0
+      }
     }
   }
   console.log(

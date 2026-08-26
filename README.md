@@ -95,10 +95,17 @@ npm run test:e2e
 Draft assets are prepared offline by small generator scripts:
 
 ```sh
-npm run generate:backgrounds -- --dry-run <animal-id>   # preview the prompts first
-npm run generate:backgrounds -- <animal-id>             # landscape + portrait scene pair
-npm run generate:model-previews -- <animal-id>          # WebGL loading images
+npm run generate:backgrounds:dry-run -- <animal-id>   # preview the prompts first
+npm run generate:backgrounds -- <animal-id>           # landscape + portrait scene pair
+npm run generate:backgrounds:batch                    # curated slug list (scripts/background-batch.json)
+npm run generate:backgrounds:all                      # every animal still missing a pair
+npm run generate:model-previews -- <animal-id>        # WebGL loading images
 ```
+
+> On PowerShell 7.2+ the `--` separator is swallowed before native commands, so
+> `npm run <script> -- <flags>` silently loses its flags there. Prefer the
+> arg-free `:batch` / `:all` variants, or call the script directly with
+> `npx tsx scripts/generate-animal-backgrounds.ts <flags>`.
 
 The background generator tells the image model which exhibit animal each
 backdrop is staged for — name, classification, era, and native range come from

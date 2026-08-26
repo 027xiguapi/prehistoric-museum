@@ -31,6 +31,8 @@
     "generate:animal-social-images": "tsx scripts/generate-animal-social-images.ts",
     "generate:backgrounds": "tsx scripts/generate-animal-backgrounds.ts",
     "generate:backgrounds:dry-run": "tsx scripts/generate-animal-backgrounds.ts --dry-run",
+    "generate:backgrounds:all": "tsx scripts/generate-animal-backgrounds.ts --all",
+    "generate:backgrounds:batch": "tsx scripts/generate-animal-backgrounds.ts --from-file=scripts/background-batch.json",
     "adopt:backgrounds": "tsx scripts/adopt-generated-backgrounds.ts",
     "generate:seo-social-cards": "node --import tsx scripts/generate-seo-social-cards.ts",
     "generate:registry": "tsx scripts/generate-content-registry.ts",

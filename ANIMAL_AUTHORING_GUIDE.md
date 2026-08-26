@@ -149,7 +149,16 @@ npm run generate:backgrounds -- <animal-id>
 npm run generate:backgrounds -- --all
 npm run generate:backgrounds -- --atmosphere=forest
 # Or drive a curated batch from a slug list (JSON array or one slug per line):
+npm run generate:backgrounds:batch
 npm run generate:backgrounds -- --from-file=scripts/background-batch.json
+# Everything still missing:
+npm run generate:backgrounds:all
+```
+
+> PowerShell 7.2+ swallows the `--` separator before native commands, so
+> `npm run <script> -- <flags>` silently loses its flags there. Prefer the
+> arg-free variants above, or call the script directly with
+> `npx tsx scripts/generate-animal-backgrounds.ts <flags>`.
 ```
 
 The script writes `backgrounds/landscape.webp` (1672×941), 

@@ -26,7 +26,7 @@ export interface SeoCatalogueGroup {
 export interface SeoPageCopy {
   readonly locale: SeoPageLocale
   readonly htmlLang: Locale
-  readonly brand: string
+  readonly brand?: string
   readonly title: string
   readonly description: string
   readonly heading: string
@@ -90,7 +90,6 @@ export const seoPageCopy = {
   'x-default': {
     locale: 'x-default',
     htmlLang: 'en',
-    brand: 'Leon Made This | Leon做了个',
     title: 'WonZoo',
     description: `Choose Simplified Chinese or English for a family-friendly 3D museum featuring ${catalogueAnimalCount} prehistoric animals. 选择简体中文或 English，和孩子一起探索 ${catalogueAnimalCount} 位史前动物朋友。`,
     heading: 'WonZoo',
@@ -106,8 +105,7 @@ export const seoPageCopy = {
   'zh-CN': {
     locale: 'zh-CN',
     htmlLang: 'zh-CN',
-    brand: 'Leon做了个',
-    title: 'WonZoo | 亲子 3D 史前动物展',
+    title: 'WonZoo | 亲子 3D 动物园',
     description: `和孩子一起走进 3D WonZoo，观察 ${catalogueAnimalCount} 位来自陆地、天空与水中的史前朋友。`,
     heading: 'WonZoo',
     introduction:
@@ -122,8 +120,7 @@ export const seoPageCopy = {
   en: {
     locale: 'en',
     htmlLang: 'en',
-    brand: 'Leon Made This',
-    title: 'WonZoo | A 3D Family Adventure',
+    title: 'WonZoo | A 3D Family Zoo',
     description: `Explore ${catalogueAnimalCount} prehistoric animals from land, sky and sea in a gentle 3D museum made for young children and their grown-ups.`,
     heading: 'WonZoo',
     introduction:

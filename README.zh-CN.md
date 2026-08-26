@@ -95,10 +95,17 @@ npm run test:e2e
 草稿素材由小型生成脚本离线准备：
 
 ```sh
-npm run generate:backgrounds --dry-run <animal-id>   # 先预览生图提示词
-npm run generate:backgrounds -- <animal-id>             # 生成横竖两张展厅背景
-npm run generate:model-previews -- <animal-id>          # 生成 WebGL 加载占位图
+npm run generate:backgrounds:dry-run -- <animal-id>   # 先预览生图提示词
+npm run generate:backgrounds -- <animal-id>           # 生成横竖两张展厅背景
+npm run generate:backgrounds:batch                    # 按 scripts/background-batch.json 清单批量生成
+npm run generate:backgrounds:all                      # 补齐所有还缺背景的动物
+npm run generate:model-previews -- <animal-id>        # 生成 WebGL 加载占位图
 ```
+
+> 注意：PowerShell 7.2+ 会吞掉传给外部命令前的 `--` 分隔符，导致
+> `npm run <脚本> -- <参数>` 的参数静默丢失；推荐用免参数的 `:batch` /
+> `:all` 变体，或用 `npx tsx scripts/generate-animal-backgrounds.ts <参数>`
+> 直接调用脚本。
 
 背景生成脚本会把展位动物的身份——名称、分类、年代、分布区，取自该动物的文案包——写进提示词，让生图模型产出与物种栖息地匹配、且不含任何动物本体的舞台背景，并在图片旁写入生成留痕记录。生图会话 Cookie 从 `.env` 的 `IMAGE_API_COOKIE` 读取。完整流程和其余生成脚本见[动物包编写指南](ANIMAL_AUTHORING_GUIDE.md)与 `package.json`。
 
