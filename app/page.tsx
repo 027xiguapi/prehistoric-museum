@@ -44,6 +44,13 @@ const LOCALE_REDIRECT = `(function () {
   var locale = 'zh-CN'
   for (var i = 0; i < langs.length; i++) {
     var lang = String(langs[i]).toLowerCase()
+    if (
+      lang === 'zh-tw' || lang === 'zh-hk' || lang === 'zh-mo' ||
+      lang === 'zh-hant' || lang.indexOf('zh-hant') === 0
+    ) {
+      locale = 'zh-TW'
+      break
+    }
     if (lang === 'zh' || lang.indexOf('zh-') === 0) {
       locale = 'zh-CN'
       break

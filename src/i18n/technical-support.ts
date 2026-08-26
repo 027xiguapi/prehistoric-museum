@@ -77,6 +77,57 @@ const zhCN: TechnicalSupportContent = {
   ],
 }
 
+const zhTW: TechnicalSupportContent = {
+  title: '技術支援',
+  summary:
+    '遇到問題？查看常見問題與設備要求，或直接聯絡我們。',
+  contactLabel: '聯絡我們',
+  contactIntro:
+    '如果仍有問題，請傳送郵件至下方地址，並附上設備型號、系統版本和問題描述，我們會盡快回覆。',
+  contactEmail: SUPPORT_EMAIL,
+  sections: [
+    {
+      title: '常見問題',
+      paragraphs: [],
+      questions: [
+        {
+          question: 'AR 打不開，或攝影機無法使用怎麼辦？',
+          answer:
+            'AR 需要攝影機權限。請在系統設定中為 WonZoo 開啟攝影機權限後重試；AR 還需要設備同時支援攝影機與 WebGL。',
+        },
+        {
+          question: '3D 模型載入緩慢或失敗？',
+          answer:
+            '動物模型首次下載會佔用一些流量，建議在 Wi-Fi 環境下載入；載入失敗時點擊動物卡片即可重試。',
+        },
+        {
+          question: '聽不到介紹語音？',
+          answer:
+            '介紹語音不會自動播放，請點擊「聽介紹」按鈕，並確認設備沒有處於靜音狀態。',
+        },
+        {
+          question: '如何切換介面語言？',
+          answer:
+            '進入「設定」→「語言」，選擇簡體中文、繁體中文、English 或跟隨系統。',
+        },
+        {
+          question: '畫面卡頓，或設備發熱？',
+          answer:
+            '請嘗試關閉其他背景應用或降低螢幕亮度；長時間使用 AR 時設備略微發熱屬正常現象。',
+        },
+      ],
+    },
+    {
+      title: '設備要求',
+      paragraphs: [
+        'WonZoo 支援較新的 iOS / Android 設備；網頁版需要支援 WebGL 的現代瀏覽器。',
+        'AR 功能需要設備具備攝影機，並透過安全（HTTPS）頁面存取。',
+        '請保持系統為較新版本，以獲得最佳體驗。',
+      ],
+    },
+  ],
+}
+
 const en: TechnicalSupportContent = {
   title: 'Technical Support',
   summary:
@@ -108,7 +159,7 @@ const en: TechnicalSupportContent = {
         {
           question: 'How do I change the language?',
           answer:
-            'Open “Settings” → “Language”, then choose Simplified Chinese, English, or follow the system language.',
+            'Open “Settings” → “Language”, then choose Simplified Chinese, Traditional Chinese, English, or follow the system language.',
         },
         {
           question: 'The screen lags, or the device gets warm',
@@ -128,6 +179,15 @@ const en: TechnicalSupportContent = {
   ],
 }
 
-export function technicalSupportFor(locale: Locale): TechnicalSupportContent {
-  return locale === 'zh-CN' ? zhCN : en
+export function technicalSupportFor(
+  locale: Locale,
+): TechnicalSupportContent {
+  switch (locale) {
+    case 'zh-CN':
+      return zhCN
+    case 'zh-TW':
+      return zhTW
+    default:
+      return en
+  }
 }

@@ -13,12 +13,14 @@ export interface SeoCatalogueEntry {
   readonly id: string
   readonly habitat: Habitat
   readonly zhCN: string
+  readonly zhTW: string
   readonly en: string
 }
 
 export interface SeoCatalogueGroup {
   readonly habitat: Habitat
   readonly zhCN: string
+  readonly zhTW: string
   readonly en: string
   readonly animals: readonly SeoCatalogueEntry[]
 }
@@ -42,17 +44,23 @@ export interface SeoPageCopy {
 const catalogueGroupCopy = {
   land: {
     zhCN: '陆地展厅',
+    zhTW: '陸地展廳',
     en: 'Land gallery',
   },
   air: {
     zhCN: '天空展厅',
+    zhTW: '天空展廳',
     en: 'Sky gallery',
   },
   water: {
     zhCN: '水中展厅',
+    zhTW: '水中展廳',
     en: 'Sea gallery',
   },
-} as const satisfies Record<Habitat, Pick<SeoCatalogueGroup, 'zhCN' | 'en'>>
+} as const satisfies Record<
+  Habitat,
+  Pick<SeoCatalogueGroup, 'zhCN' | 'zhTW' | 'en'>
+>
 
 const catalogueHabitatOrder = ['land', 'air', 'water'] as const satisfies
   readonly Habitat[]
@@ -60,6 +68,9 @@ const catalogueHabitatOrder = ['land', 'air', 'water'] as const satisfies
 const catalogueAnimals: readonly SeoCatalogueEntry[] = mainAnimals.map(
   (animal) => {
     const zhCN = animal.content['zh-CN'].name.trim()
+    // No per-animal Traditional copy exists yet; the zh-TW catalogue reuses
+    // the zh-CN public name until translations land.
+    const zhTW = animal.content['zh-CN'].name.trim()
     const en = animal.content.en.name.trim()
     if (!zhCN || !en) {
       throw new Error(
@@ -70,6 +81,7 @@ const catalogueAnimals: readonly SeoCatalogueEntry[] = mainAnimals.map(
       id: animal.id,
       habitat: animal.habitat,
       zhCN,
+      zhTW,
       en,
     }
   },
@@ -91,7 +103,7 @@ export const seoPageCopy = {
     locale: 'x-default',
     htmlLang: 'en',
     title: 'WonZoo',
-    description: `Choose Simplified Chinese or English for a family-friendly 3D museum featuring ${catalogueAnimalCount} prehistoric animals. 选择简体中文或 English，和孩子一起探索 ${catalogueAnimalCount} 位史前动物朋友。`,
+    description: `Choose Simplified Chinese, Traditional Chinese or English for a family-friendly 3D museum featuring ${catalogueAnimalCount} prehistoric animals. 選擇簡體中文、繁體中文或 English，和孩子一起探索 ${catalogueAnimalCount} 位史前動物朋友。`,
     heading: 'WonZoo',
     introduction:
       'A gentle 3D museum for children aged 2–6 and the grown-ups exploring with them. 一个为 2–6 岁孩子和陪伴探索的家长准备的 3D WonZoo。',
@@ -116,6 +128,21 @@ export const seoPageCopy = {
     systemLanguageLabel: '跟随系统',
     socialImageFileName: 'social/museum.zh-CN.png',
     socialImageAlt: 'WonZoo亲子 3D 展馆',
+  },
+  'zh-TW': {
+    locale: 'zh-TW',
+    htmlLang: 'zh-TW',
+    title: 'WonZoo | 親子 3D 動物園',
+    description: `和孩子一起走進 3D WonZoo，觀察 ${catalogueAnimalCount} 位來自陸地、天空與水中的史前朋友。`,
+    heading: 'WonZoo',
+    introduction:
+      '這是一個面向 2–6 歲孩子和家長的 3D WonZoo。一起轉動模型，聽觀察引導，再讀給家長的科學資料。',
+    privacy: `展廳收錄 ${catalogueAnimalCount} 位來自陸地、天空與水中的史前動物。無需帳號，沒有廣告和頁面分析，聲音只會在你主動點擊後播放。`,
+    catalogueHeading: '博物館藏品',
+    languageLabel: '選擇語言',
+    systemLanguageLabel: '跟隨系統',
+    socialImageFileName: 'social/museum.zh-TW.png',
+    socialImageAlt: 'WonZoo親子 3D 展館',
   },
   en: {
     locale: 'en',
@@ -157,9 +184,11 @@ export function animalSocialImageUrl(animalId: string): string {
 
 export const seoSitemapUrls: readonly string[] = [
   museumCanonicalUrl('zh-CN'),
+  museumCanonicalUrl('zh-TW'),
   museumCanonicalUrl('en'),
   ...staticAnimalDetailIds.flatMap((animalId) => [
     animalCanonicalUrl('zh-CN', animalId),
+    animalCanonicalUrl('zh-TW', animalId),
     animalCanonicalUrl('en', animalId),
   ]),
 ]
@@ -185,7 +214,9 @@ export function animalDetailSeo(
     }
   },
 ): AnimalDetailSeo {
-  const otherLocale: Locale = locale === 'zh-CN' ? 'en' : 'zh-CN'
+  // Point the hreflang alternate at the zh-CN page: its content is the
+  // source the Traditional Chinese page falls back to.
+  const otherLocale: Locale = locale === 'en' ? 'zh-CN' : 'en'
   const description = animalSeoDescription(animal.content.narrationSentences)
   const title = `${animal.content.name} | WonZoo`
   const canonical = animalCanonicalUrl(locale, animal.id)

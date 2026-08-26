@@ -103,8 +103,10 @@ const zhCN = {
     system: '跟随系统',
     systemResolved: (language: string) => `跟随系统（当前：${language}）`,
     chinese: '简体中文',
+    traditionalChinese: '繁體中文',
     english: 'English',
     chineseShort: '中',
+    traditionalChineseShort: '繁',
     englishShort: 'EN',
   },
   viewer: {
@@ -267,6 +269,265 @@ type WidenMessages<Value> = Value extends string
 
 export type MuseumMessages = WidenMessages<typeof zhCN>
 
+// Traditional Chinese shares the zh-CN copy structure verbatim; animal names
+// and narration still come from the zh-CN content packages (no per-animal
+// Traditional translations exist yet).
+const zhTW: MuseumMessages = {
+  museumName: 'WonZoo',
+  creatorBrand: 'Leon做了個',
+  todayMeet: '今天認識',
+  localReview: '本地評審',
+  documentTitle: 'WonZoo | 親子 3D 史前動物展',
+  seo: {
+    description: (count: number) =>
+      `和孩子一起走進 3D WonZoo，觀察 ${count} 位來自陸地、天空與水中的史前朋友。`,
+    socialImageAlt: 'WonZoo親子 3D 展館',
+  },
+  stageLabel: (animal: string) => `${animal}模型展臺`,
+  navigationLabel: '動物選擇',
+  reviewNavigationLabel: '本地評審動物選擇',
+  previousAnimal: '上一隻動物',
+  nextAnimal: '下一隻動物',
+  viewAnimal: (animal: string, review = '', failed = false) =>
+    `查看${animal}${review ? `，本地評審，${review}` : ''}${
+      failed ? '，載入失敗，點擊重試' : ''
+    }`,
+  narration: {
+    listen: '聽它的介紹',
+    pause: '暫停介紹',
+    unavailable: '介紹準備中',
+    listenShort: '聽介紹',
+    pauseShort: '暫停',
+    unavailableShort: '暫無語音',
+    playing: (animal: string) => `正在播放${animal}的介紹。`,
+    paused: (animal: string) => `${animal}的介紹已暫停。`,
+  },
+  parentInfo: '給家長的資料',
+  parentInfoShort: '家長資料',
+  openCollection: '打開全館圖鑑',
+  returnToMuseum: '返回並打開全館圖鑑',
+  returnToMuseumShort: '返回',
+  returnToCategory: '返回分類頁面',
+  returnToCategoryShort: '返回分類',
+  collectionShort: '全館',
+  resetView: '恢復初始視角',
+  resetDone: '已經恢復初始視角。',
+  storyCollapse: '收起介紹',
+  storyExpand: '展開介紹',
+  focusView: '專注看模型',
+  focusEntered: '已進入模型專注模式，輕點畫面或按 Escape 返回完整介面。',
+  focusReturnHint: '輕點畫面即可返回',
+  exitFocus: '退出模型專注模式',
+  focusExited: '已經回到完整的博物館介面。',
+  care: {
+    feed: '餵食物',
+    bathe: '洗澡',
+    play: '打球',
+    walk: '走一走',
+    shake: '搖搖頭',
+    walked: (animal: string) => `${animal}邁著小碎步走過來啦！`,
+    shook: (animal: string) => `${animal}搖了搖頭。`,
+    fedMeat: (animal: string) => `${animal}大口大口吃起肉來，吃得好香！`,
+    fedLeaves: (animal: string) => `${animal}唰唰地吃起了樹葉！`,
+    refused: (animal: string) => `${animal}搖了搖頭，好像不愛吃這個。`,
+    feedPrompt: '它吃什麼呢？點一個碗餵餵看！',
+    closePicker: '關閉餵食選擇',
+    bowlLeaf: '樹葉碗',
+    bowlMeat: '肉肉碗',
+    bathed: (animal: string) => `${animal}洗得乾乾淨淨，泡泡亮晶晶！`,
+    played: (animal: string) => `和${animal}一起玩球，它開心地把球踢了回來！`,
+  },
+  notFound: {
+    code: '404',
+    title: '頁面沒有找到',
+    body: '這條參觀路線暫時走不通，也許展品還在布置中。',
+    return: '返回',
+  },
+  loading: {
+    preparingExhibit: '正在準備新的動物展臺。',
+    retryingExhibit: '正在重新準備展臺。',
+    initialExhibit: (animal: string) => `正在準備${animal}展臺。`,
+    opening: '正在打開…',
+    inviting: '正在請它出來…',
+    downloading: (percent: number) => `下載中 · ${percent}%`,
+    retry: '點我再試',
+    failed: '它暫時沒準備好，再點一次試試。',
+    arrived: (animal: string) => `${animal}已經來到展臺。`,
+    failedRetry: (animal: string) =>
+      `${animal}暫時沒準備好，可以點擊它的卡片重試。`,
+    backgroundPending: (animal: string) =>
+      `${animal}的場景還在準備，先保留上一幅畫面。`,
+    unknownAnimal: '這隻動物',
+  },
+  dataNotice: {
+    dismissLabel: '關閉模型流量提示',
+    dismiss: '知道了',
+    wifi: '這裡的 3D 動物會使用一些流量，連接 Wi‑Fi 時觀看會更順暢。',
+    largeModel: (animal: string, size: string) =>
+      `${animal}的 3D 模型約 ${size}，第一次下載的資料量較大，載入可能會久一點。`,
+  },
+  viewerFallbackAnnouncement: (animal: string) =>
+    `三維展臺暫時不可用，已經換成${animal}的靜態模型圖。`,
+  language: {
+    buttonLabel: '切換語言，目前繁體中文',
+    menuLabel: '選擇介面語言',
+    system: '跟隨系統',
+    systemResolved: (language: string) => `跟隨系統（目前：${language}）`,
+    chinese: '簡體中文',
+    traditionalChinese: '繁體中文',
+    english: 'English',
+    chineseShort: '简',
+    traditionalChineseShort: '繁',
+    englishShort: 'EN',
+  },
+  viewer: {
+    modelLabel: (animal: string) => `${animal}三維模型，可拖動旋轉並縮放`,
+    webglUnavailable: '這個瀏覽器現在不能顯示 3D 模型。',
+    contextLost: 'WebGL 繪圖環境暫時不可用。',
+    stillAlt: (animal: string) => `${animal}的透明背景靜態模型圖`,
+    preparing: '正在打開 3D 模型…',
+    downloading: '正在下載 3D 模型…',
+    downloadingPercent: (percent: number) => `正在下載 3D 模型 · ${percent}%`,
+    checkingCache: '正在尋找 3D 模型…',
+    invitingFirst: '正在請第一位朋友出來……',
+    progressLabel: '3D 模型載入進度',
+    gestureHint: '拖動旋轉，滾動或雙指縮放',
+    fallbackTitle: '今天先看看它的靜態模型吧',
+    retry: '重新載入模型',
+  },
+  zoneSelect: {
+    title: '今天想去看誰？',
+    subtitle: '選一個展區，裡面的動物朋友都在等你。',
+    enter: (zone: string) => `進入${zone}展區`,
+    enterShort: '進入',
+    friends: (count: number) => `${count} 位朋友`,
+    backToZones: '返回展區選擇',
+    backToZonesShort: '展區',
+  },
+  zones: {
+    dinosaur: {
+      name: '恐龍',
+      tagline: '大地的王者，還有會飛的翼龍夥伴',
+    },
+    plains: {
+      name: '草原',
+      tagline: '寬闊的草地上住著成群的大家伙',
+    },
+    forest: {
+      name: '森林',
+      tagline: '茂密的樹林裡藏著大家伙的腳印',
+    },
+    ice: {
+      name: '冰川',
+      tagline: '冰冰涼涼的冰雪世界',
+    },
+    ocean: {
+      name: '海洋',
+      tagline: '潛進大海，和巨獸一起游泳',
+    },
+    insect: {
+      name: '昆蟲',
+      tagline: '小小身體藏著大大的秘密',
+    },
+    sky: {
+      name: '天空',
+      tagline: '飛上藍天，和鳥兒、翼龍一起翱翔',
+    },
+  },
+  collection: {
+    friends: (count: number) => `${count} 位史前朋友`,
+    zoneFriends: (count: number, zoneName: string) => `${count} 位${zoneName}朋友`,
+    title: '全館圖鑑',
+    intro: '選一位朋友，馬上前往它的 3D 展臺。',
+    back: '返回',
+    close: '關閉全館圖鑑',
+    cardLabel: (animal: string, current: boolean) =>
+      `${current ? '目前展臺，' : ''}前往${animal}展臺`,
+    current: '目前',
+    opening: '正在打開',
+    preparing: '準備中',
+    downloading: (percent: number) => `下載中 ${percent}%`,
+  },
+  modern: {
+    title: '現代動物朋友',
+    intro: '它們還沒有 3D 展臺，先看看圖片認識一下吧。',
+    categories: {
+      grassland: '草原',
+      ocean: '海洋',
+      sky: '天空',
+      forest: '森林',
+    },
+    soon: '圖片展示',
+    locked: '暫時沒有 3D 展臺',
+  },
+  config: {
+    title: '設定',
+    intro: '調整介面語言，查看版本資訊；更多功能正在路上。',
+    close: '關閉並返回首頁',
+    languageTitle: '語言',
+    languageHint: '選擇介面使用的語言，切換後立即生效。',
+    appearanceTitle: '外觀',
+    darkMode: '深色模式',
+    appearanceHint: '深色主題正在準備中，先在這裡留好位置。',
+    accountTitle: '帳號',
+    accountAction: '登入帳號',
+    accountHint: '登入與同步功能正在準備中。',
+    aboutTitle: '關於',
+    versionLabel: '版本號',
+    comingSoon: '敬請期待',
+    privacyTitle: '隱私',
+    privacyAction: '隱私權政策',
+    privacyHint: '查看我們如何收集、使用和保護資訊。',
+    supportTitle: '支援',
+    supportAction: '技術支援',
+    supportHint: '查看常見問題與設備要求，或聯絡我們。',
+  },
+  toolbar: {
+    label: '工具',
+    reset: '恢復原樣',
+    info: '動物資訊',
+    collection: '全館圖鑑',
+    height: '動物身高',
+    weight: '動物體重',
+    weightUnavailable: '暫無體重資料',
+  },
+  parent: {
+    eyebrow: '一起了解更多',
+    title: '給家長的資料',
+    close: '關閉家長資料',
+    period: '生活時期',
+    regions: '發現地區',
+    diet: '食性',
+    classification: '分類提示',
+    narration: '旁白文字',
+    sources: '參考來源',
+    credits: '3D 模型與素材來源',
+    licensing: '開源與授權',
+    licensingBody:
+      '本專案程式碼採用 AGPL-3.0；原創科普文案與專案視覺採用 CC BY-NC-SA 4.0 非商業共享；品牌僅用於防止冒充官方，第三方素材沿用原授權。',
+    fullLicensing: '查看完整授權說明',
+    moreHint: '資料還可以繼續向上滑動。',
+    more: '向上滑動查看更多',
+    joinRegions: (regions: readonly string[]) => regions.join('、'),
+  },
+  ar: {
+    open: 'AR',
+    title: 'AR 擴增實境',
+    requestingCamera: '正在請求攝影機…',
+    cameraDenied: '沒有攝影機權限，請在瀏覽器設定裡允許後重試。',
+    unsupported:
+      '這台設備暫時不能使用 AR，需要支援攝影機與 WebGL 的安全（HTTPS）頁面。',
+    scanning: '正在啟動 AR…',
+    found: (animal: string) => `${animal} 出現了！`,
+    error: 'AR 出了點問題，關閉後再試一次。',
+    close: '退出 AR',
+    xrSearching: '正在把動物帶到你面前…',
+    xrPlaced: '出現啦！輕點螢幕可以換位置，點右上角退出。',
+    cameraMode: '雙指捏合可以放大縮小，輕點畫面讓它回到面前。',
+    switchAnimal: '換一隻動物',
+  },
+}
+
 const en = {
   museumName: 'WonZoo',
   creatorBrand: 'Leon Made This',
@@ -371,8 +632,10 @@ const en = {
     system: 'Follow system',
     systemResolved: (language) => `Follow system (currently ${language})`,
     chinese: '简体中文',
+    traditionalChinese: '繁體中文',
     english: 'English',
     chineseShort: '中',
+    traditionalChineseShort: '繁',
     englishShort: 'EN',
   },
   viewer: {
@@ -527,31 +790,48 @@ const en = {
 } satisfies MuseumMessages
 
 export function messagesFor(locale: Locale): MuseumMessages {
-  return locale === 'zh-CN' ? zhCN : en
+  switch (locale) {
+    case 'zh-CN':
+      return zhCN
+    case 'zh-TW':
+      return zhTW
+    default:
+      return en
+  }
 }
 
 export function dietLabel(diet: Diet, locale: Locale): string {
   const labels =
-    locale === 'zh-CN'
+    locale === 'zh-TW'
       ? {
           herbivore: '植食',
           carnivore: '肉食',
-          omnivore: '杂食',
-          unknown: '尚不确定',
+          omnivore: '雜食',
+          unknown: '尚不確定',
         }
-      : {
-          herbivore: 'Plant-eater',
-          carnivore: 'Meat-eater',
-          omnivore: 'Plants and meat',
-          unknown: 'Not yet certain',
-        }
+      : locale === 'zh-CN'
+        ? {
+            herbivore: '植食',
+            carnivore: '肉食',
+            omnivore: '杂食',
+            unknown: '尚不确定',
+          }
+        : {
+            herbivore: 'Plant-eater',
+            carnivore: 'Meat-eater',
+            omnivore: 'Plants and meat',
+            unknown: 'Not yet certain',
+          }
   return labels[diet]
 }
 
 function formatNumber(value: number, locale: Locale): string {
-  return new Intl.NumberFormat(locale === 'zh-CN' ? 'zh-CN' : 'en-GB', {
-    maximumFractionDigits: 2,
-  }).format(value)
+  return new Intl.NumberFormat(
+    locale === 'zh-TW' ? 'zh-TW' : locale === 'zh-CN' ? 'zh-CN' : 'en-GB',
+    {
+      maximumFractionDigits: 2,
+    },
+  ).format(value)
 }
 
 function formatFeet(metres: number): string {
@@ -569,31 +849,42 @@ export function formatSizeFact(
   const metres = same
     ? formatNumber(size.minMeters, locale)
     : `${formatNumber(size.minMeters, locale)}–${formatNumber(size.maxMeters, locale)}`
+  const isChinese = locale === 'zh-CN' || locale === 'zh-TW'
   const label =
     size.kind === 'wingspan'
-      ? locale === 'zh-CN'
+      ? locale === 'zh-TW'
         ? '翼展'
-        : 'Wingspan'
+        : locale === 'zh-CN'
+          ? '翼展'
+          : 'Wingspan'
       : size.kind === 'shoulder-height'
-        ? locale === 'zh-CN'
+        ? locale === 'zh-TW'
           ? '肩高'
-          : 'Shoulder height'
-        : size.kind === 'group-range'
-          ? locale === 'zh-CN'
-            ? '类群体型'
-            : 'Group size range'
           : locale === 'zh-CN'
-            ? '体长'
-            : 'Body length'
+            ? '肩高'
+            : 'Shoulder height'
+        : size.kind === 'group-range'
+          ? locale === 'zh-TW'
+            ? '類群體型'
+            : locale === 'zh-CN'
+              ? '类群体型'
+              : 'Group size range'
+          : locale === 'zh-TW'
+            ? '體長'
+            : locale === 'zh-CN'
+              ? '体长'
+              : 'Body length'
 
-  const metric = locale === 'zh-CN' ? `${metres} 米（约）` : `${metres} m`
+  const metric = isChinese ? `${metres} 米（约）` : `${metres} m`
   const imperial = same
     ? `about ${formatFeet(size.minMeters)} ft`
     : `about ${formatFeet(size.minMeters)}–${formatFeet(size.maxMeters)} ft`
-  const range = locale === 'zh-CN' ? metric : `${metric} (${imperial})`
+  const range = isChinese ? metric : `${metric} (${imperial})`
   return {
     label,
     value:
-      size.kind === 'group-range' ? `${size.note}${locale === 'zh-CN' ? '；' : '; '}${range}` : range,
+      size.kind === 'group-range'
+        ? `${size.note}${isChinese ? '；' : '; '}${range}`
+        : range,
   }
 }

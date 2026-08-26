@@ -9,10 +9,12 @@ import {
 import { useI18n } from '@/src/i18n/I18nProvider'
 import type { LocalePreference } from '@/src/i18n/locale'
 
-const choices: readonly LocalePreference[] = ['system', 'zh-CN', 'en']
+const choices: readonly LocalePreference[] = ['system', 'zh-CN', 'zh-TW', 'en']
 
 const ZH_FONT_STACK =
   '"Noto Sans SC Variable", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif'
+const ZH_TW_FONT_STACK =
+  '"Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Noto Sans SC Variable", system-ui, sans-serif'
 const EN_FONT_STACK =
   '"Nunito Variable", "Avenir Next", Avenir, system-ui, sans-serif'
 /** Compact trigger on narrow portrait screens. */
@@ -35,12 +37,19 @@ export function LanguageMenu() {
       <span
         lang={choice}
         style={{
-          fontFamily: choice === 'zh-CN' ? ZH_FONT_STACK : EN_FONT_STACK,
+          fontFamily:
+            choice === 'zh-CN'
+              ? ZH_FONT_STACK
+              : choice === 'zh-TW'
+                ? ZH_TW_FONT_STACK
+                : EN_FONT_STACK,
         }}
       >
         {choice === 'zh-CN'
           ? messages.language.chinese
-          : messages.language.english}
+          : choice === 'zh-TW'
+            ? messages.language.traditionalChinese
+            : messages.language.english}
       </span>
     )
   }
@@ -140,7 +149,9 @@ export function LanguageMenu() {
         <span>
           {locale === 'zh-CN'
             ? messages.language.chineseShort
-            : messages.language.englishShort}
+            : locale === 'zh-TW'
+              ? messages.language.traditionalChineseShort
+              : messages.language.englishShort}
         </span>
       </button>
       {open ? (

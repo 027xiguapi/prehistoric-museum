@@ -209,7 +209,7 @@ export function ParentDrawer({
                 <dt>{messages.parent.classification}</dt>
                 <dd>
                   {facts.classification}
-                  {locale === 'zh-CN' ? '。' : '. '}
+                  {locale === 'en' ? '. ' : '。'}
                   {facts.classificationNote}
                 </dd>
               </div>
@@ -241,7 +241,7 @@ export function ParentDrawer({
             <div className="narration-transcript">
               <p className="drawer-eyebrow">{messages.parent.eyebrow}</p>
               <h3>{messages.parent.narration}</h3>
-              <p>{facts.narrationScript.join(locale === 'zh-CN' ? '' : ' ')}</p>
+              <p>{facts.narrationScript.join(locale === 'en' ? ' ' : '')}</p>
             </div>
           </div>
         </div>

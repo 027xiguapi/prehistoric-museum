@@ -7,7 +7,7 @@ import type {
   AnimalContent,
   AnimalPackage,
 } from '@/src/content/types'
-import { isLocale, type Locale } from '@/src/i18n/locale'
+import { isLocale, supportedLocales, type Locale } from '@/src/i18n/locale'
 import { AnimalExhibit } from '@/app/[locale]/animal/[animalId]/AnimalExhibit'
 import {
   animalCanonicalUrl,
@@ -16,10 +16,9 @@ import {
 } from '@/src/seo/metadata'
 
 export function generateStaticParams() {
-  return staticAnimalDetailIds.flatMap((animalId) => [
-    { locale: 'zh-CN', animalId },
-    { locale: 'en', animalId },
-  ])
+  return staticAnimalDetailIds.flatMap((animalId) =>
+    supportedLocales.map((locale) => ({ locale, animalId })),
+  )
 }
 
 export const dynamicParams = false
@@ -50,10 +49,11 @@ function resolveAnimalDetail(
     return null
   }
 
-  // Drafts may still be migrating a locale, mirroring the client-side
-  // fallback to the zh-CN package content.
+  // Packages only carry zh-CN/en content; Traditional Chinese falls back to
+  // the zh-CN copy, mirroring the client-side runtime fallback.
+  const contentLocale = params.locale === 'zh-TW' ? 'zh-CN' : params.locale
   const content =
-    animal.content[params.locale] ??
+    animal.content[contentLocale] ??
     (animal.status === 'draft' ? animal.content['zh-CN'] : undefined)
   if (!content) {
     return null
@@ -92,6 +92,7 @@ export async function generateMetadata({
       canonical: seo.canonical,
       languages: {
         'zh-CN': animalCanonicalUrl('zh-CN', animal.id),
+        'zh-TW': animalCanonicalUrl('zh-TW', animal.id),
         en: animalCanonicalUrl('en', animal.id),
       },
     },

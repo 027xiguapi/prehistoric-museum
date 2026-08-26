@@ -1,10 +1,10 @@
 import type {
   AnimalContent,
   AnimalStatus,
+  ContentLocale,
   DraftAnimalPackage,
   DraftNarrationAssets,
   DraftNarrationPlans,
-  Locale,
   NarrationAsset,
   NarrationPlan,
   PublishedAnimalAssets,
@@ -75,7 +75,7 @@ export type DisplayableAnimalPackage =
   | (PublishedAnimalPackage & { readonly review?: LocalReviewInfo })
   | LegacyLocalReviewAnimalPackage
 
-export function reviewNarrationPlanFor<Language extends Locale>(
+export function reviewNarrationPlanFor<Language extends ContentLocale>(
   narration: ReviewNarrationPlans,
   locale: Language,
 ): NarrationPlan<Language> | undefined {
@@ -87,7 +87,7 @@ export function reviewNarrationPlanFor<Language extends Locale>(
   return narration[locale] as NarrationPlan<Language> | undefined
 }
 
-export function reviewNarrationAssetFor<Language extends Locale>(
+export function reviewNarrationAssetFor<Language extends ContentLocale>(
   narration: ReviewNarrationAssets,
   locale: Language,
 ): NarrationAsset<Language> | undefined {

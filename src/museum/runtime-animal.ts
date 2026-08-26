@@ -93,11 +93,14 @@ function narrationUrlFor(
   animal: DisplayableAnimalPackage,
   locale: Locale,
 ): string | null {
+  // Animal packages ship zh-CN/en tracks only; Traditional Chinese reuses
+  // the Mandarin narration until a dedicated track exists.
+  const contentLocale = locale === 'zh-TW' ? 'zh-CN' : locale
   const narration = animal.assets.narration as unknown
   if (!narration || typeof narration !== 'object') {
     return null
   }
-  const localeNarration = (narration as Record<string, unknown>)[locale]
+  const localeNarration = (narration as Record<string, unknown>)[contentLocale]
   if (
     localeNarration &&
     typeof localeNarration === 'object' &&
@@ -105,14 +108,16 @@ function narrationUrlFor(
   ) {
     return (
       (localeNarration as { url?: string }).url ??
-      (locale === 'zh-CN' ? (narration as { url?: string }).url : undefined) ??
+      (contentLocale === 'zh-CN'
+        ? (narration as { url?: string }).url
+        : undefined) ??
       null
     )
   }
   // Local review packages may still be migrated one at a time. Never reuse a
   // Mandarin track in the English interface.
   if (
-    locale === 'zh-CN' &&
+    contentLocale === 'zh-CN' &&
     (narration as { status?: unknown }).status === 'ready'
   ) {
     return (narration as { url?: string }).url ?? null
@@ -124,11 +129,14 @@ export function toRuntimeAnimal(
   animal: DisplayableAnimalPackage,
   locale: Locale,
 ): RuntimeAnimal {
+  // Packages only carry zh-CN/en content; Traditional Chinese falls back to
+  // the zh-CN copy until per-animal translations exist.
+  const contentLocale = locale === 'zh-TW' ? 'zh-CN' : locale
   const content =
-    animal.content[locale] ??
+    animal.content[contentLocale] ??
     (animal.status === 'draft' ? animal.content['zh-CN'] : undefined)
   if (!content) {
-    throw new Error(`动物 “${animal.id}” 没有可预览的 ${locale} 内容。`)
+    throw new Error(`动物 “${animal.id}” 没有可预览的 ${contentLocale} 内容。`)
   }
   const size = formatSizeFact(content.facts.size, locale)
   const review: ParentReviewFacts | null = animal.review

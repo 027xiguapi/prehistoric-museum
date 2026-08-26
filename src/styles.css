@@ -4599,6 +4599,12 @@ a:focus-visible {
 }
 
 /* Locale-specific typography and language control */
+html[data-locale="zh-TW"] {
+  font-family:
+    "Noto Sans TC Variable", "Noto Sans TC", "PingFang TC",
+    "Microsoft JhengHei", system-ui, sans-serif;
+}
+
 html[data-locale="en"] {
   font-family:
     "Nunito Variable", "Avenir Next", Avenir, system-ui, sans-serif;

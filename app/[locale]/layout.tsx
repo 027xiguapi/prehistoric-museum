@@ -5,12 +5,12 @@ import { notFound } from 'next/navigation'
 
 import '@fontsource-variable/fredoka'
 import '@fontsource-variable/noto-sans-sc'
+import '@fontsource-variable/noto-sans-tc'
 import '@fontsource-variable/nunito'
 import '@fontsource/zcool-kuaile'
 import '@/src/styles.css'
 import { I18nProvider } from '@/src/i18n/I18nProvider'
-import { isLocale } from '@/src/i18n/locale'
-
+import { isLocale, supportedLocales } from '@/src/i18n/locale'
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 }
 
 export function generateStaticParams() {
-  return [{ locale: 'zh-CN' }, { locale: 'en' }]
+  return supportedLocales.map((locale) => ({ locale }))
 }
 
 export const dynamicParams = false

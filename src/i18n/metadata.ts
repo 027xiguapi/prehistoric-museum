@@ -41,6 +41,9 @@ function museumRootUrl(): URL {
       'link[rel="alternate"][hreflang="zh-CN"]',
     )?.href,
     document.querySelector<HTMLLinkElement>(
+      'link[rel="alternate"][hreflang="zh-TW"]',
+    )?.href,
+    document.querySelector<HTMLLinkElement>(
       'link[rel="alternate"][hreflang="en"]',
     )?.href,
     window.location.href,
@@ -53,7 +56,7 @@ function museumRootUrl(): URL {
     }
     const url = new URL(candidate, window.location.origin)
     const localizedSuffix = url.pathname.match(
-      /^(.*\/)(?:zh-CN|en)(?:\/animals\/[a-z0-9]+(?:-[a-z0-9]+)*)?\/?$/,
+      /^(.*\/)(?:zh-CN|zh-TW|en)(?:\/animals\/[a-z0-9]+(?:-[a-z0-9]+)*)?\/?$/,
     )
     if (localizedSuffix?.[1]) {
       url.pathname = localizedSuffix[1]
@@ -200,8 +203,13 @@ export function updateLocalizedMetadata({
   const detailId = animalDetail?.id
   const canonical = localizedCanonical(root, variant, detailId)
   const localizedDescription = animalDetail?.description ?? description
-  const ogLocale = locale === 'zh-CN' ? 'zh_CN' : 'en_GB'
-  const alternateLocale = locale === 'zh-CN' ? 'en_GB' : 'zh_CN'
+  const ogLocale =
+    locale === 'zh-TW'
+      ? 'zh_TW'
+      : locale === 'zh-CN'
+        ? 'zh_CN'
+        : 'en_GB'
+  const alternateLocale = locale === 'en' ? 'zh_CN' : 'en_GB'
   const socialImage = animalDetail
     ? new URL(`${animalDetail.id}/social.webp`, root).href
     : new URL(`social/museum.${variant}.png`, root).href
@@ -213,6 +221,10 @@ export function updateLocalizedMetadata({
   ensureAlternate(
     'zh-CN',
     localizedCanonical(root, 'zh-CN', detailId),
+  )
+  ensureAlternate(
+    'zh-TW',
+    localizedCanonical(root, 'zh-TW', detailId),
   )
   ensureAlternate('en', localizedCanonical(root, 'en', detailId))
   // Animal detail pages omit the x-default alternate. It is already absent

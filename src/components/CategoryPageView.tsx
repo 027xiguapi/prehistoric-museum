@@ -6,6 +6,10 @@ import { BackButton } from '@/src/components/buttons/BackButton'
 import { mainAnimals } from '@/src/content/catalog'
 import { draftAnimalsByZone } from '@/src/content/collections/draft-zones'
 import { zoneCategories } from '@/src/content/collections/categories'
+import type {
+  AnimalContent,
+  AnimalPackage,
+} from '@/src/content/types'
 import type { Locale } from '@/src/i18n/locale'
 import { messagesFor } from '@/src/i18n/messages'
 
@@ -141,6 +145,21 @@ interface CategoryCardProps {
   readonly thumbnail: string | undefined
 }
 
+/**
+ * Resolves the display content for a package, falling back from zh-TW to the
+ * zh-CN copy (packages ship zh-CN/en only) and from a draft's missing locale
+ * to its zh-CN draft text.
+ */
+export function animalContentFor(
+  animal: AnimalPackage,
+  locale: Locale,
+): AnimalContent | undefined {
+  const contentLocale = locale === 'zh-TW' ? 'zh-CN' : locale
+  return (
+    animal.content[contentLocale] ?? animal.content['zh-CN']
+  )
+}
+
 // Shared sticker card keeps the prehistoric and draft variants identical.
 function CategoryCard({
   classificationLabel,
@@ -251,7 +270,10 @@ export function CategoryPageView({ locale, zone }: CategoryPageViewProps) {
               role="list"
             >
               {prehistoric.map((animal, index) => {
-                const content = animal.content[locale]
+                const content = animalContentFor(animal, locale)
+                if (!content) {
+                  return null
+                }
                 return (
                   <CategoryCard
                     key={animal.id}
@@ -265,8 +287,7 @@ export function CategoryPageView({ locale, zone }: CategoryPageViewProps) {
                 )
               })}
               {drafts.map((animal, index) => {
-                const content =
-                  animal.content[locale] ?? animal.content['zh-CN']
+                const content = animalContentFor(animal, locale)
                 if (!content) {
                   return null
                 }

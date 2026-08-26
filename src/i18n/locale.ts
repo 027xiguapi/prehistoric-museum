@@ -1,4 +1,4 @@
-export const supportedLocales = ['zh-CN', 'en'] as const
+export const supportedLocales = ['zh-CN', 'zh-TW', 'en'] as const
 
 export type Locale = (typeof supportedLocales)[number]
 export type LocalePreference = Locale | 'system'
@@ -20,7 +20,7 @@ export interface LocaleResolution {
 }
 
 export function isLocale(value: unknown): value is Locale {
-  return value === 'zh-CN' || value === 'en'
+  return value === 'zh-CN' || value === 'zh-TW' || value === 'en'
 }
 
 export function localeCookiePath(pathname: string): string {
@@ -28,7 +28,7 @@ export function localeCookiePath(pathname: string): string {
   const withoutTrailingSlash = (path: string) =>
     path.length > 1 && path.endsWith('/') ? path.slice(0, -1) : path
   const localizedPath = normalisedPath.match(
-    /^(.*\/)(?:zh-CN|en)(?:\/|$)/,
+    /^(.*\/)(?:zh-CN|zh-TW|en)(?:\/|$)/,
   )
   if (localizedPath?.[1]) {
     return withoutTrailingSlash(localizedPath[1])
@@ -51,13 +51,16 @@ export function serializeClearedLocaleCookie(pathname: string): string {
 }
 
 export function localeFromPath(pathname: string): Locale | null {
-  const match = pathname.match(/(?:^|\/)(zh-CN|en)(?:\/|$)/)
+  const match = pathname.match(/(?:^|\/)(zh-CN|zh-TW|en)(?:\/|$)/)
   return match && isLocale(match[1]) ? match[1] : null
 }
 
 export function systemLocale(languages: readonly string[]): Locale {
   for (const language of languages) {
     const normalizedLanguage = language.trim().toLowerCase()
+    if (normalizedLanguage === 'zh-tw' || normalizedLanguage === 'zh-hk' || normalizedLanguage === 'zh-mo' || normalizedLanguage === 'zh-hant') {
+      return 'zh-TW'
+    }
     if (
       normalizedLanguage === 'zh' ||
       normalizedLanguage.startsWith('zh-')
@@ -93,7 +96,7 @@ export function resolveLocale({
 
 function rootPathFor(pathname: string): string {
   const normalisedPath = pathname.replace(/\/index\.html\/?$/, '/')
-  const localeSuffix = normalisedPath.match(/^(.*\/)(?:zh-CN|en)\/?$/)
+  const localeSuffix = normalisedPath.match(/^(.*\/)(?:zh-CN|zh-TW|en)\/?$/)
   if (localeSuffix?.[1]) {
     return localeSuffix[1]
   }
@@ -111,7 +114,7 @@ export function buildLocaleUrl(
   const url = new URL(currentUrl, 'http://localhost')
   const normalisedPath = url.pathname.replace(/\/index\.html\/?$/, '/')
   const localeSegment = normalisedPath.match(
-    /^(.*\/)(?:zh-CN|en)(\/.*|\/$)/,
+    /^(.*\/)(?:zh-CN|zh-TW|en)(\/.*|\/$)/,
   )
   if (localeSegment?.[1] && localeSegment[2]) {
     url.pathname =

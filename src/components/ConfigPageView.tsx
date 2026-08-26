@@ -22,10 +22,17 @@ import {
   type LocalePreference,
 } from '@/src/i18n/locale'
 
-const languageChoices: readonly LocalePreference[] = ['system', 'zh-CN', 'en']
+const languageChoices: readonly LocalePreference[] = [
+  'system',
+  'zh-CN',
+  'zh-TW',
+  'en',
+]
 
 const ZH_FONT_STACK =
   '"Noto Sans SC Variable", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif'
+const ZH_TW_FONT_STACK =
+  '"Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Noto Sans SC Variable", system-ui, sans-serif'
 const EN_FONT_STACK =
   '"Nunito Variable", "Avenir Next", Avenir, system-ui, sans-serif'
 
@@ -118,7 +125,11 @@ function SystemLanguageLabel() {
     return <span lang={locale}>{messages.language.system}</span>
   }
   const resolvedLabel =
-    resolved === 'zh-CN' ? messages.language.chinese : messages.language.english
+    resolved === 'zh-CN'
+      ? messages.language.chinese
+      : resolved === 'zh-TW'
+        ? messages.language.traditionalChinese
+        : messages.language.english
   const fullLabel = messages.language.systemResolved(resolvedLabel)
   const resolvedLabelStart = fullLabel.indexOf(resolvedLabel)
   return (
@@ -127,7 +138,12 @@ function SystemLanguageLabel() {
       <span
         lang={resolved}
         style={{
-          fontFamily: resolved === 'zh-CN' ? ZH_FONT_STACK : EN_FONT_STACK,
+          fontFamily:
+            resolved === 'zh-CN'
+              ? ZH_FONT_STACK
+              : resolved === 'zh-TW'
+                ? ZH_TW_FONT_STACK
+                : EN_FONT_STACK,
         }}
       >
         {resolvedLabel}
@@ -150,10 +166,19 @@ function LanguageChoiceLabel({
     <span
       lang={choice}
       style={{
-        fontFamily: choice === 'zh-CN' ? ZH_FONT_STACK : EN_FONT_STACK,
+        fontFamily:
+          choice === 'zh-CN'
+            ? ZH_FONT_STACK
+            : choice === 'zh-TW'
+              ? ZH_TW_FONT_STACK
+              : EN_FONT_STACK,
       }}
     >
-      {choice === 'zh-CN' ? messages.language.chinese : messages.language.english}
+      {choice === 'zh-CN'
+        ? messages.language.chinese
+        : choice === 'zh-TW'
+          ? messages.language.traditionalChinese
+          : messages.language.english}
     </span>
   )
 }

@@ -4,7 +4,7 @@
 
 <p align="center">
   <strong>For curious children and the grown-ups willing to sit beside them.</strong><br>
-  WonZoo is a free children's science website: meet prehistoric and modern animals in 3D, in English or Simplified Chinese, with short narration, gentle care play, AR, and a parent guide.
+  WonZoo is a free children's science website: meet prehistoric and modern animals in 3D, in English, Simplified Chinese, or Traditional Chinese, with short narration, gentle care play, AR, and a parent guide.
 </p>
 
 <p align="center">
@@ -36,7 +36,7 @@ It still is not designed to keep children on the screen. Discovering one interes
 - **Follow the questions:** the parent guide covers when an animal lived, fossil discovery regions, size, diet, classification, and source references.
 - **Use it comfortably:** the responsive layout adapts to phone, tablet, and desktop screen sizes, supports keyboard navigation, and respects reduced-motion settings.
 
-The site follows the device language on a first visit. You can switch between English and Simplified Chinese at any time; the choice is remembered, and each language has a shareable link.
+The site follows the device language on a first visit. You can switch between English, Simplified Chinese, and Traditional Chinese at any time; the choice is remembered, and each language has a shareable link.
 
 WonZoo is designed mainly for children aged 2–6 with a grown-up nearby, but curiosity matters more than the age label. If an image or sound feels uncomfortable, choose another animal or close the page.
 

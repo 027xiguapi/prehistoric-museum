@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import { isLocale } from '@/src/i18n/locale'
+import { isLocale, supportedLocales } from '@/src/i18n/locale'
 import { museumPageMetadata } from '@/src/seo/museum-page-metadata'
 import { MuseumHome } from '@/app/[locale]/MuseumHome'
 
 export function generateStaticParams() {
-  return [{ locale: 'zh-CN' }, { locale: 'en' }]
+  return supportedLocales.map((locale) => ({ locale }))
 }
 
 interface MuseumPageProps {

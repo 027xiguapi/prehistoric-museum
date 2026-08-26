@@ -3,7 +3,11 @@
 import { useSyncExternalStore } from 'react'
 import { seoNotFoundCopy } from '@/src/seo/metadata'
 import { messagesFor } from '@/src/i18n/messages'
-import { localeFromPath, type Locale } from '@/src/i18n/locale'
+import {
+  localeFromPath,
+  systemLocale,
+  type Locale,
+} from '@/src/i18n/locale'
 import '@/src/styles.css'
 
 function subscribeToNothing(onChange: () => void): () => void {
@@ -18,9 +22,11 @@ function getServerLocale(): Locale {
 function getClientLocale(): Locale {
   return (
     localeFromPath(window.location.pathname) ??
-    (navigator.languages.some((language) => language.startsWith('zh'))
-      ? 'zh-CN'
-      : 'en')
+    systemLocale(
+      navigator.languages.length > 0
+        ? navigator.languages
+        : [navigator.language],
+    )
   )
 }
 
@@ -35,7 +41,8 @@ function useNotFoundLocale(): Locale {
 function NotFoundContent() {
   const locale = useNotFoundLocale()
   const copy = messagesFor(locale).notFound
-  const home = locale === 'en' ? '/en/' : '/zh-CN/'
+  const home =
+    locale === 'en' ? '/en/' : locale === 'zh-TW' ? '/zh-TW/' : '/zh-CN/'
 
   return (
     <main className="mx-auto flex min-h-dvh max-w-2xl flex-col items-center justify-center gap-6 px-6 py-16 text-center">

@@ -11,8 +11,13 @@ export function museumPageMetadata(locale: Locale): Metadata {
   const copy = seoPageCopy[locale]
   const canonical = museumCanonicalUrl(locale)
   const socialImage = museumSocialImageUrl(locale)
-  const ogLocale = locale === 'zh-CN' ? 'zh_CN' : 'en_GB'
-  const ogAlternate = locale === 'zh-CN' ? 'en_GB' : 'zh_CN'
+  const ogLocale =
+    locale === 'zh-TW'
+      ? 'zh_TW'
+      : locale === 'zh-CN'
+        ? 'zh_CN'
+        : 'en_GB'
+  const ogAlternate = locale === 'en' ? 'zh_CN' : 'en_GB'
 
   return {
     title: copy.title,
@@ -22,6 +27,7 @@ export function museumPageMetadata(locale: Locale): Metadata {
       canonical,
       languages: {
         'zh-CN': museumCanonicalUrl('zh-CN'),
+        'zh-TW': museumCanonicalUrl('zh-TW'),
         en: museumCanonicalUrl('en'),
         'x-default': museumCanonicalUrl('x-default'),
       },

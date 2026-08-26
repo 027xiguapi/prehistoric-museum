@@ -17,7 +17,13 @@ export type AtmosphereKind =
   | 'plains'
   | 'underwater'
 export type Diet = 'herbivore' | 'carnivore' | 'omnivore' | 'unknown'
-export type Locale = 'zh-CN' | 'en'
+/** Interface locales. Animal packages only ship zh-CN/en content today; */
+export type Locale = 'zh-CN' | 'zh-TW' | 'en'
+/**
+ * Locales with first-party animal packages. Traditional Chinese reuses the
+ * zh-CN package content at runtime until per-animal zh-TW copy exists.
+ */
+export type ContentLocale = 'zh-CN' | 'en'
 export type Sha256 = string
 export type IsoDate = string
 
@@ -139,8 +145,7 @@ export type CanonicalRuntimeAssetPath =
   | 'images/thumbnail.webp'
   | 'backgrounds/landscape.webp'
   | 'backgrounds/portrait.webp'
-  | 'audio/narration.zh-CN.mp3'
-  | 'audio/narration.en.mp3'
+  | `audio/narration.${ContentLocale}.mp3`
 
 export type AssetKind =
   | 'model'
@@ -200,26 +205,26 @@ export interface AssetProvenance {
   readonly redistributionAllowed: boolean
 }
 
-export type NarrationSourcePath<Language extends Locale = Locale> =
+export type NarrationSourcePath<Language extends ContentLocale = ContentLocale> =
   `audio/narration.${Language}.mp3`
 
-export interface ReadyNarrationPlan<Language extends Locale = Locale> {
+export interface ReadyNarrationPlan<Language extends ContentLocale = ContentLocale> {
   readonly status: 'ready'
   readonly sourcePath: NarrationSourcePath<Language>
   readonly mimeType: 'audio/mpeg'
 }
 
-export type NarrationLanguage<Language extends Locale> =
+export type NarrationLanguage<Language extends ContentLocale> =
   Language extends 'zh-CN' ? 'Chinese' : 'English'
 
-export interface ApprovedNarrationPlan<Language extends Locale = Locale>
+export interface ApprovedNarrationPlan<Language extends ContentLocale = ContentLocale>
   extends ReadyNarrationPlan<Language> {
   readonly speaker: 'Serena'
   readonly language: NarrationLanguage<Language>
   readonly humanReviewStatus: 'approved'
 }
 
-export interface PendingNarrationPlan<Language extends Locale = Locale> {
+export interface PendingNarrationPlan<Language extends ContentLocale = ContentLocale> {
   readonly status: 'pending-review'
   readonly expectedPath: NarrationSourcePath<Language>
   readonly message: string
@@ -230,38 +235,38 @@ export interface PendingNarrationPlan<Language extends Locale = Locale> {
   }
 }
 
-export type NarrationPlan<Language extends Locale = Locale> =
+export type NarrationPlan<Language extends ContentLocale = ContentLocale> =
   | ReadyNarrationPlan<Language>
   | PendingNarrationPlan<Language>
 
-export interface ReadyNarrationAsset<Language extends Locale = Locale>
+export interface ReadyNarrationAsset<Language extends ContentLocale = ContentLocale>
   extends ReadyNarrationPlan<Language> {
   readonly url: string
 }
 
-export interface ApprovedNarrationAsset<Language extends Locale = Locale>
+export interface ApprovedNarrationAsset<Language extends ContentLocale = ContentLocale>
   extends ApprovedNarrationPlan<Language> {
   readonly url: string
 }
 
-export type NarrationAsset<Language extends Locale = Locale> =
+export type NarrationAsset<Language extends ContentLocale = ContentLocale> =
   | ReadyNarrationAsset<Language>
   | PendingNarrationPlan<Language>
 
 export type PublishedNarrationPlans = {
-  readonly [Language in Locale]: ApprovedNarrationPlan<Language>
+  readonly [Language in ContentLocale]: ApprovedNarrationPlan<Language>
 }
 
 export type PublishedNarrationAssets = {
-  readonly [Language in Locale]: ApprovedNarrationAsset<Language>
+  readonly [Language in ContentLocale]: ApprovedNarrationAsset<Language>
 }
 
 export type DraftNarrationPlans = Partial<{
-  readonly [Language in Locale]: NarrationPlan<Language>
+  readonly [Language in ContentLocale]: NarrationPlan<Language>
 }>
 
 export type DraftNarrationAssets = Partial<{
-  readonly [Language in Locale]: NarrationAsset<Language>
+  readonly [Language in ContentLocale]: NarrationAsset<Language>
 }>
 
 export interface PublishedAnimalAssets {
@@ -304,7 +309,7 @@ interface AnimalPackageCommon {
 export interface PublishedAnimalPackage extends AnimalPackageCommon {
   readonly status: 'published'
   readonly content: {
-    readonly [Language in Locale]: AnimalContent
+    readonly [Language in ContentLocale]: AnimalContent
   }
   readonly narration: PublishedNarrationPlans
   readonly assets: PublishedAnimalAssets
@@ -317,7 +322,7 @@ export interface PublishedAnimalPackage extends AnimalPackageCommon {
 export interface DraftAnimalPackage extends AnimalPackageCommon {
   readonly status: 'draft'
   readonly content: Partial<{
-    readonly [Language in Locale]: AnimalContent
+    readonly [Language in ContentLocale]: AnimalContent
   }>
   readonly narration: DraftNarrationPlans
   readonly assets: DraftAnimalAssets

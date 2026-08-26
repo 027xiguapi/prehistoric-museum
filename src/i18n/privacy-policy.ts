@@ -85,6 +85,66 @@ const zhCN: PrivacyPolicyContent = {
   ],
 }
 
+const zhTW: PrivacyPolicyContent = {
+  title: '隱私權政策',
+  summary:
+    'WonZoo 是一款面向兒童的 3D 史前動物應用：無需帳號，不收集個人身分資訊，不包含廣告與分析 SDK，攝影機僅用於本地的擴增實境體驗。',
+  lastUpdatedLabel: '最後更新',
+  updatedDate: '2026 年 8 月 22 日',
+  contactLabel: '聯絡我們',
+  contactEmail: SUPPORT_EMAIL,
+  sections: [
+    {
+      title: '我們收集的資訊',
+      paragraphs: [
+        '本應用無需註冊或登入，不會要求您提供姓名、聯絡方式、電子郵件或任何兒童的個人資訊。',
+        '擴增實境（AR）功能會在您主動開啟時請求使用攝影機，用於把動物模型放到您周圍的畫面中。攝影機畫面只在您的設備本地即時處理，我們不會錄製、保存或上傳任何畫面。',
+        '應用會在您的設備本地保存少量偏好設定（例如介面語言、是否已看過流量提示）。這些資料只存在您的設備上，不會傳送給我們。',
+      ],
+    },
+    {
+      title: '我們不收集的資訊',
+      paragraphs: [
+        '本應用不包含帳號系統，不收集身分資訊，不進行廣告追蹤，也不包含行為分析 SDK。',
+        '我們不會存取您的位置、通訊錄、相簿或其他設備敏感資料。',
+      ],
+    },
+    {
+      title: '兒童隱私',
+      paragraphs: [
+        '本應用面向 2–6 歲兒童及其家長設計。我們不收集任何可識別兒童身分的資訊，也沒有帳號或社交功能。',
+        '如果您認為我們無意中收集了兒童資訊，請透過下方聯絡方式與我們聯絡，我們會在核實後盡快刪除。',
+      ],
+    },
+    {
+      title: '第三方服務',
+      paragraphs: [
+        '應用本身不包含第三方廣告或分析 SDK。',
+        '如果您透過網頁版造訪 WonZoo，網頁可能會展示由 Google AdSense 提供的廣告；其資料收集與使用請參閱 Google 的隱私權政策。',
+      ],
+    },
+    {
+      title: '資料安全',
+      paragraphs: [
+        '攝影機畫面僅在本地處理；本地偏好設定保存在您的設備上。您可以在系統設定中撤銷攝影機權限，或清除應用資料來刪除本地保存的偏好。',
+      ],
+    },
+    {
+      title: '您的權利',
+      paragraphs: [
+        '由於我們不收集個人資料，通常無需進行「存取或刪除個人資料」操作。您可以隨時撤銷攝影機權限或清除本機資料。',
+        '如果您對本政策或資料處理有任何疑問或請求，請透過下方聯絡方式與我們聯絡。',
+      ],
+    },
+    {
+      title: '政策更新',
+      paragraphs: [
+        '我們可能會不時更新本政策。更新後的政策會發布在本頁面，並同步更新「最後更新」日期。',
+      ],
+    },
+  ],
+}
+
 const en: PrivacyPolicyContent = {
   title: 'Privacy Policy',
   summary:
@@ -146,5 +206,12 @@ const en: PrivacyPolicyContent = {
 }
 
 export function privacyPolicyFor(locale: Locale): PrivacyPolicyContent {
-  return locale === 'zh-CN' ? zhCN : en
+  switch (locale) {
+    case 'zh-CN':
+      return zhCN
+    case 'zh-TW':
+      return zhTW
+    default:
+      return en
+  }
 }

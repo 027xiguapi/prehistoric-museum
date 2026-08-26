@@ -1,9 +1,11 @@
 import { useLayoutEffect, useRef } from 'react'
 
+import type { Locale } from '@/src/i18n/locale'
+
 interface ResponsiveAnimalTitleProps {
   readonly as?: 'h1' | 'h2'
   readonly children: string
-  readonly locale: 'zh-CN' | 'en'
+  readonly locale: Locale
 }
 
 const TITLE_FIT_SAFETY_RATIO = 0.985
