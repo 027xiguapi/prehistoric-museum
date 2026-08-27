@@ -36,6 +36,8 @@ export const seoSocialCardLocales = [
   'fr',
   'de',
   'es',
+  'ru',
+  'pt',
   'en',
 ] as const satisfies readonly SeoPageLocale[]
 
@@ -50,8 +52,8 @@ interface SocialCardCopy {
   readonly galleryLabel: string
   /** Latin scripts need a smaller size to fit seven zone names on one line. */
   readonly galleryFontSize: 25 | 22
-  /** CJK fallback family appended after the Latin font; null = Latin only. */
-  readonly cjkFont: 'chinese' | 'korean' | null
+  /** Non-Latin fallback family appended after the Latin font; null = Latin only. */
+  readonly fallbackFont: 'chinese' | 'korean' | 'cyrillic' | null
 }
 
 const socialCardCopy: Readonly<Record<SeoPageLocale, SocialCardCopy>> = {
@@ -60,59 +62,73 @@ const socialCardCopy: Readonly<Record<SeoPageLocale, SocialCardCopy>> = {
     galleryLabel:
       'Dinosaurs · Grassland · Forest · Ice Age · Ocean · Insects · Sky',
     galleryFontSize: 22,
-    cjkFont: 'chinese',
+    fallbackFont: 'chinese',
   },
   'zh-CN': {
     subtitle: `和孩子一起探索动物园的 ${zooAnimalCount} 位动物朋友`,
     galleryLabel: '恐龙 · 草原 · 森林 · 冰川 · 海洋 · 昆虫 · 天空',
     galleryFontSize: 25,
-    cjkFont: 'chinese',
+    fallbackFont: 'chinese',
   },
   'zh-TW': {
     subtitle: `和孩子一起探索動物園的 ${zooAnimalCount} 位動物朋友`,
     galleryLabel: '恐龍 · 草原 · 森林 · 冰川 · 海洋 · 昆蟲 · 天空',
     galleryFontSize: 25,
-    cjkFont: 'chinese',
+    fallbackFont: 'chinese',
   },
   ja: {
     subtitle: `お子さまと一緒に 3D 動物園で ${zooAnimalCount} 匹の動物を探索`,
     galleryLabel: '恐竜 · 草原 · 森 · 氷河 · 海 · 昆虫 · 空',
     galleryFontSize: 25,
-    cjkFont: 'chinese',
+    fallbackFont: 'chinese',
   },
   ko: {
     subtitle: `아이와 함께 3D 동물원의 ${zooAnimalCount}마리 동물 친구`,
     galleryLabel: '공룡 · 초원 · 숲 · 빙하 · 바다 · 곤충 · 하늘',
     galleryFontSize: 25,
-    cjkFont: 'korean',
+    fallbackFont: 'korean',
   },
   fr: {
     subtitle: `Rencontrez les ${zooAnimalCount} animaux du zoo en 3D`,
     galleryLabel:
       'Dinosaures · Prairies · Forêt · Ère glaciaire · Océan · Insectes · Ciel',
     galleryFontSize: 22,
-    cjkFont: null,
+    fallbackFont: null,
   },
   de: {
     subtitle: `Entdecke ${zooAnimalCount} Zoo-Tiere in 3D`,
     galleryLabel:
       'Dinosaurier · Grasland · Wald · Eiszeit · Ozean · Insekten · Himmel',
     galleryFontSize: 22,
-    cjkFont: null,
+    fallbackFont: null,
   },
   es: {
     subtitle: `Conoce ${zooAnimalCount} animales del zoo en 3D`,
     galleryLabel:
       'Dinosaurios · Praderas · Bosque · Hielo · Océano · Insectos · Cielo',
     galleryFontSize: 22,
-    cjkFont: null,
+    fallbackFont: null,
+  },
+  ru: {
+    subtitle: `Познакомьтесь с ${zooAnimalCount} животными зоопарка в 3D`,
+    galleryLabel:
+      'Динозавры · Луга · Лес · Ледниковый период · Океан · Насекомые · Небо',
+    galleryFontSize: 22,
+    fallbackFont: 'cyrillic',
+  },
+  pt: {
+    subtitle: `Conheça ${zooAnimalCount} animais do zoo em 3D`,
+    galleryLabel:
+      'Dinossauros · Pradarias · Floresta · Era Glacial · Oceano · Insetos · Céu',
+    galleryFontSize: 22,
+    fallbackFont: null,
   },
   en: {
     subtitle: `Meet ${zooAnimalCount} zoo animals in 3D`,
     galleryLabel:
       'Dinosaurs · Grassland · Forest · Ice Age · Ocean · Insects · Sky',
     galleryFontSize: 22,
-    cjkFont: null,
+    fallbackFont: null,
   },
 }
 
@@ -138,7 +154,7 @@ const latinFont = loadEmbeddedFont(
   '../node_modules/@fontsource-variable/fredoka/files/fredoka-latin-wght-normal.woff2',
   '300 700',
 )
-const cjkFonts = {
+const fallbackFonts = {
   chinese: loadEmbeddedFont(
     'Museum Chinese',
     '../node_modules/@fontsource/zcool-kuaile/files/zcool-kuaile-chinese-simplified-400-normal.woff2',
@@ -148,6 +164,11 @@ const cjkFonts = {
     'Museum Korean',
     '../node_modules/@fontsource/jua/files/jua-korean-400-normal.woff2',
     '400',
+  ),
+  cyrillic: loadEmbeddedFont(
+    'Museum Cyrillic',
+    '../node_modules/@fontsource-variable/nunito/files/nunito-cyrillic-wght-normal.woff2',
+    '300 700',
   ),
 } as const
 
@@ -179,16 +200,19 @@ export function renderSocialCard(
 ): string {
   const copy = seoPageCopy[locale]
   const text = socialCardCopy[locale]
-  const cjkFont = text.cjkFont === null ? null : cjkFonts[text.cjkFont]
+  const fallbackFont =
+    text.fallbackFont === null ? null : fallbackFonts[text.fallbackFont]
   // The x-default subtitle is a longer bilingual line, so its title shrinks.
   const titleFontSize = locale === 'x-default' ? 58 : 68
   const fontFamily = embedFonts
-    ? cjkFont === null
+    ? fallbackFont === null
       ? latinFont.family
-      : `${latinFont.family}, ${cjkFont.family}`
+      : `${latinFont.family}, ${fallbackFont.family}`
     : 'ui-rounded, system-ui, sans-serif'
   const fontStyles = embedFonts
-    ? socialCardFontStyles(cjkFont === null ? [latinFont] : [latinFont, cjkFont])
+    ? socialCardFontStyles(
+        fallbackFont === null ? [latinFont] : [latinFont, fallbackFont],
+      )
     : ''
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
   <title id="title">${escapeHtml(copy.socialImageAlt)}</title>

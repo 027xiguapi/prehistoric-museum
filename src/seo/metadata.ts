@@ -11,10 +11,6 @@ import type { Habitat, Locale } from '@/src/content/types'
 export type SeoPageLocale =
   | 'x-default'
   | Locale
-  | 'ko'
-  | 'fr'
-  | 'de'
-  | 'es'
 
 export const seoSiteOrigin = 'http://museum.routerpark.com/'
 
@@ -242,6 +238,40 @@ export const seoPageCopy = {
     systemLanguageLabel: 'Seguir el sistema',
     socialImageFileName: 'social/museum.es.png',
     socialImageAlt: 'WonZoo, zoo 3D en familia',
+  },
+  ru: {
+    locale: 'ru',
+    htmlLang: 'ru',
+    title: 'WonZoo | Семейный 3D-зоопарк',
+    description:
+      'Исследуйте 3D-зоопарк вместе с детьми и познакомьтесь с его обитателями. Вращайте модели и слушайте подсказки для наблюдений.',
+    heading: 'WonZoo',
+    introduction:
+      '3D-зоопарк для детей 2–6 лет и их родителей. Вращайте каждую модель, слушайте короткие подсказки и открывайте заметки для взрослых.',
+    privacy:
+      'Знакомьтесь с животными зоопарка без учётной записи, без рекламы и аналитики страниц; озвучка никогда не запускается сама.',
+    catalogueHeading: 'Коллекция зоопарка',
+    languageLabel: 'Выбрать язык',
+    systemLanguageLabel: 'Следовать системе',
+    socialImageFileName: 'social/museum.ru.png',
+    socialImageAlt: 'WonZoo, семейный 3D-зоопарк',
+  },
+  pt: {
+    locale: 'pt',
+    htmlLang: 'pt',
+    title: 'WonZoo | Zoo 3D em família',
+    description:
+      'Explore o zoo 3D com os seus filhos e conheça os seus animais. Rode os modelos e ouça o guia de observação.',
+    heading: 'WonZoo',
+    introduction:
+      'Um zoo 3D pensado para crianças dos 2 aos 6 anos e para os adultos que as acompanham. Rode cada modelo, ouça um guia curto de observação e abra as notas para adultos.',
+    privacy:
+      'Conheça os animais do zoo sem conta, sem anúncios nem análise de páginas; a narração nunca começa sozinha.',
+    catalogueHeading: 'Coleção do zoo',
+    languageLabel: 'Escolher idioma',
+    systemLanguageLabel: 'Seguir o sistema',
+    socialImageFileName: 'social/museum.pt.png',
+    socialImageAlt: 'WonZoo, zoo 3D em família',
   },
   en: {
     locale: 'en',

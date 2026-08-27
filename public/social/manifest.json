@@ -35,6 +35,14 @@
       "fileName": "museum.es.png",
       "sourceSha256": "d2bcd3b6083f6f5756ebf269c1e7e4e4ae93e47963406a6691107e89cbccf5c8"
     },
+    "ru": {
+      "fileName": "museum.ru.png",
+      "sourceSha256": "a8f5c1985ffacb5cf2b735a8f2d8160b905775c0a607450e1d0d7615fc7570bd"
+    },
+    "pt": {
+      "fileName": "museum.pt.png",
+      "sourceSha256": "4d05d884b34a7352d84fbe7b91ccf6846b314007ae4e6e8d5171a10a39d04552"
+    },
     "en": {
       "fileName": "museum.en.png",
       "sourceSha256": "e1746e2059722be090bac95ebbe73e5a51138047b50aeb5c15262d06073dd5bc"
