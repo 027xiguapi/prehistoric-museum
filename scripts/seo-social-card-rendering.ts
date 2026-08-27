@@ -4,11 +4,8 @@ import { fileURLToPath } from 'node:url'
 
 import sharp from 'sharp'
 
-import {
-  seoCatalogueAnimalIds,
-  seoPageCopy,
-  type SeoPageLocale,
-} from '../src/seo/metadata'
+import { allAnimals } from '../src/content/catalog'
+import { seoPageCopy, type SeoPageLocale } from '../src/seo/metadata'
 
 // Museum-level SEO social card rendering, extracted from the former static
 // site generator so `npm run generate:seo-social-cards` keeps working under
@@ -29,7 +26,143 @@ export interface SeoSocialCardManifest {
   >
 }
 
-const catalogueAnimalCount = seoCatalogueAnimalIds.length
+/** Render order shared by the PNG generator and the manifest builder. */
+export const seoSocialCardLocales = [
+  'x-default',
+  'zh-CN',
+  'zh-TW',
+  'ja',
+  'ko',
+  'fr',
+  'de',
+  'es',
+  'en',
+] as const satisfies readonly SeoPageLocale[]
+
+// The zoo publicly displays every catalogue animal across its seven zones,
+// not only the curated main collection.
+const zooAnimalCount = allAnimals.length
+
+interface SocialCardCopy {
+  /** One-line pitch rendered under the WonZoo title. */
+  readonly subtitle: string
+  /** Zone summary line at the bottom of the card. */
+  readonly galleryLabel: string
+  /** Latin scripts need a smaller size to fit seven zone names on one line. */
+  readonly galleryFontSize: 25 | 22
+  /** CJK fallback family appended after the Latin font; null = Latin only. */
+  readonly cjkFont: 'chinese' | 'korean' | null
+}
+
+const socialCardCopy: Readonly<Record<SeoPageLocale, SocialCardCopy>> = {
+  'x-default': {
+    subtitle: 'A bilingual 3D family zoo · 双语亲子 3D 动物园',
+    galleryLabel:
+      'Dinosaurs · Grassland · Forest · Ice Age · Ocean · Insects · Sky',
+    galleryFontSize: 22,
+    cjkFont: 'chinese',
+  },
+  'zh-CN': {
+    subtitle: `和孩子一起探索动物园的 ${zooAnimalCount} 位动物朋友`,
+    galleryLabel: '恐龙 · 草原 · 森林 · 冰川 · 海洋 · 昆虫 · 天空',
+    galleryFontSize: 25,
+    cjkFont: 'chinese',
+  },
+  'zh-TW': {
+    subtitle: `和孩子一起探索動物園的 ${zooAnimalCount} 位動物朋友`,
+    galleryLabel: '恐龍 · 草原 · 森林 · 冰川 · 海洋 · 昆蟲 · 天空',
+    galleryFontSize: 25,
+    cjkFont: 'chinese',
+  },
+  ja: {
+    subtitle: `お子さまと一緒に 3D 動物園で ${zooAnimalCount} 匹の動物を探索`,
+    galleryLabel: '恐竜 · 草原 · 森 · 氷河 · 海 · 昆虫 · 空',
+    galleryFontSize: 25,
+    cjkFont: 'chinese',
+  },
+  ko: {
+    subtitle: `아이와 함께 3D 동물원의 ${zooAnimalCount}마리 동물 친구`,
+    galleryLabel: '공룡 · 초원 · 숲 · 빙하 · 바다 · 곤충 · 하늘',
+    galleryFontSize: 25,
+    cjkFont: 'korean',
+  },
+  fr: {
+    subtitle: `Rencontrez les ${zooAnimalCount} animaux du zoo en 3D`,
+    galleryLabel:
+      'Dinosaures · Prairies · Forêt · Ère glaciaire · Océan · Insectes · Ciel',
+    galleryFontSize: 22,
+    cjkFont: null,
+  },
+  de: {
+    subtitle: `Entdecke ${zooAnimalCount} Zoo-Tiere in 3D`,
+    galleryLabel:
+      'Dinosaurier · Grasland · Wald · Eiszeit · Ozean · Insekten · Himmel',
+    galleryFontSize: 22,
+    cjkFont: null,
+  },
+  es: {
+    subtitle: `Conoce ${zooAnimalCount} animales del zoo en 3D`,
+    galleryLabel:
+      'Dinosaurios · Praderas · Bosque · Hielo · Océano · Insectos · Cielo',
+    galleryFontSize: 22,
+    cjkFont: null,
+  },
+  en: {
+    subtitle: `Meet ${zooAnimalCount} zoo animals in 3D`,
+    galleryLabel:
+      'Dinosaurs · Grassland · Forest · Ice Age · Ocean · Insects · Sky',
+    galleryFontSize: 22,
+    cjkFont: null,
+  },
+}
+
+interface EmbeddedFont {
+  readonly family: string
+  readonly weight: string
+  readonly data: string
+}
+
+function loadEmbeddedFont(
+  family: string,
+  file: string,
+  weight: string,
+): EmbeddedFont {
+  const data = readFileSync(
+    fileURLToPath(new URL(file, import.meta.url)),
+  ).toString('base64')
+  return { family, weight, data }
+}
+
+const latinFont = loadEmbeddedFont(
+  'Museum Latin',
+  '../node_modules/@fontsource-variable/fredoka/files/fredoka-latin-wght-normal.woff2',
+  '300 700',
+)
+const cjkFonts = {
+  chinese: loadEmbeddedFont(
+    'Museum Chinese',
+    '../node_modules/@fontsource/zcool-kuaile/files/zcool-kuaile-chinese-simplified-400-normal.woff2',
+    '400',
+  ),
+  korean: loadEmbeddedFont(
+    'Museum Korean',
+    '../node_modules/@fontsource/jua/files/jua-korean-400-normal.woff2',
+    '400',
+  ),
+} as const
+
+function socialCardFontStyles(fonts: readonly EmbeddedFont[]): string {
+  if (fonts.length === 0) {
+    return ''
+  }
+  const faces = fonts
+    .map(
+      (font) =>
+        `@font-face { font-family: "${font.family}"; src: url("data:font/woff2;base64,${font.data}") format("woff2"); font-style: normal; font-weight: ${font.weight}; }`,
+    )
+    .join('\n    ')
+  return `<style>\n    ${faces}\n  </style>`
+}
 
 function escapeHtml(value: string): string {
   return value
@@ -40,72 +173,28 @@ function escapeHtml(value: string): string {
     .replaceAll("'", '&#39;')
 }
 
-const socialLatinFontData = readFileSync(
-  fileURLToPath(
-    new URL(
-      '../node_modules/@fontsource-variable/fredoka/files/fredoka-latin-wght-normal.woff2',
-      import.meta.url,
-    ),
-  ),
-).toString('base64')
-const socialChineseFontData = readFileSync(
-  fileURLToPath(
-    new URL(
-      '../node_modules/@fontsource/zcool-kuaile/files/zcool-kuaile-chinese-simplified-400-normal.woff2',
-      import.meta.url,
-    ),
-  ),
-).toString('base64')
-
-function socialCardFontStyles(): string {
-  return `<style>
-    @font-face { font-family: "Museum Latin"; src: url("data:font/woff2;base64,${socialLatinFontData}") format("woff2"); font-style: normal; font-weight: 300 700; }
-    @font-face { font-family: "Museum Chinese"; src: url("data:font/woff2;base64,${socialChineseFontData}") format("woff2"); font-style: normal; font-weight: 400; }
-  </style>`
-}
-
 export function renderSocialCard(
   locale: SeoPageLocale,
   embedFonts = false,
 ): string {
   const copy = seoPageCopy[locale]
-  const titleLines = ['WonZoo']
+  const text = socialCardCopy[locale]
+  const cjkFont = text.cjkFont === null ? null : cjkFonts[text.cjkFont]
+  // The x-default subtitle is a longer bilingual line, so its title shrinks.
   const titleFontSize = locale === 'x-default' ? 58 : 68
-  const titleStartY = titleLines.length === 1 ? 270 : 225
-  const titleMarkup = titleLines
-    .map(
-      (line, index) =>
-        `<tspan x="125" y="${titleStartY + index * 76}">${escapeHtml(line)}</tspan>`,
-    )
-    .join('')
-  const subtitle =
-    locale === 'zh-CN'
-      ? `和孩子一起探索 ${catalogueAnimalCount} 位史前动物朋友`
-      : locale === 'zh-TW'
-        ? `和孩子一起探索 ${catalogueAnimalCount} 位史前動物朋友`
-        : locale === 'ja'
-          ? `お子さまと一緒に ${catalogueAnimalCount} 体の先史時代の動物を 3D で探索`
-          : locale === 'en'
-            ? `Meet ${catalogueAnimalCount} prehistoric animals in 3D`
-            : 'A bilingual 3D family museum · 双语亲子 3D 博物馆'
-  const galleryLabel =
-    locale === 'zh-TW'
-      ? '陸地 · 天空 · 水中'
-      : locale === 'zh-CN'
-        ? '陆地 · 天空 · 水中'
-        : locale === 'ja'
-          ? '陸 · 空 · 海'
-          : locale === 'en'
-            ? 'Land · Sky · Sea'
-            : 'Land · Sky · Sea | 陆地 · 天空 · 水中'
   const fontFamily = embedFonts
-    ? 'Museum Latin, Museum Chinese'
+    ? cjkFont === null
+      ? latinFont.family
+      : `${latinFont.family}, ${cjkFont.family}`
     : 'ui-rounded, system-ui, sans-serif'
+  const fontStyles = embedFonts
+    ? socialCardFontStyles(cjkFont === null ? [latinFont] : [latinFont, cjkFont])
+    : ''
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
   <title id="title">${escapeHtml(copy.socialImageAlt)}</title>
-  <desc id="description">${escapeHtml(subtitle)}</desc>
+  <desc id="description">${escapeHtml(text.subtitle)}</desc>
   <defs>
-    ${embedFonts ? socialCardFontStyles() : ''}
+    ${fontStyles}
     <linearGradient id="background" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#eef4df"/><stop offset=".58" stop-color="#d8e7c2"/><stop offset="1" stop-color="#9dc8c5"/></linearGradient>
     <filter id="shadow"><feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#173a35" flood-opacity=".2"/></filter>
   </defs>
@@ -115,10 +204,10 @@ export function renderSocialCard(
   <g fill="#315f53" opacity=".7"><path d="M920 430c65-90 153-100 222-34-52 1-77 24-84 70-42-46-85-57-138-36Z"/><path d="M827 494c53-64 119-63 166-7-40-5-62 11-73 46-28-38-58-51-93-39Z"/></g>
   <g filter="url(#shadow)">
     <rect x="72" y="70" width="860" height="490" rx="44" fill="#fff" opacity=".84"/>
-    <text fill="#20382f" font-family="${fontFamily}" font-size="${titleFontSize}" font-weight="700">${titleMarkup}</text>
-    <text x="125" y="382" fill="#355b50" font-family="${fontFamily}" font-size="31" font-weight="600">${escapeHtml(subtitle)}</text>
+    <text x="125" y="270" fill="#20382f" font-family="${fontFamily}" font-size="${titleFontSize}" font-weight="700">WonZoo</text>
+    <text x="125" y="382" fill="#355b50" font-family="${fontFamily}" font-size="31" font-weight="600">${escapeHtml(text.subtitle)}</text>
     <g transform="translate(125 420)" fill="#d6724d"><circle cx="33" cy="33" r="33"/><circle cx="111" cy="33" r="33"/><circle cx="189" cy="33" r="33"/></g>
-    <text x="125" y="525" fill="#527a6e" font-family="${fontFamily}" font-size="25">${escapeHtml(galleryLabel)}</text>
+    <text x="125" y="525" fill="#527a6e" font-family="${fontFamily}" font-size="${text.galleryFontSize}">${escapeHtml(text.galleryLabel)}</text>
   </g>
 </svg>
 `
@@ -134,10 +223,13 @@ export async function renderSocialCardPng(
 
 export function createSeoSocialCardManifest(): SeoSocialCardManifest {
   const cards = Object.fromEntries(
-    (['x-default', 'zh-CN', 'zh-TW', 'ja', 'en'] as const).map((locale) => [
+    seoSocialCardLocales.map((locale) => [
       locale,
       {
-        fileName: seoPageCopy[locale].socialImageFileName.replace('social/', ''),
+        fileName: seoPageCopy[locale].socialImageFileName.replace(
+          'social/',
+          '',
+        ),
         sourceSha256: createHash('sha256')
           .update(renderSocialCard(locale, true))
           .digest('hex'),

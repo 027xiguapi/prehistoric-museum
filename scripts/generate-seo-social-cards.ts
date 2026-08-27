@@ -2,10 +2,13 @@ import { mkdir, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import {
+import './register-asset-import-stub'
+
+const {
   createSeoSocialCardManifest,
   renderSocialCardPng,
-} from './seo-social-card-rendering'
+  seoSocialCardLocales,
+} = await import('./seo-social-card-rendering')
 
 const outputDirectory = fileURLToPath(
   new URL('../public/social/', import.meta.url),
@@ -14,7 +17,7 @@ const manifest = createSeoSocialCardManifest()
 
 // librsvg/Pango share a process-wide font cache. Render in a fixed sequence so
 // two cards cannot race while registering the embedded project fonts.
-for (const locale of ['x-default', 'zh-CN', 'zh-TW', 'ja', 'en'] as const) {
+for (const locale of seoSocialCardLocales) {
   const { fileName } = manifest.cards[locale]
   const outputPath = resolve(outputDirectory, fileName)
   await mkdir(dirname(outputPath), { recursive: true })

@@ -5,7 +5,16 @@ import { mainAnimals } from '@/src/content/catalog'
 import { staticAnimalDetailIds } from '@/src/content/static-animal-details'
 import type { Habitat, Locale } from '@/src/content/types'
 
-export type SeoPageLocale = 'x-default' | Locale
+// Locales with SEO copy. Korean, French, German and Spanish currently get
+// dedicated social cards only (prepared ahead of full site localization) and
+// are not part of the app `Locale` union yet.
+export type SeoPageLocale =
+  | 'x-default'
+  | Locale
+  | 'ko'
+  | 'fr'
+  | 'de'
+  | 'es'
 
 export const seoSiteOrigin = 'http://museum.routerpark.com/'
 
@@ -29,7 +38,7 @@ export interface SeoCatalogueGroup {
 
 export interface SeoPageCopy {
   readonly locale: SeoPageLocale
-  readonly htmlLang: Locale
+  readonly htmlLang: Exclude<SeoPageLocale, 'x-default'>
   readonly brand?: string
   readonly title: string
   readonly description: string
@@ -165,6 +174,74 @@ export const seoPageCopy = {
     systemLanguageLabel: 'システムに従う',
     socialImageFileName: 'social/museum.ja.png',
     socialImageAlt: 'WonZoo 親子向け 3D ミュージアム',
+  },
+  ko: {
+    locale: 'ko',
+    htmlLang: 'ko',
+    title: 'WonZoo | 가족과 함께 즐기는 3D 동물원',
+    description:
+      '아이와 함께 3D 동물원을 둘러보며 동물 친구들을 만나보세요. 모델을 돌려 보고 관찰 이야기를 들어 보세요.',
+    heading: 'WonZoo',
+    introduction:
+      '2~6세 아이와 보호자를 위한 3D 동물원입니다. 모델을 함께 돌리고 관찰 가이드를 들은 뒤 보호자용 해설로 더 깊이 알아보세요.',
+    privacy:
+      '동물원의 모든 동물을 둘러볼 수 있어요. 계정이 필요 없고 광고와 페이지 분석도 없으며, 음성은 직접 눌렀을 때만 재생됩니다.',
+    catalogueHeading: '동물원 컬렉션',
+    languageLabel: '언어 선택',
+    systemLanguageLabel: '시스템 설정 따르기',
+    socialImageFileName: 'social/museum.ko.png',
+    socialImageAlt: 'WonZoo 가족 3D 동물원',
+  },
+  fr: {
+    locale: 'fr',
+    htmlLang: 'fr',
+    title: 'WonZoo | Zoo 3D en famille',
+    description:
+      'Explorez le zoo 3D avec vos enfants et rencontrez ses animaux. Tournez les modèles, écoutez le guide d\'observation.',
+    heading: 'WonZoo',
+    introduction:
+      'Un zoo 3D pensé pour les 2–6 ans et leurs accompagnants. Tournez chaque modèle, écoutez un court guide d\'observation et ouvrez les notes pour adultes.',
+    privacy:
+      'Rencontrez les animaux du zoo sans compte, sans publicité ni mesure d\'audience ; la narration ne démarre jamais seule.',
+    catalogueHeading: 'Collections du zoo',
+    languageLabel: 'Choisir une langue',
+    systemLanguageLabel: 'Suivre le système',
+    socialImageFileName: 'social/museum.fr.png',
+    socialImageAlt: 'WonZoo, zoo 3D en famille',
+  },
+  de: {
+    locale: 'de',
+    htmlLang: 'de',
+    title: 'WonZoo | 3D-Zoo für Familien',
+    description:
+      'Entdecke den 3D-Zoo mit deinen Kindern und triff seine Tiere. Drehe die Modelle und hör dir die Beobachtungstipps an.',
+    heading: 'WonZoo',
+    introduction:
+      'Ein 3D-Zoo für 2–6-Jährige und ihre Begleitpersonen. Drehe jedes Modell, höre eine kurze Beobachtungstour und öffne die Notizen für Erwachsene.',
+    privacy:
+      'Triff die Tiere des Zoos ohne Konto, ohne Werbung und ohne Seitenanalyse; die Sprachausgabe startet nie von allein.',
+    catalogueHeading: 'Zoo-Sammlung',
+    languageLabel: 'Sprache wählen',
+    systemLanguageLabel: 'Systemeinstellung folgen',
+    socialImageFileName: 'social/museum.de.png',
+    socialImageAlt: 'WonZoo, 3D-Zoo für Familien',
+  },
+  es: {
+    locale: 'es',
+    htmlLang: 'es',
+    title: 'WonZoo | Zoo 3D en familia',
+    description:
+      'Explora el zoo 3D con tus peques y conoce a sus animales. Gira los modelos y escucha la guía de observación.',
+    heading: 'WonZoo',
+    introduction:
+      'Un zoo 3D pensado para niños de 2–6 años y sus acompañantes. Gira cada modelo, escucha una guía breve de observación y abre las notas para adultos.',
+    privacy:
+      'Conoce a los animales del zoo sin cuenta, sin anuncios ni analítica de páginas; la narración nunca empieza sola.',
+    catalogueHeading: 'Colección del zoo',
+    languageLabel: 'Elegir idioma',
+    systemLanguageLabel: 'Seguir el sistema',
+    socialImageFileName: 'social/museum.es.png',
+    socialImageAlt: 'WonZoo, zoo 3D en familia',
   },
   en: {
     locale: 'en',

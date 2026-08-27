@@ -5,23 +5,39 @@
   "cards": {
     "x-default": {
       "fileName": "museum.png",
-      "sourceSha256": "70b0fd0e53572c3f5f0d55530a72b9913cb4783f57f29fde16d7bb8c8b03ebee"
+      "sourceSha256": "58c38a06a99abfc6e0608e137d78b279ecd3d20fc2b57ab27fa641fc24b8db16"
     },
     "zh-CN": {
       "fileName": "museum.zh-CN.png",
-      "sourceSha256": "0fae78e24dc409e0869dad1f10ae3760a3355ded6feb30efec6768b1484cbac5"
+      "sourceSha256": "c4a68c318e98a0114e1abfcbd1e5f519dd996f674b6ff61591f3f0b7938bcf29"
     },
     "zh-TW": {
       "fileName": "museum.zh-TW.png",
-      "sourceSha256": "948aff01629a34e4413d661735d962d408a3d3170cce9921ec8ba01170473198"
+      "sourceSha256": "b05ffab7b2bb7bf0cc97469685e16980458e31bc18d0e5e672c6608788817c37"
     },
     "ja": {
       "fileName": "museum.ja.png",
-      "sourceSha256": "ef363e902361809b78734875b6ae2bb52b631af5d21e1a6911a98c8e4f143def"
+      "sourceSha256": "77f1403aa327faecfe94f267078e2dcd8753fb57d75244325ca7f9bcf73f1f84"
+    },
+    "ko": {
+      "fileName": "museum.ko.png",
+      "sourceSha256": "896a22d4f7a5dbbfa6b5fcd7253ee345d0eb55bfa631d6fcd4a5cb029244c0ec"
+    },
+    "fr": {
+      "fileName": "museum.fr.png",
+      "sourceSha256": "d47b2dd296d0060d9131f4aee18c121604bba4c93173fdbf8095a3b5603788fd"
+    },
+    "de": {
+      "fileName": "museum.de.png",
+      "sourceSha256": "e9ea410a92a086d6a48db9073ae045371941925381d190d40ef8ea9965b5d36d"
+    },
+    "es": {
+      "fileName": "museum.es.png",
+      "sourceSha256": "d2bcd3b6083f6f5756ebf269c1e7e4e4ae93e47963406a6691107e89cbccf5c8"
     },
     "en": {
       "fileName": "museum.en.png",
-      "sourceSha256": "b8e7e73f9d39659785fe747f9458595a19090cbac58f893c93fab4bd121b9e7d"
+      "sourceSha256": "e1746e2059722be090bac95ebbe73e5a51138047b50aeb5c15262d06073dd5bc"
     }
   }
 }
