@@ -12,7 +12,7 @@ export type SeoPageLocale =
   | 'x-default'
   | Locale
 
-export const seoSiteOrigin = 'http://museum.routerpark.com/'
+export const seoSiteOrigin = 'https://zoo.randbox.top'
 
 export interface SeoCatalogueEntry {
   readonly id: string
@@ -21,6 +21,12 @@ export interface SeoCatalogueEntry {
   readonly zhTW: string
   readonly ja: string
   readonly en: string
+  readonly ko: string
+  readonly fr: string
+  readonly de: string
+  readonly es: string
+  readonly ru: string
+  readonly pt: string
 }
 
 export interface SeoCatalogueGroup {
@@ -29,6 +35,12 @@ export interface SeoCatalogueGroup {
   readonly zhTW: string
   readonly ja: string
   readonly en: string
+  readonly ko: string
+  readonly fr: string
+  readonly de: string
+  readonly es: string
+  readonly ru: string
+  readonly pt: string
   readonly animals: readonly SeoCatalogueEntry[]
 }
 
@@ -54,22 +66,43 @@ const catalogueGroupCopy = {
     zhTW: '陸地展廳',
     ja: '陸のギャラリー',
     en: 'Land gallery',
+    ko: '육지 갤러리',
+    fr: 'Galerie terrestre',
+    de: 'Landgalerie',
+    es: 'Galería terrestre',
+    ru: 'Наземная галерея',
+    pt: 'Galeria terrestre',
   },
   air: {
     zhCN: '天空展厅',
     zhTW: '天空展廳',
     ja: '空のギャラリー',
     en: 'Sky gallery',
+    ko: '하늘 갤러리',
+    fr: 'Galerie du ciel',
+    de: 'Himmelsgalerie',
+    es: 'Galería del cielo',
+    ru: 'Небесная галерея',
+    pt: 'Galeria do céu',
   },
   water: {
     zhCN: '水中展厅',
     zhTW: '水中展廳',
     ja: '海のギャラリー',
     en: 'Sea gallery',
+    ko: '바다 갤러리',
+    fr: 'Galerie marine',
+    de: 'Meeresgalerie',
+    es: 'Galería marina',
+    ru: 'Морская галерея',
+    pt: 'Galeria marinha',
   },
 } as const satisfies Record<
   Habitat,
-  Pick<SeoCatalogueGroup, 'zhCN' | 'zhTW' | 'ja' | 'en'>
+  Pick<
+    SeoCatalogueGroup,
+    'zhCN' | 'zhTW' | 'ja' | 'en' | 'ko' | 'fr' | 'de' | 'es' | 'ru' | 'pt'
+  >
 >
 
 const catalogueHabitatOrder = ['land', 'air', 'water'] as const satisfies
@@ -78,10 +111,9 @@ const catalogueHabitatOrder = ['land', 'air', 'water'] as const satisfies
 const catalogueAnimals: readonly SeoCatalogueEntry[] = mainAnimals.map(
   (animal) => {
     const zhCN = animal.content['zh-CN'].name.trim()
-    // No per-animal Traditional/Japanese copy exists yet; the zh-TW catalogue
-    // reuses the zh-CN public name and the ja catalogue the English name.
+    // Only zh-CN/en ship per-animal copy today. Traditional Chinese reuses the
+    // zh-CN public name; every other locale falls back to the English name.
     const zhTW = animal.content['zh-CN'].name.trim()
-    const ja = animal.content.en.name.trim()
     const en = animal.content.en.name.trim()
     if (!zhCN || !en) {
       throw new Error(
@@ -93,8 +125,14 @@ const catalogueAnimals: readonly SeoCatalogueEntry[] = mainAnimals.map(
       habitat: animal.habitat,
       zhCN,
       zhTW,
-      ja,
+      ja: en,
       en,
+      ko: en,
+      fr: en,
+      de: en,
+      es: en,
+      ru: en,
+      pt: en,
     }
   },
 )
