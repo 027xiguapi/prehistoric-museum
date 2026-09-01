@@ -222,6 +222,29 @@ const zhCN = {
     weight: '动物体重',
     weightUnavailable: '暂无体重数据',
   },
+  size: {
+    eyebrow: '一起比比看',
+    heightDialogTitle: '动物身高',
+    heightClose: '关闭身高',
+    weightDialogTitle: '动物体重',
+    weightClose: '关闭体重',
+    weight: '体重',
+    weightUnavailable: '暂无体重数据',
+    heightTitle: '有多高？',
+    balanceTitle: '有多重？',
+    adult: '成年人',
+    weightUnits: {
+      apple: '个苹果',
+      child: '个小朋友',
+      adult: '个成年人',
+      car: '辆小汽车',
+      bus: '辆公交车',
+    },
+    heightCompare: (times: string, reference: string) =>
+      `大约是${reference}的 ${times} 倍`,
+    balanceEquals: (count: string, unit: string) =>
+      `大约相当于 ${count} ${unit}`,
+  },
   parent: {
     eyebrow: '一起了解更多',
     title: '给家长的资料',
@@ -495,6 +518,29 @@ const zhTW: MuseumMessages = {
     weight: '動物體重',
     weightUnavailable: '暫無體重資料',
   },
+  size: {
+    eyebrow: '一起比比看',
+    heightDialogTitle: '動物身高',
+    heightClose: '關閉身高',
+    weightDialogTitle: '動物體重',
+    weightClose: '關閉體重',
+    weight: '體重',
+    weightUnavailable: '暫無體重資料',
+    heightTitle: '有多高？',
+    balanceTitle: '有多重？',
+    adult: '成年人',
+    weightUnits: {
+      apple: '顆蘋果',
+      child: '個小朋友',
+      adult: '個成年人',
+      car: '輛小汽車',
+      bus: '輛公車',
+    },
+    heightCompare: (times: string, reference: string) =>
+      `大約是${reference}的 ${times} 倍`,
+    balanceEquals: (count: string, unit: string) =>
+      `大約相當於 ${count} ${unit}`,
+  },
   parent: {
     eyebrow: '一起了解更多',
     title: '給家長的資料',
@@ -761,6 +807,29 @@ const ja: MuseumMessages = {
     weight: '動物の体重',
     weightUnavailable: '体重データはまだありません',
   },
+  size: {
+    eyebrow: '大きさを比べてみよう',
+    heightDialogTitle: '動物の身長',
+    heightClose: '身長を閉じる',
+    weightDialogTitle: '動物の体重',
+    weightClose: '体重を閉じる',
+    weight: '体重',
+    weightUnavailable: '体重データはまだありません',
+    heightTitle: 'たかさくらべ',
+    balanceTitle: 'おもさくらべ',
+    adult: 'おとな',
+    weightUnits: {
+      apple: 'りんご',
+      child: '子ども',
+      adult: 'おとな',
+      car: 'くるま',
+      bus: 'バス',
+    },
+    heightCompare: (times: string, reference: string) =>
+      `${reference}の 約${times}倍`,
+    balanceEquals: (count: string, unit: string) =>
+      `${unit} ${count} つ分くらい`,
+  },
   parent: {
     eyebrow: '一緒にもっと知る',
     title: '保護者向けガイド',
@@ -1023,6 +1092,27 @@ const en = {
     weight: 'Animal weight',
     weightUnavailable: 'No weight data yet',
   },
+  size: {
+    eyebrow: 'How big is it?',
+    heightDialogTitle: 'Animal height',
+    heightClose: 'Close height',
+    weightDialogTitle: 'Animal weight',
+    weightClose: 'Close weight',
+    weight: 'Weight',
+    weightUnavailable: 'No weight data yet',
+    heightTitle: 'How tall?',
+    balanceTitle: 'How heavy?',
+    adult: 'a grown-up',
+    weightUnits: {
+      apple: 'apples',
+      child: 'kids',
+      adult: 'grown-ups',
+      car: 'small cars',
+      bus: 'buses',
+    },
+    heightCompare: (times, reference) => `About ${times}× ${reference}`,
+    balanceEquals: (count, unit) => `About the same as ${count} ${unit}`,
+  },
   parent: {
     eyebrow: 'Explore together',
     title: 'Guide for grown-ups',
@@ -1178,4 +1268,42 @@ export function formatSizeFact(
         ? `${size.note}${isChinese ? '；' : '; '}${range}`
         : range,
   }
+}
+
+/**
+ * Formats an approximate mass range for the kid-facing balance comparison.
+ * Units scale with the animal: grams under 1 kg, kilograms under a tonne,
+ * tonnes above, with both ends of a range sharing the max end's unit.
+ */
+export function formatWeightFact(
+  weight: { readonly minKg: number; readonly maxKg: number },
+  locale: Locale,
+): string {
+  const isChinese = locale === 'zh-CN' || locale === 'zh-TW'
+  const { multiply, unit } =
+    weight.maxKg < 1
+      ? {
+          multiply: 1000,
+          unit: locale === 'ja' ? 'グラム' : isChinese ? '克' : 'g',
+        }
+      : weight.maxKg < 1000
+        ? { multiply: 1, unit: locale === 'ja' ? 'kg' : isChinese ? '千克' : 'kg' }
+        : {
+            multiply: 0.001,
+            unit:
+              locale === 'ja'
+                ? 'トン'
+                : locale === 'zh-TW'
+                  ? '噸'
+                  : locale === 'zh-CN'
+                    ? '吨'
+                    : 'tonnes',
+          }
+  const format = (kg: number) => formatNumber(kg * multiply, locale)
+  const range =
+    weight.minKg === weight.maxKg
+      ? format(weight.minKg)
+      : `${format(weight.minKg)}–${format(weight.maxKg)}`
+  const prefix = locale === 'ja' ? '約 ' : isChinese ? '约 ' : 'about '
+  return `${prefix}${range} ${unit}`
 }

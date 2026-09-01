@@ -20,30 +20,38 @@ interface LeftToolbarProps {
   readonly activeAnimal: RuntimeAnimal
   readonly collectionTriggerRef: RefObject<HTMLElement | null>
   readonly drawerTriggerRef: RefObject<HTMLButtonElement | null>
+  readonly heightTriggerRef: RefObject<HTMLButtonElement | null>
   readonly narrationSnapshot: NarrationSnapshot
   readonly onNarrationToggle: () => Promise<void>
   readonly onOpenCollection: () => void
   readonly onOpenDrawer: () => void
+  readonly onOpenHeight: () => void
+  readonly onOpenWeight: () => void
   readonly onResetView: () => void
   readonly onToggleStory: () => void
   readonly overlayOpen: boolean
   readonly pageKind: AppPageKind
   readonly storyOpen: boolean
+  readonly weightTriggerRef: RefObject<HTMLButtonElement | null>
 }
 
 export function LeftToolbar({
   activeAnimal,
   collectionTriggerRef,
   drawerTriggerRef,
+  heightTriggerRef,
   narrationSnapshot,
   onNarrationToggle,
   onOpenCollection,
   onOpenDrawer,
+  onOpenHeight,
+  onOpenWeight,
   onResetView,
   onToggleStory,
   overlayOpen,
   pageKind,
   storyOpen,
+  weightTriggerRef,
 }: LeftToolbarProps) {
   const { messages } = useI18n()
   const narrationPlaying = narrationSnapshot.playback === 'playing'
@@ -97,10 +105,14 @@ export function LeftToolbar({
         <IconButton
           icon={Ruler}
           label={`${messages.toolbar.height}：${activeAnimal.facts.sizeLabel} ${activeAnimal.facts.size}`}
+          onClick={onOpenHeight}
+          ref={heightTriggerRef}
         />
         <IconButton
           icon={Scale}
-          label={`${messages.toolbar.weight}：${messages.toolbar.weightUnavailable}`}
+          label={`${messages.toolbar.weight}：${activeAnimal.facts.weight ?? messages.toolbar.weightUnavailable}`}
+          onClick={onOpenWeight}
+          ref={weightTriggerRef}
         />
       </nav>
       {storyOpen ? (

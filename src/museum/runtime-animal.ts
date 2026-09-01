@@ -5,6 +5,7 @@ import type {
 } from '@/src/components/ParentDrawer'
 import { allAnimals, mainAnimals } from '@/src/content/catalog'
 import { credits } from '@/src/content/credits.generated'
+import { weightEstimateFor } from '@/src/content/size-estimates'
 import type {
   AnimalKind,
   AnimalPackage,
@@ -13,7 +14,12 @@ import type {
   PublishedAnimalPackage,
 } from '@/src/content/types'
 import type { Locale } from '@/src/i18n/locale'
-import { dietLabel, formatSizeFact, messagesFor } from '@/src/i18n/messages'
+import {
+  dietLabel,
+  formatSizeFact,
+  formatWeightFact,
+  messagesFor,
+} from '@/src/i18n/messages'
 import type {
   DisplayableAnimalPackage,
   LegacyLocalReviewAnimalPackage,
@@ -142,6 +148,7 @@ export function toRuntimeAnimal(
     throw new Error(`动物 “${animal.id}” 没有可预览的 ${contentLocale} 内容。`)
   }
   const size = formatSizeFact(content.facts.size, locale)
+  const weightKg = weightEstimateFor(animal.id)
   const review: ParentReviewFacts | null = animal.review
     ? {
         badge: animal.review.badge,
@@ -191,6 +198,13 @@ export function toRuntimeAnimal(
       discoveryRegions: [...content.facts.discoveryRegions],
       size: size.value,
       sizeLabel: size.label,
+      sizeMeters: {
+        kind: content.facts.size.kind,
+        minMeters: content.facts.size.minMeters,
+        maxMeters: content.facts.size.maxMeters,
+      },
+      weight: weightKg ? formatWeightFact(weightKg, locale) : null,
+      weightKg,
       period: content.facts.period,
       narrationScript: content.narration.sentences,
       ...(review ? { review } : {}),

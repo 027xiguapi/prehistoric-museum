@@ -26,6 +26,19 @@ export interface ParentFacts {
   discoveryRegions: string[]
   size: string
   sizeLabel: string
+  /** Structured size powering the animated height comparison. */
+  sizeMeters?: {
+    readonly kind: 'body-length' | 'shoulder-height' | 'wingspan' | 'group-range'
+    readonly minMeters: number
+    readonly maxMeters: number
+  }
+  /** Localized approximate weight text; null when no estimate exists. */
+  weight?: string | null
+  /** Approximate mass range powering the animated balance comparison. */
+  weightKg?: {
+    readonly minKg: number
+    readonly maxKg: number
+  } | null
   narrationScript: readonly [string, string]
   period: string
   review?: ParentReviewFacts

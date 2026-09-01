@@ -14,6 +14,8 @@ import {
   AnimalCollectionSheet,
   type CollectionAnimal,
 } from '@/src/components/AnimalCollectionSheet'
+import { AnimalHeightDrawer } from '@/src/components/AnimalHeightDrawer'
+import { AnimalWeightDrawer } from '@/src/components/AnimalWeightDrawer'
 import { ArViewer } from '@/src/components/ArViewer'
 import { BackButton } from '@/src/components/buttons/BackButton'
 import { SettingsButton } from '@/src/components/buttons/SettingsButton'
@@ -186,6 +188,8 @@ export function AnimalExhibit({ animalId }: AnimalExhibitProps) {
   const viewerRequiresRemountRef = useRef(false)
   const drawerTriggerRef = useRef<HTMLButtonElement>(null)
   const collectionTriggerRef = useRef<HTMLElement>(null)
+  const heightTriggerRef = useRef<HTMLButtonElement>(null)
+  const weightTriggerRef = useRef<HTMLButtonElement>(null)
   const focusTriggerRef = useRef<HTMLButtonElement>(null)
   const focusExitRef = useRef<HTMLButtonElement>(null)
   const [viewerController, setViewerController] = useState<ViewerController | null>(null)
@@ -212,6 +216,8 @@ export function AnimalExhibit({ animalId }: AnimalExhibitProps) {
     useState<ViewerFailureKind | null>(null)
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [collectionOpen, setCollectionOpen] = useState(false)
+  const [heightOpen, setHeightOpen] = useState(false)
+  const [weightOpen, setWeightOpen] = useState(false)
   const [storyOpen, setStoryOpen] = useState(true)
   const [focusMode, setFocusMode] = useState(false)
   const [arMode, setArMode] = useState(false)
@@ -243,7 +249,8 @@ export function AnimalExhibit({ animalId }: AnimalExhibitProps) {
   useEffect(() => {
     activeAnimalRef.current = activeAnimal
   }, [activeAnimal])
-  const overlayOpen = drawerOpen || collectionOpen || arMode
+  const overlayOpen =
+    drawerOpen || collectionOpen || arMode || heightOpen || weightOpen
   // Review packages and e2e fixtures live outside the curated zones, so the
   // zone filter only applies to the production catalog.
   const zoneAppliesToNavigation = !localReviewMode
@@ -476,13 +483,19 @@ export function AnimalExhibit({ animalId }: AnimalExhibitProps) {
       } else if (drawerOpen) {
         event.preventDefault()
         setDrawerOpen(false)
+      } else if (heightOpen) {
+        event.preventDefault()
+        setHeightOpen(false)
+      } else if (weightOpen) {
+        event.preventDefault()
+        setWeightOpen(false)
       }
     }
     document.addEventListener('keydown', handleEscape)
     return () => {
       document.removeEventListener('keydown', handleEscape)
     }
-  }, [collectionOpen, drawerOpen, exitFocusMode, focusMode])
+  }, [collectionOpen, drawerOpen, exitFocusMode, focusMode, heightOpen, weightOpen])
 
   useEffect(() => {
     if (focusMode) {
@@ -757,6 +770,20 @@ export function AnimalExhibit({ animalId }: AnimalExhibitProps) {
     setCollectionOpen(true)
   }
 
+  const handleOpenHeight = () => {
+    setCollectionOpen(false)
+    setDrawerOpen(false)
+    setWeightOpen(false)
+    setHeightOpen(true)
+  }
+
+  const handleOpenWeight = () => {
+    setCollectionOpen(false)
+    setDrawerOpen(false)
+    setHeightOpen(false)
+    setWeightOpen(true)
+  }
+
   const handleToggleStory = () => {
     setStoryOpen((open) => !open)
   }
@@ -851,15 +878,19 @@ export function AnimalExhibit({ animalId }: AnimalExhibitProps) {
           activeAnimal={activeAnimal}
           collectionTriggerRef={collectionTriggerRef}
           drawerTriggerRef={drawerTriggerRef}
+          heightTriggerRef={heightTriggerRef}
           narrationSnapshot={narrationSnapshot}
           onNarrationToggle={handleNarrationToggle}
           onOpenCollection={handleOpenCollection}
           onOpenDrawer={handleOpenDrawer}
+          onOpenHeight={handleOpenHeight}
+          onOpenWeight={handleOpenWeight}
           onResetView={handleResetView}
           onToggleStory={handleToggleStory}
           overlayOpen={overlayOpen}
           pageKind={pageKind}
           storyOpen={storyOpen}
+          weightTriggerRef={weightTriggerRef}
         />
       ) : null}
 
@@ -926,6 +957,22 @@ export function AnimalExhibit({ animalId }: AnimalExhibitProps) {
         open={drawerOpen && !focusMode}
         returnFocusTo={drawerTriggerRef}
         showReviewDetails={localReviewMode}
+      />
+      <AnimalHeightDrawer
+        animalImage={activeAnimal.assets.thumbnail}
+        animalName={activeAnimal.name}
+        facts={activeAnimal.facts}
+        onClose={() => setHeightOpen(false)}
+        open={heightOpen && !focusMode}
+        returnFocusTo={heightTriggerRef}
+      />
+      <AnimalWeightDrawer
+        animalImage={activeAnimal.assets.thumbnail}
+        animalName={activeAnimal.name}
+        facts={activeAnimal.facts}
+        onClose={() => setWeightOpen(false)}
+        open={weightOpen && !focusMode}
+        returnFocusTo={weightTriggerRef}
       />
       <AnimalCollectionSheet
         animals={collectionAnimals}
