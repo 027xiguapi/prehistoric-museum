@@ -1725,12 +1725,27 @@ a:focus-visible {
   transform: translate(-50%, 0);
 }
 
+/* Desktop: the left toolbar is a vertical sidebar, so tooltips sit to the
+   right instead of above/below where the viewport edge can clip them.
+   Below 1024px the toolbar is a horizontal bottom bar and keeps the default. */
+@media (min-width: 1024px) {
+  .left-toolbar .icon-tooltip {
+    top: 50%;
+    left: calc(100% + 10px);
+    transform: translate(-4px, -50%);
+  }
+
+  .left-toolbar .icon-button:hover .icon-tooltip,
+  .left-toolbar .icon-button:focus-visible .icon-tooltip {
+    transform: translate(0, -50%);
+  }
+}
+
 .animal-navigation .icon-tooltip {
   top: auto;
   bottom: calc(100% + 8px);
   transform: translate(-50%, 4px);
 }
-
 .animal-navigation .icon-button:hover .icon-tooltip,
 .animal-navigation .icon-button:focus-visible .icon-tooltip {
   transform: translate(-50%, 0);

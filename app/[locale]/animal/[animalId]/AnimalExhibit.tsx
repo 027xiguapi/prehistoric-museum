@@ -96,7 +96,7 @@ export function AnimalExhibit({ animalId }: AnimalExhibitProps) {
   )
   const defaultAnimal =
     productionAnimals[0] ?? toRuntimeAnimal(defaultPackage, locale)
-  const applicationAnimals = useMemo(
+  const animals = useMemo(
     () =>
       localReviewMode
         ? localReviewAnimals.map((animal) => toRuntimeAnimal(animal, locale))
@@ -105,7 +105,6 @@ export function AnimalExhibit({ animalId }: AnimalExhibitProps) {
           ),
     [locale],
   )
-  const animals = applicationAnimals
   const animalIndex = useMemo(
     () => new Map(animals.map((animal) => [animal.id, animal])),
     [animals],
@@ -126,15 +125,12 @@ export function AnimalExhibit({ animalId }: AnimalExhibitProps) {
         })),
     [animalIndex],
   )
-  const requestedInitialAnimalId = animalId
   const initialAnimal = useMemo(
     () =>
-      (requestedInitialAnimalId
-        ? animals.find(
-            (animal) => animal.id === requestedInitialAnimalId,
-          )
+      (animalId
+        ? animals.find((animal) => animal.id === animalId)
         : undefined) ?? readInitialAnimal(animals, defaultAnimal),
-    [animals, defaultAnimal, requestedInitialAnimalId],
+    [animals, defaultAnimal, animalId],
   )
   const modelCache = useMemo(() => new ModelCache(), [])
   const [idlePreloadTargets] = useState(() =>
@@ -559,7 +555,7 @@ export function AnimalExhibit({ animalId }: AnimalExhibitProps) {
       void coordinator.retry()
     } else if (coordinator) {
       setViewerFailure(null)
-      void coordinator?.reload(activeAnimal.id)
+      void coordinator.reload(activeAnimal.id)
     } else {
       setViewerRetryKey((retryKey) => retryKey + 1)
     }

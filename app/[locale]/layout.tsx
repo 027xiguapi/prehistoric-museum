@@ -12,6 +12,7 @@ import '@fontsource/zcool-kuaile'
 import '@/src/styles.css'
 import { I18nProvider } from '@/src/i18n/I18nProvider'
 import { isLocale, supportedLocales } from '@/src/i18n/locale'
+import NextIntlClientProvider from '@/src/i18n/NextIntlProvider'
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
@@ -83,9 +84,13 @@ export default async function LocaleLayout({
         {process.env.NEXT_STATIC_EXPORT === '1' && (
           <script dangerouslySetInnerHTML={{ __html: BOOT_ERROR_TRAP }} />
         )}
-        <I18nProvider initialState={{ locale, preference: locale }}>
-          {children}
-        </I18nProvider>
+        {/* Locale context for next-intl navigation helpers (`Link` in
+            ZoneSelect). Messages stay with the project's own I18nProvider. */}
+        <NextIntlClientProvider locale={locale}>
+          <I18nProvider initialState={{ locale, preference: locale }}>
+            {children}
+          </I18nProvider>
+        </NextIntlClientProvider>
         {/* Raw <script> instead of next/script: AdSense logs a console
             warning about the data-nscript attribute the framework adds.
             Only the web deployment shows ads — the Capacitor app is a pure

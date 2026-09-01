@@ -6,8 +6,6 @@
 // `pieceFrameClass`) traces every piece. Scene art lives in /public/img/area/
 // (see `zoneSceneImages`). On narrow portrait screens the island stacks into
 // a vertical trail (see the `zone-stack` variant in styles.css).
-import { useRouter } from 'next/navigation'
-
 import {
   Bird,
   Bone,
@@ -28,6 +26,7 @@ import {
   type LucideIcon,
 } from 'lucide-react'
 import { useI18n } from '@/src/i18n/I18nProvider'
+import { Link } from '@/src/i18n/navigation'
 import type { ZoneCategoryId } from '@/src/content/collections/zone-definitions'
 
 const zoneIcons: Readonly<Record<ZoneCategoryId, LucideIcon>> = {
@@ -115,12 +114,12 @@ function ZoneCompass() {
 //   white die-cut border. The border MUST live on this unclipped parent:
 //   CSS paints `filter` before `clip-path`, so a drop-shadow sitting on the
 //   clipped element itself is sliced off at the polygon edge and never
-//   renders. Here the drop-shadows trace the button's clipped silhouette
+//   renders. Here the drop-shadows trace the piece's clipped silhouette
 //   from the outside instead. The frame is pointer-events-none so the
 //   clipped-away corners of its bounding box neither highlight the piece
 //   nor swallow clicks meant for neighbours underneath — hovering the
-//   button inside still propagates :hover up to the frame.
-// - `regionClass` (inner button): the irregular clip-path polygon
+//   link inside still propagates :hover up to the frame.
+// - `regionClass` (inner link): the irregular clip-path polygon
 //   (`--piece`, inherited from the frame), the terrain backdrop
 //   (`zoneBackdrop`), and the ~4% shrink that opens the gaps between the
 //   interlocking pieces.
@@ -137,7 +136,7 @@ const zoneTerrain: Readonly<Record<ZoneCategoryId, string>> = {
   sky: '[--sign-tilt:1deg] [--zone-accent:#3d8bd9] [--piece:polygon(3%_16%,22%_7%,40%_14%,58%_4%,78%_11%,96%_5%,100%_45%,90%_72%,97%_93%,72%_100%,46%_90%,22%_100%,4%_90%,0%_55%)] top-[0.5%] left-[35%] h-[23%] w-[33%] zone-stack:order-7',
 }
 
-// Terrain gradient per zone, painted by the clipped button so the frame's
+// Terrain gradient per zone, painted by the clipped link so the frame's
 // drop-shadow keeps tracing the polygon silhouette; shows through while the
 // scene image loads.
 const zoneBackdrop: Readonly<Record<ZoneCategoryId, string>> = {
@@ -176,12 +175,7 @@ const regionClass = [
 ].join(' ')
 
 export function ZoneSelect({ zones }: ZoneSelectProps) {
-  const { locale, messages } = useI18n()
-  const router = useRouter()
-
-  const enterCategoryPage = (zoneId: ZoneCategoryId) => {
-    router.push(`/${locale}/category/${zoneId}`)
-  }
+  const { messages } = useI18n()
 
   return (
     <section
@@ -209,12 +203,11 @@ export function ZoneSelect({ zones }: ZoneSelectProps) {
           const backdrop = zoneSceneImages[zone.id] ?? zone.thumbnail
           return (
             <div key={zone.id} className={`${pieceFrameClass} ${zoneTerrain[zone.id]}`}>
-              <button
-                type="button"
+              <Link
+                href={`/category/${zone.id}/`}
                 className={`${regionClass} ${zoneBackdrop[zone.id]}`}
                 data-zone-id={zone.id}
                 aria-label={messages.zoneSelect.enter(zoneMessages.name)}
-                onClick={() => enterCategoryPage(zone.id)}
               >
               {backdrop ? (
                 <img
@@ -250,7 +243,7 @@ export function ZoneSelect({ zones }: ZoneSelectProps) {
               <span className="zone-stack:flex zone-stack:px-2.5 zone-stack:text-[0.78rem] ml-auto hidden shrink-0 items-center self-center rounded-full px-[11px] py-1.5 text-[0.82rem] font-extrabold text-white shadow-[inset_0_-2px_rgb(0_0_0/18%)] bg-[var(--zone-accent)]">
                 {messages.zoneSelect.enterShort}
               </span>
-              </button>
+              </Link>
             </div>
           )
         })}

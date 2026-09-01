@@ -150,7 +150,7 @@ interface CategoryCardProps {
  * zh-CN copy and from ja to the English copy (packages ship zh-CN/en only),
  * then from a draft's missing locale to its zh-CN draft text.
  */
-export function animalContentFor(
+function animalContentFor(
   animal: AnimalPackage,
   locale: Locale,
 ): AnimalContent | undefined {
@@ -236,10 +236,10 @@ export function CategoryPageView({ locale, zone }: CategoryPageViewProps) {
         </div>
       </header>
       {zones.map((zoneId) => {
+        const zoneAnimalIds =
+          zoneCategories.find((zone) => zone.id === zoneId)?.animalIds ?? []
         const prehistoric = mainAnimals.filter((animal) =>
-          zoneCategories
-            .find((zone) => zone.id === zoneId)!
-            .animalIds.includes(animal.id),
+          zoneAnimalIds.includes(animal.id),
         )
         const drafts = draftAnimalsByZone.get(zoneId) ?? []
         if (prehistoric.length === 0 && drafts.length === 0) {
