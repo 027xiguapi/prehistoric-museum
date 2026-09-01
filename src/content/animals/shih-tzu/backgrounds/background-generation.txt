@@ -1,0 +1,14 @@
+Background image generation record
+------------------------------------
+animal: shih-tzu
+animalName: Shih Tzu
+atmosphere: plains
+model: gpt-image-2
+endpoint: https://pai.zaiduyu.top/api/openai/v1/images/generations
+generatedAt: 2026-09-01T01:43:16.395Z
+
+Landscape prompt:
+This background is the empty stage backdrop behind a museum exhibit of Shih Tzu (Chinese palace companion; era: Present day (depicted in Chinese court art for over a thousand years); native to China (developed in the palace from Tibetan court dogs)). Compose the scenery to suit this animal's real habitat and era; the animal itself is added later as a separate 3D model, so the scene must stay free of any creatures. Wide 16:9 open natural plain scene: low ferns and grasses, scattered rocks, wide horizon, warm golden daylight. Soft natural lighting, gentle depth of field, muted painterly natural-history museum diorama. No animals, no people, no text, no logos, no watermarks. Keep the center of the frame calm and uncluttered.
+
+Portrait prompt:
+This background is the empty stage backdrop behind a museum exhibit of Shih Tzu (Chinese palace companion; era: Present day (depicted in Chinese court art for over a thousand years); native to China (developed in the palace from Tibetan court dogs)). Compose the scenery to suit this animal's real habitat and era; the animal itself is added later as a separate 3D model, so the scene must stay free of any creatures. Tall 9:16 open natural plain scene: low ferns and grasses, a few scattered rocks, wide sky, warm golden daylight. Soft natural lighting, gentle depth of field, muted painterly natural-history museum diorama. No animals, no people, no text, no logos, no watermarks. Keep the center of the frame calm and uncluttered.

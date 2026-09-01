@@ -1,6 +1,8 @@
 import { PHASE_PRODUCTION_BUILD } from 'next/constants'
 import type { NextConfig } from 'next'
 
+import createNextIntlPlugin from 'next-intl/plugin'
+
 // The local review catalog is aliased at compile time so production bundles
 // can never include private review material. Turbopack resolves alias targets
 // relative to the project root (absolute Windows paths are unsupported).
@@ -18,6 +20,10 @@ const reviewRuntimeAliasTarget = isReviewMode
   ? './src/review/runtime-preview-url.ts'
   : './src/review/empty-runtime-preview-url.ts'
 
+// next-intl's `NextIntlClientProvider` resolves its request config through the
+// `next-intl/config` alias; without this plugin that alias stays a throwing
+// placeholder. The alias points at `src/i18n/request.ts`.
+const withNextIntl = createNextIntlPlugin()
 
 const nextConfig: NextConfig = {
   reactStrictMode: false,
@@ -68,5 +74,5 @@ export default function createNextConfig({
       'Local review mode is serve-only and cannot produce a deployable bundle.',
     )
   }
-  return nextConfig
+  return withNextIntl(nextConfig)
 }
