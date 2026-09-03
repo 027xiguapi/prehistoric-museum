@@ -5,7 +5,7 @@ animalName: Australian Shepherd
 atmosphere: plains
 model: gpt-image-2
 endpoint: https://pai.zaiduyu.top/api/openai/v1/images/generations
-generatedAt: 2026-09-01T01:30:57.963Z
+generatedAt: 2026-09-03T02:14:09.397Z
 
 Landscape prompt:
 This background is the empty stage backdrop behind a museum exhibit of Australian Shepherd (Herding dog (actually American); era: Present day (standardised in the American West in the 19th century); native to the western United States (where the breed was standardised)). Compose the scenery to suit this animal's real habitat and era; the animal itself is added later as a separate 3D model, so the scene must stay free of any creatures. Wide 16:9 open natural plain scene: low ferns and grasses, scattered rocks, wide horizon, warm golden daylight. Soft natural lighting, gentle depth of field, muted painterly natural-history museum diorama. No animals, no people, no text, no logos, no watermarks. Keep the center of the frame calm and uncluttered.
