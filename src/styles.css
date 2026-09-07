@@ -61,7 +61,9 @@ body {
    render more content than the viewport and must scroll; the 3D museum shell
    keeps overflow hidden. */
 body:has(.category-page),
-body:has(.config-page) {
+body:has(.config-page),
+body:has(.blog-index),
+body:has(.blog-article) {
   overflow-y: auto;
 }
 
@@ -69,7 +71,9 @@ body:has(.config-page) {
    of the same sticker book; the fixed attachment keeps the sun / sky /
    meadow glows anchored while the content scrolls. */
 body:has(.category-page),
-body:has(.config-page) {
+body:has(.config-page),
+body:has(.blog-index),
+body:has(.blog-article) {
   background-image:
     radial-gradient(circle at 12% 18%, rgb(244 184 95 / 30%), transparent 34%),
     radial-gradient(circle at 88% 12%, rgb(125 183 218 / 32%), transparent 36%),
@@ -5345,6 +5349,52 @@ html[data-locale="en"] .collection-card__copy strong {
   }
 }
 
+/* Blog pill in the museum-home action row: same frosted sticker as the
+   settings button, but a wider pill so the label is readable. */
+.zone-select-blog {
+  display: inline-flex;
+  height: 52px;
+  align-items: center;
+  gap: 7px;
+  padding: 0 16px;
+  border: 1px solid rgb(255 255 255 / 65%);
+  border-radius: 18px;
+  color: #214a33;
+  background: rgb(255 253 247 / 90%);
+  box-shadow: 0 8px 22px rgb(37 56 32 / 14%), inset 0 1px rgb(255 255 255 / 78%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  transition: background-color 150ms ease, transform 150ms ease;
+}
+
+.zone-select-blog:hover {
+  background: rgb(255 255 255 / 96%);
+  transform: translateY(-1px);
+}
+
+.zone-select-blog:active {
+  transform: translateY(1px) scale(0.97);
+}
+
+@media (max-width: 1023px) and (orientation: portrait) {
+  .zone-select-blog {
+    height: 48px;
+    border-radius: 14px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-height: 560px) and (orientation: landscape) {
+  .zone-select-blog {
+    height: 48px;
+    border-radius: 13px;
+    font-size: 0.8rem;
+  }
+}
+
 .zone-return-button {
   display: inline-flex;
   min-height: 52px;
@@ -5375,4 +5425,111 @@ html[data-locale="en"] .collection-card__copy strong {
 
 .zone-return-button:active:not(:disabled) {
   transform: translateY(1px) scale(0.98);
+}
+
+/* Blog article prose. The article body is trusted, self-authored markdown
+   rendered on the server; these rules give it the same warm, readable feel as
+   the museum's other document pages without pulling in a full theme. */
+.blog-prose {
+  display: grid;
+  gap: 16px;
+  color: var(--ink);
+}
+.blog-prose > * {
+  margin: 0;
+}
+.blog-prose h2 {
+  margin: 22px 0 4px;
+  color: #214c3c;
+  font-size: 1.35rem;
+  font-weight: 850;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.blog-prose h2:first-child {
+  margin-top: 0;
+}
+.blog-prose h3 {
+  margin: 18px 0 4px;
+  color: #2e7d4f;
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+.blog-prose p,
+.blog-prose li {
+  line-height: 1.75;
+  font-size: 0.98rem;
+}
+.blog-prose ul,
+.blog-prose ol {
+  margin: 0;
+  padding-left: 22px;
+  display: grid;
+  gap: 8px;
+}
+.blog-prose a {
+  color: #1667b1;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgb(22 103 177 / 40%);
+  text-decoration-thickness: 1.5px;
+}
+.blog-prose blockquote {
+  margin: 0;
+  padding: 12px 16px;
+  border-left: 4px solid #356859;
+  border-radius: 0 14px 14px 0;
+  background: rgb(53 104 89 / 8%);
+}
+.blog-prose blockquote p:last-child {
+  margin-bottom: 0;
+}
+.blog-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.blog-prose th,
+.blog-prose td {
+  padding: 8px 10px;
+  border: 1px solid rgb(53 104 89 / 20%);
+  text-align: left;
+}
+.blog-prose th {
+  background: rgb(53 104 89 / 10%);
+  font-weight: 800;
+  color: #214c3c;
+}
+.blog-prose code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: rgb(53 104 89 / 10%);
+  font-size: 0.88em;
+}
+.blog-prose pre {
+  overflow-x: auto;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgb(20 30 25 / 90%);
+  color: #f0eee6;
+}
+.blog-prose pre code {
+  padding: 0;
+  background: none;
+  color: inherit;
+}
+
+.blog-sources {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+}
+.blog-sources a {
+  color: #1667b1;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgb(22 103 177 / 40%);
+  text-decoration-thickness: 1.5px;
 }

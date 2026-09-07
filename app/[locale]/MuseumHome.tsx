@@ -3,6 +3,8 @@
 import { useEffect, useMemo } from 'react'
 import { SettingsButton } from '@/src/components/buttons/SettingsButton'
 import { LanguageMenu } from '@/src/components/LanguageMenu'
+import { BlogButton } from '@/src/components/buttons/BlogButton'
+import { blogLabels } from '@/src/components/blog/blog-labels'
 import { ZoneSelect, type ZoneCardData } from '@/src/components/ZoneSelect'
 import { draftAnimalsByZone } from '@/src/content/collections/draft-zones'
 import { zoneCategories } from '@/src/content/collections/categories'
@@ -65,6 +67,11 @@ export function MuseumHome() {
     <main className="museum-experience" data-page-kind="zone-select">
       <ZoneSelect zones={zoneCards} />
       <div className="zone-select-actions">
+        <BlogButton
+          className="zone-select-blog"
+          href={`/${locale}/blog/`}
+          label={blogLabels(locale).nav}
+        />
         <SettingsButton
           className="zone-select-settings"
           href={`/${locale}/config/`}

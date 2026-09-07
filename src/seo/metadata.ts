@@ -1,6 +1,7 @@
 // Shared multilingual SEO copy and metadata builders.
 
 import { animalSeoDescription } from '@/src/content/animal-seo'
+import { getBlogSlugs } from '@/src/content/blog'
 import { mainAnimals } from '@/src/content/catalog'
 import { staticAnimalDetailIds } from '@/src/content/static-animal-details'
 import type { Habitat, Locale } from '@/src/content/types'
@@ -12,7 +13,7 @@ export type SeoPageLocale =
   | 'x-default'
   | Locale
 
-export const seoSiteOrigin = 'https://zoo.randbox.top'
+export const seoSiteOrigin = 'https://aitubestats.com/'
 
 export interface SeoCatalogueEntry {
   readonly id: string
@@ -341,6 +342,17 @@ export function animalCanonicalUrl(
   return `${seoSiteOrigin}${locale}/animal/${animalId}/`
 }
 
+export function blogCanonicalUrl(locale: Locale): string {
+  return `${seoSiteOrigin}${locale}/blog/`
+}
+
+export function blogArticleCanonicalUrl(
+  locale: Locale,
+  animalId: string,
+): string {
+  return `${seoSiteOrigin}${locale}/blog/${animalId}/`
+}
+
 export function museumSocialImageUrl(locale: SeoPageLocale): string {
   return `${seoSiteOrigin}${seoPageCopy[locale].socialImageFileName}`
 }
@@ -348,6 +360,19 @@ export function museumSocialImageUrl(locale: SeoPageLocale): string {
 export function animalSocialImageUrl(animalId: string): string {
   return `${seoSiteOrigin}${animalId}/social.webp`
 }
+
+const blogSitemapUrls: string[] = [
+  blogCanonicalUrl('zh-CN'),
+  blogCanonicalUrl('zh-TW'),
+  blogCanonicalUrl('ja'),
+  blogCanonicalUrl('en'),
+  ...getBlogSlugs().flatMap((animalId) => [
+    blogArticleCanonicalUrl('zh-CN', animalId),
+    blogArticleCanonicalUrl('zh-TW', animalId),
+    blogArticleCanonicalUrl('ja', animalId),
+    blogArticleCanonicalUrl('en', animalId),
+  ]),
+]
 
 export const seoSitemapUrls: readonly string[] = [
   museumCanonicalUrl('zh-CN'),
@@ -360,9 +385,10 @@ export const seoSitemapUrls: readonly string[] = [
     animalCanonicalUrl('ja', animalId),
     animalCanonicalUrl('en', animalId),
   ]),
+  ...blogSitemapUrls,
 ]
 
-export const seoRobotsTxt = `User-agent: *\nAllow: /\nSitemap: ${seoSiteOrigin}/sitemap.xml\n`
+export const seoRobotsTxt = `User-agent: *\nAllow: /\nSitemap: ${seoSiteOrigin}sitemap.xml\n`
 
 export interface AnimalDetailSeo {
   readonly title: string
