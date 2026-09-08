@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import { mainAnimals } from '@/src/content/catalog'
+import { getAnimalById } from '@/src/content/catalog'
 import {
   contentLocaleFor,
   getBlogArticle,
@@ -47,10 +47,20 @@ export default async function BlogArticlePage({
 
   const contentLocale = contentLocaleFor(locale)
   const article = getBlogArticle(slug, contentLocale)
-  const animal = mainAnimals.find((item) => item.id === slug)
+  const animal = getAnimalById(slug)
   if (!article || !animal) notFound()
-  const content = animal.content[contentLocale] ?? animal.content['zh-CN']
-  if (!content) notFound()
+
+  // Draft packages may only ship one content locale; fall back for the other
+  // (mirroring the exhibit pages), and prefer whichever content has sources.
+  const primaryContent =
+    animal.content[contentLocale] ?? animal.content['zh-CN'] ?? animal.content.en
+  if (!primaryContent) notFound()
+  const otherLocale = contentLocale === 'zh-CN' ? 'en' : 'zh-CN'
+  const fallbackContent = animal.content[otherLocale]
+  const sources =
+    primaryContent.sources.length > 0
+      ? primaryContent.sources
+      : (fallbackContent?.sources ?? primaryContent.sources)
 
   const seo = blogArticleSeo(locale, slug, article)
 
@@ -69,10 +79,10 @@ export default async function BlogArticlePage({
         animal={{
           id: animal.id,
           status: animal.status,
-          name: content.name,
-          classificationLabel: content.classificationLabel,
-          facts: content.facts,
-          sources: content.sources,
+          name: primaryContent.name,
+          classificationLabel: primaryContent.classificationLabel,
+          facts: primaryContent.facts,
+          sources,
         }}
       />
     </>

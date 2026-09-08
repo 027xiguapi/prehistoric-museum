@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 
-import { mainAnimals } from '@/src/content/catalog'
+import { getAnimalById } from '@/src/content/catalog'
 import {
+  animalContent,
   contentLocaleFor,
   getBlogIndexEntries,
 } from '@/src/content/blog'
@@ -121,6 +122,7 @@ export interface BlogArticleSeo {
   readonly canonical: string
   readonly contentLocale: Locale
   readonly socialImage: string
+  readonly isDraft: boolean
   readonly structuredData: Readonly<Record<string, unknown>>
 }
 
@@ -130,9 +132,10 @@ export function blogArticleSeo(
   article: BlogArticleRecord,
 ): BlogArticleSeo {
   const contentLocale = contentLocaleFor(locale)
-  const animal = mainAnimals.find((item) => item.id === animalId)
+  const animal = getAnimalById(animalId)
   const animalName =
-    animal?.content[contentLocale]?.name?.trim() ?? article.meta.title
+    animalContent(animalId, contentLocale)?.name?.trim() ?? article.meta.title
+  const isDraft = animal?.status === 'draft'
   const canonical = blogArticleCanonicalUrl(locale, animalId)
   const socialImage = animalSocialImageUrl(animalId)
 
@@ -142,6 +145,7 @@ export function blogArticleSeo(
     canonical,
     contentLocale,
     socialImage,
+    isDraft,
     structuredData: {
       '@context': 'https://schema.org',
       '@type': 'Article',
@@ -191,7 +195,10 @@ export function blogArticleMetadata(
   return {
     title: seo.title,
     description: seo.description,
-    robots: 'index, follow, max-image-preview:large',
+    // Draft-preview animals stay dev-only; their articles are never indexed.
+    robots: seo.isDraft
+      ? 'noindex, follow'
+      : 'index, follow, max-image-preview:large',
     alternates: {
       canonical: seo.canonical,
       languages: {

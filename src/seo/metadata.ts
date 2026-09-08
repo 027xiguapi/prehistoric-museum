@@ -2,7 +2,7 @@
 
 import { animalSeoDescription } from '@/src/content/animal-seo'
 import { getBlogSlugs } from '@/src/content/blog'
-import { mainAnimals } from '@/src/content/catalog'
+import { getAnimalById, mainAnimals } from '@/src/content/catalog'
 import { staticAnimalDetailIds } from '@/src/content/static-animal-details'
 import type { Habitat, Locale } from '@/src/content/types'
 
@@ -361,12 +361,18 @@ export function animalSocialImageUrl(animalId: string): string {
   return `${seoSiteOrigin}${animalId}/social.webp`
 }
 
+// Only published animals get their blog articles into the public sitemap;
+// draft-preview articles are `noindex` and stay off the crawl map.
+const indexedBlogAnimalIds = getBlogSlugs().filter(
+  (animalId) => getAnimalById(animalId)?.status === 'published',
+)
+
 const blogSitemapUrls: string[] = [
   blogCanonicalUrl('zh-CN'),
   blogCanonicalUrl('zh-TW'),
   blogCanonicalUrl('ja'),
   blogCanonicalUrl('en'),
-  ...getBlogSlugs().flatMap((animalId) => [
+  ...indexedBlogAnimalIds.flatMap((animalId) => [
     blogArticleCanonicalUrl('zh-CN', animalId),
     blogArticleCanonicalUrl('zh-TW', animalId),
     blogArticleCanonicalUrl('ja', animalId),

@@ -196,11 +196,9 @@ export function BlogArticleView({
         )}
       </aside>
 
-      {animal.status === 'published' && (
-        <Link className={CTA_CLASS} href={`/${locale}/animal/${animal.id}/`}>
-          {labels.exhibitCta(animal.name)}
-        </Link>
-      )}
+      <Link className={CTA_CLASS} href={`/${locale}/animal/${animal.id}/`}>
+        {labels.exhibitCta(animal.name)}
+      </Link>
     </article>
   )
 }

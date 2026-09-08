@@ -1,8 +1,8 @@
 import matter from 'gray-matter'
 import { marked } from 'marked'
 
-import { mainAnimals } from '@/src/content/catalog'
-import type { ContentLocale } from '@/src/content/types'
+import { getAnimalById } from '@/src/content/catalog'
+import type { AnimalContent, ContentLocale } from '@/src/content/types'
 import type { Locale } from '@/src/i18n/locale'
 import { articleSources } from '@/src/content/blog/articles'
 import type {
@@ -16,6 +16,24 @@ export function contentLocaleFor(locale: Locale): ContentLocale {
   if (locale === 'zh-TW') return 'zh-CN'
   if (locale === 'ja') return 'en'
   return locale
+}
+
+/**
+ * Reads the animal's copy for a content locale, falling back to the other
+ * content locale when a draft package only ships one (mirroring the exhibit
+ * page fallback).
+ */
+export function animalContent(
+  animalId: string,
+  contentLocale: ContentLocale,
+): AnimalContent | undefined {
+  const animal = getAnimalById(animalId)
+  if (!animal) return undefined
+  return (
+    animal.content[contentLocale] ??
+    animal.content['zh-CN'] ??
+    animal.content.en
+  )
 }
 
 function countWords(text: string): number {
@@ -91,11 +109,11 @@ function loadArticle(
   animalId: string,
   locale: ContentLocale,
 ): BlogArticleRecord | undefined {
-  const source = articleSources[animalId];
+  const source = articleSources[animalId]
   if (!source) return undefined
   const raw = locale === 'zh-CN' ? source.zhCN : source.en
   const parsed = matter(raw)
-  const kind = mainAnimals.find((animal) => animal.id === animalId)?.kind ?? ''
+  const kind = getAnimalById(animalId)?.kind ?? ''
   const meta = normalizeMeta(parsed.data, kind, locale, parsed.content)
   const html = marked.parse(parsed.content) as string
   return {
@@ -116,10 +134,10 @@ interface LoadedIndex<T> {
 const loadedManifest: ReadonlyMap<string, LoadedIndex<BlogArticleRecord>> =
   (() => {
     const map = new Map<string, LoadedIndex<BlogArticleRecord>>()
-    for (const animal of mainAnimals) {
-      map.set(animal.id, {
-        zhCN: loadArticle(animal.id, 'zh-CN'),
-        en: loadArticle(animal.id, 'en'),
+    for (const animalId of Object.keys(articleSources)) {
+      map.set(animalId, {
+        zhCN: loadArticle(animalId, 'zh-CN'),
+        en: loadArticle(animalId, 'en'),
       })
     }
     return map
@@ -151,14 +169,14 @@ export function getBlogIndexEntries(
 ): readonly BlogIndexEntry[] {
   const contentLocale = contentLocaleFor(locale)
   const entries: BlogIndexEntry[] = []
-  for (const animal of mainAnimals) {
-    const article = getBlogArticle(animal.id, contentLocale)
+  for (const animalId of Object.keys(articleSources)) {
+    const article = getBlogArticle(animalId, contentLocale)
     if (!article) continue
-    const name = animal.content[contentLocale]?.name?.trim() ?? animal.id
-    const classification =
-      animal.content[contentLocale]?.classificationLabel?.trim() ?? ''
+    const content = animalContent(animalId, contentLocale)
+    const name = content?.name?.trim() ?? article.meta.title
+    const classification = content?.classificationLabel?.trim() ?? ''
     entries.push({
-      animalId: animal.id,
+      animalId,
       animalName: name,
       animalClassificationLabel: classification,
       meta: article.meta,

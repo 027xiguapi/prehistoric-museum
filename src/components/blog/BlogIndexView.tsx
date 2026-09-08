@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Home } from 'lucide-react'
 
-import { mainAnimals } from '@/src/content/catalog'
+import { getAnimalById } from '@/src/content/catalog'
 import type { BlogIndexEntry } from '@/src/content/blog/types'
 import { blogLabels } from '@/src/components/blog/blog-labels'
 
@@ -54,7 +54,7 @@ const CARD_DATE_CLASS =
   'm-0 text-[0.72rem] font-[650] tracking-[0.04em] text-[var(--ink-muted)]'
 
 function thumbnailFor(animalId: string): string | null {
-  const animal = mainAnimals.find((item) => item.id === animalId)
+  const animal = getAnimalById(animalId)
   return animal?.assets.thumbnail ?? null
 }
 
