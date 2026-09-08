@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Home } from 'lucide-react'
 
 import { mainAnimals } from '@/src/content/catalog'
 import type { BlogIndexEntry } from '@/src/content/blog/types'
@@ -25,6 +26,16 @@ const COUNT_CLASS =
   'bg-[#356859] px-[13px] py-[5px] text-[0.76rem] font-[820] tracking-[0.08em] text-[#fffdf7] ' +
   'shadow-[inset_0_-2px_rgb(0_0_0/16%),0_2px_0_rgb(60_90_60/18%)]'
 const GRID_CLASS = 'grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-4'
+// Top bar: a clear "back to home" sticker button, matching the museum-home
+// action pills (frosted paper, white rim, chunky offset shadow).
+const TOPBAR_CLASS = 'flex items-center'
+const HOME_CLASS =
+  'inline-flex h-[46px] items-center gap-[8px] rounded-full border-[2.5px] border-[#fffdf7] ' +
+  'bg-[#fffaf2] px-[16px] text-[0.9rem] font-[800] text-[#214c3c] ' +
+  'shadow-[0_3px_0_rgb(60_90_60/16%),0_8px_16px_rgb(30_50_30/16%)] ' +
+  'transition-[transform,box-shadow] duration-[180ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] ' +
+  'hover:-translate-y-[2px] hover:rotate-[-1deg] ' +
+  'active:translate-y-[2px] active:shadow-[0_1px_0_rgb(60_90_60/16%),0_4px_10px_rgb(30_50_30/14%)]'
 const CARD_CLASS =
   'group relative grid grid-cols-[72px_minmax(0,1fr)] items-center gap-[14px] ' +
   'overflow-hidden rounded-[26px] border-[3px] border-[#fffdf7] bg-[#fffaf2] p-[12px] ' +
@@ -57,6 +68,13 @@ export function BlogIndexView({
   const labels = blogLabels(locale as Parameters<typeof blogLabels>[0])
   return (
     <div className={PAGE_CLASS}>
+      <nav className={TOPBAR_CLASS}>
+        <Link className={HOME_CLASS} href={`/${locale}/`}>
+          <Home aria-hidden="true" size={18} strokeWidth={2.3} />
+          <span>{labels.backToHome}</span>
+        </Link>
+      </nav>
+
       <header className={HERO_CLASS}>
         <p className={COUNT_CLASS}>{labels.countLabel(entries.length)}</p>
         <h1 className={H1_CLASS}>{labels.heading}</h1>

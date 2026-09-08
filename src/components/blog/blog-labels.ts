@@ -6,6 +6,7 @@ export interface BlogLabels {
   readonly intro: string
   readonly backToBlog: string
   readonly backToMuseum: string
+  readonly backToHome: string
   readonly viewExhibit: string
   readonly readingTime: string
   readonly updated: string
@@ -40,6 +41,7 @@ const zhCN: BlogLabels = {
   intro: '逐只认识博物馆里的史前动物。每一篇都从它们的身体、生活、发现地和化石说起，附上科学名片与权威来源，适合亲子一起读。',
   backToBlog: '返回科普列表',
   backToMuseum: '返回博物馆',
+  backToHome: '返回首页',
   viewExhibit: '去看 3D 展台',
   readingTime: '阅读约',
   updated: '更新于',
@@ -74,6 +76,7 @@ const zhTW: BlogLabels = {
   intro: '逐隻認識博物館裡的史前動物。每一篇都從牠們的身體、生活、發現地和化石說起，附上科學名片與權威來源，適合親子一起讀。',
   backToBlog: '返回科普列表',
   backToMuseum: '返回博物館',
+  backToHome: '返回首頁',
   viewExhibit: '去看 3D 展台',
   readingTime: '閱讀約',
   updated: '更新於',
@@ -108,6 +111,7 @@ const ja: BlogLabels = {
   intro: 'ミュージアムの先史の動物をひとりずつ紹介します。からだ・暮らし・発見地・化石の順に、科学カードと信頼できる出典を添えて、ご家庭でどうぞ。',
   backToBlog: '一覧に戻る',
   backToMuseum: 'ミュージアムへ戻る',
+  backToHome: 'ホームへ戻る',
   viewExhibit: '3D ステージを見る',
   readingTime: '約',
   updated: '更新',
@@ -142,6 +146,7 @@ const en: BlogLabels = {
   intro: "Meet each prehistoric animal in the museum, one at a time. Every article starts with its body, life, where it was found and its fossils, and closes with a science card and cited sources — made for reading together.",
   backToBlog: 'Back to all articles',
   backToMuseum: 'Back to the museum',
+  backToHome: 'Back to home',
   viewExhibit: 'See the 3D stage',
   readingTime: 'About',
   updated: 'Updated',
