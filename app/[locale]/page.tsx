@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { isLocale, supportedLocales } from '@/src/i18n/locale'
 import { museumPageMetadata } from '@/src/seo/museum-page-metadata'
 import { MuseumHome } from '@/app/[locale]/MuseumHome'
+import { CategoryPageView } from '@/src/components/CategoryPageView'
 
 export function generateStaticParams() {
   return supportedLocales.map((locale) => ({ locale }))
@@ -29,5 +30,10 @@ export default async function MuseumLocalePage({ params }: MuseumPageProps) {
     notFound()
   }
 
-  return <MuseumHome />
+  return (
+    <>
+      <MuseumHome />
+      <CategoryPageView locale={locale} zone={null} />
+    </>
+  )
 }
