@@ -48,6 +48,43 @@ import { grasshopper } from '@/src/content/blog/articles/grasshopper'
 import { ladybug } from '@/src/content/blog/articles/ladybug'
 import { mantis } from '@/src/content/blog/articles/mantis'
 import { scorpion } from '@/src/content/blog/articles/scorpion'
+import { africanLeopard } from '@/src/content/blog/articles/african-leopard'
+import { tiger } from '@/src/content/blog/articles/tiger'
+import { lynx } from '@/src/content/blog/articles/lynx'
+import { bear } from '@/src/content/blog/articles/bear'
+import { giantPanda } from '@/src/content/blog/articles/giant-panda'
+import { redPanda } from '@/src/content/blog/articles/red-panda'
+import { koala } from '@/src/content/blog/articles/koala'
+import { quokka } from '@/src/content/blog/articles/quokka'
+import { wombat } from '@/src/content/blog/articles/wombat'
+import { echidna } from '@/src/content/blog/articles/echidna'
+import { deer } from '@/src/content/blog/articles/deer'
+import { whiteTailedDeer } from '@/src/content/blog/articles/white-tailed-deer'
+import { chipmunk } from '@/src/content/blog/articles/chipmunk'
+import { rabbit } from '@/src/content/blog/articles/rabbit'
+import { mouse } from '@/src/content/blog/articles/mouse'
+import { raccoon } from '@/src/content/blog/articles/raccoon'
+import { fennecFox } from '@/src/content/blog/articles/fennec-fox'
+import { europeanHedgehog } from '@/src/content/blog/articles/european-hedgehog'
+import { saola } from '@/src/content/blog/articles/saola'
+import { frog } from '@/src/content/blog/articles/frog'
+import { snail } from '@/src/content/blog/articles/snail'
+import { ballPython } from '@/src/content/blog/articles/ball-python'
+import { python } from '@/src/content/blog/articles/python'
+import { timberWolf } from '@/src/content/blog/articles/timber-wolf'
+import { siamese } from '@/src/content/blog/articles/siamese'
+import { maineCoon } from '@/src/content/blog/articles/maine-coon'
+import { ragdoll } from '@/src/content/blog/articles/ragdoll'
+import { bengalCat } from '@/src/content/blog/articles/bengal-cat'
+import { persianCat } from '@/src/content/blog/articles/persian-cat'
+import { norwegianForestCat } from '@/src/content/blog/articles/norwegian-forest-cat'
+import { russianBlue } from '@/src/content/blog/articles/russian-blue'
+import { scottishFold } from '@/src/content/blog/articles/scottish-fold'
+import { sphynxCat } from '@/src/content/blog/articles/sphynx-cat'
+import { shortHairedCat } from '@/src/content/blog/articles/short-haired-cat'
+import { kitten } from '@/src/content/blog/articles/kitten'
+import { frenchBulldog } from '@/src/content/blog/articles/french-bulldog'
+import { pug } from '@/src/content/blog/articles/pug'
 
 /**
  * Article sources keyed by animal id. Each entry holds both content locales as
@@ -107,4 +144,41 @@ export const articleSources: Readonly<
   ladybug,
   mantis,
   scorpion,
+  'african-leopard': africanLeopard,
+  tiger,
+  lynx,
+  bear,
+  'giant-panda': giantPanda,
+  'red-panda': redPanda,
+  koala,
+  quokka,
+  wombat,
+  echidna,
+  deer,
+  'white-tailed-deer': whiteTailedDeer,
+  chipmunk,
+  rabbit,
+  mouse,
+  raccoon,
+  'fennec-fox': fennecFox,
+  'european-hedgehog': europeanHedgehog,
+  saola,
+  frog,
+  snail,
+  'ball-python': ballPython,
+  python,
+  'timber-wolf': timberWolf,
+  siamese,
+  'maine-coon': maineCoon,
+  ragdoll,
+  'bengal-cat': bengalCat,
+  'persian-cat': persianCat,
+  'norwegian-forest-cat': norwegianForestCat,
+  'russian-blue': russianBlue,
+  'scottish-fold': scottishFold,
+  'sphynx-cat': sphynxCat,
+  'short-haired-cat': shortHairedCat,
+  kitten,
+  'french-bulldog': frenchBulldog,
+  pug,
 }
