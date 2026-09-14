@@ -4,6 +4,7 @@ import { Home } from 'lucide-react'
 import { getAnimalById } from '@/src/content/catalog'
 import type { BlogIndexEntry } from '@/src/content/blog/types'
 import { blogLabels } from '@/src/components/blog/blog-labels'
+import { DocumentFooter } from '@/src/components/DocumentFooter'
 
 // Sticker-book listing, reusing the homepage map-piece vocabulary: warm paper
 // fill, white die-cut rim, chunky offset shadow, gentle hand-drawn radius.
@@ -111,6 +112,10 @@ export function BlogIndexView({
           })}
         </section>
       )}
+
+      <DocumentFooter
+        locale={locale as Parameters<typeof blogLabels>[0]}
+      />
     </div>
   )
 }

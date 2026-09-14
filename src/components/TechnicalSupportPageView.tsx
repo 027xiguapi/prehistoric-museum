@@ -1,6 +1,7 @@
 import { LifeBuoy } from 'lucide-react'
 
 import { BackButton } from '@/src/components/buttons/BackButton'
+import { DocumentFooter } from '@/src/components/DocumentFooter'
 import type { Locale } from '@/src/i18n/locale'
 import { messagesFor } from '@/src/i18n/messages'
 import { technicalSupportFor } from '@/src/i18n/technical-support'
@@ -115,6 +116,8 @@ export function TechnicalSupportPageView({ locale }: { readonly locale: Locale }
           </div>
         </section>
       </div>
+
+      <DocumentFooter locale={locale} />
     </main>
   )
 }

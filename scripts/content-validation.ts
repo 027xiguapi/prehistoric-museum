@@ -1368,6 +1368,48 @@ async function validatePublishedPackage(
   return issues
 }
 
+/**
+ * Every third-party asset a published exhibit ships must declare the licence
+ * it was released under. Several download batches were recorded as "licence
+ * unconfirmed, do not redistribute", so an absent licence is a real open
+ * question rather than a formatting omission: it decides whether the asset may
+ * be redistributed at all, and whether the site may be monetised on top of it.
+ *
+ * This is reported as a manual gate instead of an error because the answer
+ * lives outside the repository — someone has to open the source page and read
+ * the licence. The gate keeps that task on the record and fails closed: a
+ * release cannot be treated as ready while `manual-gate` issues remain.
+ */
+function validateAssetLicences(
+  definitions: readonly AnimalPackageDefinition[],
+): ValidationIssue[] {
+  const issues: ValidationIssue[] = []
+
+  for (const definition of definitions) {
+    if (definition.status !== 'published') {
+      continue
+    }
+    for (const record of definition.provenance) {
+      if (record.source.type !== 'third-party') {
+        continue
+      }
+      if (record.source.license) {
+        continue
+      }
+      issues.push(
+        issue(
+          'manual-gate',
+          'THIRD_PARTY_LICENSE_UNVERIFIED',
+          `资产 “${record.assetPath}” 的来源 “${record.source.title}”（${record.source.author}）未声明许可：请到 ${record.source.url} 核对许可条款，确认允许再分发与商业使用后写入 provenance 的 license 字段。`,
+          { animalId: definition.id, path: record.assetPath },
+        ),
+      )
+    }
+  }
+
+  return issues
+}
+
 export async function validateContent(
   packages: readonly LoadedAnimalDefinition[],
   collection: AnimalCollection = mainCollection,
@@ -1378,6 +1420,7 @@ export async function validateContent(
   const definitions = packages.map(({ definition }) => definition)
   return [
     ...packageIssues.flat(),
+    ...validateAssetLicences(definitions),
     ...validateCollection(collection, definitions),
     ...validateZoneCategories(definitions),
   ]

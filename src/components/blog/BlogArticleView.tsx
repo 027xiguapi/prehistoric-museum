@@ -5,6 +5,7 @@ import type { BlogArticleRecord } from '@/src/content/blog/types'
 import type { Locale } from '@/src/i18n/locale'
 import { blogLabels } from '@/src/components/blog/blog-labels'
 import { BackButton } from '@/src/components/buttons/BackButton'
+import { DocumentFooter } from '@/src/components/DocumentFooter'
 
 const PAGE_CLASS =
   'blog-article mx-auto grid w-[min(760px,calc(100%-28px))] content-start gap-5 ' +
@@ -199,6 +200,8 @@ export function BlogArticleView({
       <Link className={CTA_CLASS} href={`/${locale}/animal/${animal.id}/`}>
         {labels.exhibitCta(animal.name)}
       </Link>
+
+      <DocumentFooter locale={locale} />
     </article>
   )
 }

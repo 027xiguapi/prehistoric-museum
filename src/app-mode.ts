@@ -26,3 +26,16 @@ export const museumMode: MuseumMode =
       : process.env.NODE_ENV === 'test'
         ? 'test'
         : 'production'
+
+/**
+ * Draft exhibits can be previewed at `/{locale}/animal/{id}/` while a pilot is
+ * being prepared, but they are unfinished: incomplete copy, borrowed
+ * backgrounds and unconfirmed asset licences. A production build must not
+ * route, link, or index them.
+ *
+ * Both `staticAnimalDetailIds` (routes, exhibit navigation, sitemap) and
+ * `draftAnimalsByZone` (homepage and category zone lists) branch on this flag
+ * so the draft-exclusion invariant documented in each draft package holds for
+ * every catalog, not only `filterPublishedAnimals`.
+ */
+export const draftPreviewsEnabled = museumMode !== 'production'

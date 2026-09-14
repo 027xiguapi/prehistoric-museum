@@ -1,3 +1,4 @@
+import { museumMode } from '@/src/app-mode'
 import { allAnimals } from '@/src/content/catalog'
 import type { AnimalPackage } from '@/src/content/types'
 import { zoneIdsForAnimal, type ZoneCategoryId } from '@/src/content/collections/zone-definitions'
@@ -15,9 +16,11 @@ export function draftZonesForAnimal(animal: {
   return zoneIdsForAnimal(animal)
 }
 
-/** Draft 3D animals grouped into the zone sections they unlock. */
-export const draftAnimalsByZone: ReadonlyMap<string, readonly AnimalPackage[]> =
-  new Map(
+function buildDraftAnimalsByZone(): ReadonlyMap<
+  string,
+  readonly AnimalPackage[]
+> {
+  return new Map(
     Object.entries(
       allAnimals
         .filter((animal) => animal.status === 'draft')
@@ -29,3 +32,18 @@ export const draftAnimalsByZone: ReadonlyMap<string, readonly AnimalPackage[]> =
         }, {}),
     ),
   )
+}
+
+/**
+ * Draft 3D animals grouped into the zone sections they unlock.
+ *
+ * Draft exhibits are unfinished, so a production build exposes no draft zone
+ * entries: the homepage zone counts, the category pages and the exhibit guide
+ * all read from this map, and none of them should advertise or link to an
+ * exhibit that a visitor cannot open. `museumMode` is inlined at build time,
+ * so the production branch resolves to an empty map.
+ */
+export const draftAnimalsByZone: ReadonlyMap<string, readonly AnimalPackage[]> =
+  museumMode === 'production'
+    ? new Map<string, readonly AnimalPackage[]>()
+    : buildDraftAnimalsByZone()

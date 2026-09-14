@@ -72,7 +72,6 @@ import * as grasshopper from './animals/grasshopper/animal'
 import * as greatDane from './animals/great-dane/animal'
 import * as greatWhiteShark from './animals/great-white-shark/animal'
 import * as greenSeaTurtle from './animals/green-sea-turtle/animal'
-import * as grogu from './animals/grogu/animal'
 import * as guineaPig from './animals/guinea-pig/animal'
 import * as hamster from './animals/hamster/animal'
 import * as herculesBeetle from './animals/hercules-beetle/animal'
@@ -105,7 +104,6 @@ import * as mammoth from './animals/mammoth/animal'
 import * as mantis from './animals/mantis/animal'
 import * as megalodon from './animals/megalodon/animal'
 import * as meganeura from './animals/meganeura/animal'
-import * as meiPanda from './animals/mei-panda/animal'
 import * as milkCow from './animals/milk-cow/animal'
 import * as morphoButterfly from './animals/morpho-butterfly/animal'
 import * as mosasaurus from './animals/mosasaurus/animal'
@@ -270,7 +268,6 @@ export const animalModules: Readonly<Record<string, AnimalModule>> = {
   './animals/great-dane/animal.ts': greatDane,
   './animals/great-white-shark/animal.ts': greatWhiteShark,
   './animals/green-sea-turtle/animal.ts': greenSeaTurtle,
-  './animals/grogu/animal.ts': grogu,
   './animals/guinea-pig/animal.ts': guineaPig,
   './animals/hamster/animal.ts': hamster,
   './animals/hercules-beetle/animal.ts': herculesBeetle,
@@ -303,7 +300,6 @@ export const animalModules: Readonly<Record<string, AnimalModule>> = {
   './animals/mantis/animal.ts': mantis,
   './animals/megalodon/animal.ts': megalodon,
   './animals/meganeura/animal.ts': meganeura,
-  './animals/mei-panda/animal.ts': meiPanda,
   './animals/milk-cow/animal.ts': milkCow,
   './animals/morpho-butterfly/animal.ts': morphoButterfly,
   './animals/mosasaurus/animal.ts': mosasaurus,

@@ -1,17 +1,15 @@
-import { ShieldCheck } from 'lucide-react'
+import { Info } from 'lucide-react'
 
 import { BackButton } from '@/src/components/buttons/BackButton'
 import { DocumentFooter } from '@/src/components/DocumentFooter'
 import type { Locale } from '@/src/i18n/locale'
 import { messagesFor } from '@/src/i18n/messages'
-import { privacyPolicyFor } from '@/src/i18n/privacy-policy'
+import type { DocumentContent } from '@/src/i18n/site-documents'
 
 // The document pages share the homepage park-map gradient, painted by the
-// global `body:has(.config-page)` rule in styles.css, so the page itself
-// stays transparent.
+// global `body:has(.config-page)` rule in styles.css.
 const PAGE_CLASS =
   'config-page mx-auto grid min-h-dvh w-[min(720px,calc(100%-28px))] content-start gap-4 pt-[max(28px,env(safe-area-inset-top))] pb-[max(40px,env(safe-area-inset-bottom))]'
-// Round sticker back button, matching the homepage compass sticker.
 const BACK_CLASS =
   'ml-[30px] inline-flex h-[42px] w-[42px] items-center justify-center justify-self-start rounded-full ' +
   'border-[2.5px] border-[#fffdf7] bg-[#fffaf2] text-[#28493a] ' +
@@ -21,8 +19,6 @@ const BACK_CLASS =
   'active:translate-y-[2px] active:shadow-[0_1px_0_rgb(60_90_60/16%),0_4px_10px_rgb(30_50_30/14%)] ' +
   'focus-visible:outline-2 focus-visible:outline-[var(--focus)] focus-visible:outline-offset-2 ' +
   'max-[720px]:ml-[20px] max-[720px]:h-11 max-[720px]:w-11'
-// Sticker-sheet header: white die-cut rim, hand-drawn radius and the chunky
-// offset shadow used by the park-map signs on the homepage.
 const HERO_CLASS =
   'flex items-start justify-between gap-5 rounded-[34px_40px_32px_42px/40px_32px_42px_34px] ' +
   'border-[3px] border-[#fffdf7] bg-[rgb(255_250_242/92%)] px-[26px] pt-[22px] pb-[20px] ' +
@@ -34,14 +30,20 @@ const SECTION_CLASS = 'grid gap-2 px-[30px] max-[720px]:px-[20px]'
 const H2_CLASS = 'm-0 text-[1.02rem] font-[850] leading-[1.25] text-[#214c3c]'
 const TEXT_CLASS = 'grid gap-[10px]'
 
+interface DocumentPageViewProps {
+  readonly content: DocumentContent
+  readonly locale: Locale
+}
+
 /**
- * Public, static privacy policy page. It is rendered under the shared
- * [locale] layout so it is reachable at a public URL for App Store review,
- * and it reads its content from the locale passed down from the route.
+ * Shared renderer for the site's trust documents (about, contact, terms).
+ *
+ * Every document ends with the trust footer so the privacy policy, the credits
+ * and the operator information stay reachable from one another, which is what
+ * the publisher requirements and the third-party licences both depend on.
  */
-export function PrivacyPageView({ locale }: { readonly locale: Locale }) {
+export function DocumentPageView({ content, locale }: DocumentPageViewProps) {
   const messages = messagesFor(locale)
-  const privacy = privacyPolicyFor(locale)
 
   return (
     <main className={PAGE_CLASS}>
@@ -54,24 +56,22 @@ export function PrivacyPageView({ locale }: { readonly locale: Locale }) {
       <header className={HERO_CLASS}>
         <div>
           <p className="m-0 inline-flex items-center gap-[7px] rounded-full border-2 border-[#fffdf7] bg-[var(--leaf)] px-[13px] py-[5px] text-[0.76rem] font-[820] tracking-[0.08em] text-[#fffdf7] shadow-[inset_0_-2px_rgb(0_0_0/16%),0_2px_0_rgb(60_90_60/18%)]">
-            <ShieldCheck aria-hidden="true" size={15} strokeWidth={2.4} />
+            <Info aria-hidden="true" size={15} strokeWidth={2.4} />
             {messages.museumName}
           </p>
           <h1 className="mt-[10px] font-display text-[clamp(2rem,4vw,2.8rem)] font-normal leading-[1.08] text-[#2e7d4f] [text-shadow:0_3px_0_rgb(255_255_255/80%),0_10px_26px_rgb(46_125_79/28%)]">
-            {privacy.title}
+            {content.title}
           </h1>
           <p className="mt-2 text-[0.9rem] text-[var(--ink-muted)]">
-            {privacy.lastUpdatedLabel} · {privacy.updatedDate}
+            {content.summary}
           </p>
         </div>
       </header>
 
       <div className="grid gap-[18px]">
-        {privacy.sections.map((section) => (
+        {content.sections.map((section) => (
           <section className={SECTION_CLASS} key={section.title}>
-            <div className="grid gap-[2px]">
-              <h2 className={H2_CLASS}>{section.title}</h2>
-            </div>
+            <h2 className={H2_CLASS}>{section.title}</h2>
             <div className={TEXT_CLASS}>
               {section.paragraphs.map((paragraph) => (
                 <p
@@ -86,16 +86,14 @@ export function PrivacyPageView({ locale }: { readonly locale: Locale }) {
         ))}
 
         <section className={SECTION_CLASS}>
-          <div className="grid gap-[2px]">
-            <h2 className={H2_CLASS}>{privacy.contactLabel}</h2>
-          </div>
+          <h2 className={H2_CLASS}>{content.contactLabel}</h2>
           <div className={TEXT_CLASS}>
             <p className="m-0 text-[0.92rem] leading-[1.7] text-[var(--ink)]">
               <a
                 className="font-[720] text-[var(--leaf)] no-underline hover:underline"
-                href={`mailto:${privacy.contactEmail}`}
+                href={`mailto:${content.contactEmail}`}
               >
-                {privacy.contactEmail}
+                {content.contactEmail}
               </a>
             </p>
           </div>

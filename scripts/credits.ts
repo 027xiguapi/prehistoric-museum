@@ -34,6 +34,12 @@ function sourceUrl(record: AssetProvenance): string | undefined {
     : undefined
 }
 
+function sourceLicense(record: AssetProvenance): string | undefined {
+  return record.source.type === 'third-party'
+    ? record.source.license
+    : undefined
+}
+
 export function buildCreditEntries(
   packages: readonly LoadedAnimalDefinition[],
 ): CreditEntry[] {
@@ -50,6 +56,7 @@ export function buildCreditEntries(
         )
         .map((record) => {
           const url = sourceUrl(record)
+          const license = sourceLicense(record)
           return {
             id: `${definition.id}:${record.assetPath}`,
             animalId: definition.id,
@@ -58,6 +65,7 @@ export function buildCreditEntries(
             sourceTitle: sourceTitle(record),
             author: sourceAuthor(record),
             ...(url === undefined ? {} : { sourceUrl: url }),
+            ...(license === undefined ? {} : { license }),
             modifications: record.modifications,
           }
         }),
@@ -77,7 +85,10 @@ export const credits = ${JSON.stringify(entries, null, 2)} as const satisfies re
 
 function sourceLine(record: AssetProvenance): string {
   if (record.source.type === 'third-party') {
-    return `[${record.source.title}](${record.source.url}) by ${record.source.author}`
+    // Recording "unverified" rather than omitting the licence keeps the gap
+    // visible in the published notices until the source page is checked.
+    const license = record.source.license ?? 'unverified'
+    return `[${record.source.title}](${record.source.url}) by ${record.source.author} — licence: ${license}`
   }
   if (record.source.type === 'generated') {
     return `${record.source.title}, generated with ${record.source.tool} on ${record.source.generatedOn}`

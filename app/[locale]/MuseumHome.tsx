@@ -3,12 +3,14 @@
 import { useEffect, useMemo } from 'react'
 import { SettingsButton } from '@/src/components/buttons/SettingsButton'
 import { LanguageMenu } from '@/src/components/LanguageMenu'
+import { AboutButton } from '@/src/components/buttons/AboutButton'
 import { BlogButton } from '@/src/components/buttons/BlogButton'
 import { blogLabels } from '@/src/components/blog/blog-labels'
 import { ZoneSelect, type ZoneCardData } from '@/src/components/ZoneSelect'
 import { draftAnimalsByZone } from '@/src/content/collections/draft-zones'
 import { zoneCategories } from '@/src/content/collections/categories'
 import { useI18n } from '@/src/i18n/I18nProvider'
+import { siteDocumentLabelsFor } from '@/src/i18n/site-documents'
 import { updateLocalizedMetadata } from '@/src/i18n/metadata'
 import {
   localReviewMode,
@@ -67,6 +69,11 @@ export function MuseumHome() {
     <main className="museum-experience" data-page-kind="zone-select">
       <ZoneSelect zones={zoneCards} />
       <div className="zone-select-actions">
+        <AboutButton
+          className="zone-select-blog"
+          href={`/${locale}/about/`}
+          label={siteDocumentLabelsFor(locale).about}
+        />
         <BlogButton
           className="zone-select-blog"
           href={`/${locale}/blog/`}

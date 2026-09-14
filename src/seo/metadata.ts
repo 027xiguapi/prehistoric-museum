@@ -353,6 +353,28 @@ export function blogArticleCanonicalUrl(
   return `${seoSiteOrigin}${locale}/blog/${animalId}/`
 }
 
+/**
+ * Public trust documents published by every locale. They carry no draft or
+ * fallback variants, so each one is a real, indexable page in the sitemap.
+ */
+export const siteDocumentPaths = [
+  'about',
+  'privacy',
+  'terms',
+  'credits',
+  'contact',
+  'support',
+] as const
+
+export type SiteDocumentPath = (typeof siteDocumentPaths)[number]
+
+export function documentCanonicalUrl(
+  locale: Locale,
+  document: SiteDocumentPath,
+): string {
+  return `${seoSiteOrigin}${locale}/${document}/`
+}
+
 export function museumSocialImageUrl(locale: SeoPageLocale): string {
   return `${seoSiteOrigin}${seoPageCopy[locale].socialImageFileName}`
 }
@@ -392,6 +414,12 @@ export const seoSitemapUrls: readonly string[] = [
     animalCanonicalUrl('en', animalId),
   ]),
   ...blogSitemapUrls,
+  ...siteDocumentPaths.flatMap((document) => [
+    documentCanonicalUrl('zh-CN', document),
+    documentCanonicalUrl('zh-TW', document),
+    documentCanonicalUrl('ja', document),
+    documentCanonicalUrl('en', document),
+  ]),
 ]
 
 export const seoRobotsTxt = `User-agent: *\nAllow: /\nSitemap: ${seoSiteOrigin}sitemap.xml\n`

@@ -85,6 +85,37 @@ import { shortHairedCat } from '@/src/content/blog/articles/short-haired-cat'
 import { kitten } from '@/src/content/blog/articles/kitten'
 import { frenchBulldog } from '@/src/content/blog/articles/french-bulldog'
 import { pug } from '@/src/content/blog/articles/pug'
+import { arcticFox } from '@/src/content/blog/articles/arctic-fox'
+import { emperorPenguin } from '@/src/content/blog/articles/emperor-penguin'
+import { siberianHusky } from '@/src/content/blog/articles/siberian-husky'
+import { butterfly } from '@/src/content/blog/articles/butterfly'
+import { crow } from '@/src/content/blog/articles/crow'
+import { eagle } from '@/src/content/blog/articles/eagle'
+import { goldenEagle } from '@/src/content/blog/articles/golden-eagle'
+import { kookaburra } from '@/src/content/blog/articles/kookaburra'
+import { macaw } from '@/src/content/blog/articles/macaw'
+import { owl } from '@/src/content/blog/articles/owl'
+import { pigeon } from '@/src/content/blog/articles/pigeon'
+import { sparrow } from '@/src/content/blog/articles/sparrow'
+import { woodpecker } from '@/src/content/blog/articles/woodpecker'
+import { alligator } from '@/src/content/blog/articles/alligator'
+import { anglerfish } from '@/src/content/blog/articles/anglerfish'
+import { commonOctopus } from '@/src/content/blog/articles/common-octopus'
+import { crab } from '@/src/content/blog/articles/crab'
+import { duck } from '@/src/content/blog/articles/duck'
+import { greatWhiteShark } from '@/src/content/blog/articles/great-white-shark'
+import { greenSeaTurtle } from '@/src/content/blog/articles/green-sea-turtle'
+import { hippo } from '@/src/content/blog/articles/hippo'
+import { jellyfish } from '@/src/content/blog/articles/jellyfish'
+import { mallardDuck } from '@/src/content/blog/articles/mallard-duck'
+import { octopus } from '@/src/content/blog/articles/octopus'
+import { platypus } from '@/src/content/blog/articles/platypus'
+import { porpoise } from '@/src/content/blog/articles/porpoise'
+import { salmon } from '@/src/content/blog/articles/salmon'
+import { seaTurtle } from '@/src/content/blog/articles/sea-turtle'
+import { seahorse } from '@/src/content/blog/articles/seahorse'
+import { shark } from '@/src/content/blog/articles/shark'
+import { whale } from '@/src/content/blog/articles/whale'
 
 /**
  * Article sources keyed by animal id. Each entry holds both content locales as
@@ -181,4 +212,35 @@ export const articleSources: Readonly<
   kitten,
   'french-bulldog': frenchBulldog,
   pug,
+  'arctic-fox': arcticFox,
+  'emperor-penguin': emperorPenguin,
+  'siberian-husky': siberianHusky,
+  butterfly,
+  crow,
+  eagle,
+  'golden-eagle': goldenEagle,
+  kookaburra,
+  macaw,
+  owl,
+  pigeon,
+  sparrow,
+  woodpecker,
+  alligator,
+  anglerfish,
+  'common-octopus': commonOctopus,
+  crab,
+  duck,
+  'great-white-shark': greatWhiteShark,
+  'green-sea-turtle': greenSeaTurtle,
+  hippo,
+  jellyfish,
+  'mallard-duck': mallardDuck,
+  octopus,
+  platypus,
+  porpoise,
+  salmon,
+  'sea-turtle': seaTurtle,
+  seahorse,
+  shark,
+  whale,
 }

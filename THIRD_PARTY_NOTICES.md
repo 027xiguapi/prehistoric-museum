@@ -93,7 +93,7 @@ content, contributions, and Brand Assets follow the separate scopes in
 ### `model/model.glb`
 
 - Asset type: model
-- Source: [Apatosaurus](https://sketchfab.com/3d-models/apatosaurus-fecabec8e4ef42ef98b5480dbf50c57d) by toro ardido modelos 3d
+- Source: [Apatosaurus](https://sketchfab.com/3d-models/apatosaurus-fecabec8e4ef42ef98b5480dbf50c57d) by toro ardido modelos 3d — licence: unverified
 - Runtime SHA-256: `9d9f151933a33ae5824eb7532e16a7416b012b9ffff154aca2957ad37a2a540a`
 - Modifications:
   - Compressed geometry and animation with high-precision Meshopt and converted embedded PNG textures to lossless WebP for browser delivery.
@@ -163,7 +163,7 @@ content, contributions, and Brand Assets follow the separate scopes in
 ### `model/model.glb`
 
 - Asset type: model
-- Source: [Dilophosaurus](https://sketchfab.com/3d-models/dilophosaurus-d09b3aa874db4e1cbf29a14797ca351f) by Marcel Schanz
+- Source: [Dilophosaurus](https://sketchfab.com/3d-models/dilophosaurus-d09b3aa874db4e1cbf29a14797ca351f) by Marcel Schanz — licence: unverified
 - Runtime SHA-256: `51b895d460d1fc73103e92a632c4aea22e025ee468ab2a011474711711f965f6`
 - Modifications:
   - Compressed geometry and animation with high-precision Meshopt and converted embedded PNG textures to lossless WebP for browser delivery.
@@ -233,7 +233,7 @@ content, contributions, and Brand Assets follow the separate scopes in
 ### `model/model.glb`
 
 - Asset type: model
-- Source: [Gigantoraptor](https://sketchfab.com/3d-models/gigantoraptor-e51509d66d464104aef1b72c298a40cf) by seth the yutyrannus
+- Source: [Gigantoraptor](https://sketchfab.com/3d-models/gigantoraptor-e51509d66d464104aef1b72c298a40cf) by seth the yutyrannus — licence: unverified
 - Runtime SHA-256: `26b137edc63f38defdf04d85903a30ad7817c83c5b3d5f5626a1fb2e6f216c0e`
 - Modifications:
   - Compressed geometry and animation with high-precision Meshopt and converted embedded PNG textures to lossless WebP for browser delivery.
@@ -303,7 +303,7 @@ content, contributions, and Brand Assets follow the separate scopes in
 ### `model/model.glb`
 
 - Asset type: model
-- Source: [ichthyosaurus](https://sketchfab.com/3d-models/ichthyosaurus-ef8609f5efa84984bc1800bdb36aac3c) by Julian Johnson-Mortimer / FreddyFoxFreddy
+- Source: [ichthyosaurus](https://sketchfab.com/3d-models/ichthyosaurus-ef8609f5efa84984bc1800bdb36aac3c) by Julian Johnson-Mortimer / FreddyFoxFreddy — licence: unverified
 - Runtime SHA-256: `8f3a80ad11713d5dee3ccf29395655af8c7c0dd8f2d7ccba94bda57189fa6cb7`
 - Modifications:
   - Made neighbouring quaternion keys hemisphere-continuous, then resampled the authored CUBICSPLINE bone rotations to 24 fps LINEAR tracks before high-precision Meshopt compression; this removes opposite-sign half-turn spikes and prevents the compression filter from treating spline tangents as normalized rotations. Converted embedded PNG textures to lossless WebP for browser delivery.
@@ -373,7 +373,7 @@ content, contributions, and Brand Assets follow the separate scopes in
 ### `model/model.glb`
 
 - Asset type: model
-- Source: [Maiasaura With Rig](https://sketchfab.com/3d-models/maiasaura-with-rig-3da9f211ae304bd0afd1d15a290eabbd) by Dino Dan
+- Source: [Maiasaura With Rig](https://sketchfab.com/3d-models/maiasaura-with-rig-3da9f211ae304bd0afd1d15a290eabbd) by Dino Dan — licence: unverified
 - Runtime SHA-256: `31dca5fff3c4c361153385ac6e603c8f6916c26576bb4b8bae4db4f735b6fd27`
 - Modifications:
   - Compressed geometry and animation with high-precision Meshopt and converted embedded PNG textures to lossless WebP for browser delivery.
@@ -442,7 +442,7 @@ content, contributions, and Brand Assets follow the separate scopes in
 ### `model/model.glb`
 
 - Asset type: model
-- Source: [3D High-poly Baby Woolly Mammoth](https://sketchfab.com/3d-models/3d-high-poly-baby-woolly-mammoth-fce1c86ccedf47a5b9627098be6719d5) by SDPM Esare
+- Source: [3D High-poly Baby Woolly Mammoth](https://sketchfab.com/3d-models/3d-high-poly-baby-woolly-mammoth-fce1c86ccedf47a5b9627098be6719d5) by SDPM Esare — licence: unverified
 - Runtime SHA-256: `623a62621f1c6f2955fd3fe6442be8dfd34cdc94064e1bbb0c5e43e8970a1ece`
 - Modifications:
   - Compressed geometry and animation with high-precision Meshopt and converted embedded PNG textures to lossless WebP for browser delivery.
@@ -513,7 +513,7 @@ content, contributions, and Brand Assets follow the separate scopes in
 ### `model/model.glb`
 
 - Asset type: model
-- Source: [Otodus Megalodon updated animations](https://sketchfab.com/3d-models/otodus-megalodon-updated-animations-7e65b8c51251440e9aca8385f286714f) by CanYuTsai
+- Source: [Otodus Megalodon updated animations](https://sketchfab.com/3d-models/otodus-megalodon-updated-animations-7e65b8c51251440e9aca8385f286714f) by CanYuTsai — licence: unverified
 - Runtime SHA-256: `2ac86e4a499a10d02e6ded5667a69a06c70f5371d624a31bef3abcb64dd53253`
 - Modifications:
   - Compressed geometry and animation with high-precision Meshopt and converted embedded PNG textures to lossless WebP for browser delivery.
@@ -582,7 +582,7 @@ content, contributions, and Brand Assets follow the separate scopes in
 ### `model/model.glb`
 
 - Asset type: model
-- Source: [Meganeura Dinoraul but it is a bit accurate](https://sketchfab.com/3d-models/meganeura-dinoraul-but-it-is-a-bit-accurate-1aaab4a72fbc42b4901d5f1dde12a281) by Nobilis the Palaeovespa (@nobilishornet)
+- Source: [Meganeura Dinoraul but it is a bit accurate](https://sketchfab.com/3d-models/meganeura-dinoraul-but-it-is-a-bit-accurate-1aaab4a72fbc42b4901d5f1dde12a281) by Nobilis the Palaeovespa (@nobilishornet) — licence: unverified
 - Runtime SHA-256: `4e388ade5b32132cc60054fa51dc7ac0fe48372efafaf4c57732697b3874589b`
 - Modifications:
   - Compressed geometry and animation with high-precision Meshopt and converted embedded PNG textures to lossless WebP for browser delivery.
@@ -651,7 +651,7 @@ content, contributions, and Brand Assets follow the separate scopes in
 ### `model/model.glb`
 
 - Asset type: model
-- Source: [Mosasaurus](https://sketchfab.com/3d-models/mosasaurus-fe0c25c4ed4e4d4aa05312121e2f68df) by Lukiethewesly13
+- Source: [Mosasaurus](https://sketchfab.com/3d-models/mosasaurus-fe0c25c4ed4e4d4aa05312121e2f68df) by Lukiethewesly13 — licence: unverified
 - Runtime SHA-256: `5071da06a8a12bf0e3396d84bd3bfd86a3f9f378f322cda53bd69cc3541aa47d`
 - Modifications:
   - Compressed geometry and animation with high-precision Meshopt and converted embedded PNG textures to lossless WebP for browser delivery.
@@ -721,7 +721,7 @@ content, contributions, and Brand Assets follow the separate scopes in
 ### `model/model.glb`
 
 - Asset type: model
-- Source: [PBR Pachycephalasaurus Animated](https://sketchfab.com/3d-models/pbr-pachycephalasaurus-animated-6eea5cee4afa4730bf75c6329a43e56d) by Ferocious Industries
+- Source: [PBR Pachycephalasaurus Animated](https://sketchfab.com/3d-models/pbr-pachycephalasaurus-animated-6eea5cee4afa4730bf75c6329a43e56d) by Ferocious Industries — licence: unverified
 - Runtime SHA-256: `ac3539e1119aed28af89296f92f1bae02f0f5a796323bd1738f91c6b069dda48`
 - Modifications:
   - Compressed geometry and animation with high-precision Meshopt and converted embedded PNG textures to lossless WebP for browser delivery.
@@ -789,7 +789,7 @@ content, contributions, and Brand Assets follow the separate scopes in
 ### `model/model.glb`
 
 - Asset type: model
-- Source: [Plesiosaure](https://sketchfab.com/3d-models/plesiosaure-2f59d503e0754c9d9e157a90ed415c38) by leo kerjean
+- Source: [Plesiosaure](https://sketchfab.com/3d-models/plesiosaure-2f59d503e0754c9d9e157a90ed415c38) by leo kerjean — licence: unverified
 - Runtime SHA-256: `4edc54ab21f61eb7b5e38c3b5d87a1816621547a9e7fde33cfdf3efd93b788a8`
 - Modifications:
   - Compressed geometry and animation with high-precision Meshopt and converted embedded PNG textures to lossless WebP for browser delivery.
@@ -859,7 +859,7 @@ content, contributions, and Brand Assets follow the separate scopes in
 ### `model/model.glb`
 
 - Asset type: model
-- Source: [Pteranodon (Animated)](https://sketchfab.com/3d-models/pteranodon-animated-7d7683df41d1405283f160e81a5dff1b) by Chistodrako._. / Oscar López Riviello
+- Source: [Pteranodon (Animated)](https://sketchfab.com/3d-models/pteranodon-animated-7d7683df41d1405283f160e81a5dff1b) by Chistodrako._. / Oscar López Riviello — licence: unverified
 - Runtime SHA-256: `abcde65b2ea29c6ae86d8232a5e1a604b05099deb34cebfb30495aff53f61af1`
 - Modifications:
   - Compressed geometry and animation with high-precision Meshopt and converted embedded PNG textures to lossless WebP for browser delivery.
@@ -928,7 +928,7 @@ content, contributions, and Brand Assets follow the separate scopes in
 ### `model/model.glb`
 
 - Asset type: model
-- Source: [Low-poly Rhamphorhynchus idle](https://sketchfab.com/3d-models/low-poly-rhamphorhynchus-idle-c1e35c7ac4374c778f78025717694675) by Robear (@xiaorobear)
+- Source: [Low-poly Rhamphorhynchus idle](https://sketchfab.com/3d-models/low-poly-rhamphorhynchus-idle-c1e35c7ac4374c778f78025717694675) by Robear (@xiaorobear) — licence: unverified
 - Runtime SHA-256: `16b5ab37ac44e177c3e12c229e6f0b27fab669c3d6e74e5b5bdf54ed3a68a935`
 - Modifications:
   - Compressed geometry and animation with high-precision Meshopt and converted embedded PNG textures to lossless WebP for browser delivery.
@@ -997,7 +997,7 @@ content, contributions, and Brand Assets follow the separate scopes in
 ### `model/model.glb`
 
 - Asset type: model
-- Source: [Animated Sauropelta (Free)](https://sketchfab.com/3d-models/animated-sauropelta-free-c6373f12f3954facb8d5fe48055c9161) by Anees Animates
+- Source: [Animated Sauropelta (Free)](https://sketchfab.com/3d-models/animated-sauropelta-free-c6373f12f3954facb8d5fe48055c9161) by Anees Animates — licence: unverified
 - Runtime SHA-256: `ef283def4b17e92122442c8cfb617dce7abecf0bdc1962dc2ff1f18835e7a58c`
 - Modifications:
   - Compressed geometry and animation with high-precision Meshopt and converted embedded PNG textures to lossless WebP for browser delivery.
@@ -1066,7 +1066,7 @@ content, contributions, and Brand Assets follow the separate scopes in
 ### `model/model.glb`
 
 - Asset type: model
-- Source: [PBR Stegasaurus (Animated)](https://sketchfab.com/3d-models/pbr-stegasaurus-animated-ec254ea1554941fe8a131f62db0faf3d) by Ferocious Industries
+- Source: [PBR Stegasaurus (Animated)](https://sketchfab.com/3d-models/pbr-stegasaurus-animated-ec254ea1554941fe8a131f62db0faf3d) by Ferocious Industries — licence: unverified
 - Runtime SHA-256: `2f1564c1f3f07e41ddb21b1f190621baba2ea5ea9c97c36cd89256ff60bddcea`
 - Modifications:
   - Compressed geometry and animation with high-precision Meshopt and converted embedded PNG textures to lossless WebP for browser delivery.
@@ -1136,7 +1136,7 @@ content, contributions, and Brand Assets follow the separate scopes in
 ### `model/model.glb`
 
 - Asset type: model
-- Source: [Triceratops dinosaur](https://sketchfab.com/3d-models/triceratops-dinosaur-87527079bad44917ab1b98a456b46c7e) by wojciechmiedziocha
+- Source: [Triceratops dinosaur](https://sketchfab.com/3d-models/triceratops-dinosaur-87527079bad44917ab1b98a456b46c7e) by wojciechmiedziocha — licence: unverified
 - Runtime SHA-256: `e51eeb1c3b9c890cdef1f78c65a74179f2da6d4ed899b32e8833b87d2777cf33`
 - Modifications:
   - Compressed geometry and animation with high-precision Meshopt and converted embedded PNG textures to lossless WebP for browser delivery.
@@ -1206,7 +1206,7 @@ content, contributions, and Brand Assets follow the separate scopes in
 ### `model/model.glb`
 
 - Asset type: model
-- Source: [Tupandactylus](https://sketchfab.com/3d-models/tupandactylus-4ea8f4466c2c4e61bc57c12af296d43a) by Paleo Modelist (@victory_)
+- Source: [Tupandactylus](https://sketchfab.com/3d-models/tupandactylus-4ea8f4466c2c4e61bc57c12af296d43a) by Paleo Modelist (@victory_) — licence: unverified
 - Runtime SHA-256: `e2c232534c909899d266fb75e1787117d7e17396d677a82e1a63a0872f2f385e`
 - Modifications:
   - Compressed geometry and animation with high-precision Meshopt and converted embedded PNG textures to lossless WebP for browser delivery.
@@ -1276,7 +1276,7 @@ content, contributions, and Brand Assets follow the separate scopes in
 ### `model/model.glb`
 
 - Asset type: model
-- Source: [Tyrant King - Tyrannosaurus](https://sketchfab.com/3d-models/tyrant-king-tyrannosaurus-6465a297fa784598adc49f6e0042d449) by Marcel Schanz
+- Source: [Tyrant King - Tyrannosaurus](https://sketchfab.com/3d-models/tyrant-king-tyrannosaurus-6465a297fa784598adc49f6e0042d449) by Marcel Schanz — licence: unverified
 - Runtime SHA-256: `ea15319ca1fa3724f1a961515c36b4834446f5ac30a9b0de49b62881877efa54`
 - Modifications:
   - Compressed geometry and animation with high-precision Meshopt and converted embedded PNG textures to lossless WebP for browser delivery.

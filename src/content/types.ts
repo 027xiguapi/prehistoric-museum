@@ -173,6 +173,16 @@ export interface ThirdPartyAssetSource {
   readonly accessedOn: IsoDate
   readonly sha256: Sha256
   readonly bytes: number
+  /**
+   * Human-readable licence the source was published under, for example
+   * `CC BY 4.0`. It stays undefined until the licence has actually been
+   * checked against the source page, because several downloaded batches were
+   * recorded as “licence unconfirmed, do not redistribute”. `validate:content`
+   * reports every published third-party source that has no declared licence as
+   * a manual gate, so the gap is visible and must be resolved deliberately
+   * rather than assumed away.
+   */
+  readonly license?: string
 }
 
 export interface GeneratedAssetSource {
@@ -380,5 +390,6 @@ export interface CreditEntry {
   readonly sourceTitle: string
   readonly author: string
   readonly sourceUrl?: string
+  readonly license?: string
   readonly modifications: readonly string[]
 }
