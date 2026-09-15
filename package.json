@@ -29,6 +29,7 @@
     "optimize:models": "node scripts/optimize-runtime-models.mjs",
     "generate:model-previews": "tsx scripts/render-model-previews.ts --target=production",
     "generate:animal-social-images": "tsx scripts/generate-animal-social-images.ts",
+    "generate:province-thumbnails": "tsx scripts/generate-province-thumbnails.ts",
     "generate:backgrounds": "tsx scripts/generate-animal-backgrounds.ts",
     "generate:backgrounds:dry-run": "tsx scripts/generate-animal-backgrounds.ts --dry-run",
     "generate:backgrounds:all": "tsx scripts/generate-animal-backgrounds.ts --all",

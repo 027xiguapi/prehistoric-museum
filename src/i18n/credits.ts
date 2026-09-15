@@ -23,6 +23,7 @@ export interface CreditsPageContent {
   readonly generatedNarration: string
   readonly generatedBackground: string
   readonly generatedDerived: string
+  readonly generatedProvinceMaps: string
   readonly licensingTitle: string
   readonly licensingBody: string
   readonly kindLabels: Readonly<Record<AssetKind, string>>
@@ -44,6 +45,8 @@ const zhCN: CreditsPageContent = {
     '展厅背景插画，由 OpenAI 内置图像生成工具依据已审校的栖息地描述生成。',
   generatedDerived:
     '海报与缩略图，由本项目从上述模型渲染并裁切而来。',
+  generatedProvinceMaps:
+    '中国省区图鉴使用的手绘省区地图，由本项目制作或已取得商用授权。',
   licensingTitle: '许可说明',
   licensingBody:
     '代码、原创科普内容、第三方素材与品牌标识分别适用不同的许可，完整清单请见仓库中的 LICENSING.md 与 THIRD_PARTY_NOTICES.md。',
@@ -73,6 +76,8 @@ const zhTW: CreditsPageContent = {
     '展廳背景插畫，由 OpenAI 內建圖像生成工具依已審校的棲地描述生成。',
   generatedDerived:
     '海報與縮圖，由本專案從上述模型算圖並裁切而來。',
+  generatedProvinceMaps:
+    '中國省區圖鑑使用的手繪省區地圖，由本專案製作或已取得商用授權。',
   licensingTitle: '授權說明',
   licensingBody:
     '程式碼、原創科普內容、第三方素材與品牌標識分別適用不同的授權，完整清單請見倉庫中的 LICENSING.md 與 THIRD_PARTY_NOTICES.md。',
@@ -102,6 +107,8 @@ const ja: CreditsPageContent = {
     '展示背景のイラスト。OpenAI の組み込み画像生成ツールにより、校正済みの生息環境の記述から生成しました。',
   generatedDerived:
     'ポスターとサムネイル。本プロジェクトが上記のモデルからレンダリングして切り出したものです。',
+  generatedProvinceMaps:
+    '中国の省区図鑑で使用している手描きの地図は、本プロジェクトが制作したもの、または商用利用の許諾を得たものです。',
   licensingTitle: 'ライセンスについて',
   licensingBody:
     'コード、オリジナルの解説文、サードパーティ素材、ブランド標識にはそれぞれ異なるライセンスが適用されます。完全な一覧はリポジトリの LICENSING.md と THIRD_PARTY_NOTICES.md を参照してください。',
@@ -131,6 +138,8 @@ const en: CreditsPageContent = {
     'Exhibit background illustrations, generated with the OpenAI built-in image tool from reviewed habitat descriptions.',
   generatedDerived:
     'Posters and thumbnails, rendered and cropped by this project from the models above.',
+  generatedProvinceMaps:
+    'The hand-drawn province maps used in the China gallery were made for this project or licensed for commercial use.',
   licensingTitle: 'Licensing',
   licensingBody:
     'Code, original museum content, third-party material and Brand Assets are covered by different licences. See LICENSING.md and THIRD_PARTY_NOTICES.md in the repository for the full breakdown.',

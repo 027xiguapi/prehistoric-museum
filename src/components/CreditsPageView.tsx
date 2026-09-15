@@ -150,6 +150,9 @@ export function CreditsPageView({ locale }: { readonly locale: Locale }) {
               </strong>
               {` (${countByKind('poster')} · ${countByKind('thumbnail')}) — ${copy.generatedDerived}`}
             </li>
+            <li className="text-[0.92rem] leading-[1.7] text-[var(--ink)]">
+              {copy.generatedProvinceMaps}
+            </li>
           </ul>
         </section>
 
