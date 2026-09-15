@@ -5,6 +5,7 @@ import { isLocale, supportedLocales } from '@/src/i18n/locale'
 import { museumPageMetadata } from '@/src/seo/museum-page-metadata'
 import { MuseumHome } from '@/app/[locale]/MuseumHome'
 import { CategoryPageView } from '@/src/components/CategoryPageView'
+import { DocumentFooter } from '@/src/components/DocumentFooter'
 
 export function generateStaticParams() {
   return supportedLocales.map((locale) => ({ locale }))
@@ -34,6 +35,9 @@ export default async function MuseumLocalePage({ params }: MuseumPageProps) {
     <>
       <MuseumHome />
       <CategoryPageView locale={locale} zone={null} />
+      <div className="mx-auto w-[min(1080px,calc(100%-28px))] pb-[max(24px,env(safe-area-inset-bottom))]">
+        <DocumentFooter locale={locale} />
+      </div>
     </>
   )
 }

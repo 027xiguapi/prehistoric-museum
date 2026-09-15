@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import type { Locale } from '@/src/i18n/locale'
 import { siteDocumentLabelsFor } from '@/src/i18n/site-documents'
 
@@ -38,9 +40,9 @@ export function DocumentFooter({ locale }: { readonly locale: Locale }) {
       <ul className={LIST_CLASS}>
         {links.map((link) => (
           <li key={link.href}>
-            <a className={LINK_CLASS} href={link.href}>
+            <Link className={LINK_CLASS} href={link.href}>
               {link.label}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
