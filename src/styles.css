@@ -5308,6 +5308,19 @@ html[data-locale="en"] .collection-card__copy strong {
   gap: 10px;
 }
 
+/* The park is the museum's most playful entry point, so it wears the filled
+   leaf pill while the document links stay quiet outlines. */
+.zone-select-zoo {
+  color: #fffdf7;
+  background: var(--leaf);
+  border-color: transparent;
+  box-shadow: 0 10px 24px rgb(53 104 89 / 34%);
+}
+
+.zone-select-zoo:hover {
+  background: #2c5a4c;
+}
+
 .zone-select-settings {
   display: inline-flex;
   width: 52px;
@@ -5334,7 +5347,20 @@ html[data-locale="en"] .collection-card__copy strong {
 }
 
 @media (max-width: 1023px) and (orientation: portrait) {
-  .zone-select-settings {
+  /* The park is the museum's most playful entry point, so it wears the filled
+   leaf pill while the document links stay quiet outlines. */
+.zone-select-zoo {
+  color: #fffdf7;
+  background: var(--leaf);
+  border-color: transparent;
+  box-shadow: 0 10px 24px rgb(53 104 89 / 34%);
+}
+
+.zone-select-zoo:hover {
+  background: #2c5a4c;
+}
+
+.zone-select-settings {
     width: 48px;
     height: 48px;
     border-radius: 14px;
@@ -5342,7 +5368,20 @@ html[data-locale="en"] .collection-card__copy strong {
 }
 
 @media (max-height: 560px) and (orientation: landscape) {
-  .zone-select-settings {
+  /* The park is the museum's most playful entry point, so it wears the filled
+   leaf pill while the document links stay quiet outlines. */
+.zone-select-zoo {
+  color: #fffdf7;
+  background: var(--leaf);
+  border-color: transparent;
+  box-shadow: 0 10px 24px rgb(53 104 89 / 34%);
+}
+
+.zone-select-zoo:hover {
+  background: #2c5a4c;
+}
+
+.zone-select-settings {
     width: 48px;
     height: 48px;
     border-radius: 13px;
@@ -5532,4 +5571,775 @@ html[data-locale="en"] .collection-card__copy strong {
   text-underline-offset: 3px;
   text-decoration-color: rgb(22 103 177 / 40%);
   text-decoration-thickness: 1.5px;
+}
+
+/* ==========================================================================
+   Prehistoric Park — the walkable 3D zoo (`/{locale}/zoo/`).
+
+   The park paints itself, so this stylesheet only owns the HUD: the loading
+   gate, the heads-up display, the field notebook and the modals. Everything
+   reuses the museum's warm surface tokens so the park reads as the same
+   sticker book as the rest of the site.
+   ========================================================================== */
+
+.zoo-page {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  background: #cfe4ee;
+  color: var(--ink);
+  touch-action: none;
+}
+
+.zoo-page [hidden] {
+  display: none !important;
+}
+
+.zoo-canvas-host {
+  position: absolute;
+  inset: 0;
+}
+
+.zoo-canvas-host canvas,
+canvas.zoo-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+
+/* ------------------------------------------------------------------ gate -- */
+
+.zoo-gate {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: max(16px, env(safe-area-inset-top)) 18px max(16px, env(safe-area-inset-bottom));
+  background-image:
+    radial-gradient(circle at 14% 16%, rgb(244 184 95 / 32%), transparent 36%),
+    radial-gradient(circle at 86% 12%, rgb(125 183 218 / 34%), transparent 38%),
+    radial-gradient(circle at 80% 88%, rgb(133 190 138 / 32%), transparent 40%),
+    linear-gradient(160deg, #f8f1df 0%, #eef3dc 55%, #dfecd8 100%);
+}
+
+.zoo-gate-inner {
+  width: min(560px, 100%);
+  text-align: center;
+}
+
+.zoo-puffy {
+  margin: 0 0 10px;
+  font-family: var(--font-display), "ZCOOL KuaiLe", "Yuanti SC", system-ui, sans-serif;
+  font-size: clamp(38px, 8vw, 62px);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.16;
+}
+
+.zoo-puffy span {
+  display: inline-block;
+  animation: zoo-puffy-bob 2.6s ease-in-out infinite;
+  text-shadow: 0 3px 0 rgb(255 255 255 / 70%), 0 7px 16px rgb(60 80 50 / 22%);
+}
+
+.zoo-gate-subtitle {
+  margin: 0 auto 22px;
+  max-width: 30em;
+  color: var(--ink-muted);
+  font-size: clamp(14px, 2.6vw, 17px);
+  line-height: 1.6;
+}
+
+.zoo-gate-bar {
+  height: 14px;
+  margin: 0 auto 10px;
+  max-width: 420px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 72%);
+  box-shadow: inset 0 2px 5px rgb(60 80 50 / 16%);
+}
+
+.zoo-gate-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--sun), #8ec46a);
+  transition: width 220ms ease;
+}
+
+.zoo-gate-progress {
+  min-height: 1.4em;
+  margin: 0 0 18px;
+  color: var(--ink-muted);
+  font-size: 14px;
+}
+
+.zoo-gate-hints {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  justify-content: center;
+  margin-top: 22px;
+  color: var(--ink-muted);
+  font-size: 13px;
+}
+
+.zoo-gate-error {
+  display: grid;
+  gap: 14px;
+  justify-items: center;
+  margin-bottom: 18px;
+  padding: 20px;
+  border: 1px solid rgb(157 62 62 / 24%);
+  border-radius: 20px;
+  background: rgb(255 253 247 / 92%);
+  color: var(--danger);
+}
+
+/* --------------------------------------------------------------- buttons -- */
+
+.zoo-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 20px;
+  border: 1px solid rgb(53 104 89 / 22%);
+  border-radius: 999px;
+  color: #1f3f34;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgb(37 56 32 / 14%);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 140ms ease, background-color 140ms ease, box-shadow 140ms ease;
+}
+
+.zoo-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgb(37 56 32 / 18%);
+}
+
+.zoo-button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.zoo-button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.zoo-button--big {
+  min-height: 56px;
+  padding: 0 32px;
+  color: #fffdf7;
+  background: var(--leaf);
+  border-color: transparent;
+  font-size: 17px;
+}
+
+.zoo-button--ghost {
+  color: var(--ink);
+  background: rgb(255 253 247 / 92%);
+}
+
+.zoo-round {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: 1px solid rgb(255 255 255 / 64%);
+  border-radius: 17px;
+  color: #214a33;
+  background: rgb(255 253 247 / 90%);
+  box-shadow: 0 8px 20px rgb(37 56 32 / 15%), inset 0 1px rgb(255 255 255 / 80%);
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background-color 150ms ease, transform 150ms ease;
+}
+
+.zoo-round:hover {
+  transform: translateY(-1px);
+}
+
+.zoo-round[data-on="true"] {
+  color: #fffdf7;
+  background: var(--leaf);
+}
+
+.zoo-round--small {
+  width: 38px;
+  height: 38px;
+  border-radius: 13px;
+}
+
+/* ------------------------------------------------------------------ hud -- */
+
+.zoo-hud {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.zoo-hud > * {
+  pointer-events: auto;
+}
+
+.zoo-chip-row {
+  position: absolute;
+  top: max(14px, env(safe-area-inset-top));
+  left: max(14px, env(safe-area-inset-left));
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: min(62vw, 520px);
+}
+
+.zoo-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 14px;
+  border: 1px solid rgb(255 255 255 / 62%);
+  border-radius: 999px;
+  color: #214a33;
+  background: rgb(255 253 247 / 88%);
+  box-shadow: 0 6px 16px rgb(37 56 32 / 13%);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.zoo-chip--link:hover {
+  background: #fffdf7;
+}
+
+.zoo-chip--muted {
+  color: var(--ink-muted);
+  font-weight: 600;
+}
+
+.zoo-notebook {
+  position: absolute;
+  top: max(14px, env(safe-area-inset-top));
+  right: max(14px, env(safe-area-inset-right));
+  display: grid;
+  gap: 6px;
+  min-width: 168px;
+  padding: 12px 14px;
+  border: 1px solid rgb(255 255 255 / 62%);
+  border-radius: 20px;
+  color: #214a33;
+  background: rgb(255 253 247 / 90%);
+  box-shadow: 0 10px 26px rgb(37 56 32 / 16%);
+  text-align: left;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.zoo-notebook-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.zoo-notebook-count {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.zoo-notebook-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  max-width: 168px;
+}
+
+.zoo-notch {
+  width: 11px;
+  height: 11px;
+  border-radius: 4px;
+  opacity: 0.24;
+  transition: opacity 180ms ease;
+}
+
+.zoo-notch[data-met="true"] {
+  opacity: 1;
+}
+
+/* ----------------------------------------------------------------- card -- */
+
+.zoo-card {
+  position: absolute;
+  left: max(14px, env(safe-area-inset-left));
+  bottom: max(14px, env(safe-area-inset-bottom));
+  display: grid;
+  gap: 10px;
+  width: min(384px, calc(100vw - 28px));
+  padding: 16px;
+  border: 1px solid rgb(255 255 255 / 66%);
+  border-radius: 24px;
+  background: rgb(255 253 247 / 94%);
+  box-shadow: 0 16px 40px rgb(37 56 32 / 20%);
+  animation: zoo-card-in 260ms ease;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.zoo-card-head {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) auto;
+  gap: 11px;
+  align-items: center;
+}
+
+.zoo-card-thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  object-fit: cover;
+  background: var(--canvas-warm);
+}
+
+.zoo-card-titles h2 {
+  margin: 0 0 3px;
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.zoo-card-titles p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 12px;
+}
+
+.zoo-card-zone {
+  padding: 3px 8px;
+  border-radius: 999px;
+  color: #fffdf7;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.zoo-card-badge {
+  align-self: start;
+  padding: 4px 9px;
+  border-radius: 999px;
+  color: var(--ink-muted);
+  background: rgb(53 104 89 / 10%);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.zoo-card[data-met="true"] .zoo-card-badge {
+  color: #fffdf7;
+  background: var(--leaf);
+}
+
+.zoo-card-feature {
+  margin: 0;
+  color: #35463f;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.zoo-card-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 12px;
+  margin: 0;
+}
+
+.zoo-card-facts div {
+  min-width: 0;
+}
+
+.zoo-card-facts dt {
+  color: var(--ink-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.zoo-card-facts dd {
+  margin: 2px 0 0;
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.zoo-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.zoo-card-actions .zoo-button {
+  min-height: 44px;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+/* -------------------------------------------------------------- actions -- */
+
+.zoo-actions {
+  position: absolute;
+  right: max(14px, env(safe-area-inset-right));
+  bottom: max(14px, env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.zoo-toast {
+  position: absolute;
+  top: max(72px, calc(env(safe-area-inset-top) + 62px));
+  left: 50%;
+  max-width: min(560px, calc(100vw - 32px));
+  margin: 0;
+  padding: 11px 20px;
+  border: 1px solid rgb(255 255 255 / 60%);
+  border-radius: 999px;
+  color: #214a33;
+  background: rgb(255 253 247 / 94%);
+  box-shadow: 0 12px 26px rgb(37 56 32 / 18%);
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  transform: translateX(-50%);
+  animation: zoo-toast-in 260ms ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.zoo-tour-banner {
+  position: absolute;
+  top: max(72px, calc(env(safe-area-inset-top) + 62px));
+  left: 50%;
+  margin: 0;
+  padding: 9px 18px;
+  border-radius: 999px;
+  color: #fffdf7;
+  background: rgb(53 104 89 / 92%);
+  box-shadow: 0 10px 22px rgb(37 56 32 / 24%);
+  font-size: 13px;
+  font-weight: 700;
+  transform: translateX(-50%);
+}
+
+/* ------------------------------------------------------------- joystick -- */
+
+.zoo-joystick {
+  position: absolute;
+  left: max(18px, env(safe-area-inset-left));
+  bottom: max(18px, env(safe-area-inset-bottom));
+  display: grid;
+  place-items: center;
+  width: 112px;
+  height: 112px;
+  border: 2px solid rgb(255 255 255 / 55%);
+  border-radius: 50%;
+  background: rgb(255 253 247 / 28%);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  touch-action: none;
+}
+
+.zoo-joystick-knob {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgb(255 253 247 / 88%);
+  box-shadow: 0 6px 14px rgb(37 56 32 / 24%);
+}
+
+/* ---------------------------------------------------------------- modal -- */
+
+.zoo-modal {
+  position: absolute;
+  inset: 0;
+  z-index: 45;
+  display: grid;
+  place-items: center;
+  padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom));
+  background: rgb(32 53 47 / 42%);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: zoo-fade-in 200ms ease;
+}
+
+.zoo-modal-box {
+  display: grid;
+  gap: 12px;
+  width: min(520px, 100%);
+  max-height: min(84dvh, 760px);
+  overflow-y: auto;
+  padding: 20px;
+  border-radius: 26px;
+  background: var(--surface);
+  box-shadow: 0 24px 60px rgb(20 34 24 / 34%);
+}
+
+.zoo-modal-box--wide {
+  width: min(860px, 100%);
+}
+
+.zoo-modal-box--centre {
+  justify-items: center;
+  text-align: center;
+}
+
+.zoo-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.zoo-modal-head h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.zoo-modal-hint {
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.zoo-modal-foot {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.zoo-notebook-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+  gap: 10px;
+}
+
+.zoo-notes {
+  position: relative;
+  display: grid;
+  gap: 5px;
+  padding: 8px;
+  border: 1px solid rgb(53 104 89 / 14%);
+  border-radius: 18px;
+  background: #fffdf7;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.zoo-notes:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgb(37 56 32 / 16%);
+}
+
+.zoo-notes img {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  object-fit: cover;
+  background: var(--canvas-warm);
+  filter: grayscale(0.55) opacity(0.72);
+}
+
+.zoo-notes[data-met="true"] img {
+  filter: none;
+}
+
+.zoo-notes-name {
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.zoo-notes-zone {
+  justify-self: start;
+  padding: 2px 7px;
+  border-radius: 999px;
+  color: #fffdf7;
+  font-size: 10px;
+  font-weight: 700;
+  opacity: 0.72;
+}
+
+.zoo-notes[data-met="true"] .zoo-notes-zone {
+  opacity: 1;
+}
+
+.zoo-notes-star {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  color: var(--sun);
+  font-size: 17px;
+  text-shadow: 0 1px 0 #fff;
+}
+
+.zoo-help-list {
+  display: grid;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.zoo-help-list li {
+  padding: 9px 12px;
+  border-radius: 14px;
+  background: rgb(53 104 89 / 7%);
+}
+
+.zoo-celebrate-title {
+  margin: 0;
+  font-family: var(--font-display), "ZCOOL KuaiLe", system-ui, sans-serif;
+  font-size: 30px;
+  color: var(--leaf);
+}
+
+/* ----------------------------------------------------------- animations -- */
+
+@keyframes zoo-puffy-bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1.5deg);
+  }
+  50% {
+    transform: translateY(-7px) rotate(1.5deg);
+  }
+}
+
+@keyframes zoo-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoo-toast-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes zoo-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ---------------------------------------------------------- responsive -- */
+
+@media (max-width: 767px), (max-height: 560px) {
+  .zoo-notebook {
+    min-width: 0;
+    padding: 9px 12px;
+  }
+
+  .zoo-notebook-dots {
+    display: none;
+  }
+
+  .zoo-notebook-count {
+    font-size: 16px;
+  }
+
+  .zoo-chip--muted {
+    display: none;
+  }
+
+  .zoo-card {
+    left: 50%;
+    right: auto;
+    bottom: calc(env(safe-area-inset-bottom) + 138px);
+    width: min(440px, calc(100vw - 24px));
+    transform: translateX(-50%);
+    animation: none;
+  }
+
+  .zoo-card-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .zoo-actions {
+    right: auto;
+    left: 50%;
+    bottom: max(14px, env(safe-area-inset-bottom));
+    flex-direction: row;
+    gap: 6px;
+    transform: translateX(-50%);
+  }
+
+  .zoo-round {
+    width: 44px;
+    height: 44px;
+    border-radius: 15px;
+  }
+
+  .zoo-joystick {
+    width: 96px;
+    height: 96px;
+  }
+
+  .zoo-toast,
+  .zoo-tour-banner {
+    top: max(64px, calc(env(safe-area-inset-top) + 56px));
+    font-size: 12px;
+  }
+}
+
+@media (max-height: 460px) {
+  .zoo-card-feature,
+  .zoo-card-facts {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zoo-puffy span,
+  .zoo-card,
+  .zoo-toast,
+  .zoo-modal {
+    animation: none;
+  }
 }

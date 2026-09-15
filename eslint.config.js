@@ -14,9 +14,15 @@ export default tseslint.config(
       'next-env.d.ts',
       '.handoff',
       '.wayfinder',
+      '.zcode',
       'assets/candidates',
       '1048动物',
       'converted-1048',
+      'converted-downloads',
+      'model-downloads',
+      // Local reference copy of an MIT-licensed project, kept out of git and
+      // out of lint: it is plain browser JS with its own conventions.
+      'clay-safari',
       'docs/handoff',
       'docs/research',
       'docs/specification',
@@ -26,6 +32,8 @@ export default tseslint.config(
       // Capacitor native projects and their copied web bundles.
       'android',
       'ios',
+      // HarmonyOS (DevEco) project and its copied web bundle.
+      'harmony',
     ],
   },
   {

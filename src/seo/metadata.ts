@@ -375,6 +375,14 @@ export function documentCanonicalUrl(
   return `${seoSiteOrigin}${locale}/${document}/`
 }
 
+/**
+ * The walkable 3D park at `/{locale}/zoo/`. It is neither an exhibit nor a
+ * trust document, so it gets its own canonical builder.
+ */
+export function zooCanonicalUrl(locale: Locale): string {
+  return `${seoSiteOrigin}${locale}/zoo/`
+}
+
 export function museumSocialImageUrl(locale: SeoPageLocale): string {
   return `${seoSiteOrigin}${seoPageCopy[locale].socialImageFileName}`
 }
@@ -407,6 +415,10 @@ export const seoSitemapUrls: readonly string[] = [
   museumCanonicalUrl('zh-TW'),
   museumCanonicalUrl('ja'),
   museumCanonicalUrl('en'),
+  zooCanonicalUrl('zh-CN'),
+  zooCanonicalUrl('zh-TW'),
+  zooCanonicalUrl('ja'),
+  zooCanonicalUrl('en'),
   ...staticAnimalDetailIds.flatMap((animalId) => [
     animalCanonicalUrl('zh-CN', animalId),
     animalCanonicalUrl('zh-TW', animalId),

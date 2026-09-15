@@ -7,6 +7,7 @@ import { AboutButton } from '@/src/components/buttons/AboutButton'
 import { BlogButton } from '@/src/components/buttons/BlogButton'
 import { blogLabels } from '@/src/components/blog/blog-labels'
 import { ZoneSelect, type ZoneCardData } from '@/src/components/ZoneSelect'
+import { ZooButton } from '@/src/components/buttons/ZooButton'
 import { draftAnimalsByZone } from '@/src/content/collections/draft-zones'
 import { zoneCategories } from '@/src/content/collections/categories'
 import { useI18n } from '@/src/i18n/I18nProvider'
@@ -69,6 +70,11 @@ export function MuseumHome() {
     <main className="museum-experience" data-page-kind="zone-select">
       <ZoneSelect zones={zoneCards} />
       <div className="zone-select-actions">
+        <ZooButton
+          className="zone-select-blog zone-select-zoo"
+          href={`/${locale}/zoo/`}
+          label={messages.zoo.title}
+        />
         <AboutButton
           className="zone-select-blog"
           href={`/${locale}/about/`}
