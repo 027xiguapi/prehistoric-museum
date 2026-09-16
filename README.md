@@ -57,6 +57,21 @@ The content library is preparing more than 150 modern animals — from dogs and 
 
 The ichthyosaur and plesiosaur exhibits represent broader groups of related animals rather than one exact species. Fossils do not preserve every answer, so colours, soft tissue, and some movement are evidence-informed artistic reconstructions rather than exact portraits.
 
+## Walk the park
+
+The same eighteen animals also stand in a walkable 3D park, embedded on the homepage and also openable on its own at **`/{locale}/zoo/`**.
+
+- **Everything is life size.** Each published model is scaled until the dimension its own size fact describes matches that fact, so a 12 m Tyrannosaurus rex really is 12 m next to a 1.75 m explorer. The models themselves are authored at unrelated scales, so nothing here is eyeballed.
+- **A valley with biomes, not a list.** Plains and forest hold the warm south, a walkable escarpment carries the pterosaurs through the air above it, and an ice field and a lagoon hold the cold north: the same zones, in the same words, as the exhibit pages.
+- **Walk, or be walked.** Use W A S D or the arrow keys and hold Shift to run; tap the ground and the explorer walks there along a route that goes around fences and water; or tap the drone and let the guided tour lead the whole park.
+- **Meet an animal by walking up to it.** Come close and it greets you by name and plays its own approved narration. Tap it whenever you want to hear that again.
+- **The field notebook.** Every animal you meet is kept there, and any entry walks you straight back to that viewpoint. Meeting all eighteen throws confetti.
+- **Nothing is downloaded twice.** The embedded park does not load until the visitor scrolls to it or asks for it, and once running it stops drawing whenever it leaves the viewport. Its full-screen control expands it in place, and closing it hands the WebGL context and the streamed models straight back to the device. Exhibit models also stream in around the visitor and are released again behind them, so the park stays inside a small memory budget on a tablet.
+
+Two exhibits, Ichthyosaurs and Plesiosaurs, represent groups rather than one species. Their models are sized to the middle of the published range and the exhibit's own caveat stays beside the number, exactly as it does in the museum.
+
+There are no animal calls anywhere in the park. Nobody knows what a stegosaurus sounded like, so every sound you hear is a footstep, a chime, or the museum's narration.
+
 ## A calm, private visit
 
 - Neither the website nor the packaged app has sign-in or user profiles, and neither asks for names, contact details, or children's information.

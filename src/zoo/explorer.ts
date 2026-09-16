@@ -6,7 +6,6 @@ import {
   Group,
   Mesh,
   MeshStandardMaterial,
-  Object3D,
   SphereGeometry,
   TorusGeometry,
   Vector3,
@@ -21,7 +20,6 @@ import { disposeObject3D } from '@/src/viewer/dispose'
  */
 export interface Explorer {
   readonly group: Group
-  readonly crown: Object3D
   /** `speedRatio` is 0 when standing still and 1 at a full run. */
   update: (dt: number, speedRatio: number, elapsed: number) => void
   setVisible: (visible: boolean) => void
@@ -164,11 +162,6 @@ export function createExplorer(): Explorer {
   satchel.position.set(0.18, 0.2, 0.12)
   body.add(satchel)
 
-  // A soft cone "crown" used to anchor the name tag above the head.
-  const crown = new Object3D()
-  crown.position.y = 0.4
-  head.add(crown)
-
   const leftArm = arms[0]
   const rightArm = arms[1]
   const leftLeg = legs[0]
@@ -179,7 +172,6 @@ export function createExplorer(): Explorer {
 
   return {
     group,
-    crown,
     update: (dt: number, speedRatio: number, elapsed: number) => {
       currentSpeed = lerp(currentSpeed, clamp(speedRatio, 0, 1), approach(dt, 10))
       walkPhase += dt * lerp(0.6, 9.4, currentSpeed)

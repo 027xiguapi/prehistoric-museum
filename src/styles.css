@@ -5779,6 +5779,29 @@ canvas.zoo-canvas {
   border-radius: 13px;
 }
 
+/* Inside the homepage's embed frame the page around the park already carries
+   the title, so the gate becomes a compact "the park is opening" panel. */
+.zoo-gate--embed {
+  padding: 20px;
+}
+
+.zoo-gate--embed .zoo-gate-inner {
+  width: min(420px, 100%);
+}
+
+.zoo-gate--embed .zoo-gate-hints {
+  margin-top: 14px;
+}
+
+.zoo-gate-badge {
+  margin: 0 auto 14px;
+  color: var(--leaf);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 /* ------------------------------------------------------------------ hud -- */
 
 .zoo-hud {

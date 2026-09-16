@@ -2,7 +2,7 @@ import {
   ACESFilmicToneMapping,
   Color,
   MeshBasicMaterial,
-  PCFSoftShadowMap,
+  PCFShadowMap,
   PerspectiveCamera,
   Ray,
   Scene,
@@ -37,7 +37,6 @@ import {
   pathSamples,
   type ParkTerrain,
 } from '@/src/zoo/terrain'
-import { updateTweens } from '@/src/zoo/tween'
 import { buildZooExhibits, type ZooExhibit } from '@/src/zoo/zoo-exhibits'
 import type { Locale } from '@/src/i18n/locale'
 import { messagesFor } from '@/src/i18n/messages'
@@ -48,7 +47,11 @@ const ACTIVATE_DISTANCE = 155
 const DEACTIVATE_DISTANCE = 275
 const MAX_CONCURRENT_LOADS = 2
 const DISCOVERY_DWELL_SECONDS = 0.5
-const TOUR_NARRATION_LIMIT_MS = 13000
+/**
+ * Longest narration track in the collection is ~16 s; the cap sits above it so
+ * a tour always lets a recording finish, while still bounding the leg.
+ */
+const TOUR_NARRATION_LIMIT_MS = 20000
 const MAX_TAP_TRAVEL_METRES = 620
 
 const STORAGE_DISCOVERED = 'wonzoo:zoo:discovered:v1'
@@ -81,6 +84,10 @@ export interface ZooDiagnostics {
   readonly tourAnimalId: string | null
   readonly speaking: boolean
   readonly pendingLoads: number
+  /** False while an embedded park has been told it is off screen. */
+  readonly renderingEnabled: boolean
+  readonly embedded: boolean
+  readonly fullscreen: boolean
 }
 
 export interface ZooSnapshot {
@@ -95,6 +102,7 @@ export interface ZooSnapshot {
   readonly residentCount: number
   readonly pendingCount: number
   readonly soundEnabled: boolean
+  readonly fullscreen: boolean
 }
 
 export interface ZooGameCallbacks {
@@ -113,13 +121,25 @@ export interface ZooGameOptions {
   readonly callbacks: ZooGameCallbacks
 }
 
+/**
+ * Yields to the browser so the loading screen can paint between the park's
+ * heavy synchronous build steps. A background or throttled tab never fires
+ * `requestAnimationFrame` at all, so this also has a timer fallback: the gate
+ * must open even when nobody is looking at it.
+ */
 function frame(): Promise<void> {
   return new Promise((resolve) => {
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
+    let settled = false
+    const done = (): void => {
+      if (!settled) {
+        settled = true
         resolve()
-      })
+      }
+    }
+    requestAnimationFrame(() => {
+      requestAnimationFrame(done)
     })
+    setTimeout(done, 250)
   })
 }
 
@@ -201,6 +221,12 @@ export class ZooGame {
   private hoverId: string | null = null
   private nearbyId: string | null = null
   private readonly dwell = new Map<string, number>()
+  /**
+   * Exhibits whose greeting has already been started this session. Without it
+   * the dwell timer would fire again on every frame until `visit` finishes
+   * marking the animal as met.
+   */
+  private readonly greeted = new Set<string>()
   private celebrated = false
   private lastSnapshotAt = 0
   private snapshotDirty = true
@@ -209,6 +235,10 @@ export class ZooGame {
   private elapsed = 0
   private measuredFps = 0
   private lastFrameAt = 0
+  private renderingEnabled = true
+  private fullscreen = false
+  private handleEmbedMessage: ((event: MessageEvent) => void) | null = null
+  private handleEmbedResume: (() => void) | null = null
   private streamTimer = 0
   private hoverTimer = 0
 
@@ -250,7 +280,7 @@ export class ZooGame {
         false,
       )
       renderer.shadowMap.enabled = true
-      renderer.shadowMap.type = PCFSoftShadowMap
+      renderer.shadowMap.type = PCFShadowMap
       renderer.toneMapping = ACESFilmicToneMapping
       renderer.toneMappingExposure = 1.02
       renderer.domElement.className = 'zoo-canvas'
@@ -381,6 +411,7 @@ export class ZooGame {
     callbacks.onProgress(1, this.messages.zoo.loading.ready)
     this.lastFrameAt = performance.now()
     this.renderer.setAnimationLoop(this.tick)
+    this.bindEmbedBridge()
     callbacks.onReady()
     this.snapshotDirty = true
     this.emitSnapshot()
@@ -453,10 +484,6 @@ export class ZooGame {
       }
       this.travelTo(exhibit.id)
       const player = this.player
-      const playerGround = this.terrain?.heightGrid.heightAt(
-        player.position.x,
-        player.position.z,
-      )
       const framing = actor.framingFor(player.position.x, player.position.z)
       const cameraToExhibit = Math.hypot(
         player.position.x - exhibit.site.x,
@@ -477,7 +504,6 @@ export class ZooGame {
         cameraDistance: framing.distance,
         cameraToExhibit,
       })
-      void playerGround
     }
     return { loaded, rows }
   }
@@ -516,12 +542,88 @@ export class ZooGame {
       tourAnimalId: this.tour?.currentAnimalId ?? null,
       speaking: this.audio?.isSpeaking ?? false,
       pendingLoads: this.loading.size + this.loadQueue.length,
+      renderingEnabled: this.renderingEnabled,
+      embedded: typeof window !== 'undefined' && window.self !== window.top,
+      fullscreen: this.fullscreen,
     }
   }
 
   private actorPosition(actor: AnimalActor): [number, number, number] {
     const position = actor.group.position
     return [position.x, position.y, position.z]
+  }
+
+  /**
+   * Embedded in the homepage, the park is one section of a longer page. The
+   * page keeps it told of two things it cannot work out for itself: whether it
+   * is on screen, so an off-screen game stops rendering instead of burning
+   * battery behind the rest of the content, and whether it is expanded to the
+   * whole screen, the browser having taken that over. Any interaction inside
+   * the frame also resumes rendering, so a missed message can never leave the
+   * visitor looking at a frozen park.
+   */
+  private bindEmbedBridge(): void {
+    if (window.self === window.top) {
+      return
+    }
+    this.handleEmbedMessage = (event: MessageEvent) => {
+      if (event.source !== window.parent) {
+        return
+      }
+      const data = event.data as
+        | {
+            fullscreen?: unknown
+            rendering?: unknown
+            source?: unknown
+            type?: unknown
+          }
+        | null
+      if (!data || data.source !== 'wonzoo-home' || data.type !== 'zoo:embed') {
+        return
+      }
+      this.setRenderingEnabled(data.rendering !== false)
+      const nextFullscreen = data.fullscreen === true
+      if (nextFullscreen !== this.fullscreen) {
+        this.fullscreen = nextFullscreen
+        this.snapshotDirty = true
+      }
+    }
+    this.handleEmbedResume = () => {
+      this.setRenderingEnabled(true)
+    }
+    window.addEventListener('message', this.handleEmbedMessage)
+    window.addEventListener('pointerdown', this.handleEmbedResume)
+    window.addEventListener('keydown', this.handleEmbedResume)
+  }
+
+  /**
+   * Asks the embedding page to expand the park to the whole screen. Only the
+   * page that owns the frame can do that, so the park's own full-screen button
+   * simply asks rather than navigating away from the embed.
+   */
+  requestFullscreen(): void {
+    if (window.self === window.top) {
+      return
+    }
+    window.parent.postMessage(
+      { source: 'wonzoo-park', type: 'zoo:fullscreen' },
+      window.location.origin,
+    )
+  }
+
+  /** Starts or stops the render loop without losing any park state. */
+  setRenderingEnabled(enabled: boolean): void {
+    if (this.disposed || !this.renderer || enabled === this.renderingEnabled) {
+      return
+    }
+    this.renderingEnabled = enabled
+    if (enabled) {
+      // Reset the clock so the first frame back does not see a huge delta.
+      this.lastFrameAt = performance.now()
+      this.renderer.setAnimationLoop(this.tick)
+    } else {
+      this.renderer.setAnimationLoop(null)
+    }
   }
 
   private async waitForFonts(): Promise<void> {
@@ -832,10 +934,14 @@ export class ZooGame {
     if (!narration || !this.audio) {
       return
     }
-    const finished = this.audio.whenFinished()
     await this.audio.playNarration(narration)
     if (fromTour) {
-      await Promise.race([finished, wait(TOUR_NARRATION_LIMIT_MS)])
+      // Wait for this track to be heard before moving on, with a cap so one
+      // long recording cannot stall the whole tour.
+      await Promise.race([
+        this.audio.whenFinished(),
+        wait(TOUR_NARRATION_LIMIT_MS),
+      ])
     }
   }
 
@@ -955,8 +1061,6 @@ export class ZooGame {
       this.measuredFps = this.measuredFps * 0.9 + (1 / delta) * 0.1
     }
 
-    updateTweens(dt)
-
     const player = this.player
     const scene = this.scene
     const camera = this.camera
@@ -1018,9 +1122,13 @@ export class ZooGame {
       }
       const dwell = (this.dwell.get(actor.exhibit.id) ?? 0) + dt
       this.dwell.set(actor.exhibit.id, dwell)
-      if (!this.discovered.has(actor.exhibit.id) && dwell > DISCOVERY_DWELL_SECONDS) {
+      if (
+        !this.discovered.has(actor.exhibit.id) &&
+        !this.greeted.has(actor.exhibit.id) &&
+        dwell > DISCOVERY_DWELL_SECONDS
+      ) {
+        this.greeted.add(actor.exhibit.id)
         void this.visit(actor, false)
-        this.dwell.set(actor.exhibit.id, -999)
       }
       if (distance < nearestDistance) {
         nearestDistance = distance
@@ -1082,6 +1190,7 @@ export class ZooGame {
       residentCount: [...this.actors.values()].filter((actor) => actor.isReady).length,
       pendingCount: this.loading.size + this.loadQueue.length,
       soundEnabled: this.audio?.isEnabled ?? true,
+      fullscreen: this.fullscreen,
     }
     this.options.callbacks.onSnapshot(payload)
   }
@@ -1107,12 +1216,8 @@ export class ZooGame {
     this.player?.setJoystick(x, y)
   }
 
-  getExhibit(id: string): ZooExhibit | undefined {
+  private getExhibit(id: string): ZooExhibit | undefined {
     return this.exhibitList.find((exhibit) => exhibit.id === id)
-  }
-
-  getStationPoint(id: string): ParkPoint | undefined {
-    return this.stationPoints.get(id)
   }
 
   /** Greets whatever exhibit the visitor is standing in front of. */
@@ -1250,6 +1355,11 @@ export class ZooGame {
 
   resetProgress(): void {
     this.discovered.clear()
+    // Clearing the notebook has to clear the "already greeted" and dwell
+    // state too, or every exhibit the visitor re-approaches would stay
+    // unmeetable for the rest of the session.
+    this.greeted.clear()
+    this.dwell.clear()
     writeStored(STORAGE_DISCOVERED, JSON.stringify([]))
     for (const actor of this.actors.values()) {
       actor.setDiscovered(false)
@@ -1279,6 +1389,15 @@ export class ZooGame {
     container.removeEventListener('pointerleave', this.handlePointerLeave)
     window.removeEventListener('keydown', this.handleKeyDown)
     window.removeEventListener('resize', this.handleResize)
+    if (this.handleEmbedMessage) {
+      window.removeEventListener('message', this.handleEmbedMessage)
+      this.handleEmbedMessage = null
+    }
+    if (this.handleEmbedResume) {
+      window.removeEventListener('pointerdown', this.handleEmbedResume)
+      window.removeEventListener('keydown', this.handleEmbedResume)
+      this.handleEmbedResume = null
+    }
 
     this.tour?.stop()
     this.player?.dispose()

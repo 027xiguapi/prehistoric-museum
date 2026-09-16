@@ -26,7 +26,8 @@ export class ZooAudio {
   private narration: HTMLAudioElement | null = null
   private enabled = true
   private speakingNow = false
-  private readonly finishedResolvers: (() => void)[] = []
+  private resolveCurrentFinished: (() => void) | null = null
+  private currentFinished: Promise<void> | null = null
   private readonly onSpeakingChange: ((speaking: boolean) => void) | undefined
   private readonly onNarrationError: (() => void) | undefined
 
@@ -229,6 +230,11 @@ export class ZooAudio {
     const audio = this.getNarrationElement()
     audio.src = url
     audio.currentTime = 0
+    // Created before playback starts, and after the previous track has been
+    // stopped, so it belongs to exactly this track.
+    this.currentFinished = new Promise((resolve) => {
+      this.resolveCurrentFinished = resolve
+    })
     this.setSpeaking(true)
     try {
       await audio.play()
@@ -276,33 +282,27 @@ export class ZooAudio {
     }
     this.speakingNow = speaking
     if (!speaking) {
-      const pending = this.finishedResolvers.splice(0)
-      for (const resolve of pending) {
-        resolve()
-      }
+      const resolve = this.resolveCurrentFinished
+      this.resolveCurrentFinished = null
+      resolve?.()
     }
     this.onSpeakingChange?.(speaking)
   }
 
   /**
-   * Resolves the next time narration stops. Register this *before* calling
-   * `playNarration`, so a track that ends immediately cannot be missed.
+   * Resolves when the track most recently handed to `playNarration` stops.
+   *
+   * Call this *after* `playNarration`, never before: stopping the previous
+   * track is the first thing playback does, so a promise registered earlier
+   * would be resolved by that stop and the caller would think a track it had
+   * not yet heard had already finished.
    */
   whenFinished(): Promise<void> {
-    if (!this.speakingNow) {
-      return Promise.resolve()
-    }
-    return new Promise((resolve) => {
-      this.finishedResolvers.push(resolve)
-    })
+    return this.currentFinished ?? Promise.resolve()
   }
 
   dispose(): void {
     this.stopNarration()
-    const pending = this.finishedResolvers.splice(0)
-    for (const resolve of pending) {
-      resolve()
-    }
     if (this.narration) {
       this.narration.removeEventListener('ended', this.handleNarrationEnded)
       this.narration.removeEventListener('pause', this.handleNarrationEnded)

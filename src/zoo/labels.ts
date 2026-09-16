@@ -57,7 +57,7 @@ function fitFont(
  * Draws one exhibit card: a warm museum-style plaque carrying the localized
  * name, its period and habitat, and a star once the animal has been met.
  */
-export function createLabelTexture(content: LabelContent): CanvasTexture {
+function createLabelTexture(content: LabelContent): CanvasTexture {
   const canvas = document.createElement('canvas')
   canvas.width = CARD_WIDTH * SCALE
   canvas.height = CARD_HEIGHT * SCALE

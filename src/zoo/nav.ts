@@ -399,22 +399,6 @@ export class NavGrid {
     return smoothed
   }
 
-  /** Index of the walkable cell nearest to a point, for cheap clamping. */
-  clampToWalkable(x: number, z: number): ParkPoint {
-    const point = this.nearest(x, z, 24)
-    return point ?? { x: 0, z: 0 }
-  }
-}
-
-/** Keeps a station, or any other authored point, on walkable ground. */
-export function snapToWalkable(
-  nav: NavGrid,
-  x: number,
-  z: number,
-  fallbackRadius = 60,
-): ParkPoint {
-  const direct = nav.nearest(x, z, Math.ceil(fallbackRadius / nav.cell))
-  return direct ?? nav.clampToWalkable(x, z)
 }
 
 /**

@@ -92,9 +92,9 @@ export class AnimalActor {
   readonly exhibit: ZooExhibit
   /** World anchor at the exhibit's site; always in the scene. */
   readonly group = new Group()
-  readonly ring: Mesh
 
   private readonly modelHolder = new Group()
+  private readonly ring: Mesh
   private readonly label: ExhibitLabel
   private readonly heightGrid: HeightGrid
   private readonly joints: Joints

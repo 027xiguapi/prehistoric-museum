@@ -319,6 +319,18 @@ const zhCN = {
       close: '关闭',
       travelling: '正在赶来…',
     },
+    embed: {
+      badge: '可走动的 3D 园区',
+      fullscreen: '全屏',
+      exitFullscreen: '退出全屏',
+      close: '关闭园区',
+      intro:
+        '18 位史前朋友就住在这条 320 米宽的山谷里，每个模型都是真实大小：霸王龙 12 米，迷惑龙 22 米。',
+      controls: 'W A S D 行走 · Shift 快跑 · 点地面前往 · 点动物打招呼',
+      ownPage: '在单独页面打开',
+      frameTitle: '史前动物园 3D 园区',
+      open: '在这里打开园区',
+    },
     card: {
       zone: '展区',
       period: '年代',
@@ -721,6 +733,18 @@ const zhTW: MuseumMessages = {
       close: '關閉',
       travelling: '正在趕來…',
     },
+    embed: {
+      badge: '可走動的 3D 園區',
+      fullscreen: '全螢幕',
+      exitFullscreen: '退出全螢幕',
+      close: '關閉園區',
+      intro:
+        '18 位史前朋友就住在這條 320 公尺寬的山谷裡，每個模型都是真實大小：霸王龍 12 公尺，迷惑龍 22 公尺。',
+      controls: 'W A S D 行走 · Shift 快跑 · 點地面前往 · 點動物打招呼',
+      ownPage: '在單獨頁面打開',
+      frameTitle: '史前動物園 3D 園區',
+      open: '在這裡打開園區',
+    },
     card: {
       zone: '展區',
       period: '年代',
@@ -1117,6 +1141,19 @@ const ja: MuseumMessages = {
       meet: 'ごあいさつ',
       close: '閉じる',
       travelling: '向かっています…',
+    },
+    embed: {
+      badge: '歩ける 3D パーク',
+      fullscreen: '全画面',
+      exitFullscreen: '全画面をやめる',
+      close: 'パークを閉じる',
+      intro:
+        '幅 320 m の谷に先史動物が 18 匹住んでいます。模型はすべて実物大で、ティラノサウルスは 12 m、アパトサウルスは 22 m です。',
+      controls:
+        'WASD で歩く · Shift で走る · 地面をタップで移動 · 動物をタップでごあいさつ',
+      ownPage: '別ページでひらく',
+      frameTitle: '先史動物園 3D パーク',
+      open: 'ここでパークをひらく',
     },
     card: {
       zone: 'エリア',
@@ -1515,6 +1552,19 @@ const en = {
       meet: 'Say hello',
       close: 'Close',
       travelling: 'On the way…',
+    },
+    embed: {
+      badge: 'Walkable 3D park',
+      fullscreen: 'Full screen',
+      exitFullscreen: 'Leave full screen',
+      close: 'Close the park',
+      intro:
+        'All eighteen prehistoric friends live in this 320 m valley, every model at life size: a 12 m Tyrannosaurus rex, a 22 m Apatosaurus.',
+      controls:
+        'W A S D to walk · Shift to run · tap the ground to move · tap an animal to say hello',
+      ownPage: 'Open on its own page',
+      frameTitle: 'Prehistoric Park, walkable 3D',
+      open: 'Open the park here',
     },
     card: {
       zone: 'Zone',

@@ -143,10 +143,3 @@ export function modelScaleForSizeFact(
   // large, so the lower bound has to allow a very small correction.
   return clamp(target / current, 0.0004, 500)
 }
-
-export function exhibitById(
-  exhibits: readonly ZooExhibit[],
-  animalId: string,
-): ZooExhibit | undefined {
-  return exhibits.find((exhibit) => exhibit.id === animalId)
-}

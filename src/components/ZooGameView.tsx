@@ -15,6 +15,8 @@ import {
   Compass,
   HelpCircle,
   Map as MapIcon,
+  Maximize2,
+  Minimize2,
   RotateCcw,
   Tag,
   Volume2,
@@ -47,6 +49,19 @@ const NO_DISCOVERIES: readonly string[] = []
  * `useSyncExternalStore` keeps the server snapshot stable and avoids a
  * cascading render on mount.
  */
+const subscribeNever = (): (() => void) => () => {}
+const readEmbedded = (): boolean => window.location.search.includes('embed=1')
+const readEmbeddedOnServer = (): boolean => false
+
+/**
+ * True when the park is running inside the homepage's embed frame. The gate
+ * then drops its display title (the page around it already has one), and its
+ * way out has to escape the frame rather than load the museum inside it.
+ */
+function useEmbedded(): boolean {
+  return useSyncExternalStore(subscribeNever, readEmbedded, readEmbeddedOnServer)
+}
+
 function useTouchDevice(): boolean {
   return useSyncExternalStore(
     (onChange) => {
@@ -97,6 +112,7 @@ export function ZooGameView({ locale }: ZooGameViewProps) {
   const [celebrateOpen, setCelebrateOpen] = useState(false)
   const [fatal, setFatal] = useState<string | null>(null)
   const touchDevice = useTouchDevice()
+  const embedded = useEmbedded()
 
   const zoo = messages.zoo
 
@@ -262,6 +278,7 @@ export function ZooGameView({ locale }: ZooGameViewProps) {
   const labelsVisible = snapshot?.labelsVisible ?? true
   const soundEnabled = snapshot?.soundEnabled ?? true
   const overview = snapshot?.overview ?? false
+  const fullscreen = snapshot?.fullscreen ?? false
 
   const startExploring = (): void => {
     gameRef.current?.begin()
@@ -273,23 +290,29 @@ export function ZooGameView({ locale }: ZooGameViewProps) {
       <div className="zoo-canvas-host" ref={hostRef} />
 
       {phase !== 'playing' ? (
-        <div className="zoo-gate">
+        <div className={embedded ? 'zoo-gate zoo-gate--embed' : 'zoo-gate'}>
           <div className="zoo-gate-inner">
-            <h1 className="zoo-puffy" aria-label={zoo.title}>
-              {titleChars.map((character, index) => (
-                <span
-                  key={`${character}-${index}`}
-                  aria-hidden="true"
-                  style={{
-                    color: TITLE_COLORS[index % TITLE_COLORS.length],
-                    animationDelay: `${-(index * 0.17)}s`,
-                  }}
-                >
-                  {character}
-                </span>
-              ))}
-            </h1>
-            <p className="zoo-gate-subtitle">{zoo.subtitle}</p>
+            {embedded ? (
+              <p className="zoo-gate-badge">{zoo.embed.badge}</p>
+            ) : (
+              <>
+                <h1 className="zoo-puffy" aria-label={zoo.title}>
+                  {titleChars.map((character, index) => (
+                    <span
+                      key={`${character}-${index}`}
+                      aria-hidden="true"
+                      style={{
+                        color: TITLE_COLORS[index % TITLE_COLORS.length],
+                        animationDelay: `${-(index * 0.17)}s`,
+                      }}
+                    >
+                      {character}
+                    </span>
+                  ))}
+                </h1>
+                <p className="zoo-gate-subtitle">{zoo.subtitle}</p>
+              </>
+            )}
 
             {phase === 'failed' ? (
               <div className="zoo-gate-error" role="status">
@@ -322,8 +345,8 @@ export function ZooGameView({ locale }: ZooGameViewProps) {
 
             <div className="zoo-gate-hints">
               <span>{zoo.hints.drag}</span>
-              <span>{zoo.hints.walk}</span>
-              <span>{zoo.hints.tap}</span>
+              {embedded ? null : <span>{zoo.hints.walk}</span>}
+              {embedded ? null : <span>{zoo.hints.tap}</span>}
             </div>
           </div>
         </div>
@@ -331,10 +354,22 @@ export function ZooGameView({ locale }: ZooGameViewProps) {
 
       <div className="zoo-hud" hidden={phase !== 'playing'}>
         <div className="zoo-chip-row">
-          <Link className="zoo-chip zoo-chip--link" href={`/${locale}/`}>
-            <Compass aria-hidden="true" size={18} />
-            <span>{messages.museumName}</span>
-          </Link>
+          {embedded ? (
+            <a
+              className="zoo-chip zoo-chip--link"
+              href={`/${locale}/`}
+              rel="noreferrer"
+              target="_top"
+            >
+              <Compass aria-hidden="true" size={18} />
+              <span>{messages.museumName}</span>
+            </a>
+          ) : (
+            <Link className="zoo-chip zoo-chip--link" href={`/${locale}/`}>
+              <Compass aria-hidden="true" size={18} />
+              <span>{messages.museumName}</span>
+            </Link>
+          )}
           <span className="zoo-chip">{zoo.title}</span>
           {snapshot && snapshot.pendingCount > 0 ? (
             <span className="zoo-chip zoo-chip--muted">{zoo.hud.travelling}</span>
@@ -436,6 +471,22 @@ export function ZooGameView({ locale }: ZooGameViewProps) {
         ) : null}
 
         <div className="zoo-actions">
+          {embedded ? (
+            <button
+              aria-label={
+                fullscreen ? zoo.embed.exitFullscreen : zoo.embed.fullscreen
+              }
+              className="zoo-round"
+              data-on={fullscreen}
+              onClick={() => gameRef.current?.requestFullscreen()}
+              title={
+                fullscreen ? zoo.embed.exitFullscreen : zoo.embed.fullscreen
+              }
+              type="button"
+            >
+              {fullscreen ? <Minimize2 size={20} /> : <Maximize2 size={20} />}
+            </button>
+          ) : null}
           <button
             aria-label={zoo.hud.collection}
             className="zoo-round"

@@ -109,11 +109,6 @@ export function terrainHeight(x: number, z: number): number {
   return h
 }
 
-/** Height the explorer walks on: plain terrain, the water is never walkable. */
-export function surfaceHeight(x: number, z: number): number {
-  return terrainHeight(x, z)
-}
-
 // -------------------------------------------------------------- sampled grid
 
 /**
@@ -167,15 +162,6 @@ export class HeightGrid {
     const front = this.heightAt(x, z + step)
     return Math.max(Math.abs(right - left), Math.abs(front - back)) / (2 * step)
   }
-}
-
-/** Steepest gradient from the analytic field; used when placing scenery. */
-export function terrainSlope(x: number, z: number, step = 1.2): number {
-  const left = terrainHeight(x - step, z)
-  const right = terrainHeight(x + step, z)
-  const back = terrainHeight(x, z - step)
-  const front = terrainHeight(x, z + step)
-  return Math.max(Math.abs(right - left), Math.abs(front - back)) / (2 * step)
 }
 
 // ------------------------------------------------------------ path distance
@@ -330,12 +316,8 @@ export function radialTexture(color = '#ffffff', alpha = 'aa'): CanvasTexture {
 // -------------------------------------------------------------------- build
 
 export interface ParkTerrain {
-  readonly group: Group
   readonly heightGrid: HeightGrid
   readonly pathField: PathField
-  readonly terrain: Mesh
-  readonly water: Mesh
-  readGroundHeight: (x: number, z: number) => number
   update: (elapsed: number) => void
   dispose: () => void
 }
@@ -546,12 +528,8 @@ export function buildParkTerrain(scene: Scene, samples: readonly Vector3[]): Par
   scene.add(group)
 
   return {
-    group,
     heightGrid,
     pathField,
-    terrain,
-    water,
-    readGroundHeight: (x: number, z: number) => heightGrid.heightAt(x, z),
     update: (elapsed: number) => {
       waterUniforms.uTime.value = elapsed
     },

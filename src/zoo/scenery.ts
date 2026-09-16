@@ -73,12 +73,8 @@ interface Placement {
 }
 
 export interface ParkScenery {
-  readonly group: Group
+  /** Everything the visitor must walk around. */
   readonly obstacles: ObstacleField
-  readonly sun: DirectionalLight
-  readonly sunOffset: Vector3
-  /** Exhibit viewpoints, already snapped onto walkable ground. */
-  readonly stations: ReadonlyMap<string, { readonly x: number; readonly z: number }>
   update: (elapsed: number, cameraFocus: Vector3) => void
   dispose: () => void
 }
@@ -822,11 +818,7 @@ export function buildParkScenery(
   updaters.push(sky.update)
 
   return {
-    group,
     obstacles,
-    sun: sky.sun,
-    sunOffset: sky.sunOffset,
-    stations,
     update: (elapsed: number, cameraFocus: Vector3) => {
       for (const updater of updaters) {
         updater(elapsed)
